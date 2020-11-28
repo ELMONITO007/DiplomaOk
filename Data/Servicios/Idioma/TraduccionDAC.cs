@@ -90,6 +90,36 @@ namespace Data
             throw new NotImplementedException();
         }
 
+        public Traduccion ReadBy(string id)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public Traduccion ReadBy(Traduccion  entity)
+        {
+
+            const string SQL_STATEMENT = "select * from Traduccion where   id_idioma=@Id and id_palabra=@id_palabra and palabra=@palabra";
+        Traduccion result = new Traduccion();
+            var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
+            using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
+            {
+                db.AddInParameter(cmd, "@Id", DbType.Int32, entity.idioma.Id);
+                db.AddInParameter(cmd, "@id_palabra", DbType.Int32, entity.palabra.Id);
+                db.AddInParameter(cmd, "@palabra", DbType.String, entity.palabra);
+                using (IDataReader dr = db.ExecuteReader(cmd))
+                {
+                    if (dr.Read())
+                    {
+                        result = ALoad(dr);
+                     
+                    }
+                }
+            }
+            return result;
+
+
+        }
         public List<Traduccion> ReadByIdioma(int id)
         {
 

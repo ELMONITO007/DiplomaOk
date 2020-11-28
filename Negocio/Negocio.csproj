@@ -50,6 +50,7 @@
     <Compile Include="Servicios\EventoBitacoraComponent.cs" />
     <Compile Include="Servicios\Idioma\IdiomaComponent.cs" />
     <Compile Include="Servicios\Idioma\PalabraComponent.cs" />
+    <Compile Include="Servicios\Idioma\TraduccionComponent.cs" />
     <Compile Include="Servicios\LoginComponent.cs" />
     <Compile Include="Servicios\Permisos\PermisoComponent.cs" />
     <Compile Include="Servicios\Permisos\RolesComponent.cs" />

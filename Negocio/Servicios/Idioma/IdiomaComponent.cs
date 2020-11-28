@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Entities;
 using Data;
-namespace Negocio.Servicios.Idioma
+namespace Negocio
 {
     public class IdiomaComponent : IRepository2<Entities.Idioma>
     {

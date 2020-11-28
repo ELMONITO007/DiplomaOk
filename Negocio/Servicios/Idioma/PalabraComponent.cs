@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Data;
 using Entities;
-namespace Negocio.Servicios.Idioma
-{
+namespace Negocio
+{ 
     public class PalabraComponent : IRepository2<Palabra>
     {
         public Palabra Create(Palabra entity)
