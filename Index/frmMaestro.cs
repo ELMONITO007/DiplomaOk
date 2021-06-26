@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DiplomaFinal
+namespace DiplomaFinal.Index
 {
-    public partial class Form1 : Form
+    public partial class frmMaestro : MetroFramework.Forms.MetroForm
     {
-        public Form1()
+        public frmMaestro()
         {
             InitializeComponent();
+        }
+
+        private void frmMaestro_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

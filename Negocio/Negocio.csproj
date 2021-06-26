@@ -31,9 +31,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MetroFramework">
+      <HintPath>..\Metro\MetroFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -55,6 +59,7 @@
     <Compile Include="Servicios\Permisos\PermisoComponent.cs" />
     <Compile Include="Servicios\Permisos\RolesComponent.cs" />
     <Compile Include="Servicios\Permisos\UsuarioRolesComponent.cs" />
+    <Compile Include="Servicios\ValidadoresComponent.cs" />
     <Compile Include="Usuario\UsuariosComponent.cs" />
   </ItemGroup>
   <ItemGroup>

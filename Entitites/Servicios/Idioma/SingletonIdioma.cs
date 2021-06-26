@@ -40,9 +40,9 @@ namespace Entitites
             return unIdioma;
         }
 
-        public void CambiarIdioma(string NuevoIdioma)
+        public void CambiarIdioma(Idioma NuevoIdioma)
         {
-            unIdioma.CambiarIdioma(NuevoIdioma);
+            unIdioma = NuevoIdioma;
         }
 
         public void BorrarIdioma()

@@ -13,6 +13,22 @@ namespace Negocio.Servicios
 {
     public class BitacoraComponent : IRepository<Bitacora>
     {
+        public List<Bitacora> Buscar(String palabra)
+        {
+            List<Bitacora> bitacoras = new List<Bitacora>();
+            BitacoraComponent bitacoraComponent = new BitacoraComponent();
+            bitacoras = bitacoraComponent.Read();
+            List<Bitacora> result = new List<Bitacora>();
+            foreach (var item in bitacoras)
+            {
+                if (item.usuarios.UserName.Contains(palabra) || item.fecha.Contains(palabra) || item.hora.Contains(palabra) || item.eventoBitacora.eventoBitacora.Contains(palabra))
+                {
+                    result.Add(item);
+                }
+            }
+            return result;
+
+        }
         public Bitacora Create(Bitacora entity)
         {
             Bitacora bitacora = new Bitacora();

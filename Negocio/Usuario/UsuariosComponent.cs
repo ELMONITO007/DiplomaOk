@@ -37,7 +37,7 @@ namespace Negocio
             Usuarios usuarios = new Usuarios();
 
             UsuarioParcial usuariosFormateado = new UsuarioParcial();
-            usuariosFormateado.Bloqueado = objeto.Bloqueado;
+     
             usuariosFormateado.Email = objeto.Email;
             usuariosFormateado.UserName = objeto.UserName;
             usuariosFormateado.Password = objeto.Password;

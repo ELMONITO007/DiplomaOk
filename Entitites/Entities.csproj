@@ -57,6 +57,7 @@
     <Compile Include="Servicios\Idioma\SingletonIdioma.cs" />
     <Compile Include="Servicios\Idioma\Traduccion.cs" />
     <Compile Include="Servicios\Login\LoginError.cs" />
+    <Compile Include="Servicios\Login\SessionManager.cs" />
     <Compile Include="Servicios\Permisos\Permiso.cs" />
     <Compile Include="Servicios\Permisos\Roles.cs" />
     <Compile Include="Servicios\Permisos\UsuarioRoles.cs" />

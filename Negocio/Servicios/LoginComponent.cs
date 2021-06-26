@@ -2,6 +2,7 @@
 using Entities;
 using Entities.Servicios.Digito_Verificador;
 using Entities.Usuario;
+using Entitites.Servicios.Login;
 using Negocio;
 using Negocio.Servicios;
 using System;
@@ -66,7 +67,7 @@ namespace Negocio
         public bool VerificarDVH(int id, Usuarios usuarios)
         {
             UsuarioParcial usuariosFormateado = new UsuarioParcial();
-            usuariosFormateado.Bloqueado = usuarios.Bloqueado;
+        
             usuariosFormateado.Email = usuarios.Email;
             usuariosFormateado.UserName = usuarios.Email;
             usuariosFormateado.Password = usuarios.Password;
@@ -136,6 +137,7 @@ namespace Negocio
 
 
                 usuarioTabla = usuariosComponent.ReadByEmail(usuarios.Email);
+                SessionManager.instance.login(usuarioTabla);
                 bool password = VerificarContraseña(usuarioTabla.Id, usuarios);
                 VerificarIntentos(usuarioTabla.Id);
                 if (password)
