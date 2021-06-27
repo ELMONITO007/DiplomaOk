@@ -34,5 +34,11 @@ namespace DiplomaFinal.Servicio
             frmIdiomaIndex frmIdioma = new frmIdiomaIndex();
             frmIdioma.ShowDialog();
         }
+
+        private void metroTile4_Click(object sender, EventArgs e)
+        {
+            frmPermiso frmPermiso = new frmPermiso();
+            frmPermiso.ShowDialog();
+        }
     }
 }

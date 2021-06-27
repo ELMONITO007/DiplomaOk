@@ -11,7 +11,24 @@ namespace Negocio
 {
     public class RolesComponent : IRepository2<Roles>
     {
-        public  Roles Create(Roles objeto)
+        public List<Roles> buscar(string palabra)
+        {
+            List<Roles> entity = new List<Roles>();
+
+            entity = Read();
+            List<Roles> result = new List<Roles>();
+            foreach (Roles item in entity)
+            {
+                if (item.name.Contains(palabra))
+                {
+                    result.Add(item);
+                }
+            }
+
+            return result;
+        }
+
+        public Roles Create(Roles objeto)
         {
             if (Verificar(objeto))
             {

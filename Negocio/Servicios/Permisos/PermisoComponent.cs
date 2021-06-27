@@ -10,7 +10,22 @@ namespace Negocio.Servicios.Permisos
 {
     public class PermisoComponent : IRepository<Permiso>
     {
+        public List<Permiso> buscar(string palabra)
+        {
+            List<Permiso> entity = new List<Permiso>();
 
+            entity = Read();
+            List<Permiso> result = new List<Permiso>();
+            foreach (Permiso item in entity)
+            {
+                if (item.name.Contains(palabra))
+                {
+                    result.Add(item);
+                }
+            }
+
+            return result;
+        }
         public bool Verificar(Permiso entity)
 
         {

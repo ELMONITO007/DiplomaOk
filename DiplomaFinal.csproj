@@ -93,6 +93,12 @@
     <Compile Include="Servicio\frmBitacora.Designer.cs">
       <DependentUpon>frmBitacora.cs</DependentUpon>
     </Compile>
+    <Compile Include="Servicio\frmPermiso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Servicio\frmPermiso.Designer.cs">
+      <DependentUpon>frmPermiso.cs</DependentUpon>
+    </Compile>
     <Compile Include="Servicio\Idioma\frmIdioma.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +149,9 @@
     <EmbeddedResource Include="Servicio\frmBitacora.resx">
       <DependentUpon>frmBitacora.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Servicio\frmPermiso.resx">
+      <DependentUpon>frmPermiso.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Servicio\Idioma\frmIdioma.resx">
       <DependentUpon>frmIdioma.cs</DependentUpon>
     </EmbeddedResource>
@@ -186,6 +195,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Fondo pantalla gral.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fondo pantalla gral 2.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
