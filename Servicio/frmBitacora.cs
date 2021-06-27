@@ -83,6 +83,7 @@ namespace DiplomaFinal.Servicio
 
         private void btnTodo_Click(object sender, EventArgs e)
         {
+            mgListado.Rows.Clear();
             llenarGrilla();
         }
     }

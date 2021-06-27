@@ -93,6 +93,30 @@
     <Compile Include="Servicio\frmBitacora.Designer.cs">
       <DependentUpon>frmBitacora.cs</DependentUpon>
     </Compile>
+    <Compile Include="Servicio\Idioma\frmIdioma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Servicio\Idioma\frmIdioma.Designer.cs">
+      <DependentUpon>frmIdioma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Servicio\Idioma\frmIdiomaIndex.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Servicio\Idioma\frmIdiomaIndex.Designer.cs">
+      <DependentUpon>frmIdiomaIndex.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Servicio\Idioma\frmPalabra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Servicio\Idioma\frmPalabra.Designer.cs">
+      <DependentUpon>frmPalabra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Servicio\Idioma\frmTraduccion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Servicio\Idioma\frmTraduccion.Designer.cs">
+      <DependentUpon>frmTraduccion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Servicio\IUservicios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +142,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Servicio\frmBitacora.resx">
       <DependentUpon>frmBitacora.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Servicio\Idioma\frmIdioma.resx">
+      <DependentUpon>frmIdioma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Servicio\Idioma\frmIdiomaIndex.resx">
+      <DependentUpon>frmIdiomaIndex.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Servicio\Idioma\frmPalabra.resx">
+      <DependentUpon>frmPalabra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Servicio\Idioma\frmTraduccion.resx">
+      <DependentUpon>frmTraduccion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Servicio\IUservicios.resx">
       <DependentUpon>IUservicios.cs</DependentUpon>
@@ -147,6 +183,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\fondo admin.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fondo pantalla gral.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

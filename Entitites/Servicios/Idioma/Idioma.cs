@@ -17,7 +17,7 @@ namespace Entities
         [StringLength(20, ErrorMessage = "El maximo de caracteres es de 20")]
         [MinLength(2, ErrorMessage = "El minimo de caracteres es de 2")]
         public string idioma { get; set; }
- 
+        public string codigo { get; set; }
         public void CambiarIdioma(string _idioma)
         {
             idioma = _idioma;

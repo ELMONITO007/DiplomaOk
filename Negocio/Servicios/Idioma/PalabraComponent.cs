@@ -9,6 +9,22 @@ namespace Negocio
 { 
     public class PalabraComponent : IRepository2<Palabra>
     {
+        public List<Palabra> buscar(string palabra)
+        {
+            List<Palabra> entity = new List<Palabra>();
+            PalabraComponent idiomaComponent = new PalabraComponent();
+            entity = idiomaComponent.Read();
+            List<Palabra> result = new List<Palabra>();
+            foreach (Palabra item in entity)
+            {
+                if (item.palabra.Contains(palabra))
+                {
+                    result.Add(item);
+                }
+            }
+
+            return result;
+        }
         public Palabra Create(Palabra entity)
         {
             if (Verificar(entity))

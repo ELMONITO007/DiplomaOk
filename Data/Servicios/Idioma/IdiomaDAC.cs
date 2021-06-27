@@ -18,6 +18,7 @@ namespace Data
             Idioma palabra = new Idioma();
             palabra.Id = GetDataValue<int>(entity, "Id_Idioma");
             palabra.idioma = GetDataValue<string>(entity, "Idioma");
+            palabra.codigo = GetDataValue<string>(entity, "codigo");
             return palabra;
         }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DiplomaFinal.Servicio.Idioma;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,6 +27,12 @@ namespace DiplomaFinal.Servicio
         {
             frmBitacora frmBitacora = new frmBitacora();
             frmBitacora.ShowDialog();
+        }
+
+        private void metroTile3_Click(object sender, EventArgs e)
+        {
+            frmIdiomaIndex frmIdioma = new frmIdiomaIndex();
+            frmIdioma.ShowDialog();
         }
     }
 }

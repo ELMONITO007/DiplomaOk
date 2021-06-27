@@ -10,6 +10,34 @@ namespace Negocio
 {
     public class TraduccionComponent : IRepository2<Traduccion>
     {
+        public List<Traduccion> buscar(string palabra)
+        {
+            List<Traduccion> lista = new List<Traduccion>();
+            TraduccionComponent traduccionComponent = new TraduccionComponent();
+            lista = traduccionComponent.Read();
+            List<Traduccion> result = new List<Traduccion>();
+            foreach (Traduccion item in lista)
+            {
+                if (item.traduccion != null)
+                {
+                    if (item.palabra.palabra.Contains(palabra) || item.traduccion.Contains(palabra))
+                    {
+                        result.Add(item);
+                    }
+
+                }
+                else
+                {
+                    if (item.palabra.palabra.Contains(palabra))
+                    {
+                        result.Add(item);
+                    }
+                }
+
+            }
+            return result;
+
+        }
         public Traduccion Create(Traduccion entity)
         {
             if (Verificar(entity))

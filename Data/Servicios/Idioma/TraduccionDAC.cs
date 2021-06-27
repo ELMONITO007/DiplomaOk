@@ -19,7 +19,7 @@ namespace Data
             Traduccion palabra = new Traduccion();
             palabra.idioma.Id = GetDataValue<int>(entity, "Id_idioma");
             palabra.palabra.Id = GetDataValue<int>(entity, "ID_Palabra");
-            palabra.traduccion = GetDataValue<string>(entity, "palabra");
+            palabra.traduccion = GetDataValue<string>(entity, "Traduccion");
             return palabra;
         }
 
@@ -149,12 +149,12 @@ namespace Data
         public void Update(Traduccion entity)
         {
 
-            const string SQL_STATEMENT = "update Traduccion set Palabra=@Palabra where id_Palabra=@id and id_idioma=@id_idioma ";
+            const string SQL_STATEMENT = "update Traduccion set Traduccion=@Palabra where id_Palabra=@id and id_idioma=@id_idioma ";
 
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
             {
-                db.AddInParameter(cmd, "@Palabra", DbType.String, entity.palabra);
+                db.AddInParameter(cmd, "@Palabra", DbType.String, entity.traduccion);
                 db.AddInParameter(cmd, "@id", DbType.Int32, entity.palabra.Id);
                 db.AddInParameter(cmd, "@id_idioma", DbType.Int32, entity.idioma.Id);
                 db.ExecuteNonQuery(cmd);
