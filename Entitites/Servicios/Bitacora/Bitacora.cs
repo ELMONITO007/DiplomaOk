@@ -16,9 +16,6 @@ namespace Entities
 
         public EventoBitacora eventoBitacora { get; set; }
 
-        [Required]
-        [DisplayName("Identificador")]
-
         public string fecha { get; set; }
         public string hora { get; set; }
         public Usuarios usuarios { get; set; }
@@ -26,10 +23,16 @@ namespace Entities
 
         public Bitacora()
         {
-            usuarios = new Usuarios();
-            eventoBitacora = new EventoBitacora();
+           
         }
 
+
+        public Bitacora(Usuarios _usuarios, EventoBitacora _eventoBitacora)
+        {
+
+            usuarios = _usuarios;
+            eventoBitacora = _eventoBitacora;
+        }
 
 
     }

@@ -15,9 +15,10 @@ namespace Entities.Servicios
         public override int Id { get; set; }
         public string Path { get; set; }
 
-        public Backups()
+        public Backups(Usuarios _usuarios)
         {
-            usuarios = new Usuarios();
+            usuarios = _usuarios;
         }
+        public Backups() { }
     }
 }

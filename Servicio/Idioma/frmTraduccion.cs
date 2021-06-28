@@ -70,7 +70,7 @@ namespace DiplomaFinal.Servicio.Idioma
       
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            Traduccion traduccion = new Traduccion();
+      
             TraduccionComponent traduccionComponent = new TraduccionComponent();
             if (txtIdioma.Text == "")
             {
@@ -79,8 +79,12 @@ namespace DiplomaFinal.Servicio.Idioma
             }
             else
             {
-                traduccion.idioma.Id = int.Parse(mgListado.CurrentRow.Cells[0].Value.ToString());
-                traduccion.palabra.Id = int.Parse(mgListado.CurrentRow.Cells[1].Value.ToString());
+                Entities.Idioma idioma = new Entities.Idioma();
+                idioma.Id = int.Parse(mgListado.CurrentRow.Cells[0].Value.ToString());
+                Palabra palabra = new Palabra();
+                palabra.Id = int.Parse(mgListado.CurrentRow.Cells[1].Value.ToString());
+                Traduccion traduccion = new Traduccion(idioma,palabra);
+
 
                 traduccion.traduccion = txtIdioma.Text;
                 traduccionComponent.Update(traduccion);
@@ -92,7 +96,7 @@ namespace DiplomaFinal.Servicio.Idioma
 
         private void btnAlta_Click(object sender, EventArgs e)
         {
-            Traduccion traduccion = new Traduccion();
+        
             TraduccionComponent traduccionComponent = new TraduccionComponent();
             if (txtIdioma.Text == "")
             {
@@ -101,8 +105,12 @@ namespace DiplomaFinal.Servicio.Idioma
             }
             else
             {
-                traduccion.idioma.Id = int.Parse(mgListado.CurrentRow.Cells[0].Value.ToString());
-                traduccion.palabra.Id = int.Parse(mgListado.CurrentRow.Cells[1].Value.ToString());
+                Entities.Idioma idioma = new Entities.Idioma();
+                idioma.Id = int.Parse(mgListado.CurrentRow.Cells[0].Value.ToString());
+                Palabra palabra = new Palabra();
+                palabra.Id = int.Parse(mgListado.CurrentRow.Cells[1].Value.ToString());
+                Traduccion traduccion = new Traduccion(idioma,palabra);
+   
 
                 traduccion.traduccion = txtIdioma.Text;
                 traduccionComponent.Update(traduccion);

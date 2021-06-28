@@ -15,12 +15,14 @@ namespace Data
     {
         public Traduccion ALoad(IDataReader entity)
         {
+            Idioma idioma = new Idioma();
+            idioma.Id = GetDataValue<int>(entity, "Id_idioma");
+            Palabra palabra = new Palabra();
+            palabra.Id = GetDataValue<int>(entity, "ID_Palabra");
+            Traduccion traduccion = new Traduccion(idioma,palabra);
 
-            Traduccion palabra = new Traduccion();
-            palabra.idioma.Id = GetDataValue<int>(entity, "Id_idioma");
-            palabra.palabra.Id = GetDataValue<int>(entity, "ID_Palabra");
-            palabra.traduccion = GetDataValue<string>(entity, "Traduccion");
-            return palabra;
+            traduccion.traduccion = GetDataValue<string>(entity, "Traduccion");
+            return traduccion;
         }
 
         public Traduccion Create(Traduccion entity)

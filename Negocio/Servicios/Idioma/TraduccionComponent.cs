@@ -118,8 +118,9 @@ namespace Negocio
         }
         public bool Update(Traduccion entity)
         {
-            TraduccionDAC traduccion = new TraduccionDAC();
-            traduccion.Update(entity);
+            TraduccionDAC traduccionDAC = new TraduccionDAC();
+   
+            traduccionDAC.Update(entity);
             return true;
         }
 

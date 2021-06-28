@@ -99,6 +99,12 @@
     <Compile Include="Servicio\frmPermiso.Designer.cs">
       <DependentUpon>frmPermiso.cs</DependentUpon>
     </Compile>
+    <Compile Include="Servicio\frmUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Servicio\frmUsuario.Designer.cs">
+      <DependentUpon>frmUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Servicio\Idioma\frmIdioma.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +157,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Servicio\frmPermiso.resx">
       <DependentUpon>frmPermiso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Servicio\frmUsuario.resx">
+      <DependentUpon>frmUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Servicio\Idioma\frmIdioma.resx">
       <DependentUpon>frmIdioma.cs</DependentUpon>

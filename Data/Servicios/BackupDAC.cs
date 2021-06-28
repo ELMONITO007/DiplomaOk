@@ -55,7 +55,7 @@ namespace Data
 
         public List<Backups> Read()
         {
-            const string SQL_STATEMENT = "SELECT * FROM[GreenElectric].[dbo].[Backup] where Activo = 1";
+            const string SQL_STATEMENT = "SELECT * FROM[Diploma].[dbo].[Backup] where Activo = 1";
 
             List<Backups> result = new List<Backups>();
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
@@ -137,7 +137,7 @@ namespace Data
         }
         public void Restore(Backups entity)
         {
-            const string SQL_STATEMENT = "alter database GreenElectric    set offline with rollback immediate   restore database  GreenElectric from disk=@path     alter database  GreenElectric  set online";
+            const string SQL_STATEMENT = "alter database Diploma    set offline with rollback immediate   restore database  Diploma from disk=@path     alter database  Diploma  set online";
 
 
 
@@ -158,7 +158,7 @@ namespace Data
 
         public void CreateBackup(Backups entity)
         {
-            const string SQL_STATEMENT = "backup database GreenElectric to disk= @path WiTH Format,name=@nombre";
+            const string SQL_STATEMENT = "backup database Diploma to disk= @path WiTH Format,name=@nombre";
 
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))

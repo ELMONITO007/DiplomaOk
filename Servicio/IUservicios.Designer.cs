@@ -42,9 +42,10 @@ namespace DiplomaFinal.Servicio
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 49);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 75);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(826, 414);
+            this.pictureBox1.Size = new System.Drawing.Size(1239, 637);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -52,9 +53,10 @@ namespace DiplomaFinal.Servicio
             // metroTile5
             // 
             this.metroTile5.ActiveControl = null;
-            this.metroTile5.Location = new System.Drawing.Point(382, 250);
+            this.metroTile5.Location = new System.Drawing.Point(573, 385);
+            this.metroTile5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.metroTile5.Name = "metroTile5";
-            this.metroTile5.Size = new System.Drawing.Size(282, 133);
+            this.metroTile5.Size = new System.Drawing.Size(423, 205);
             this.metroTile5.TabIndex = 9;
             this.metroTile5.Tag = "Gestion de Usuarios";
             this.metroTile5.Text = "Gestion de Usuarios";
@@ -64,13 +66,15 @@ namespace DiplomaFinal.Servicio
             this.metroTile5.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTile5.UseSelectable = true;
             this.metroTile5.UseTileImage = true;
+            this.metroTile5.Click += new System.EventHandler(this.metroTile5_Click);
             // 
             // metroTile4
             // 
             this.metroTile4.ActiveControl = null;
-            this.metroTile4.Location = new System.Drawing.Point(334, 111);
+            this.metroTile4.Location = new System.Drawing.Point(501, 171);
+            this.metroTile4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.metroTile4.Name = "metroTile4";
-            this.metroTile4.Size = new System.Drawing.Size(164, 133);
+            this.metroTile4.Size = new System.Drawing.Size(246, 205);
             this.metroTile4.TabIndex = 6;
             this.metroTile4.Tag = "Gestion de Permisos";
             this.metroTile4.Text = "Gestion de Permisos";
@@ -85,9 +89,10 @@ namespace DiplomaFinal.Servicio
             // metroTile3
             // 
             this.metroTile3.ActiveControl = null;
-            this.metroTile3.Location = new System.Drawing.Point(504, 63);
+            this.metroTile3.Location = new System.Drawing.Point(756, 97);
+            this.metroTile3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.metroTile3.Name = "metroTile3";
-            this.metroTile3.Size = new System.Drawing.Size(160, 181);
+            this.metroTile3.Size = new System.Drawing.Size(240, 278);
             this.metroTile3.TabIndex = 7;
             this.metroTile3.Tag = "Gestion de Idiomas";
             this.metroTile3.Text = "Gestion de Idiomas";
@@ -102,9 +107,10 @@ namespace DiplomaFinal.Servicio
             // metroTile2
             // 
             this.metroTile2.ActiveControl = null;
-            this.metroTile2.Location = new System.Drawing.Point(148, 250);
+            this.metroTile2.Location = new System.Drawing.Point(222, 385);
+            this.metroTile2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.metroTile2.Name = "metroTile2";
-            this.metroTile2.Size = new System.Drawing.Size(228, 133);
+            this.metroTile2.Size = new System.Drawing.Size(342, 205);
             this.metroTile2.TabIndex = 8;
             this.metroTile2.Tag = "Gestion de Bitacora";
             this.metroTile2.Text = "Gestion de Bitacora";
@@ -119,9 +125,10 @@ namespace DiplomaFinal.Servicio
             // metroTile1
             // 
             this.metroTile1.ActiveControl = null;
-            this.metroTile1.Location = new System.Drawing.Point(148, 63);
+            this.metroTile1.Location = new System.Drawing.Point(222, 97);
+            this.metroTile1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.metroTile1.Name = "metroTile1";
-            this.metroTile1.Size = new System.Drawing.Size(180, 181);
+            this.metroTile1.Size = new System.Drawing.Size(270, 278);
             this.metroTile1.TabIndex = 5;
             this.metroTile1.Tag = "Gestion de Backup";
             this.metroTile1.Text = "Gestion de Backup";
@@ -131,19 +138,22 @@ namespace DiplomaFinal.Servicio
             this.metroTile1.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTile1.UseSelectable = true;
             this.metroTile1.UseTileImage = true;
+            this.metroTile1.Click += new System.EventHandler(this.metroTile1_Click);
             // 
             // IUservicios
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(827, 464);
+            this.ClientSize = new System.Drawing.Size(1240, 714);
             this.Controls.Add(this.metroTile5);
             this.Controls.Add(this.metroTile4);
             this.Controls.Add(this.metroTile3);
             this.Controls.Add(this.metroTile2);
             this.Controls.Add(this.metroTile1);
             this.Controls.Add(this.pictureBox1);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "IUservicios";
+            this.Padding = new System.Windows.Forms.Padding(30, 92, 30, 31);
             this.Load += new System.EventHandler(this.IUservicios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

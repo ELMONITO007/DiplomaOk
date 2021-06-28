@@ -20,8 +20,14 @@ namespace Entities
 
         public Traduccion()
         {
-            idioma = new Idioma();
-            palabra = new Palabra();
+            
+
+        }
+
+        public Traduccion(Idioma _idioma, Palabra _palabra)
+        {
+            idioma = _idioma;
+            palabra = _palabra;
 
         }
     }

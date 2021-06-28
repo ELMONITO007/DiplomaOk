@@ -1,4 +1,5 @@
 ﻿using DiplomaFinal.Servicio.Idioma;
+using Negocio.Servicios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -39,6 +40,18 @@ namespace DiplomaFinal.Servicio
         {
             frmPermiso frmPermiso = new frmPermiso();
             frmPermiso.ShowDialog();
+        }
+
+        private void metroTile1_Click(object sender, EventArgs e)
+        {
+            frmBackup frmBackup = new frmBackup();
+            frmBackup.ShowDialog();
+        }
+
+        private void metroTile5_Click(object sender, EventArgs e)
+        {
+            frmUsuario frmUsuario = new frmUsuario();
+            frmUsuario.ShowDialog();
         }
     }
 }

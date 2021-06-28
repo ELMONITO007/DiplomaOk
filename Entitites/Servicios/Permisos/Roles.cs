@@ -28,12 +28,19 @@ namespace Entities
             name = _NombrePermiso;
         }
 
-        public Roles()
+        public Roles(List<Roles>  _listaRol, List<Permiso> _ListaPermiso)
         {
-            ListaPermiso = new List<Permiso>();
-            listaRol = new List<Roles>();
+            ListaPermiso = _ListaPermiso;
+            listaRol = _listaRol;
          
+
         }
+        public Roles() { }
+
+
+
+       
+
 
     }
 }

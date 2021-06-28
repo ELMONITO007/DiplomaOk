@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Entities;
+using Entities.Usuario;
 
 namespace Data.Servicios
 {
@@ -15,10 +16,14 @@ namespace Data.Servicios
     {
         private Bitacora LoadBitacora(IDataReader dr)
         {
-            Bitacora bitacora = new Bitacora();
+            EventoBitacora eventoBitacora = new EventoBitacora();
+            eventoBitacora.Id = GetDataValue<int>(dr, "ID_EventoBitacora");
+            Usuarios usuarios = new Usuarios();
+           usuarios.Id = GetDataValue<int>(dr, "Id");
+            Bitacora bitacora = new Bitacora(usuarios, eventoBitacora);
             bitacora.Id = GetDataValue<int>(dr, "ID_Bitacora");
-            bitacora.usuarios.Id = GetDataValue<int>(dr, "Id");
-            bitacora.eventoBitacora.Id = GetDataValue<int>(dr, "ID_EventoBitacora");
+     
+        
             bitacora.fecha = GetDataValue<string>(dr, "Fecha");
             bitacora.hora = GetDataValue<string>(dr, "Hora");
 

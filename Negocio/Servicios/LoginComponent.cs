@@ -126,8 +126,11 @@ namespace Negocio
 
         {
             BitacoraComponent bitacoraComponent = new BitacoraComponent();
-            Bitacora bitacora = new Bitacora();
-            bitacora.usuarios = usuarios;
+         
+   
+            EventoBitacora eventoBitacora = new EventoBitacora();
+                
+
             bool userName = VeriricarUserName(usuarios);
             LoginError loginError = new LoginError();
             if (userName)
@@ -152,22 +155,27 @@ namespace Negocio
 
                             if (VerificarBloqueado(usuarioTabla.Id))
                             {
-                                bitacora.eventoBitacora.Id = 5;
+
+                                eventoBitacora.Id = 3;
+                                Bitacora bitacora = new Bitacora(usuarioTabla,eventoBitacora);
                                 bitacoraComponent.Create(bitacora);
                                 loginError.error = "";
 
                             }
                             else
                             {
+                                eventoBitacora.Id = 1;
+                                Bitacora bitacora = new Bitacora(usuarioTabla, eventoBitacora);
                                 loginError.error = "La cuenta esta Bloqueada. Envie un email con el error a dolores.conde@transener.com.ar ";
-                                bitacora.eventoBitacora.Id = 1;
+                            
                                 bitacoraComponent.Create(bitacora);
                             }
                         }
                         else
                         {
                             loginError.error = "Error Interno, vualva a intentar";
-                            bitacora.eventoBitacora.Id = 2;
+                            eventoBitacora.Id = 2;
+                            Bitacora bitacora = new Bitacora(usuarioTabla, eventoBitacora);
                             bitacoraComponent.Create(bitacora);
 
                             BackupComponent backupComponent = new BackupComponent();
@@ -177,7 +185,8 @@ namespace Negocio
                     else
                     {
                         loginError.error = "Error Interno, vualva a intentar";
-                        bitacora.eventoBitacora.Id = 3;
+                        eventoBitacora.Id = 5;
+                        Bitacora bitacora = new Bitacora(usuarioTabla, eventoBitacora);
                         bitacoraComponent.Create(bitacora);
                         BackupComponent backupComponent = new BackupComponent();
                         backupComponent.RestaurarBase();
@@ -186,7 +195,8 @@ namespace Negocio
                 else
                 {
                     loginError.error = "Usuario o Contraseña Invalido";
-                    bitacora.eventoBitacora.Id = 4;
+                    eventoBitacora.Id = 4;
+                    Bitacora bitacora = new Bitacora(usuarioTabla, eventoBitacora);
                     bitacoraComponent.Create(bitacora);
                 }
             }

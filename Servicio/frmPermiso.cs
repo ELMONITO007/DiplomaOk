@@ -455,25 +455,22 @@ namespace DiplomaFinal.Servicio
 
         private void metroButton1_Click(object sender, EventArgs e)
         {
-            if (mgABMComposite.CurrentRow.Cells[0].Value == null)
+            if (mgABMComposite.CurrentRow.Cells[0].Value == null || mgABMQuitar.CurrentRow.Cells[0].Value == null)
             {
-                MetroMessageBox.Show(this, "No selecciono un rol", "error", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                MetroMessageBox.Show(this, "No selecciono un rol o permiso", "error", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             }
             else
             {
-                mgABMQuitar.Rows.Clear();
-                List<Roles> roles = new List<Roles>();
-                int n = 0;
+                Roles roles = new Roles();
+                Roles unrol = new Roles();
+                roles.Id = int.Parse(mgABMComposite.CurrentRow.Cells[0].Value.ToString());
+                unrol.Id = int.Parse(mgABMQuitar.CurrentRow.Cells[0].Value.ToString());
+                roles.permiso = unrol;
                 RolesComponent rolesComponent = new RolesComponent();
-                roles = rolesComponent.ObtenerPermisosORolesDeUnRol(int.Parse(mgABMComposite.CurrentRow.Cells[0].Value.ToString()));
-                foreach (var item in roles)
-                {
+                rolesComponent.DeleteComposite(roles);
 
-                    n = mgABMQuitar.Rows.Add();
-                    mgABMQuitar.Rows[n].Cells[0].Value = item.Id;
-                    mgABMQuitar.Rows[n].Cells[1].Value = item.name;
-                    n++;
-                }
+                llenarGrillaABM();
             }
         }
 
