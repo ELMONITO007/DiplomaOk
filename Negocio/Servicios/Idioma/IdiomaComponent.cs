@@ -67,8 +67,17 @@ namespace Negocio
         public bool Update(Entities.Idioma entity)
         {
             IdiomaDAC idiomaDAC = new IdiomaDAC();
-            idiomaDAC.Update(entity);
-            return true;
+            if (idiomaDAC.ReadByListado(entity.idioma).Count==0)
+            {
+                idiomaDAC.Update(entity);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+            
         }
 
         public bool Verificar(Entities.Idioma entity)

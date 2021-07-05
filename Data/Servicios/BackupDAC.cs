@@ -177,5 +177,15 @@ namespace Data
         {
             throw new NotImplementedException();
         }
+
+        public List<Backups> ReadByListado(string id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Backups> ReadByListado(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

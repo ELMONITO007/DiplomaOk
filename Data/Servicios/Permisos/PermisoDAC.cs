@@ -136,5 +136,26 @@ namespace Data
         {
             throw new NotImplementedException();
         }
+
+        public List<Permiso> ReadByListado(string id)
+        {
+            const string SQL_STATEMENT = "select DISTINCT  r.Id,r.Name from RolesComposite as rc join AspNetRoles as r on r.Id=rc.ID_CompositePermiso where ID_CompositeRol   is  null and activo=1 and r.Name=@Id";
+
+            List<Permiso> result = new List<Permiso>();
+            var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
+            using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
+            {
+                db.AddInParameter(cmd, "@Id", DbType.String, id);
+                using (IDataReader dr = db.ExecuteReader(cmd))
+                {
+                    while (dr.Read())
+                    {
+                        Permiso roles = LoadRoles(dr);
+                        result.Add(roles);
+                    }
+                }
+            }
+            return result;
+        }
     }
 }

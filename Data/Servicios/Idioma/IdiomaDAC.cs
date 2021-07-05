@@ -25,12 +25,12 @@ namespace Data
         public Idioma Create(Idioma entity)
         {
 
-            const string SQL_STATEMENT = "insert into Idioma(Idioma,activo)values(@Idioma,1)";
+            const string SQL_STATEMENT = "insert into Idioma(Idioma,codigo,activo)values(@Idioma,@codigo,1)";
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
             {
                 db.AddInParameter(cmd, "@Idioma", DbType.String, entity.idioma);
-
+                db.AddInParameter(cmd, "@codigo", DbType.String, entity.codigo);
                 entity.Id = Convert.ToInt32(db.ExecuteScalar(cmd));
             }
             return entity;
@@ -95,7 +95,7 @@ namespace Data
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
             {
-                db.AddInParameter(cmd, "@Id", DbType.Int32, id);
+                db.AddInParameter(cmd, "@Id", DbType.String, id);
                 using (IDataReader dr = db.ExecuteReader(cmd))
                 {
                     if (dr.Read())
@@ -105,6 +105,27 @@ namespace Data
                 }
             }
             return roles;
+        }
+
+        public List<Idioma> ReadByListado(string id)
+        {
+            const string SQL_STATEMENT = "select * from Idioma where  activo=1  and Idioma=@Id";
+
+            List<Idioma> result = new List<Idioma>();
+            var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
+            using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
+            {
+                db.AddInParameter(cmd, "@Id", DbType.String, id);
+                using (IDataReader dr = db.ExecuteReader(cmd))
+                {
+                    while (dr.Read())
+                    {
+                        Idioma roles = ALoad(dr);
+                        result.Add(roles);
+                    }
+                }
+            }
+            return result;
         }
 
         public void Update(Idioma entity)

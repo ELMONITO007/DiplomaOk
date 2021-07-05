@@ -62,10 +62,24 @@ namespace Negocio
             return palabraDAC.ReadBy(id);
         }
 
-        public void Update(Palabra entity)
+        public List<Palabra> ReadByListado(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Update(Palabra entity)
         {
             PalabraDAC palabraDAC = new PalabraDAC();
-             palabraDAC.Update(entity);
+            if (palabraDAC.ReadByListado(entity.palabra).Count ==0)
+            {
+                palabraDAC.Update(entity);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
         }
 
         public bool Verificar(Palabra entity)
@@ -82,9 +96,6 @@ namespace Negocio
 
         }
 
-        bool IRepository2<Palabra>.Update(Palabra entity)
-        {
-            throw new NotImplementedException();
-        }
+     
     }
 }

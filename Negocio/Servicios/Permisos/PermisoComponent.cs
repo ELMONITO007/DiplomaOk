@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Negocio.Servicios.Permisos
 {
-    public class PermisoComponent : IRepository<Permiso>
+    public class PermisoComponent : IRepository2<Permiso>
     {
         public List<Permiso> buscar(string palabra)
         {
@@ -86,10 +86,20 @@ namespace Negocio.Servicios.Permisos
             PermisoDAC permisoDAC = new PermisoDAC();
             return permisoDAC.ReadBy(id);
         }
-        public void Update(Permiso entity)
+        public bool Update(Permiso entity)
         {
             PermisoDAC permisoDAC = new PermisoDAC();
-            permisoDAC.Update(entity);
+            if (permisoDAC.ReadByListado(entity.name).Count==0)
+            {
+                permisoDAC.Update(entity);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+           
         }
+
     }
 }

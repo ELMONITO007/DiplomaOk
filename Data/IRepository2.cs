@@ -13,5 +13,8 @@ namespace Data
         void Delete(int id);
         TEntity ALoad(IDataReader entity);
         TEntity ReadBy(string id);
+        List<TEntity> ReadByListado(string id);
+
+
     }
 }

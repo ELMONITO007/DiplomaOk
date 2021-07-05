@@ -107,6 +107,27 @@ namespace Data
             return roles;
         }
 
+        public List<Palabra> ReadByListado(string id)
+        {
+            const string SQL_STATEMENT = "select * from palabra where  activo=1 and palabra=@Id";
+
+            List<Palabra> result = new List<Palabra>();
+            var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
+            using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
+            {
+                db.AddInParameter(cmd, "@Id", DbType.String, id);
+                using (IDataReader dr = db.ExecuteReader(cmd))
+                {
+                    while (dr.Read())
+                    {
+                        Palabra roles = ALoad(dr);
+                        result.Add(roles);
+                    }
+                }
+            }
+            return result;
+        }
+
         public void Update(Palabra entity)
         {
 

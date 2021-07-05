@@ -171,5 +171,26 @@ namespace Data
         {
             throw new NotImplementedException();
         }
+
+        public List<Usuarios> ReadByListado(string id)
+        {
+            const string SQL_STATEMENT = "select * from Usuario where activo=1 and email=@Id";
+
+            List<Usuarios> result = new List<Usuarios>();
+            var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
+            using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
+            {
+                db.AddInParameter(cmd, "@Id", DbType.String, id);
+                using (IDataReader dr = db.ExecuteReader(cmd))
+                {
+                    while (dr.Read())
+                    {
+                        Usuarios usuarios = LoadUsuarioa(dr);
+                        result.Add(usuarios);
+                    }
+                }
+            }
+            return result;
+        }
     }
 }

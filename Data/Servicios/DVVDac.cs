@@ -83,5 +83,15 @@ namespace Data
         {
             throw new NotImplementedException();
         }
+
+        public List<DVV> ReadByListado(string id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<DVV> ReadByListado(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

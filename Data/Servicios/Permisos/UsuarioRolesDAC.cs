@@ -177,5 +177,10 @@ namespace Data
         {
             throw new NotImplementedException();
         }
+
+        public List<UsuarioRoles> ReadByListado(string id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

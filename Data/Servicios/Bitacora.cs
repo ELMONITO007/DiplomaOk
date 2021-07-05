@@ -91,5 +91,15 @@ namespace Data.Servicios
         {
             throw new NotImplementedException();
         }
+
+        public List<Bitacora> ReadByListado(string id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Bitacora> ReadByListado(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

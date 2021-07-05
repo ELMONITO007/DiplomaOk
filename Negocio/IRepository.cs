@@ -24,5 +24,6 @@ namespace Negocio
 
         Boolean Verificar(TEntity entity);
         void Delete(int id);
+
     }
 }

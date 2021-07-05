@@ -86,15 +86,7 @@ namespace Negocio
             return result;
         }
 
-        public  void Update(Roles objeto)
-        {
-
-            var roles = new RolesDAC();
-
-            roles.Update(objeto);
-
-        }
-
+  
         public bool Verificar(Roles entity)
 
         {
@@ -221,10 +213,24 @@ namespace Negocio
 
         }
 
-        bool IRepository2<Roles>.Update(Roles entity)
+        public bool Update(Roles entity)
         {
-            throw new NotImplementedException();
+            var roles = new RolesDAC();
+            if (roles.ReadByListado(entity.name).Count==0)
+            {
+                roles.Update(entity);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+
+          
         }
+
+
 
         #endregion
     }

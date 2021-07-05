@@ -288,6 +288,28 @@ namespace Data
             throw new NotImplementedException();
         }
 
+     
+        public List<Roles> ReadByListado(string id)
+        {
+            const string SQL_STATEMENT = "select DISTINCT  r.Id,r.Name from RolesComposite as rc join AspNetRoles as r on r.Id=rc.ID_CompositeRol where ID_CompositeRol   is not null and activo=1 and r.Name=@Id";
+
+            List<Roles> result = new List<Roles>();
+            var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
+            using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
+            {
+                db.AddInParameter(cmd, "@Id", DbType.String, id);
+                using (IDataReader dr = db.ExecuteReader(cmd))
+                {
+                    while (dr.Read())
+                    {
+                        Roles roles = LoadRoles(dr);
+                        result.Add(roles);
+                    }
+                }
+            }
+            return result;
+        }
+
 
         #endregion
     }

@@ -146,7 +146,15 @@ namespace Data
            
         }
 
-       
+        public List<Traduccion> ReadByListado(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Traduccion> ReadByListado(string id)
+        {
+            throw new NotImplementedException();
+        }
 
         public void Update(Traduccion entity)
         {

@@ -96,8 +96,16 @@ namespace DiplomaFinal.Servicio.Idioma
                 idioma.Id = int.Parse(mgListado.CurrentRow.Cells[0].Value.ToString());
                 idioma.idioma = txtIdioma.Text;
                 idioma.codigo = txtCodigo.Text;
-                idiomaComponent.Update(idioma);
-                llenarGrilla();
+                if (idiomaComponent.Update(idioma))
+                {
+                    ValidadoresComponent.Modificado(idioma.idioma, this);
+                    llenarGrilla();
+                }
+                else
+                {
+                    ValidadoresComponent.ErrorAltaModificacado(idioma.idioma, this);
+                }
+                
             }
             else
             {
@@ -142,6 +150,7 @@ namespace DiplomaFinal.Servicio.Idioma
                 }
                 else
                 {
+                    ValidadoresComponent.Alta("Idioma", this);
                     llenarGrilla();
                 }
 
