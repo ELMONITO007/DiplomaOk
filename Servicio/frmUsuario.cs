@@ -1,4 +1,5 @@
-﻿using Entities.Usuario;
+﻿using DiplomaFinal.Mensajes;
+using Entities.Usuario;
 using Negocio;
 using Negocio.Servicios.REGEX;
 using System;
@@ -10,11 +11,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using MetroFramework;
 namespace DiplomaFinal.Servicio
 {
     public partial class frmUsuario : MetroFramework.Forms.MetroForm
     {
+    
         Negocio.UsuariosComponent usuariosComponent = new UsuariosComponent();
         List<Usuarios> listaUsuario = new List<Usuarios>();
         public frmUsuario()
@@ -76,6 +78,34 @@ namespace DiplomaFinal.Servicio
 
         private void btnAlta_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            UsuariosComponent usuarios = new UsuariosComponent();
+            usuarios.Delete(int.Parse(mgUsuario.CurrentRow.Cells[0].Value.ToString()));
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mgUsuario_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtId.Text = mgUsuario.CurrentRow.Cells[0].Value.ToString();
+          
+            txtusuarioModificar.Text = mgUsuario.CurrentRow.Cells[1].Value.ToString();
+        }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAlta_Click_1(object sender, EventArgs e)
+        {
             if (VerificarCamposAlta())
             {
                 UsuariosComponent usuariosComponent = new UsuariosComponent();
@@ -99,22 +129,34 @@ namespace DiplomaFinal.Servicio
             }
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private void btnContraseña_Click(object sender, EventArgs e)
         {
-            UsuariosComponent usuarios = new UsuariosComponent();
-            usuarios.Delete(int.Parse(mgUsuario.CurrentRow.Cells[0].Value.ToString()));
-        }
+            if (txtId.Text=="" || txtId.Text==null  )
+            {
+                MetroMessageBox.Show(this, "Seleccione un Usuario", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                Usuarios usuarios = new Usuarios();
+                usuarios.Id = int.Parse(txtId.Text);
+                CambiarContraseñaDialog cambiarContraseñaDialog = new CambiarContraseñaDialog();
+                cambiarContraseñaDialog.ShowDialog();
+                string _contraseña = cambiarContraseñaDialog.pass;
+                if (_contraseña != "")
+                {
+                    usuarios.Password = _contraseña;
+                    usuarios.Email = txtusuarioModificar.Text;
+                    usuariosComponent.UpdatePassword(usuarios);
+                    MetroMessageBox.Show(this, "Se realizo el cambio de constraseña", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MetroMessageBox.Show(this, "El usuario cancelo el cambio de usuario", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
 
-        private void btnModificar_Click(object sender, EventArgs e)
-        {
+          
 
-        }
-
-        private void mgUsuario_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            txtNombre.Text = mgUsuario.CurrentRow.Cells[2].Value.ToString();
-            txtApellido.Text = mgUsuario.CurrentRow.Cells[3].Value.ToString();
-            txtUsuario.Text = mgUsuario.CurrentRow.Cells[4].Value.ToString();
         }
     }
 }

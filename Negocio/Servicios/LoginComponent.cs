@@ -58,8 +58,8 @@ namespace Negocio
             }
             else
             {
-                BackupComponent backupComponent = new BackupComponent();
-                backupComponent.RestaurarBase();
+                //BackupComponent backupComponent = new BackupComponent();
+                //backupComponent.RestaurarBase();
                 return false;
             }
         }

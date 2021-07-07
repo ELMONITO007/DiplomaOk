@@ -15,13 +15,15 @@ namespace Data
     {
         private Usuarios LoadUsuarioa(IDataReader dr)
         {
-            Usuarios usuarios = new Usuarios();
+            DigitoVerificadorH digitoVerificadorH = new DigitoVerificadorH();
+            digitoVerificadorH.DVH= GetDataValue<string>(dr, "DVH");
+            Usuarios usuarios = new Usuarios(digitoVerificadorH);
             usuarios.Id = GetDataValue<int>(dr, "Id");
             usuarios.UserName = GetDataValue<string>(dr, "UserName");
             usuarios.Nombre = GetDataValue<string>(dr, "Nombre");
             usuarios.Apellido = GetDataValue<string>(dr, "Apellido");
             usuarios.Email = GetDataValue<string>(dr, "Email");
-            usuarios.DVH.DVH = GetDataValue<string>(dr, "DVH");
+      
             usuarios.Bloqueado = GetDataValue<bool>(dr, "Bloqueado");
             usuarios.CantidadIntentos = GetDataValue<int>(dr, "CantidadIntentos");
             usuarios.Password = GetDataValue<string>(dr, "Password");
@@ -108,8 +110,10 @@ namespace Data
                 {
                     while (dr.Read())
                     {
-                        Usuarios usuarios = new Usuarios();
-                        usuarios.DVH.DVH = GetDataValue<string>(dr, "DVH");
+                        DigitoVerificadorH digitoVerificadorH = new DigitoVerificadorH();
+                        digitoVerificadorH.DVH= GetDataValue<string>(dr, "DVH");
+                        Usuarios usuarios = new Usuarios(digitoVerificadorH);
+                     
                         result.Add(usuarios);
                     }
                 }
@@ -159,9 +163,31 @@ namespace Data
 
         public void Update(Usuarios entity)
         {
-            throw new NotImplementedException();
-        }
+            const string SQL_STATEMENT = "update Usuario set Nombre=@Nombre, Apellido=@Apellido where id=@id ";
 
+            var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
+            using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
+            {
+                db.AddInParameter(cmd, "@Nombre", DbType.String, entity.Nombre);
+                db.AddInParameter(cmd, "@Apellido", DbType.String, entity.Apellido);
+                db.AddInParameter(cmd, "@id", DbType.String, entity.Id);
+                db.ExecuteNonQuery(cmd);
+            }
+        }
+        public void UpdatePassword(Usuarios entity)
+        {
+            const string SQL_STATEMENT = "update Usuario set password=@password, DVH=@DVH where id=@id ";
+
+            var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
+            using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
+            {
+                db.AddInParameter(cmd, "@password", DbType.String, entity.Password);
+                db.AddInParameter(cmd, "@DVH", DbType.String, entity.DVH);
+                db.AddInParameter(cmd, "@id", DbType.String, entity.Id);
+       
+                db.ExecuteNonQuery(cmd);
+            }
+        }
         public Usuarios ReadBy(string id)
         {
             throw new NotImplementedException();

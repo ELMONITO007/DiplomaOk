@@ -67,10 +67,16 @@ namespace Entities.Usuario
         public DigitoVerificadorH DVH { get; set; }
         public Usuarios()
         {
-            loginError = new LoginError();
-            DVH = new DigitoVerificadorH();
-        }
+           
 
+        }
+        public Usuarios(DigitoVerificadorH _DVH)
+        {
+          
+            DVH = _DVH;
+           
+
+        }
 
     }
 }

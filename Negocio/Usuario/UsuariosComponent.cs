@@ -9,7 +9,7 @@ using Entities.Usuario;
 
 namespace Negocio
 {
-    public class UsuariosComponent : IRepository<Usuarios>
+    public class UsuariosComponent : IRepository2<Usuarios>
     {
 
 
@@ -34,7 +34,7 @@ namespace Negocio
 
         public bool Crear(Usuarios objeto)
         {
-            Usuarios usuarios = new Usuarios();
+          
 
             UsuarioParcial usuariosFormateado = new UsuarioParcial();
      
@@ -43,12 +43,17 @@ namespace Negocio
             usuariosFormateado.Password = objeto.Password;
             if (Verificar(objeto.UserName))
             {
-                usuarios = objeto;
-                usuarios.DVH.DVH = DigitoVerificadorH.getDigitoEncriptado(usuariosFormateado);
+         
+                DigitoVerificadorH digitoVerificadorH = new DigitoVerificadorH();
+                digitoVerificadorH.DVH = DigitoVerificadorH.getDigitoEncriptado(usuariosFormateado);
                 EncriptarSHA256 encriptarSHA256 = new EncriptarSHA256(objeto.Password);
+                Usuarios usuarios = new Usuarios(digitoVerificadorH);
+                usuarios = objeto;
                 usuarios.Password = encriptarSHA256.Hashear();
                 UsuarioDac usuarioDac = new UsuarioDac();
                 usuarioDac.Create(usuarios);
+
+
                 DVVComponent dVVComponent = new DVVComponent();
                 dVVComponent.CrearDVV(ListaDVH(), "Usuario");
 
@@ -97,11 +102,59 @@ namespace Negocio
             return result;
         }
 
-        public  void Update(Usuarios objeto)
+        public  bool Update(Usuarios objeto)
         {
-            throw new NotImplementedException();
-        }
+            Usuarios usuarioTabla = new Usuarios();
+            usuarioTabla = ReadBy(objeto.Id);
+            UsuarioDac usuarioDac = new UsuarioDac();
 
+            if (objeto.UserName==usuarioTabla.UserName)
+            {
+                usuarioDac.Update(objeto);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+
+
+
+   
+        }
+        public void UpdatePassword(Usuarios objeto)
+        {
+            EncriptarSHA256 encriptarSHA256 = new EncriptarSHA256(objeto.Password);
+            UsuarioParcial usuariosFormateado = new UsuarioParcial();
+         
+
+        //Obtengo el DVH
+            usuariosFormateado.Email = objeto.Email;
+            usuariosFormateado.UserName = objeto.Email;
+            usuariosFormateado.Password = objeto.Password;
+
+            DigitoVerificadorH digitoVerificadorH = new DigitoVerificadorH();
+            digitoVerificadorH.DVH = DigitoVerificadorH.getDigitoEncriptado(usuariosFormateado);
+
+            //Formateo el usuario
+            Usuarios usuarios = new Usuarios(digitoVerificadorH);
+            usuarios=objeto;
+          
+          
+            usuarios.Password = encriptarSHA256.Hashear();
+            UsuarioDac usuarioDac = new UsuarioDac();
+            usuarioDac.UpdatePassword(usuarios);
+            DVVComponent dVVComponent = new DVVComponent();
+            dVVComponent.CrearDVV(ListaDVH(), "Usuario");
+
+
+
+
+
+
+
+        }
         public Usuarios ReadByEmail(string emailUsername)
         {
             UsuarioDac usuarioDac = new UsuarioDac();
@@ -129,6 +182,14 @@ namespace Negocio
             throw new NotImplementedException();
         }
 
+        public Usuarios ReadBy(string id)
+        {
+            throw new NotImplementedException();
+        }
 
+        public bool Verificar(Usuarios entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
