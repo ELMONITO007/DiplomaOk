@@ -166,7 +166,7 @@ namespace Negocio
                             {
                                 eventoBitacora.Id = 1;
                                 Bitacora bitacora = new Bitacora(usuarioTabla, eventoBitacora);
-                                loginError.error = "La cuenta esta Bloqueada. Envie un email con el error a dolores.conde@transener.com.ar ";
+                                loginError.error = "La cuenta esta Bloqueada. ";
                             
                                 bitacoraComponent.Create(bitacora);
                             }

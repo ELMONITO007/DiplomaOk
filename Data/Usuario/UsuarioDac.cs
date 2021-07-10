@@ -176,13 +176,14 @@ namespace Data
         }
         public void UpdatePassword(Usuarios entity)
         {
+         
             const string SQL_STATEMENT = "update Usuario set password=@password, DVH=@DVH where id=@id ";
 
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
             {
                 db.AddInParameter(cmd, "@password", DbType.String, entity.Password);
-                db.AddInParameter(cmd, "@DVH", DbType.String, entity.DVH);
+                db.AddInParameter(cmd, "@DVH", DbType.String, entity.DVH.DVH);
                 db.AddInParameter(cmd, "@id", DbType.String, entity.Id);
        
                 db.ExecuteNonQuery(cmd);

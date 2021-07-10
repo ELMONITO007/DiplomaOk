@@ -139,8 +139,9 @@ namespace Negocio
 
             //Formateo el usuario
             Usuarios usuarios = new Usuarios(digitoVerificadorH);
-            usuarios=objeto;
-          
+            usuarios.Email=objeto.Email;
+            usuarios.UserName = objeto.UserName;
+            usuarios.Id = objeto.Id;
           
             usuarios.Password = encriptarSHA256.Hashear();
             UsuarioDac usuarioDac = new UsuarioDac();
