@@ -30,7 +30,14 @@ namespace Negocio
             if (Verificar(entity))
             {
                 IdiomaDAC idiomaDAC = new IdiomaDAC();
-                return idiomaDAC.Create(entity);
+                Idioma idioma = new Idioma();
+                idioma= idiomaDAC.Create(entity);
+                Idioma idiomatabla = new Idioma();
+                idiomatabla = ReadBy(entity.idioma);
+
+                TraduccionComponent traduccionComponent = new TraduccionComponent();
+                traduccionComponent.AsignarPalabras(idiomatabla.Id);
+                return idioma;
             }
             else
             {
@@ -44,6 +51,8 @@ namespace Negocio
         {
             IdiomaDAC idiomaDAC = new IdiomaDAC();
              idiomaDAC.Delete(id);
+            TraduccionComponent traduccionComponent = new TraduccionComponent();
+            traduccionComponent.Delete(id);
         }
 
         public List<Entities.Idioma> Read()

@@ -93,6 +93,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="RecorridoForm.cs" />
+    <Compile Include="Servicio\frmBackup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Servicio\frmBackup.Designer.cs">
+      <DependentUpon>frmBackup.cs</DependentUpon>
+    </Compile>
     <Compile Include="Servicio\frmBitacora.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,6 +166,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Servicio\frmBackup.resx">
+      <DependentUpon>frmBackup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Servicio\frmBitacora.resx">
       <DependentUpon>frmBitacora.cs</DependentUpon>

@@ -39,6 +39,7 @@ namespace DiplomaFinal.Index
             this.metroTile3 = new MetroFramework.Controls.MetroTile();
             this.metroTile2 = new MetroFramework.Controls.MetroTile();
             this.metroTile1 = new MetroFramework.Controls.MetroTile();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,11 +66,12 @@ namespace DiplomaFinal.Index
             // 
             this.cbIdioma.FormattingEnabled = true;
             this.cbIdioma.ItemHeight = 23;
-            this.cbIdioma.Location = new System.Drawing.Point(1028, 70);
+            this.cbIdioma.Location = new System.Drawing.Point(938, 63);
             this.cbIdioma.Name = "cbIdioma";
             this.cbIdioma.Size = new System.Drawing.Size(287, 29);
             this.cbIdioma.TabIndex = 15;
             this.cbIdioma.UseSelectable = true;
+            this.cbIdioma.SelectedIndexChanged += new System.EventHandler(this.cbIdioma_SelectedIndexChanged);
             // 
             // metroTile6
             // 
@@ -100,7 +102,7 @@ namespace DiplomaFinal.Index
             this.metroTile4.Name = "metroTile4";
             this.metroTile4.Size = new System.Drawing.Size(237, 134);
             this.metroTile4.TabIndex = 12;
-            this.metroTile4.Tag = "Gestion Infraestructura";
+            this.metroTile4.Tag = "Gestion de Infra";
             this.metroTile4.Text = "Gestion Infraestructura";
             this.metroTile4.UseSelectable = true;
             // 
@@ -122,7 +124,7 @@ namespace DiplomaFinal.Index
             this.metroTile2.Name = "metroTile2";
             this.metroTile2.Size = new System.Drawing.Size(178, 173);
             this.metroTile2.TabIndex = 10;
-            this.metroTile2.Tag = "Gestion Alumnos";
+            this.metroTile2.Tag = "Gestion de Alumnos";
             this.metroTile2.Text = "Gestion Alumnos";
             this.metroTile2.UseSelectable = true;
             // 
@@ -138,11 +140,23 @@ namespace DiplomaFinal.Index
             this.metroTile1.UseSelectable = true;
             this.metroTile1.Click += new System.EventHandler(this.metroTile1_Click);
             // 
+            // metroButton1
+            // 
+            this.metroButton1.Location = new System.Drawing.Point(1231, 67);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(95, 22);
+            this.metroButton1.TabIndex = 17;
+            this.metroButton1.Tag = "Modificar";
+            this.metroButton1.Text = "Modificar";
+            this.metroButton1.UseSelectable = true;
+            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
+            // 
             // frmAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1347, 606);
+            this.Controls.Add(this.metroButton1);
             this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.cbIdioma);
             this.Controls.Add(this.metroTile6);
@@ -171,5 +185,6 @@ namespace DiplomaFinal.Index
         private MetroFramework.Controls.MetroTile metroTile3;
         private MetroFramework.Controls.MetroTile metroTile2;
         private MetroFramework.Controls.MetroTile metroTile1;
+        private MetroFramework.Controls.MetroButton metroButton1;
     }
 }

@@ -27,11 +27,11 @@ namespace Data
 
         public Traduccion Create(Traduccion entity)
         {
-            const string SQL_STATEMENT = "insert into Traduccion(Id_idioma,ID_Palabra,palabra,activo)values(@Id_idioma,@ID_Palabra,@palabra,1)";
+            const string SQL_STATEMENT = "insert into Traduccion(Id_idioma,ID_Palabra,traduccion)values(@Id_idioma,@ID_Palabra,@palabra)";
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
             {
-                db.AddInParameter(cmd, "@Id_idioma", DbType.Int32, entity.idioma.idioma);
+                db.AddInParameter(cmd, "@Id_idioma", DbType.Int32, entity.idioma.Id);
                 db.AddInParameter(cmd, "@ID_Palabra", DbType.Int32, entity.palabra.Id);
                 db.AddInParameter(cmd, "@palabra", DbType.String, entity.traduccion);
 
@@ -53,7 +53,17 @@ namespace Data
                 db.ExecuteNonQuery(cmd);
             }
         }
+        public void DeletePorIdioma(int id)
+        {
+            const string SQL_STATEMENT = "Delete Traduccion  where  ID_idioma=@idioma";
+            var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
+            using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
+            {
+                db.AddInParameter(cmd, "@idioma", DbType.Int32, id);
 
+                db.ExecuteNonQuery(cmd);
+            }
+        }
         public void Delete(Traduccion entity )
         {
             const string SQL_STATEMENT = "Delete Traduccion  where id_palabra=@Id and ID_idioma=@idioma and palabra=@palabra";
@@ -101,19 +111,20 @@ namespace Data
         public Traduccion ReadBy(Traduccion  entity)
         {
 
-            const string SQL_STATEMENT = "select * from Traduccion where   id_idioma=@Id and id_palabra=@id_palabra and palabra=@palabra";
-        Traduccion result = new Traduccion();
+            const string SQL_STATEMENT = "select * from Traduccion where   id_idioma=@Id and id_palabra=@id_palabra and traduccion=@palabra";
+        Traduccion result =null;
+            result = null;
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
             {
                 db.AddInParameter(cmd, "@Id", DbType.Int32, entity.idioma.Id);
                 db.AddInParameter(cmd, "@id_palabra", DbType.Int32, entity.palabra.Id);
-                db.AddInParameter(cmd, "@palabra", DbType.String, entity.palabra);
+                db.AddInParameter(cmd, "@palabra", DbType.String, entity.palabra.palabra);
                 using (IDataReader dr = db.ExecuteReader(cmd))
                 {
                     if (dr.Read())
                     {
-                        result = ALoad(dr);
+                        result = ALoad(dr); 
                      
                     }
                 }

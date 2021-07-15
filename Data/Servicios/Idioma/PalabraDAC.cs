@@ -95,7 +95,7 @@ namespace Data
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
             {
-                db.AddInParameter(cmd, "@Id", DbType.Int32, id);
+                db.AddInParameter(cmd, "@Id", DbType.String, id);
                 using (IDataReader dr = db.ExecuteReader(cmd))
                 {
                     if (dr.Read())

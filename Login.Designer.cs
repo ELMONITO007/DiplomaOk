@@ -72,6 +72,7 @@ namespace DiplomaFinal
             this.cbIdioma.Size = new System.Drawing.Size(200, 29);
             this.cbIdioma.TabIndex = 14;
             this.cbIdioma.UseSelectable = true;
+            this.cbIdioma.SelectedIndexChanged += new System.EventHandler(this.cbIdioma_SelectedIndexChanged);
             // 
             // txtCancelar
             // 

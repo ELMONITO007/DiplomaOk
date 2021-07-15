@@ -30,7 +30,18 @@ namespace Negocio
             if (Verificar(entity))
             {
                 PalabraDAC palabraDAC = new PalabraDAC();
-                return palabraDAC.Create(entity);
+                Palabra palabra = new Palabra();
+                palabra = palabraDAC.Create(entity);
+                Palabra unaPalabra = new Palabra();
+                unaPalabra = ReadBy(entity.palabra);
+                IdiomaComponent idiomaComponent = new IdiomaComponent();
+                foreach (Idioma item in idiomaComponent.Read())
+                {
+                    TraduccionComponent traduccionComponent = new TraduccionComponent();
+                    Traduccion traduccion = new Traduccion(item, unaPalabra);
+                    traduccionComponent.Create(traduccion);
+                }
+                return palabra;
             }
             else
             {

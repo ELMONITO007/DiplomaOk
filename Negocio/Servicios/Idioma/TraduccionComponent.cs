@@ -51,9 +51,31 @@ namespace Negocio
             }
         }
 
+        public void AsignarPalabras(int id_Idioma)
+
+        {
+
+            PalabraComponent palabraComponent = new PalabraComponent();
+
+            TraduccionDAC traduccionDAC = new TraduccionDAC();
+            Idioma idioma = new Idioma();
+            idioma.Id = id_Idioma;
+            foreach (var palabra in palabraComponent.Read())
+            {
+                Traduccion traduccion = new Traduccion(idioma,palabra);
+
+                traduccionDAC.Create(traduccion);
+            }
+
+
+
+
+        }
+
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            TraduccionDAC traduccionDAC = new TraduccionDAC();
+            traduccionDAC.DeletePorIdioma(id);
         }
         public void Delete(Traduccion entity)
         {

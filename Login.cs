@@ -20,10 +20,11 @@ namespace DiplomaFinal
 {
     public partial class Login : MetroFramework.Forms.MetroForm
     {
-        public Login()
-        {
 
-            InitializeComponent();
+        void listarIdioma()
+
+        {
+          
             List<Idioma> idiomas = new List<Idioma>();
             IdiomaComponent idiomaComponent = new IdiomaComponent();
 
@@ -31,12 +32,94 @@ namespace DiplomaFinal
             cbIdioma.DataSource = idiomas;
             cbIdioma.DisplayMember = "idioma";
             cbIdioma.ValueMember = "Id";
+
+        }
+        public Login()
+        {
+
+            InitializeComponent();
+            
         
         }
 
+
+        public  void CambiarIdiomaSinLogueo()
+
+        {
+            TraduccionComponent traduccionComponent = new TraduccionComponent();
+            List<Traduccion> traduccions = new List<Traduccion>();
+            IdiomaComponent idiomaComponent = new IdiomaComponent();
+            Idioma idioma = new Idioma();
+            idioma = (Idioma)cbIdioma.SelectedItem;
+    
+
+            traduccions = traduccionComponent.ReadByIdioma(idioma.Id);
+
+
+
+
+
+            foreach (var traduccion in traduccions)
+            {
+                foreach (Control item in this.Controls)
+                {
+
+                    if (item.ToString().Contains("Label") || item.ToString().Contains("Button") || item.ToString().Contains("Tile"))
+                    {
+
+
+                        if (traduccion.palabra.palabra == item.Tag.ToString())
+                        {
+                            item.Text = traduccion.traduccion;
+                        }
+
+                    }
+                    if (item.ToString().Contains("TabControl"))
+                    {
+
+
+                        foreach (Control subItem in item.Controls)
+                        {
+                            if (traduccion.palabra.palabra == subItem.Tag.ToString())
+                            {
+                                subItem.Text = traduccion.traduccion;
+                            }
+
+                            foreach (Control tab in subItem.Controls)
+                            {
+                                if (tab.ToString().Contains("Label") || tab.ToString().Contains("Button") || tab.ToString().Contains("Tile"))
+                                {
+                                    if (tab.Tag != null)
+                                    {
+                                        if (traduccion.palabra.palabra == tab.Tag.ToString())
+                                        {
+                                            tab.Text = traduccion.traduccion;
+                                        }
+                                    }
+
+
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
+
+
+
+
+            SingletonIdioma.intance.CambiarIdioma(idioma);
+
+
+
+        }
+
+
         private void Login_Load(object sender, EventArgs e)
         {
-
+            listarIdioma();
+            CambiarIdiomaSinLogueo();
         }
 
         bool VerificarCampos(Usuarios usuarios)
@@ -86,16 +169,19 @@ namespace DiplomaFinal
                         {
                             frmAdministrador uservicios = new frmAdministrador();
                             uservicios.ShowDialog();
+                            listarIdioma();
                         }
                         if (item.roles.name == "Alumno")
                         {
                             frmAlumnoIndex uservicios = new frmAlumnoIndex();
                             uservicios.ShowDialog();
+                            listarIdioma();
                         }
                         if (item.roles.name == "Maestro")
                         {
                             frmMaestro uservicios = new frmMaestro();
                             uservicios.ShowDialog();
+                            listarIdioma();
                         }
 
                     }
@@ -108,6 +194,11 @@ namespace DiplomaFinal
                 }
             }
             
+        }
+
+        private void cbIdioma_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CambiarIdiomaSinLogueo();
         }
     }
 }
