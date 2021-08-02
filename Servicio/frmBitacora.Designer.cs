@@ -118,7 +118,7 @@ namespace DiplomaFinal.Servicio
             this.btnTodo.Name = "btnTodo";
             this.btnTodo.Size = new System.Drawing.Size(74, 23);
             this.btnTodo.TabIndex = 8;
-            this.btnTodo.Tag = "Ver Todo";
+            this.btnTodo.Tag = "VerTodo";
             this.btnTodo.Text = "Ver todo";
             this.btnTodo.UseSelectable = true;
             this.btnTodo.Click += new System.EventHandler(this.btnTodo_Click);

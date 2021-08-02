@@ -82,7 +82,7 @@ namespace DiplomaFinal.Servicio.Idioma
             this.metroTabPage1.Name = "metroTabPage1";
             this.metroTabPage1.Size = new System.Drawing.Size(676, 583);
             this.metroTabPage1.TabIndex = 0;
-            this.metroTabPage1.Tag = "Palabras";
+            this.metroTabPage1.Tag = "Palabra";
             this.metroTabPage1.Text = "Palabras";
             this.metroTabPage1.VerticalScrollbarBarColor = true;
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
@@ -145,8 +145,8 @@ namespace DiplomaFinal.Servicio.Idioma
             this.btnTodo.Name = "btnTodo";
             this.btnTodo.Size = new System.Drawing.Size(74, 23);
             this.btnTodo.TabIndex = 20;
-            this.btnTodo.Tag = "Ver Todo";
-            this.btnTodo.Text = "Ver todo";
+            this.btnTodo.Tag = "VerTodo";
+            this.btnTodo.Text = "Ver Todo";
             this.btnTodo.UseSelectable = true;
             this.btnTodo.Click += new System.EventHandler(this.btnTodo_Click);
             // 
@@ -295,6 +295,7 @@ namespace DiplomaFinal.Servicio.Idioma
             this.ClientSize = new System.Drawing.Size(686, 683);
             this.Controls.Add(this.metroTabControl1);
             this.Name = "frmPalabra";
+            this.Tag = "Palabra";
             this.Text = "Palabra";
             this.Load += new System.EventHandler(this.frmPalabra_Load);
             this.metroTabControl1.ResumeLayout(false);

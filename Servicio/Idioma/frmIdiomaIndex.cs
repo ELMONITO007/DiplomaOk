@@ -19,7 +19,7 @@ namespace DiplomaFinal.Servicio.Idioma
 
         private void frmIdiomaIndex_Load(object sender, EventArgs e)
         {
-            
+            RecorridoForm.CambiarIdioma(this);
         }
 
         private void Idioma_Click(object sender, EventArgs e)

@@ -26,6 +26,8 @@ namespace DiplomaFinal.Servicio
 
         private void frmUsuario_Load(object sender, EventArgs e)
         {
+            RecorridoForm.CambiarIdioma(this);
+
             llenarGrillas();
         }
         private void llenarGrillas()

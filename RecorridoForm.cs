@@ -21,6 +21,7 @@ namespace DiplomaFinal
 
             foreach (Control item in metroForm.Controls)
             {
+
                 string test = item.ToString();
                 if (item.ToString().Contains("TextBox"))
                 {
@@ -43,6 +44,8 @@ namespace DiplomaFinal
 
                     }
                 }
+
+
             }
 
 
@@ -93,7 +96,146 @@ namespace DiplomaFinal
 
 
         }
+  
+
+
+
+
+
+
+
+
+
+
+        public static void CambiarIdiomaFormulario(MetroFramework.Forms.MetroForm metroFor, List<Traduccion> traduccions)
+
+        {
+
+
+            if (metroFor.Tag != null)
+            {
+                foreach (var traduccion in traduccions)
+                {
+
+                    if (traduccion.palabra.palabra == metroFor.Tag.ToString())
+                    {
+                        if (traduccion.traduccion != null)
+                        {
+                            metroFor.Text = traduccion.traduccion;
+
+                        }
+                        else
+                        {
+                            metroFor.Text = metroFor.Tag.ToString();
+                        }
+
+                    }
+
+                }
+            }
+        }
+
+        public static void CambiarIdiomaCotrolesFormulario(MetroFramework.Forms.MetroForm metroFor, List<Traduccion> traduccions)
+
+        {
+            foreach (var traduccion in traduccions)
+            {
+
+                foreach (Control item in metroFor.Controls)
+                {
+
+                    //verifico los label, botones y tiles
+
+                    if (item.ToString().Contains("Label") || item.ToString().Contains("Button") || item.ToString().Contains("Tile"))
+                    {
+
+
+                        if (traduccion.palabra.palabra == item.Tag.ToString())
+                        {
+                            if (traduccion.traduccion != null)
+                            {
+                                item.Text = traduccion.traduccion;
+                            }
+                            else
+                            {
+                                item.Text = item.Tag.ToString();
+                            }
+
+                        }
+
+                    }
+                }
+            }
+
+        }
+
+
+        public static void CambiarIdiomaCotrolesDentroDelTab(MetroFramework.Forms.MetroForm metroFor, List<Traduccion> traduccions)
+
+        {
+            foreach (var traduccion in traduccions)
+            {
+
+                foreach (Control item in metroFor.Controls)
+                {
+
+                    if (item.ToString().Contains("TabControl"))
+                    {
+
+
+                        foreach (Control subItem in item.Controls)
+                        {
+                            if (subItem.Tag != null)
+                            {
+                                if (traduccion.palabra.palabra == subItem.Tag.ToString())
+                                {
+                                    if (traduccion.traduccion == null)
+                                    {
+                                        subItem.Text = subItem.Tag.ToString();
+                                    }
+                                    else
+                                    {
+                                        subItem.Text = traduccion.traduccion;
+                                    }
+
+                                }
+                            }
+
+
+
+                            foreach (Control tab in subItem.Controls)
+                            {
+                                if (tab.ToString().Contains("Label") || tab.ToString().Contains("Button") || tab.ToString().Contains("Tile"))
+                                {
+                                    if (tab.Tag != null)
+                                    {
+                                        if (traduccion.palabra.palabra == tab.Tag.ToString())
+                                        {
+                                            if (traduccion.traduccion==null)
+                                            {
+                                                tab.Text = tab.Tag.ToString();
+                                            }
+                                            else
+                                            {
+                                                tab.Text = traduccion.traduccion;
+                                            }
+                                          
+                                        }
+                                    }
+
+
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
+
+        }
         public static void CambiarIdioma(MetroFramework.Forms.MetroForm metroForm)
+
+
 
         {
             TraduccionComponent traduccionComponent = new TraduccionComponent();
@@ -102,60 +244,10 @@ namespace DiplomaFinal
             {
                 traduccions = traduccionComponent.ReadByIdioma(SingletonIdioma.intance.getUsuario().Id);
 
-
-
-
-
-                foreach (var traduccion in traduccions)
-                {
-                    foreach (Control item in metroForm.Controls)
-                    {
-
-                        if (item.ToString().Contains("Label") || item.ToString().Contains("Button") || item.ToString().Contains("Tile"))
-                        {
-
-
-                            if (traduccion.palabra.palabra == item.Tag.ToString())
-                            {
-                                item.Text = traduccion.traduccion;
-                            }
-
-                        }
-                        if (item.ToString().Contains("TabControl"))
-                        {
-
-
-                            foreach (Control subItem in item.Controls)
-                            {
-                                if (traduccion.palabra.palabra == subItem.Tag.ToString())
-                                {
-                                    subItem.Text = traduccion.traduccion;
-                                }
-
-                                foreach (Control tab in subItem.Controls)
-                                {
-                                    if (tab.ToString().Contains("Label") || tab.ToString().Contains("Button") || tab.ToString().Contains("Tile"))
-                                    {
-                                        if (tab.Tag != null)
-                                        {
-                                            if (traduccion.palabra.palabra == tab.Tag.ToString())
-                                            {
-                                                tab.Text = traduccion.traduccion;
-                                            }
-                                        }
-
-
-                                    }
-                                }
-
-                            }
-                        }
-                    }
-                }
-
-
+                CambiarIdiomaFormulario(metroForm, traduccions);
+                CambiarIdiomaCotrolesFormulario(metroForm, traduccions);
+                CambiarIdiomaCotrolesDentroDelTab(metroForm, traduccions);
             }
-
 
 
 
@@ -164,8 +256,6 @@ namespace DiplomaFinal
 
 
 
-
-   
     }
 
 

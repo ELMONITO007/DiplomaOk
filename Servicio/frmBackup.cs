@@ -1,4 +1,5 @@
-﻿using Entities.Servicios;
+﻿using DiplomaFinal;
+using Entities.Servicios;
 using Entities.Usuario;
 using Entitites.Servicios.Login;
 using MetroFramework;
@@ -23,6 +24,7 @@ namespace Negocio.Servicios
 
         private void frmBackup_Load(object sender, EventArgs e)
         {
+            RecorridoForm.CambiarIdioma(this);
             llenarGrilla();
         }
         void llenarGrilla()

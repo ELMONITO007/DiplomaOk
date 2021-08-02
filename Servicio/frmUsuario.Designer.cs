@@ -34,12 +34,14 @@ namespace DiplomaFinal.Servicio
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Alta = new MetroFramework.Controls.MetroTabControl();
             this.mtListar = new MetroFramework.Controls.MetroTabPage();
+            this.txtId = new MetroFramework.Controls.MetroLabel();
+            this.txtusuarioModificar = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.btnContraseña = new MetroFramework.Controls.MetroButton();
             this.lblErrContraseña = new MetroFramework.Controls.MetroLabel();
             this.lblErrUsuario = new MetroFramework.Controls.MetroLabel();
             this.lblErrApellido = new MetroFramework.Controls.MetroLabel();
             this.lblErrNombre = new MetroFramework.Controls.MetroLabel();
-            this.lblErrorBuscar = new MetroFramework.Controls.MetroLabel();
             this.btnDesbloquear = new MetroFramework.Controls.MetroButton();
             this.btnEliminar = new MetroFramework.Controls.MetroButton();
             this.btnBuscar = new MetroFramework.Controls.MetroButton();
@@ -62,9 +64,6 @@ namespace DiplomaFinal.Servicio
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.txtusuarioModificar = new MetroFramework.Controls.MetroTextBox();
-            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
-            this.txtId = new MetroFramework.Controls.MetroLabel();
             this.Alta.SuspendLayout();
             this.mtListar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mgUsuario)).BeginInit();
@@ -94,7 +93,6 @@ namespace DiplomaFinal.Servicio
             this.mtListar.Controls.Add(this.lblErrUsuario);
             this.mtListar.Controls.Add(this.lblErrApellido);
             this.mtListar.Controls.Add(this.lblErrNombre);
-            this.mtListar.Controls.Add(this.lblErrorBuscar);
             this.mtListar.Controls.Add(this.btnDesbloquear);
             this.mtListar.Controls.Add(this.btnEliminar);
             this.mtListar.Controls.Add(this.btnBuscar);
@@ -115,6 +113,61 @@ namespace DiplomaFinal.Servicio
             this.mtListar.VerticalScrollbarHighlightOnWheel = false;
             this.mtListar.VerticalScrollbarSize = 7;
             // 
+            // txtId
+            // 
+            this.txtId.AutoSize = true;
+            this.txtId.Location = new System.Drawing.Point(603, 114);
+            this.txtId.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(53, 19);
+            this.txtId.TabIndex = 33;
+            this.txtId.Tag = "Usuario";
+            this.txtId.Text = "Usuario";
+            this.txtId.Visible = false;
+            // 
+            // txtusuarioModificar
+            // 
+            // 
+            // 
+            // 
+            this.txtusuarioModificar.CustomButton.Image = null;
+            this.txtusuarioModificar.CustomButton.Location = new System.Drawing.Point(158, 1);
+            this.txtusuarioModificar.CustomButton.Margin = new System.Windows.Forms.Padding(1);
+            this.txtusuarioModificar.CustomButton.Name = "";
+            this.txtusuarioModificar.CustomButton.Size = new System.Drawing.Size(13, 13);
+            this.txtusuarioModificar.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtusuarioModificar.CustomButton.TabIndex = 1;
+            this.txtusuarioModificar.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtusuarioModificar.CustomButton.UseSelectable = true;
+            this.txtusuarioModificar.CustomButton.Visible = false;
+            this.txtusuarioModificar.Lines = new string[0];
+            this.txtusuarioModificar.Location = new System.Drawing.Point(708, 78);
+            this.txtusuarioModificar.Margin = new System.Windows.Forms.Padding(2);
+            this.txtusuarioModificar.MaxLength = 32767;
+            this.txtusuarioModificar.Name = "txtusuarioModificar";
+            this.txtusuarioModificar.PasswordChar = '\0';
+            this.txtusuarioModificar.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtusuarioModificar.SelectedText = "";
+            this.txtusuarioModificar.SelectionLength = 0;
+            this.txtusuarioModificar.SelectionStart = 0;
+            this.txtusuarioModificar.ShortcutsEnabled = true;
+            this.txtusuarioModificar.Size = new System.Drawing.Size(172, 15);
+            this.txtusuarioModificar.TabIndex = 32;
+            this.txtusuarioModificar.UseSelectable = true;
+            this.txtusuarioModificar.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtusuarioModificar.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // metroLabel5
+            // 
+            this.metroLabel5.AutoSize = true;
+            this.metroLabel5.Location = new System.Drawing.Point(603, 78);
+            this.metroLabel5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.metroLabel5.Name = "metroLabel5";
+            this.metroLabel5.Size = new System.Drawing.Size(53, 19);
+            this.metroLabel5.TabIndex = 31;
+            this.metroLabel5.Tag = "Usuario";
+            this.metroLabel5.Text = "Usuario";
+            // 
             // btnContraseña
             // 
             this.btnContraseña.Location = new System.Drawing.Point(45, 280);
@@ -122,7 +175,7 @@ namespace DiplomaFinal.Servicio
             this.btnContraseña.Name = "btnContraseña";
             this.btnContraseña.Size = new System.Drawing.Size(125, 15);
             this.btnContraseña.TabIndex = 28;
-            this.btnContraseña.Tag = "Cambiar contraseña";
+            this.btnContraseña.Tag = "CambiarContraseña";
             this.btnContraseña.Text = "Cambiar Contraseña";
             this.btnContraseña.UseSelectable = true;
             this.btnContraseña.Click += new System.EventHandler(this.btnContraseña_Click);
@@ -178,16 +231,6 @@ namespace DiplomaFinal.Servicio
             this.lblErrNombre.Style = MetroFramework.MetroColorStyle.Red;
             this.lblErrNombre.TabIndex = 24;
             this.lblErrNombre.UseCustomForeColor = true;
-            // 
-            // lblErrorBuscar
-            // 
-            this.lblErrorBuscar.AutoSize = true;
-            this.lblErrorBuscar.Location = new System.Drawing.Point(72, 43);
-            this.lblErrorBuscar.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblErrorBuscar.Name = "lblErrorBuscar";
-            this.lblErrorBuscar.Size = new System.Drawing.Size(0, 0);
-            this.lblErrorBuscar.TabIndex = 11;
-            this.lblErrorBuscar.Tag = "Error Buscar";
             // 
             // btnDesbloquear
             // 
@@ -246,7 +289,7 @@ namespace DiplomaFinal.Servicio
             this.txtBuscar.CustomButton.UseSelectable = true;
             this.txtBuscar.CustomButton.Visible = false;
             this.txtBuscar.Lines = new string[0];
-            this.txtBuscar.Location = new System.Drawing.Point(72, 26);
+            this.txtBuscar.Location = new System.Drawing.Point(73, 21);
             this.txtBuscar.Margin = new System.Windows.Forms.Padding(2);
             this.txtBuscar.MaxLength = 32767;
             this.txtBuscar.Name = "txtBuscar";
@@ -265,7 +308,7 @@ namespace DiplomaFinal.Servicio
             // mlBuscar
             // 
             this.mlBuscar.AutoSize = true;
-            this.mlBuscar.Location = new System.Drawing.Point(23, 26);
+            this.mlBuscar.Location = new System.Drawing.Point(2, 21);
             this.mlBuscar.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mlBuscar.Name = "mlBuscar";
             this.mlBuscar.Size = new System.Drawing.Size(47, 19);
@@ -399,6 +442,7 @@ namespace DiplomaFinal.Servicio
             this.metroTabPage1.Name = "metroTabPage1";
             this.metroTabPage1.Size = new System.Drawing.Size(917, 302);
             this.metroTabPage1.TabIndex = 1;
+            this.metroTabPage1.Tag = "Nuevo Usuario";
             this.metroTabPage1.Text = "Nuevo Usuario";
             this.metroTabPage1.VerticalScrollbarBarColor = true;
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
@@ -589,61 +633,6 @@ namespace DiplomaFinal.Servicio
             this.metroLabel1.Tag = "Nombre";
             this.metroLabel1.Text = "Nombre";
             // 
-            // txtusuarioModificar
-            // 
-            // 
-            // 
-            // 
-            this.txtusuarioModificar.CustomButton.Image = null;
-            this.txtusuarioModificar.CustomButton.Location = new System.Drawing.Point(158, 1);
-            this.txtusuarioModificar.CustomButton.Margin = new System.Windows.Forms.Padding(1);
-            this.txtusuarioModificar.CustomButton.Name = "";
-            this.txtusuarioModificar.CustomButton.Size = new System.Drawing.Size(13, 13);
-            this.txtusuarioModificar.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtusuarioModificar.CustomButton.TabIndex = 1;
-            this.txtusuarioModificar.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtusuarioModificar.CustomButton.UseSelectable = true;
-            this.txtusuarioModificar.CustomButton.Visible = false;
-            this.txtusuarioModificar.Lines = new string[0];
-            this.txtusuarioModificar.Location = new System.Drawing.Point(708, 78);
-            this.txtusuarioModificar.Margin = new System.Windows.Forms.Padding(2);
-            this.txtusuarioModificar.MaxLength = 32767;
-            this.txtusuarioModificar.Name = "txtusuarioModificar";
-            this.txtusuarioModificar.PasswordChar = '\0';
-            this.txtusuarioModificar.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtusuarioModificar.SelectedText = "";
-            this.txtusuarioModificar.SelectionLength = 0;
-            this.txtusuarioModificar.SelectionStart = 0;
-            this.txtusuarioModificar.ShortcutsEnabled = true;
-            this.txtusuarioModificar.Size = new System.Drawing.Size(172, 15);
-            this.txtusuarioModificar.TabIndex = 32;
-            this.txtusuarioModificar.UseSelectable = true;
-            this.txtusuarioModificar.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtusuarioModificar.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // metroLabel5
-            // 
-            this.metroLabel5.AutoSize = true;
-            this.metroLabel5.Location = new System.Drawing.Point(603, 78);
-            this.metroLabel5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.metroLabel5.Name = "metroLabel5";
-            this.metroLabel5.Size = new System.Drawing.Size(53, 19);
-            this.metroLabel5.TabIndex = 31;
-            this.metroLabel5.Tag = "Usuario";
-            this.metroLabel5.Text = "Usuario";
-            // 
-            // txtId
-            // 
-            this.txtId.AutoSize = true;
-            this.txtId.Location = new System.Drawing.Point(603, 114);
-            this.txtId.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(53, 19);
-            this.txtId.TabIndex = 33;
-            this.txtId.Tag = "Usuario";
-            this.txtId.Text = "Usuario";
-            this.txtId.Visible = false;
-            // 
             // frmUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -653,6 +642,7 @@ namespace DiplomaFinal.Servicio
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmUsuario";
             this.Padding = new System.Windows.Forms.Padding(13, 60, 13, 13);
+            this.Tag = "Usuario";
             this.Text = "Usuario";
             this.Load += new System.EventHandler(this.frmUsuario_Load);
             this.Alta.ResumeLayout(false);
@@ -674,7 +664,6 @@ namespace DiplomaFinal.Servicio
         private MetroFramework.Controls.MetroLabel lblErrUsuario;
         private MetroFramework.Controls.MetroLabel lblErrApellido;
         private MetroFramework.Controls.MetroLabel lblErrNombre;
-        private MetroFramework.Controls.MetroLabel lblErrorBuscar;
         private MetroFramework.Controls.MetroButton btnDesbloquear;
         private MetroFramework.Controls.MetroButton btnEliminar;
         private MetroFramework.Controls.MetroButton btnBuscar;

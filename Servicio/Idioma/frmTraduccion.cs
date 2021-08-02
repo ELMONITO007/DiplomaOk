@@ -39,6 +39,7 @@ namespace DiplomaFinal.Servicio.Idioma
         }
         private void frmTraduccion_Load(object sender, EventArgs e)
         {
+            RecorridoForm.CambiarIdioma(this);
             IdiomaComponent idiomaComponent = new IdiomaComponent();
             List<Entities.Idioma> idiomas = new List<Entities.Idioma>();
             idiomas = idiomaComponent.Read();

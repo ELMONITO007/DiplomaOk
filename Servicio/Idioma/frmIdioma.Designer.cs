@@ -190,7 +190,7 @@ namespace DiplomaFinal.Servicio.Idioma
             this.btnTodo.Name = "btnTodo";
             this.btnTodo.Size = new System.Drawing.Size(74, 23);
             this.btnTodo.TabIndex = 8;
-            this.btnTodo.Tag = "Ver Todo";
+            this.btnTodo.Tag = "VerTodo";
             this.btnTodo.Text = "Ver todo";
             this.btnTodo.UseSelectable = true;
             this.btnTodo.Click += new System.EventHandler(this.btnTodo_Click);
@@ -347,6 +347,7 @@ namespace DiplomaFinal.Servicio.Idioma
             this.ClientSize = new System.Drawing.Size(809, 565);
             this.Controls.Add(this.metroTabControl1);
             this.Name = "frmIdioma";
+            this.Tag = "Idioma";
             this.Text = "Idioma";
             this.Load += new System.EventHandler(this.frmIdioma_Load);
             this.metroTabControl1.ResumeLayout(false);

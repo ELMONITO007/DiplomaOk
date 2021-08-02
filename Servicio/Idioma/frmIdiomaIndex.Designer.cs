@@ -58,7 +58,7 @@ namespace DiplomaFinal.Servicio.Idioma
             this.metroTile2.Name = "metroTile2";
             this.metroTile2.Size = new System.Drawing.Size(192, 191);
             this.metroTile2.TabIndex = 4;
-            this.metroTile2.Tag = "Palabras";
+            this.metroTile2.Tag = "Palabra";
             this.metroTile2.Text = "Palabras";
             this.metroTile2.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
             this.metroTile2.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;

@@ -35,6 +35,8 @@ namespace DiplomaFinal.Servicio.Idioma
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
+            this.txtPalabra = new System.Windows.Forms.Label();
+            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.htmlLabel1 = new MetroFramework.Drawing.Html.HtmlLabel();
             this.btnAlta = new MetroFramework.Controls.MetroButton();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
@@ -52,8 +54,6 @@ namespace DiplomaFinal.Servicio.Idioma
             this.ID_Palabra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Palabra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Traduccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
-            this.txtPalabra = new System.Windows.Forms.Label();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mgListado)).BeginInit();
@@ -99,6 +99,24 @@ namespace DiplomaFinal.Servicio.Idioma
             this.metroTabPage1.VerticalScrollbarBarColor = true;
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage1.VerticalScrollbarSize = 10;
+            // 
+            // txtPalabra
+            // 
+            this.txtPalabra.AutoSize = true;
+            this.txtPalabra.Location = new System.Drawing.Point(498, 161);
+            this.txtPalabra.Name = "txtPalabra";
+            this.txtPalabra.Size = new System.Drawing.Size(0, 13);
+            this.txtPalabra.TabIndex = 30;
+            // 
+            // metroLabel3
+            // 
+            this.metroLabel3.AutoSize = true;
+            this.metroLabel3.Location = new System.Drawing.Point(424, 161);
+            this.metroLabel3.Name = "metroLabel3";
+            this.metroLabel3.Size = new System.Drawing.Size(53, 19);
+            this.metroLabel3.TabIndex = 29;
+            this.metroLabel3.Tag = "Palabra";
+            this.metroLabel3.Text = "Palabra";
             // 
             // htmlLabel1
             // 
@@ -200,7 +218,7 @@ namespace DiplomaFinal.Servicio.Idioma
             this.btnTodo.Name = "btnTodo";
             this.btnTodo.Size = new System.Drawing.Size(74, 23);
             this.btnTodo.TabIndex = 20;
-            this.btnTodo.Tag = "Ver Todo";
+            this.btnTodo.Tag = "VerTodo";
             this.btnTodo.Text = "Ver todo";
             this.btnTodo.UseSelectable = true;
             this.btnTodo.Click += new System.EventHandler(this.btnTodo_Click);
@@ -346,24 +364,6 @@ namespace DiplomaFinal.Servicio.Idioma
             this.Traduccion.HeaderText = "Traduccion";
             this.Traduccion.Name = "Traduccion";
             this.Traduccion.ReadOnly = true;
-            // 
-            // metroLabel3
-            // 
-            this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(424, 161);
-            this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(53, 19);
-            this.metroLabel3.TabIndex = 29;
-            this.metroLabel3.Tag = "Palabra";
-            this.metroLabel3.Text = "Palabra";
-            // 
-            // txtPalabra
-            // 
-            this.txtPalabra.AutoSize = true;
-            this.txtPalabra.Location = new System.Drawing.Point(498, 161);
-            this.txtPalabra.Name = "txtPalabra";
-            this.txtPalabra.Size = new System.Drawing.Size(0, 13);
-            this.txtPalabra.TabIndex = 30;
             // 
             // frmTraduccion
             // 
