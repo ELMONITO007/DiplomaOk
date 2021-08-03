@@ -43,6 +43,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntityBase.cs" />
+    <Compile Include="Negocio\Personas\Alumno.cs" />
+    <Compile Include="Negocio\Personas\Maestro.cs" />
+    <Compile Include="Negocio\Personas\Persona.cs" />
+    <Compile Include="Negocio\Personas\Telefono.cs" />
+    <Compile Include="Negocio\Salas\Curso.cs" />
+    <Compile Include="Negocio\Salas\Grado.cs" />
+    <Compile Include="Negocio\Salas\Sala.cs" />
+    <Compile Include="Negocio\Salas\SalaHorario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Servicios\Backups.cs" />
     <Compile Include="Servicios\Bitacora\Bitacora.cs" />
@@ -63,6 +71,9 @@
     <Compile Include="Servicios\Permisos\UsuarioRoles.cs" />
     <Compile Include="Usuario\UsuarioParcial.cs" />
     <Compile Include="Usuario\Usuarios.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Diagrama.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="ListaTelefono --&gt;">
+    <Position X="10.146" Y="0.969" Height="0.75" Width="1.242" />
+  </Comment>
+  <Comment CommentText="ListaAlumno&#xD;&#xA;">
+    <Position X="5.802" Y="3.604" Height="0.75" Width="1.033" />
+  </Comment>
+  <Comment CommentText="ListaMaestro&#xD;&#xA;">
+    <Position X="7.156" Y="5.24" Height="0.75" Width="1.033" />
+  </Comment>
+  <Class Name="Entitites.Negocio.Salas.Sala">
+    <Position X="2" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACgAAAAAAAAACAAAAAAQAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Negocio\Salas\Sala.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entitites.Negocio.Salas.SalaHorario">
+    <Position X="1.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAACAAAAAAAAAAAAAAAAABAAAAAAAABQAQ=</HashCode>
+      <FileName>Negocio\Salas\SalaHorario.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="sala" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Entitites.Negocio.Salas.Grado">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Negocio\Salas\Grado.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entitites.Negocio.Salas.Curso">
+    <Position X="4.5" Y="4.5" Width="1.5" />
+    <AssociationLine Name="maestroPrincipal" Type="Entitites.Negocio.Personas.Maestro">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.068" Y="0.248" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACAABAAAAACACABAAAAAAAAAAARAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Negocio\Salas\Curso.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="grado" />
+      <Property Name="sala" />
+      <Property Name="maestroPrincipal" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Entitites.Negocio.Personas.Persona" Collapsed="true">
+    <Position X="8.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAgAQAIACAAEAAAAAAAAEAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Negocio\Personas\Persona.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entitites.Negocio.Personas.Alumno" Collapsed="true">
+    <Position X="6.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Negocio\Personas\Alumno.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entitites.Negocio.Personas.Telefono" Collapsed="true">
+    <Position X="11.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAQAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Negocio\Personas\Telefono.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entitites.Negocio.Personas.Maestro" Collapsed="true">
+    <Position X="8.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Negocio\Personas\Maestro.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
