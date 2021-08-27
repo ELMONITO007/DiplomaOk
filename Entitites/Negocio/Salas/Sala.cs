@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entitites.Negocio.Salas
 {
-    public class Sala : Entities.EntityBase
+    public  class Sala : Entities.EntityBase
     {
         public override int Id { get; set; }
 

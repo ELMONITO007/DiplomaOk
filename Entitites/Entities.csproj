@@ -49,7 +49,10 @@
     <Compile Include="Negocio\Personas\Telefono.cs" />
     <Compile Include="Negocio\Salas\Curso.cs" />
     <Compile Include="Negocio\Salas\Grado.cs" />
+    <Compile Include="Negocio\Salas\SalaMusica.cs" />
     <Compile Include="Negocio\Salas\Sala.cs" />
+    <Compile Include="Negocio\Salas\SalaDibujo.cs" />
+    <Compile Include="Negocio\Salas\SalaGrado.cs" />
     <Compile Include="Negocio\Salas\SalaHorario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Servicios\Backups.cs" />

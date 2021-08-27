@@ -17,7 +17,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Entitites.Negocio.Salas.SalaHorario">
-    <Position X="1.75" Y="3.75" Width="1.5" />
+    <Position X="0.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAACAAAAAAAAAAAAAAAAABAAAAAAAABQAQ=</HashCode>
       <FileName>Negocio\Salas\SalaHorario.cs</FileName>
@@ -76,6 +76,27 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Negocio\Personas\Maestro.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entitites.Negocio.Salas.SalaMusica" Collapsed="true">
+    <Position X="3" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Negocio\Salas\SalaMusica.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entitites.Negocio.Salas.SalaGrado" Collapsed="true">
+    <Position X="2.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Negocio\Salas\SalaGrado.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entitites.Negocio.Salas.SalaDibujo" Collapsed="true">
+    <Position X="1.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Negocio\Salas\SalaDibujo.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

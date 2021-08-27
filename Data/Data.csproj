@@ -68,6 +68,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataAccessComponent.cs" />
+    <Compile Include="Gestion Salas\GradoDac.cs" />
+    <Compile Include="Gestion Salas\SalaDac.cs" />
+    <Compile Include="Gestion Salas\SalaHorarioDAC.cs" />
     <Compile Include="IRepository2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Servicios\BackupDAC.cs" />

@@ -27,5 +27,10 @@ namespace Entitites.Negocio.Salas
         {
             sala = _sala;
         }
+        public SalaHorario()
+        {
+          
+        }
+
     }
 }

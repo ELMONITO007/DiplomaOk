@@ -20,7 +20,7 @@ namespace Entitites.Negocio.Salas
         public List<Maestro> listaMaestro { get; set; }
         public Maestro maestroPrincipal { get => default; set { } }
 
-
+        public Curso() { }
         public Curso(Sala _sala, Grado _grado, Maestro _MaestroPrincipal, List<Alumno> _listaALumno, List<Maestro> _listaMaestro)
         {
             sala = _sala;
