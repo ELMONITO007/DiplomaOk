@@ -93,5 +93,11 @@ namespace DiplomaFinal.Index
 
             RecorridoForm.CambiarIdioma(this);
         }
+
+        private void metroTile3_Click(object sender, EventArgs e)
+        {
+            //Index.frmSalasIndex frmSalasIndex = new Index.frmSalasIndex();
+            //frmSalasIndex.ShowDialog();
+        }
     }
 }

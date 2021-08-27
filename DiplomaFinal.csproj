@@ -226,5 +226,8 @@
   <ItemGroup>
     <None Include="Resources\Fondo pantalla gral 2.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Gestion de Salas\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
