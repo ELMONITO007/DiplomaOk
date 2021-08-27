@@ -68,8 +68,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataAccessComponent.cs" />
+    <Compile Include="Gestion de Personas\AlergiaDAC.cs" />
     <Compile Include="Gestion de Personas\AlumnoDAC.cs" />
+    <Compile Include="Gestion de Personas\CasaDAC.cs" />
+    <Compile Include="Gestion de Personas\DocumentoDAC.cs" />
     <Compile Include="Gestion de Personas\MaestroDAC.cs" />
+    <Compile Include="Gestion de Personas\ObraSocialDAC.cs" />
     <Compile Include="Gestion de Personas\TelefonoDAC.cs" />
     <Compile Include="Gestion Salas\CursoDAC.cs" />
     <Compile Include="Gestion Salas\GradoDac.cs" />

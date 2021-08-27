@@ -99,5 +99,12 @@
       <FileName>Negocio\Salas\SalaDibujo.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="Entities.Pariente" Collapsed="true">
+    <Position X="10" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAACAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Negocio\Personas\Pariente.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

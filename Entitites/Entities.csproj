@@ -51,6 +51,7 @@
     <Compile Include="Negocio\Alumnos y Maestros\ObrasSocial.cs" />
     <Compile Include="Negocio\Personas\Alumno.cs" />
     <Compile Include="Negocio\Personas\Maestro.cs" />
+    <Compile Include="Negocio\Personas\Pariente.cs" />
     <Compile Include="Negocio\Personas\Persona.cs" />
     <Compile Include="Negocio\Personas\Telefono.cs" />
     <Compile Include="Negocio\Salas\Curso.cs" />
