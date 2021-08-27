@@ -68,6 +68,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataAccessComponent.cs" />
+    <Compile Include="Gestion de Personas\AlumnoDAC.cs" />
+    <Compile Include="Gestion de Personas\MaestroDAC.cs" />
+    <Compile Include="Gestion de Personas\TelefonoDAC.cs" />
+    <Compile Include="Gestion Salas\CursoDAC.cs" />
     <Compile Include="Gestion Salas\GradoDac.cs" />
     <Compile Include="Gestion Salas\SalaDac.cs" />
     <Compile Include="Gestion Salas\SalaHorarioDAC.cs" />
@@ -86,6 +90,7 @@
     <Compile Include="Usuario\UsuarioDac.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

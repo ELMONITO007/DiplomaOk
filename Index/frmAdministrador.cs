@@ -96,8 +96,8 @@ namespace DiplomaFinal.Index
 
         private void metroTile3_Click(object sender, EventArgs e)
         {
-            //Index.frmSalasIndex frmSalasIndex = new Index.frmSalasIndex();
-            //frmSalasIndex.ShowDialog();
+            Index.frmSalasIndex frmSalasIndex = new Index.frmSalasIndex();
+            frmSalasIndex.ShowDialog();
         }
     }
 }

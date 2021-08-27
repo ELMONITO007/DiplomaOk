@@ -47,7 +47,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Gestion de Salas\CursoComponent.cs" />
+    <Compile Include="Gestion de Salas\GradoComponent.cs" />
     <Compile Include="Gestion de Salas\SalaComponent.cs" />
+    <Compile Include="Gestion de Salas\SalaHorarioComponent.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Servicios\BackupComponent.cs" />

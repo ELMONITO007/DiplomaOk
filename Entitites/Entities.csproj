@@ -34,6 +34,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,6 +44,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntityBase.cs" />
+    <Compile Include="Negocio\Alumnos y Maestros\Alergias.cs" />
+    <Compile Include="Negocio\Alumnos y Maestros\Casa.cs" />
+    <Compile Include="Negocio\Alumnos y Maestros\Documentacion.cs" />
+    <Compile Include="Negocio\Alumnos y Maestros\Documento.cs" />
+    <Compile Include="Negocio\Alumnos y Maestros\ObrasSocial.cs" />
     <Compile Include="Negocio\Personas\Alumno.cs" />
     <Compile Include="Negocio\Personas\Maestro.cs" />
     <Compile Include="Negocio\Personas\Persona.cs" />
@@ -77,6 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Diagrama.cd" />
+    <None Include="Negocio\Alumnos y Maestros\ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

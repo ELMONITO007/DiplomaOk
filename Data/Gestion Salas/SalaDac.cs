@@ -103,15 +103,15 @@ namespace Data
             }
             return result;
         }
-        public List<Sala> ReadByTipo(int id)
+        public List<Sala> ReadByTipo(string id)
         {
-            const string SQL_STATEMENT = "select * from Sala where activo=1 and ID_TipoSala=@ID_TipoSala";
+            const string SQL_STATEMENT = "select * from Sala where activo=1 and TipoSala=@ID_TipoSala";
 
             List<Sala> result = new List<Sala>();
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
             {
-                db.AddInParameter(cmd, "@ID_TipoSala", DbType.Int32, id);
+                db.AddInParameter(cmd, "@TipoSala", DbType.Int32, id);
                 using (IDataReader dr = db.ExecuteReader(cmd))
                 {
                     while (dr.Read())
@@ -165,7 +165,7 @@ namespace Data
 
         public void Update(Sala entity)
         {
-            const string SQL_STATEMENT = "update Sala set Id_TipoSala=@Id_TipoSala,capacidad=@capacidad,tiempo=@tiempo,nombre=@nombre  where ID_sala=@Id ";
+            const string SQL_STATEMENT = "update Sala set Id_TipoSala=(select Id_TipoSala from TipoSala where TipoSala=@Id_TipoSala),capacidad=@capacidad,tiempo=@tiempo,nombre=@nombre  where ID_sala=@Id ";
 
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
@@ -173,7 +173,7 @@ namespace Data
                 db.AddInParameter(cmd, "@id", DbType.Int32, entity.Id);
 
 
-                db.AddInParameter(cmd, "@Id_TipoSala", DbType.Int32, entity.tipoSala);
+                db.AddInParameter(cmd, "@Id_TipoSala", DbType.String, entity.tipoSala);
                 db.AddInParameter(cmd, "@capacidad", DbType.Int32, entity.capacidad);
                 db.AddInParameter(cmd, "@tiempo", DbType.Int32, entity.tiempo);
 

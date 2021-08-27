@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Entities.Alergias">
+    <Position X="4.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAABAAAAFAAAAAAAAAAAAAAJAAAAgAAAAAA=</HashCode>
+      <FileName>Negocio\Alumnos y Maestros\Alergias.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.Casa">
+    <Position X="6.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAQAEAKAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Negocio\Alumnos y Maestros\Casa.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.Documentacion">
+    <Position X="6.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAABAAA=</HashCode>
+      <FileName>Negocio\Alumnos y Maestros\Documentacion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.ObrasSocial">
+    <Position X="9.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAAAAAAAAAAAAABAAEBAAAAAAAAAA=</HashCode>
+      <FileName>Negocio\Alumnos y Maestros\ObrasSocial.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.Documento">
+    <Position X="12" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAQAAAAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Negocio\Alumnos y Maestros\Documento.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

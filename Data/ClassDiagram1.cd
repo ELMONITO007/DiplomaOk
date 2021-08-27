@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Data.Gestion_de_Personas.AlumnoDAC">
+    <Position X="2.5" Y="1.75" Width="2" />
+    <InheritanceLine Type="Data.DataAccessComponent" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="7.625" Y="1.062" />
+        <Point X="7.625" Y="1.25" />
+        <Point X="3.5" Y="1.25" />
+        <Point X="3.5" Y="1.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>CAQAAAAAAIAAAAAAAAIAAAAgQAEAAEAAAAAAAAAAAIQ=</HashCode>
+      <FileName>Gestion de Personas\AlumnoDAC.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Orientation="Bottom" Position="0.429" />
+  </Class>
+  <Class Name="Data.DataAccessComponent" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAwQAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>DataAccessComponent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Data.Gestion_de_Personas.MaestroDAC">
+    <Position X="4.75" Y="1.75" Width="1.5" />
+    <InheritanceLine Type="Data.DataAccessComponent" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="7.75" Y="1.062" />
+        <Point X="7.75" Y="1.396" />
+        <Point X="5.5" Y="1.396" />
+        <Point X="5.5" Y="1.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>CgQAAAAAAIAAAAAAAAAAAAAgQAEAAEAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Gestion de Personas\MaestroDAC.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Orientation="Bottom" Position="0.1" />
+  </Class>
+  <Class Name="Data.Gestion_de_Personas.TelefonoDAC">
+    <Position X="7.5" Y="1.75" Width="1.5" />
+    <InheritanceLine Type="Data.DataAccessComponent" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8" Y="1.062" />
+        <Point X="8" Y="1.626" />
+        <Point X="8" Y="1.626" />
+        <Point X="8" Y="1.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>CAQAAAAAAAgAAgAAAAAIAAAgQAEAAEAAgAAAAAAAAAQ=</HashCode>
+      <FileName>Gestion de Personas\TelefonoDAC.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Orientation="Bottom" Position="0.262" />
+  </Class>
+  <Interface Name="Data.IRepository2&lt;TEntity&gt;">
+    <Position X="13" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAQAAAAAAAAAAAAAAAAAAAAgQAEAAEAAAAAAAAAAAAQ=</HashCode>
+      <FileName>IRepository2.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -55,6 +55,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Gestion de Salas\frmABMsalas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Salas\frmABMsalas.designer.cs">
+      <DependentUpon>frmABMsalas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion de Salas\frmCursos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Salas\frmCursos.designer.cs">
+      <DependentUpon>frmCursos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion de Salas\frmGrado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Salas\frmGrado.designer.cs">
+      <DependentUpon>frmGrado.cs</DependentUpon>
+    </Compile>
     <Compile Include="Index\frmAdministrador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +90,12 @@
     </Compile>
     <Compile Include="Index\frmMaestro.Designer.cs">
       <DependentUpon>frmMaestro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Index\frmSalasIndex.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Index\frmSalasIndex.designer.cs">
+      <DependentUpon>frmSalasIndex.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -147,6 +171,15 @@
     <Compile Include="Servicio\IUservicios.Designer.cs">
       <DependentUpon>IUservicios.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Gestion de Salas\frmABMsalas.resx">
+      <DependentUpon>frmABMsalas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion de Salas\frmCursos.resx">
+      <DependentUpon>frmCursos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion de Salas\frmGrado.resx">
+      <DependentUpon>frmGrado.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Index\frmAdministrador.resx">
       <DependentUpon>frmAdministrador.cs</DependentUpon>
     </EmbeddedResource>
@@ -155,6 +188,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Index\frmMaestro.resx">
       <DependentUpon>frmMaestro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Index\frmSalasIndex.resx">
+      <DependentUpon>frmSalasIndex.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -226,8 +262,6 @@
   <ItemGroup>
     <None Include="Resources\Fondo pantalla gral 2.jpg" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Gestion de Salas\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

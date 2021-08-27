@@ -73,7 +73,7 @@ namespace Negocio
 
             return result;
         }
-        public List<Sala> ReadByTipo(int tipo)
+        public List<Sala> ReadByTipo(string tipo)
         {
             SalaDac salaDac = new SalaDac();
             List<Sala> result = new List<Sala>();
