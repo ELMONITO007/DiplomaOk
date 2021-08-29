@@ -47,6 +47,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Alumnos y Maestros\AlergiaComponent.cs" />
+    <Compile Include="Alumnos y Maestros\CasaDAC.cs" />
+    <Compile Include="Alumnos y Maestros\DocumentoComponent.cs" />
+    <Compile Include="Alumnos y Maestros\EspecialidadComponent.cs" />
+    <Compile Include="Alumnos y Maestros\FamiliaComponent.cs" />
+    <Compile Include="Alumnos y Maestros\ObraSocialComponent.cs" />
+    <Compile Include="Gestion de Personas\MaestroComponent.cs" />
+    <Compile Include="Alumnos y Maestros\MaestroHorarioComponent.cs" />
+    <Compile Include="Gestion de Personas\AlumnoComponent.cs" />
+    <Compile Include="Gestion de Personas\PersonaCreator.cs" />
     <Compile Include="Gestion de Salas\CursoComponent.cs" />
     <Compile Include="Gestion de Salas\GradoComponent.cs" />
     <Compile Include="Gestion de Salas\SalaComponent.cs" />
@@ -88,5 +98,6 @@
       <DependentUpon>frmBackup.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 
 namespace Entities 
 {
-    class Pariente : Persona
+  public  class Pariente : Persona
     {
 
 
         public List< Alumno> alumnos { get; set; }
-     
+        public Alumno alumno { get; set; }
+
         public string parentesco { get; set; }
         public bool autorizadoRetirar { get; set; }
         public Pariente()

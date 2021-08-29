@@ -10,7 +10,7 @@ using Microsoft.Practices.EnterpriseLibrary.Data;
 
 namespace Data
 {
-    public class DocumentacionDAC : DataAccessComponent, IRepository2<Documento>
+    public class DocumentoDAC : DataAccessComponent, IRepository2<Documento>
     {
         public Documento ALoad(IDataReader entity)
         {
@@ -30,7 +30,7 @@ namespace Data
 
         public Documento Create(Documento entity)
         {
-            const string SQL_STATEMENT = "insert into Documentacion(legajo,ID_TipoDocumentacion,NombreDocumento,año)values (@legajo,(select ID_TipoDocumentacion from TipoDocumentacion where TipoDocumentacion=@TipoDocumentacion),@NombreDocumento,@año)";
+            const string SQL_STATEMENT = "insert into Documentacion(legajo,ID_TipoDocumentacion,NombreDocumento,año)values (@legajo,@TipoDocumentacion,@NombreDocumento,@año)";
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
             {
@@ -131,5 +131,8 @@ namespace Data
         {
             throw new NotImplementedException();
         }
+
+
+
     }
 }

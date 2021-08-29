@@ -48,8 +48,11 @@
     <Compile Include="Negocio\Alumnos y Maestros\Casa.cs" />
     <Compile Include="Negocio\Alumnos y Maestros\Documentacion.cs" />
     <Compile Include="Negocio\Alumnos y Maestros\Documento.cs" />
+    <Compile Include="Negocio\Alumnos y Maestros\MaestroHorario.cs" />
     <Compile Include="Negocio\Alumnos y Maestros\ObrasSocial.cs" />
     <Compile Include="Negocio\Personas\Alumno.cs" />
+    <Compile Include="Negocio\Personas\Especialidad.cs" />
+    <Compile Include="Negocio\Alumnos y Maestros\Familia.cs" />
     <Compile Include="Negocio\Personas\Maestro.cs" />
     <Compile Include="Negocio\Personas\Pariente.cs" />
     <Compile Include="Negocio\Personas\Persona.cs" />

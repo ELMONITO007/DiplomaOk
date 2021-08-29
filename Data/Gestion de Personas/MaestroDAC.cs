@@ -1,4 +1,5 @@
 ﻿using Entities;
+using Entitites;
 using Entitites.Negocio.Personas;
 using Microsoft.Practices.EnterpriseLibrary.Data;
 using System;
@@ -13,6 +14,7 @@ namespace Data.Gestion_de_Personas
 {
   public  class MaestroDAC : DataAccessComponent, IRepository2<Maestro>
     {
+        #region Maestro
         public Maestro ALoad(IDataReader entity)
         {
             Maestro palabra = new Maestro();
@@ -180,5 +182,101 @@ namespace Data.Gestion_de_Personas
         {
             throw new NotImplementedException();
         }
+        #endregion
+
+
+        #region MaestroEspecialidad
+
+
+        public Maestro ALoadEspecialidad(IDataReader entity)
+        {
+            List<Especialidad> especialidades = new List<Especialidad>();
+            especialidades[0].especialidad = GetDataValue<string>(entity, "especialidad");
+            especialidades[0].Id = GetDataValue<int>(entity, "ID_Especialidad");
+
+            Maestro palabra = new Maestro(especialidades);
+            palabra.Id = GetDataValue<int>(entity, "legajo");
+            palabra.nombre = GetDataValue<string>(entity, "nombre");
+            palabra.apellido = GetDataValue<string>(entity, "apellido");
+            palabra.DNI = GetDataValue<string>(entity, "DNI");
+            palabra.direccion = GetDataValue<string>(entity, "direccion");
+            palabra.fechaNacimiento = GetDataValue<DateTime>(entity, "fechaNacimiento");
+
+            palabra.nombreCompleto = palabra.nombre + " " + palabra.apellido;
+            return palabra;
+        }
+        public void AgregarEspecialidad(Maestro entity)
+        {
+            const string SQL_STATEMENT = "insert into EspecialidadPersona(Legajo,ID_Especialidad)values(@Legajo,@ID_Especialidad)";
+            var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
+            using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
+            {
+                db.AddInParameter(cmd, "@Legajo", DbType.Int32, entity.Id);
+                db.AddInParameter(cmd, "@ID_Especialidad", DbType.Int32, entity.especialidades[1].Id);
+                entity.Id = Convert.ToInt32(db.ExecuteScalar(cmd));
+            }
+            
+        }
+
+        public void QuitarEspecialidad(Maestro entity)
+        {
+            const string SQL_STATEMENT = "Delete from EspecialidadPersona where legajo=@legajo and  ID_Especialidad=@ID_Especialidad";
+            var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
+            using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
+            {
+                db.AddInParameter(cmd, "@legajo", DbType.Int32, entity.Id);
+                db.AddInParameter(cmd, "@ID_Especialidad", DbType.Int32, entity.especialidades[0].Id);
+                db.ExecuteNonQuery(cmd);
+            }
+
+
+        }
+
+        public Maestro ReadBy(Maestro legajo)
+        {
+            const string SQL_STATEMENT = "select * from EspecialidadPersona as ep join Persona as p on p.Legajo=ep.Legajo join Especialidad as e on ep.ID_Especialidad=e.ID_Especialidad where p.Activo=1 and ep.Legajo=@Id and ep.ID_Especialidad=@ID_Especialidad";
+            Maestro result = null;
+
+            var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
+            using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
+            {
+                db.AddInParameter(cmd, "@Id", DbType.Int32, legajo.Id);
+                db.AddInParameter(cmd, "@ID_Especialidad", DbType.Int32, legajo.especialidades[0].Id);
+
+                using (IDataReader dr = db.ExecuteReader(cmd))
+                {
+                    while (dr.Read())
+                    {
+                        result = ALoadEspecialidad(dr);
+
+                    }
+                }
+            }
+            return result;
+        }
+        public Maestro ReadByEspecialidad(Maestro legajo)
+        {
+            const string SQL_STATEMENT = "select * from EspecialidadPersona as ep join Persona as p on p.Legajo=ep.Legajo join Especialidad as e on ep.ID_Especialidad=e.ID_Especialidad where p.Activo=1  and ep.ID_Especialidad=@ID_Especialidad";
+            Maestro result = null;
+
+            var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
+            using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
+            {
+
+                db.AddInParameter(cmd, "@ID_Especialidad", DbType.Int32, legajo.especialidades[0].Id);
+
+                using (IDataReader dr = db.ExecuteReader(cmd))
+                {
+                    while (dr.Read())
+                    {
+                        result = ALoadEspecialidad(dr);
+
+                    }
+                }
+            }
+            return result;
+        }
+        #endregion
+
     }
 }
