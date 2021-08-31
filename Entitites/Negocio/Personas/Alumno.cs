@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,11 @@ namespace Entitites.Negocio.Personas
 {
   public  class Alumno :Persona
     {
+
+        public List<Pariente> parientes { get; set; }
+
+        public Alumno() { }
+        public Alumno(List<Pariente> _parientes) { parientes = _parientes; }
 
     }
 }

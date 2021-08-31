@@ -10,33 +10,41 @@ using Microsoft.Practices.EnterpriseLibrary.Data;
 
 namespace Data
 {
-    public class ParienteDAC : DataAccessComponent, IRepository2<Pariente>
+    #region ParienteAlumno
+    public class ParienteDAC : DataAccessComponent
     {
         public Pariente ALoad(IDataReader entity)
         {
             Pariente palabra = new Pariente();
-            palabra.Id = GetDataValue<int>(entity, "Id_Parentesco");
+ 
             palabra.alumno.Id = GetDataValue<int>(entity, "Legajo_Alumno");
-            palabra.adulto.Id = GetDataValue<int>(entity, "Legajo_Adulto");
+            palabra.Id = GetDataValue<int>(entity, "Legajo_Adulto");
 
             palabra.parentesco = GetDataValue<string>(entity, "Parentesco");
 
             palabra.autorizadoRetirar = GetDataValue<bool>(entity, "AutorizadoRetirar");
-
+   
+            palabra.nombre = GetDataValue<string>(entity, "nombre");
+            palabra.apellido = GetDataValue<string>(entity, "apellido");
+            palabra.DNI = GetDataValue<string>(entity, "DNI");
+            palabra.direccion = GetDataValue<string>(entity, "direccion");
+            palabra.fechaNacimiento = GetDataValue<DateTime>(entity, "fechaNacimiento");
 
 
 
             return palabra;
         }
 
-        public Parentesco Create(Parentesco entity)
+
+
+        public Pariente CreateParienteAlumno(Pariente entity)
         {
             const string SQL_STATEMENT = "insert into Parentesco(Legajo_Alumno,Legajo_Adulto,autorizadoRetirar,parentesco)values (@alumno,@adulto,@autorizadoRetirar,@parentesco)";
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
             {
                 db.AddInParameter(cmd, "@alumno", DbType.Int32, entity.alumno.Id);
-                db.AddInParameter(cmd, "@adulto", DbType.Int32, entity.adulto.Id);
+                db.AddInParameter(cmd, "@adulto", DbType.Int32, entity.Id);
 
                 db.AddInParameter(cmd, "@autorizadoRetirar", DbType.Boolean, entity.autorizadoRetirar);
                 db.AddInParameter(cmd, "@parentesco", DbType.String, entity.parentesco);
@@ -48,7 +56,7 @@ namespace Data
             return entity;
         }
 
-        public void Delete(int id)
+        public void DeleteParienteAlumno(int id)
         {
             const string SQL_STATEMENT = "Delete from Parentesco where Id_Parentesco=@Id";
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
@@ -60,11 +68,11 @@ namespace Data
         }
 
 
-        public List<Parentesco> Read()
+        public List<Pariente> ReadParienteAlumno()
         {
-            const string SQL_STATEMENT = "select * from Parentesco ";
+            const string SQL_STATEMENT = "select * from Parentesco join Persona as p on p.Legajo=Parentesco.Legajo_Adulto ";
 
-            List<Parentesco> result = new List<Parentesco>();
+            List<Pariente> result = new List<Pariente>();
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
             {
@@ -72,7 +80,7 @@ namespace Data
                 {
                     while (dr.Read())
                     {
-                        Parentesco roles = ALoad(dr);
+                        Pariente roles = ALoad(dr);
                         result.Add(roles);
                     }
                 }
@@ -80,10 +88,10 @@ namespace Data
             return result;
         }
 
-        public Parentesco ReadBy(int id)
+        public Pariente ReadByParienteAlumno(int id)
         {
-            const string SQL_STATEMENT = "select * from Parentesco where  Id_Parentesco=@Id";
-            Parentesco roles = null;
+            const string SQL_STATEMENT = "select * from Parentesco join Persona as p on p.Legajo=Parentesco.Legajo_Adulto where  Id_Parentesco=@Id";
+            Pariente roles = null;
 
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
@@ -100,20 +108,20 @@ namespace Data
             return roles;
         }
 
-        public Parentesco ReadBy(string id)
+        public Pariente ReadByParienteAlumno(string id)
         {
             throw new NotImplementedException();
         }
-        public Parentesco ReadBy(Parentesco entity)
+        public Pariente ReadByParienteAlumno(Pariente entity)
         {
-            const string SQL_STATEMENT = "select * from Parentesco where Legajo_Alumno=@Legajo_Alumno  and  Legajo_Adulto=@Legajo_Adulto";
+            const string SQL_STATEMENT = "select * from Parentesco join Persona as p on p.Legajo=Parentesco.Legajo_Adulto  where Legajo_Alumno=@Legajo_Alumno  and  Legajo_Adulto=@Legajo_Adulto";
 
-            Parentesco result = null;
+            Pariente result = null;
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
             {
                 db.AddInParameter(cmd, "@Legajo_Alumno", DbType.Int32, entity.alumno.Id);
-                db.AddInParameter(cmd, "@Legajo_Adulto", DbType.Int32, entity.adulto.Id);
+                db.AddInParameter(cmd, "@Legajo_Adulto", DbType.Int32, entity.Id);
                 using (IDataReader dr = db.ExecuteReader(cmd))
                 {
                     while (dr.Read())
@@ -125,11 +133,11 @@ namespace Data
             }
             return result;
         }
-        public List<Parentesco> ReadByAlumno(int id)
+        public List<Pariente> ReadByAlumno(int id)
         {
-            const string SQL_STATEMENT = "select * from Parentesco where Legajo_Alumno=@Legajo_Alumno ";
+            const string SQL_STATEMENT = "select * from Parentesco join Persona as p on p.Legajo=Parentesco.Legajo_Adulto  where Legajo_Alumno=@Legajo_Alumno ";
 
-            List<Parentesco> result = new List<Parentesco>();
+            List<Pariente> result = new List<Pariente>();
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
             {
@@ -139,18 +147,18 @@ namespace Data
                 {
                     while (dr.Read())
                     {
-                        Parentesco roles = ALoad(dr);
+                        Pariente roles = ALoad(dr);
                         result.Add(roles);
                     }
                 }
             }
             return result;
         }
-        public List<Parentesco> ReadByAdulto(int id)
+        public List<Pariente> ReadByAdulto(int id)
         {
-            const string SQL_STATEMENT = "select * from Parentesco where Legajo_Adulto=@Legajo_Adulto ";
+            const string SQL_STATEMENT = "select * from Parentesco join Persona as p on p.Legajo=Parentesco.Legajo_Adulto where Legajo_Adulto=@Legajo_Adulto ";
 
-            List<Parentesco> result = new List<Parentesco>();
+            List<Pariente> result = new List<Pariente>();
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
             {
@@ -160,26 +168,109 @@ namespace Data
                 {
                     while (dr.Read())
                     {
-                        Parentesco roles = ALoad(dr);
+                        Pariente roles = ALoad(dr);
                         result.Add(roles);
                     }
                 }
             }
             return result;
         }
-        public void Update(Parentesco entity)
+
+
+        #endregion
+
+        #region Pariente
+        
+
+        public Pariente Create(Pariente entity)
         {
-            const string SQL_STATEMENT = "update Parentesco set AutorizadoRetirar=@AutorizadoRetirar, Parentesco=@Parentesco where Id_Parentesco=@id ";
+            const string SQL_STATEMENT = "insert into Persona(nombre,apellido,direccion,DNI,ID_Tipo_Persona,fechaNacimiento,activo)values(@nombre,@apellido,@direccion,@DNI,(select ID_Tipo_Persona from TipoPersona  where Descripcion=@tipoPersona),@fechaNacimiento,1)";
+            var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
+            using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
+            {
+                db.AddInParameter(cmd, "@nombre", DbType.String, entity.nombre);
+                db.AddInParameter(cmd, "@apellido", DbType.String, entity.apellido);
+                db.AddInParameter(cmd, "@direccion", DbType.String, entity.direccion);
+                db.AddInParameter(cmd, "@DNI", DbType.String, entity.DNI);
+                db.AddInParameter(cmd, "@tipoPersona", DbType.String, "Maestro");
+                db.AddInParameter(cmd, "@fechaNacimiento", DbType.DateTime, entity.fechaNacimiento);
+                entity.Id = Convert.ToInt32(db.ExecuteScalar(cmd));
+            }
+            return entity;
+        }
+
+        public void Delete(int id)
+        {
+            const string SQL_STATEMENT = "update Persona set Activo=0 where Legajo=@Id";
+            var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
+            using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
+            {
+                db.AddInParameter(cmd, "@Id", DbType.Int32, id);
+                db.ExecuteNonQuery(cmd);
+            }
+        }
+
+        public Pariente ReadBy(int id)
+        {
+            const string SQL_STATEMENT = "select * from Persona where  activo=1 and Legajo=@Id";
+            Pariente roles = null;
 
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
             {
-                db.AddInParameter(cmd, "@AutorizadoRetirar", DbType.Boolean, entity.autorizadoRetirar);
-                db.AddInParameter(cmd, "@Parentesco", DbType.String, entity.parentesco);
+                db.AddInParameter(cmd, "@Id", DbType.Int32, id);
+                using (IDataReader dr = db.ExecuteReader(cmd))
+                {
+                    if (dr.Read())
+                    {
+                        roles = ALoad(dr);
+                    }
+                }
+            }
+            return roles;
+        }
+
+
+
+        public Pariente ReadBy(string id)
+        {
+            const string SQL_STATEMENT = "select * from Persona where  activo=1 and dni=@Id";
+            Pariente roles = null;
+
+            var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
+            using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
+            {
+                db.AddInParameter(cmd, "@Id", DbType.String, id);
+                using (IDataReader dr = db.ExecuteReader(cmd))
+                {
+                    if (dr.Read())
+                    {
+                        roles = ALoad(dr);
+                    }
+                }
+            }
+            return roles;
+        }
+        public void Update(Pariente entity)
+        {
+            const string SQL_STATEMENT = "update Persona set nombre=@nombre, apellido=@apellido, direccion=@direccion, DNI=@DNI,  fechaNacimiento=@fechaNacimiento  where legajo=@id ";
+
+            var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
+            using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
+            {
+                db.AddInParameter(cmd, "@nombre", DbType.String, entity.nombre);
+                db.AddInParameter(cmd, "@apellido", DbType.String, entity.apellido);
+                db.AddInParameter(cmd, "@direccion", DbType.String, entity.direccion);
+                db.AddInParameter(cmd, "@DNI", DbType.String, entity.DNI);
+
+                db.AddInParameter(cmd, "@fechaNacimiento", DbType.DateTime, entity.fechaNacimiento);
                 db.AddInParameter(cmd, "@id", DbType.String, entity.Id);
                 db.ExecuteNonQuery(cmd);
             }
         }
+
+        #endregion
+
 
     }
 }
