@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,10 +18,11 @@ namespace Entitites.Negocio.Personas
         public DateTime fechaNacimiento { get; set; }
         public List<Telefono> listaTelefono { get; set; }
 
-
+        public List<Documentacion> listaDocumentacion { get; set; }
         public Persona() { }
-        public Persona(List<Telefono> _listaTelefono) {
+        public Persona(List<Telefono> _listaTelefono, List<Documentacion> _listaDocumentacion) {
             listaTelefono = _listaTelefono;
+            listaDocumentacion = _listaDocumentacion;
         }
     }
 }

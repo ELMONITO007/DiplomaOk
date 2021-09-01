@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Data;
 using Entities;
 using Entities.Usuario;
+using Entitites.Negocio.Personas;
 
 namespace Negocio
 {
@@ -57,6 +58,10 @@ namespace Negocio
                 DVVComponent dVVComponent = new DVVComponent();
                 dVVComponent.CrearDVV(ListaDVH(), "Usuario");
 
+                Usuarios usuariosCreado = new Usuarios();
+         
+            
+
                 return true;
             }
             else
@@ -65,8 +70,44 @@ namespace Negocio
             }
         }
 
+        public bool Crear(Usuarios objeto,Persona  persona)
+        {
 
-      
+
+            UsuarioParcial usuariosFormateado = new UsuarioParcial();
+
+            usuariosFormateado.Email = objeto.Email;
+            usuariosFormateado.UserName = objeto.UserName;
+            usuariosFormateado.Password = objeto.Password;
+            if (Verificar(objeto.UserName))
+            {
+
+                DigitoVerificadorH digitoVerificadorH = new DigitoVerificadorH();
+                digitoVerificadorH.DVH = DigitoVerificadorH.getDigitoEncriptado(usuariosFormateado);
+                EncriptarSHA256 encriptarSHA256 = new EncriptarSHA256(objeto.Password);
+                Usuarios usuarios = new Usuarios(digitoVerificadorH);
+                usuarios = objeto;
+                usuarios.Password = encriptarSHA256.Hashear();
+                UsuarioDac usuarioDac = new UsuarioDac();
+                usuarioDac.Create(usuarios);
+
+
+                DVVComponent dVVComponent = new DVVComponent();
+                dVVComponent.CrearDVV(ListaDVH(), "Usuario");
+
+                Usuarios usuariosCreado = new Usuarios();
+                usuariosCreado = ReadByEmail(objeto.Email);
+                usuarioDac.AgregarUsuarioAlaPersona(usuariosCreado, persona);
+
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         #endregion
 
         public void Bloquear(int id)
@@ -190,7 +231,15 @@ namespace Negocio
 
         public bool Verificar(Usuarios entity)
         {
-            throw new NotImplementedException();
+            if (ReadByEmail(entity.Email)==null)
+            {
+                return true;
+            }
+            else
+            {
+                return true;
+            }
+          
         }
     }
 }

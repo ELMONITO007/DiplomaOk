@@ -11,7 +11,7 @@ namespace Entitites.Negocio.Personas
     {
 
         public List<Pariente> parientes { get; set; }
-
+     
         public Alumno() { }
         public Alumno(List<Pariente> _parientes) { parientes = _parientes; }
 

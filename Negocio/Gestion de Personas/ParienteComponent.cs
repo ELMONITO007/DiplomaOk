@@ -11,7 +11,7 @@ namespace Negocio.Gestion_de_Personas
  public   class ParienteComponent : IRepository2<Pariente>
     {
 
-        #region ParetnescoPerson
+        #region ParetnescoPersona
         public List<Pariente> buscar(string palabra)
         {
             List<Pariente> entity = new List<Pariente>();

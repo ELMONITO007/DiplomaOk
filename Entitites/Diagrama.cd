@@ -35,11 +35,6 @@
   </Class>
   <Class Name="Entitites.Negocio.Salas.Curso">
     <Position X="4.5" Y="4.5" Width="1.5" />
-    <AssociationLine Name="maestroPrincipal" Type="Entitites.Negocio.Personas.Maestro">
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="0.068" Y="0.248" />
-      </MemberNameLabel>
-    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAACAABAAAAACACABAAAAAAAAAAARAAAAAAAAAAAAAA=</HashCode>
       <FileName>Negocio\Salas\Curso.cs</FileName>
@@ -47,7 +42,6 @@
     <ShowAsAssociation>
       <Property Name="grado" />
       <Property Name="sala" />
-      <Property Name="maestroPrincipal" />
     </ShowAsAssociation>
   </Class>
   <Class Name="Entitites.Negocio.Personas.Persona" Collapsed="true">
@@ -60,7 +54,7 @@
   <Class Name="Entitites.Negocio.Personas.Alumno" Collapsed="true">
     <Position X="6.25" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Negocio\Personas\Alumno.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -69,13 +63,6 @@
     <TypeIdentifier>
       <HashCode>AAACAAAAQAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
       <FileName>Negocio\Personas\Telefono.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Entitites.Negocio.Personas.Maestro" Collapsed="true">
-    <Position X="8.25" Y="2.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Negocio\Personas\Maestro.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Entitites.Negocio.Salas.SalaMusica" Collapsed="true">
@@ -102,7 +89,7 @@
   <Class Name="Entities.Pariente" Collapsed="true">
     <Position X="10" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAIAACAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAIAACAAAAAgAEAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Negocio\Personas\Pariente.cs</FileName>
     </TypeIdentifier>
   </Class>

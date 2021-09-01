@@ -15,6 +15,7 @@ namespace Negocio.Gestion_de_Alumnos
 {
     public class DocumentoComponent : IRepository2<Documento>
     {
+        public DocumentoComponent() { }
         public List<Documento> buscar(string palabra)
         {
             List<Documento> entity = new List<Documento>();

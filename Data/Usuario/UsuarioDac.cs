@@ -8,11 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Entities.Usuario;
+using Entitites.Negocio.Personas;
 
 namespace Data
 {
     public class UsuarioDac : DataAccessComponent, IRepository2<Usuarios>
     {
+        #region Usuario
         private Usuarios LoadUsuarioa(IDataReader dr)
         {
             DigitoVerificadorH digitoVerificadorH = new DigitoVerificadorH();
@@ -219,5 +221,24 @@ namespace Data
             }
             return result;
         }
+        #endregion
+
+
+        #region UsuarioPersona
+
+        public Usuarios AgregarUsuarioAlaPersona(Usuarios entity,Persona  persona)
+        {
+            const string SQL_STATEMENT = "insert into UsuarioPersona(Legajo,Id)values(@Legajo,@Id)";
+            var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
+            using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
+            {
+                db.AddInParameter(cmd, "@Legajo", DbType.Int32, persona.Id);
+                db.AddInParameter(cmd, "@Id", DbType.Int32, entity.Id);
+                entity.Id = Convert.ToInt32(db.ExecuteScalar(cmd));
+            }
+            return entity;
+        }
+
+        #endregion
     }
 }
