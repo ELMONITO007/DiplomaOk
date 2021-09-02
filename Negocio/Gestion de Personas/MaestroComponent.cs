@@ -8,11 +8,13 @@ using Data;
 using Entitites.Negocio.Personas;
 using Data.Gestion_de_Personas;
 using Entitites;
+using Negocio.Gestion_de_Alumnos;
 
 namespace Negocio.Gestion_de_Personas
 {
     public class MaestroComponent : IRepository2<Maestro>
     {
+        #region Maestro
         public List<Maestro> buscar(string palabra)
         {
 
@@ -134,5 +136,58 @@ namespace Negocio.Gestion_de_Personas
                 return false;
             }
         }
+        #endregion
+
+        #region Especialidad
+
+        public void AgregarEspecialidad(Maestro entity)
+
+
+        {
+            MaestroDAC maestroDAC = new MaestroDAC();
+            foreach (var item in entity.especialidades)
+            {
+                
+               List< Especialidad> especialidad = new List<Especialidad>();
+                EspecialidadComponent especialidadComponent = new EspecialidadComponent();
+                item.Id = especialidadComponent.ReadBy(item.especialidad).Id;
+                especialidad.Add(item);
+                Maestro maestro = new Maestro(especialidad);
+                maestro.Id = entity.Id;
+                maestroDAC.AgregarEspecialidad  (maestro);
+            }
+        
+        
+        
+        }
+        public void QuitarEspecialidad(Maestro entity)
+        {
+            MaestroDAC maestroDAC = new MaestroDAC();
+            
+            EspecialidadComponent especialidadComponent = new EspecialidadComponent();
+           List< Especialidad> especialidad = new List<Especialidad>();
+            especialidad.Add(especialidadComponent.ReadBy(entity.especialidades[0].especialidad));
+            List<Documento> documentos = new List<Documento>();
+            documentos = entity.documentos;
+            Maestro maestro = new Maestro(especialidad, documentos);
+            maestro.Id = entity.Id;
+            maestroDAC.QuitarEspecialidad(maestro);
+        }
+        public Maestro ReadByMaestroYespecialidad(Maestro legajo)
+        {
+            MaestroDAC maestroDAC = new MaestroDAC();
+            return maestroDAC.ReadBy(legajo);
+
+        }
+
+        public List<Maestro> ReadByEspecialidad(Maestro legajo)
+        {
+            MaestroDAC maestroDAC = new MaestroDAC();
+            return maestroDAC.ReadByEspecialidad(legajo);
+
+        }
+
+
+        #endregion
     }
 }

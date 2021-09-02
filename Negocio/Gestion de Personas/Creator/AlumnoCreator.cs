@@ -40,7 +40,7 @@ namespace Negocio.Gestion_de_Personas.Creator
             }
         }
 
-        public void AgregarDocumentacion(List<Documento> listaDocumento, Alergias alergias, Casa casa, Familia familia, ObrasSocial obrasSocial)
+        public void AgregarDocumentacion(List<Documento> listaDocumento, Alergias alergias, Casa casa, Familia familia, ObrasSocial obrasSocial,int legajo)
         {
 
             AlergiaComponent alergiaComponent = new AlergiaComponent();
@@ -48,8 +48,17 @@ namespace Negocio.Gestion_de_Personas.Creator
             FamiliaComponent familiaComponent = new FamiliaComponent();
             ObraSocialComponent obraSocialComponent = new ObraSocialComponent();
             DocumentoComponent documentoComponent = new DocumentoComponent();
+
+            alergias.persona.Id = legajo;
+            casa.persona.Id = legajo;
+
+            familia.persona.Id = legajo;
+
+            obrasSocial.persona.Id = legajo;
+
             foreach (var item in listaDocumento)
             {
+                item.persona.Id = legajo;
                 documentoComponent.Create(item);
             }
 
@@ -76,11 +85,14 @@ namespace Negocio.Gestion_de_Personas.Creator
                 {
                     alumno.listaTelefono = persona.listaTelefono;
                     AgregarTelefono(alumno);
+                    
+            
                     return "";
                     
                 }
                 else
                 {
+                    alumnoComponent.Delete(alumno.Id);
                     return "No se creo la persona, el usuario existe";
                 }
 

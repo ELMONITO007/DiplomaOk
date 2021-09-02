@@ -212,7 +212,7 @@ namespace Data.Gestion_de_Personas
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
             {
                 db.AddInParameter(cmd, "@Legajo", DbType.Int32, entity.Id);
-                db.AddInParameter(cmd, "@ID_Especialidad", DbType.Int32, entity.especialidades[1].Id);
+                db.AddInParameter(cmd, "@ID_Especialidad", DbType.Int32, entity.especialidades[0].Id);
                 entity.Id = Convert.ToInt32(db.ExecuteScalar(cmd));
             }
             
@@ -254,10 +254,10 @@ namespace Data.Gestion_de_Personas
             }
             return result;
         }
-        public Maestro ReadByEspecialidad(Maestro legajo)
+        public List< Maestro> ReadByEspecialidad(Maestro legajo)
         {
             const string SQL_STATEMENT = "select * from EspecialidadPersona as ep join Persona as p on p.Legajo=ep.Legajo join Especialidad as e on ep.ID_Especialidad=e.ID_Especialidad where p.Activo=1  and ep.ID_Especialidad=@ID_Especialidad";
-            Maestro result = null;
+            List< Maestro> result = null;
 
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
@@ -269,7 +269,9 @@ namespace Data.Gestion_de_Personas
                 {
                     while (dr.Read())
                     {
-                        result = ALoadEspecialidad(dr);
+                        Maestro roles = ALoadEspecialidad(dr);
+                        result.Add(roles);
+                      
 
                     }
                 }

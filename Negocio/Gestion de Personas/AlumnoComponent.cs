@@ -51,10 +51,11 @@ namespace Negocio.Gestion_de_Personas
         {
             if (Verificar(entity))
             {
+                
                 AlumnoDAC idiomaDAC = new AlumnoDAC();
                 Alumno persona = new Alumno();
                 persona = idiomaDAC.Create(entity);
-
+            
 
                 return persona;
             }
