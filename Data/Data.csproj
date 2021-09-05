@@ -78,11 +78,14 @@
     <Compile Include="Gestion de Personas\MaestroHorarioDAC.cs" />
     <Compile Include="Gestion de Personas\ObraSocialDAC.cs" />
     <Compile Include="Gestion de Personas\ParienteDAC.cs" />
+    <Compile Include="Gestion de Personas\ProveedorDAC.cs" />
     <Compile Include="Gestion de Personas\TelefonoDAC.cs" />
     <Compile Include="Gestion Salas\CursoDAC.cs" />
     <Compile Include="Gestion Salas\GradoDac.cs" />
     <Compile Include="Gestion Salas\SalaDac.cs" />
     <Compile Include="Gestion Salas\SalaHorarioDAC.cs" />
+    <Compile Include="Infra\GestionMantenimientoDAC.cs" />
+    <Compile Include="Infra\MantenimientoDAC.cs" />
     <Compile Include="IRepository2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Servicios\BackupDAC.cs" />

@@ -53,6 +53,8 @@
     <Compile Include="Alumnos y Maestros\EspecialidadComponent.cs" />
     <Compile Include="Alumnos y Maestros\FamiliaComponent.cs" />
     <Compile Include="Alumnos y Maestros\ObraSocialComponent.cs" />
+    <Compile Include="Gestion de Infraestructura\GestionMantenimientoComponent.cs" />
+    <Compile Include="Gestion de Infraestructura\ProveedorComponenent.cs" />
     <Compile Include="Gestion de Personas\Creator\AlumnoCreator.cs" />
     <Compile Include="Gestion de Personas\Creator\MaestroCreator.cs" />
     <Compile Include="Gestion de Personas\Creator\PersonaCreator.cs" />

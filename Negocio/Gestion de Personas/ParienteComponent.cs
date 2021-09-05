@@ -11,7 +11,7 @@ namespace Negocio.Gestion_de_Personas
  public   class ParienteComponent : IRepository2<Pariente>
     {
 
-        #region ParetnescoPersona
+        #region ParentescoPersona
         public List<Pariente> buscar(string palabra)
         {
             List<Pariente> entity = new List<Pariente>();
@@ -140,6 +140,8 @@ namespace Negocio.Gestion_de_Personas
             }
             else
             {
+
+
                 return false;
             }
         }
@@ -158,12 +160,20 @@ namespace Negocio.Gestion_de_Personas
                 ParienteDAC idiomaDAC = new ParienteDAC();
                 Pariente persona = new Pariente();
                 persona = idiomaDAC.Create(entity);
+                persona = ReadBy(entity.DNI);
+                persona.alumno.Id = entity.alumno.Id;
 
+                CreateParienteAlumno(persona);
 
                 return persona;
             }
             else
             {
+                Pariente persona = new Pariente();
+                persona = ReadBy(entity.DNI);
+                persona.alumno.Id = entity.alumno.Id;
+
+                CreateParienteAlumno(persona);
                 return null;
             }
         }

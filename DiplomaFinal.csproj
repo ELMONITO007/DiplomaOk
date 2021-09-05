@@ -55,6 +55,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Gestion de Infraestructura\frmMantenimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Infraestructura\frmMantenimiento.designer.cs">
+      <DependentUpon>frmMantenimiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion de Infraestructura\frmProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Infraestructura\frmProveedores.designer.cs">
+      <DependentUpon>frmProveedores.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gestion de Salas\frmABMsalas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +108,12 @@
     </Compile>
     <Compile Include="Index\frmSalasIndex.designer.cs">
       <DependentUpon>frmSalasIndex.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Index\InfraIndex.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Index\InfraIndex.designer.cs">
+      <DependentUpon>InfraIndex.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -171,6 +189,12 @@
     <Compile Include="Servicio\IUservicios.Designer.cs">
       <DependentUpon>IUservicios.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Gestion de Infraestructura\frmMantenimiento.resx">
+      <DependentUpon>frmMantenimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion de Infraestructura\frmProveedores.resx">
+      <DependentUpon>frmProveedores.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Gestion de Salas\frmABMsalas.resx">
       <DependentUpon>frmABMsalas.cs</DependentUpon>
     </EmbeddedResource>
@@ -191,6 +215,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Index\frmSalasIndex.resx">
       <DependentUpon>frmSalasIndex.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Index\InfraIndex.resx">
+      <DependentUpon>InfraIndex.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
