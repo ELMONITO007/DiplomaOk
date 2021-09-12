@@ -163,7 +163,7 @@ namespace Negocio.Gestion_de_Infraestructura
         public bool UpdateTipoProveedor(Proveedor entity)
         {
             ProveedorDAC idiomaDAC = new ProveedorDAC();
-            idiomaDAC.Update(entity);
+            idiomaDAC.UpdateTipoProveedor(entity);
             return true;
         }
 

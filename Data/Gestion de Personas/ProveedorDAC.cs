@@ -17,13 +17,19 @@ namespace Data.Gestion_de_Infraestructura
         #region Proveedor
         public Proveedor ALoad(IDataReader entity)
         {
-            Proveedor proveedor = new Proveedor();
+            List<Telefono> listaTelefono = new List<Telefono>();
+            Telefono telefono = new Telefono();
+            string t = GetDataValue<string>(entity, "telefono");
+            telefono.numero = int.Parse(t);
+            listaTelefono.Add(telefono);
+            Proveedor proveedor = new Proveedor(listaTelefono);
             proveedor.Id = GetDataValue<int>(entity, "Id_proveedor");
             proveedor.tipoProveedor = GetDataValue<string>(entity, "TipoProveedor");
             proveedor.matricula = GetDataValue<string>(entity, "matricula");
             proveedor.nombre = GetDataValue<string>(entity, "nombre");
-            proveedor.listaTelefono[0].numero = GetDataValue<int>(entity, "telefono");
             proveedor.contacto = GetDataValue<string>(entity, "contacto");
+
+
             proveedor.cuit = GetDataValue<string>(entity, "cuit");
 
             return proveedor;
@@ -36,11 +42,11 @@ namespace Data.Gestion_de_Infraestructura
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
             {
 
-                db.AddInParameter(cmd, "@TipoProveedor", DbType.Int32, entity.tipoProveedor);
+                db.AddInParameter(cmd, "@TipoProveedor", DbType.String, entity.tipoProveedor);
 
                 db.AddInParameter(cmd, "@matricula", DbType.String, entity.matricula);
                 db.AddInParameter(cmd, "@nombre", DbType.String, entity.nombre);
-                db.AddInParameter(cmd, "@telefono", DbType.String, entity.listaTelefono[0].codigo_Area.ToString() + entity.listaTelefono[0].numero.ToString());
+                db.AddInParameter(cmd, "@telefono", DbType.String, entity.listaTelefono[0].numero.ToString());
                 db.AddInParameter(cmd, "@contacto", DbType.String, entity.contacto);
                 db.AddInParameter(cmd, "@cuit", DbType.String, entity.cuit);
 
@@ -62,7 +68,7 @@ namespace Data.Gestion_de_Infraestructura
 
         public List<Proveedor> Read()
         {
-            const string SQL_STATEMENT = "select * from Proveedor as p join TipoProveedor as tp on tp.Id_TipoProveedor=p.Id_TipoProveedor where tp.activo=1";
+            const string SQL_STATEMENT = "select * from Proveedor as p join TipoProveedor as tp on tp.Id_TipoProveedor=p.Id_TipoProveedor where p.activo=1";
 
             List<Proveedor> result = new List<Proveedor>();
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
@@ -123,7 +129,7 @@ namespace Data.Gestion_de_Infraestructura
 
         public Proveedor ReadBy(string id)
         {
-            const string SQL_STATEMENT = "select * from Proveedor as p join TipoProveedor as tp on tp.Id_TipoProveedor=p.Id_TipoProveedor where activo=1 and cuit=@ID_TipoSala";
+            const string SQL_STATEMENT = "select * from Proveedor as p join TipoProveedor as tp on tp.Id_TipoProveedor=p.Id_TipoProveedor where p.activo=1 and cuit=@ID_TipoSala";
 
             Proveedor result = null;
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
@@ -155,7 +161,7 @@ namespace Data.Gestion_de_Infraestructura
 
                 db.AddInParameter(cmd, "@matricula", DbType.String, entity.matricula);
                 db.AddInParameter(cmd, "@nombre", DbType.String, entity.nombre);
-                db.AddInParameter(cmd, "@telefono", DbType.String, entity.listaTelefono[0].codigo_Area.ToString() + entity.listaTelefono[0].numero.ToString());
+                db.AddInParameter(cmd, "@telefono", DbType.String, entity.listaTelefono[0].numero.ToString());
                 db.AddInParameter(cmd, "@contacto", DbType.String, entity.contacto);
                 db.AddInParameter(cmd, "@cuit", DbType.String, entity.cuit);
                 db.ExecuteNonQuery(cmd);
@@ -174,7 +180,7 @@ namespace Data.Gestion_de_Infraestructura
         public Proveedor ALoadTipoProveedor(IDataReader entity)
         {
             Proveedor tipoProveedor = new Proveedor();
-          
+          tipoProveedor.Id= GetDataValue<int>(entity, "Id_TipoProveedor");
             tipoProveedor.tipoProveedor = GetDataValue<string>(entity, "TipoProveedor");
             return tipoProveedor;
         }

@@ -13,5 +13,13 @@ namespace Entitites.Negocio.Personas
         public string contacto { get; set; }
 
         public string tipoProveedor { get; set; }
+        public Proveedor()
+        {
+
+        }
+        public Proveedor(List<Telefono> _listaTelefono)
+        {
+            listaTelefono = _listaTelefono;
+        }
     }
 }
