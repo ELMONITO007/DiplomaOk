@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entities;
+using Entitites.Negocio.Personas;
 using MetroFramework;
 using Negocio.Gestion_de_Infraestructura;
 using Negocio.Servicios.REGEX;
@@ -34,9 +35,9 @@ namespace DiplomaFinal.Gestion_de_Infraestructura
                 mgProveedores.Rows[n].Cells[0].Value = item.Id;
                 mgProveedores.Rows[n].Cells[1].Value = item.matricula;
                 mgProveedores.Rows[n].Cells[2].Value = item.nombre;
-                mgProveedores.Rows[n].Cells[3].Value = item.telefono;
+                mgProveedores.Rows[n].Cells[3].Value = item.listaTelefono[0].numero;
                 mgProveedores.Rows[n].Cells[4].Value = item.contacto;
-                mgProveedores.Rows[n].Cells[5].Value = item.tipoProveedor.tipoProveedor;
+                mgProveedores.Rows[n].Cells[5].Value = item.tipoProveedor;
 
                 mgProveedores.Rows[n].Cells[6].Value = item.cuit;
 
@@ -50,8 +51,8 @@ namespace DiplomaFinal.Gestion_de_Infraestructura
 
             int n = 0;
             mgTipoProveedor.Rows.Clear();
-            TipoProveedorComponent SalaComponent = new TipoProveedorComponent();
-            foreach (var item in SalaComponent.Read())
+            ProveedorComponenent SalaComponent = new ProveedorComponenent();
+            foreach (var item in SalaComponent.ReadTipoProveedor())
             {
                 n = mgTipoProveedor.Rows.Add();
                 mgTipoProveedor.Rows[n].Cells[0].Value = item.Id;
@@ -110,12 +111,12 @@ namespace DiplomaFinal.Gestion_de_Infraestructura
             if (VerificarCampos())
             {
                 Proveedor proveedor = new Proveedor();
-                TipoProveedor tipoProveedor = new TipoProveedor();
+           Proveedor tipoProveedor = new Proveedor();
                 proveedor.matricula = txtMatricula.Text;
                 proveedor.nombre = txtNombreProveedor.Text;
-                tipoProveedor = (TipoProveedor)txtTipo.SelectedItem;
-                proveedor.tipoProveedor = tipoProveedor;
-                proveedor.telefono = txtTelefono.Text;
+                tipoProveedor = (Proveedor)txtTipo.SelectedItem;
+                //proveedor.tipoProveedor = proveedor;
+                proveedor.listaTelefono[0].numero =double.Parse( txtTelefono.Text);
                 proveedor.contacto = txtContacto.Text;
                 proveedor.cuit = txtCUIT.Text;
                 ProveedorComponenent proveedorComponenent = new ProveedorComponenent();
@@ -139,20 +140,20 @@ namespace DiplomaFinal.Gestion_de_Infraestructura
         {
             if (VerificarCampos())
             {
-                Proveedor proveedor = new Proveedor();
-                TipoProveedor tipoProveedor = new TipoProveedor();
-                proveedor.Id = int.Parse(mgProveedores.CurrentRow.Cells[0].Value.ToString());
-                proveedor.matricula = txtMatricula.Text;
-                proveedor.nombre = txtNombreProveedor.Text;
-                tipoProveedor = (TipoProveedor)txtTipo.SelectedItem;
-                proveedor.tipoProveedor = tipoProveedor;
-                proveedor.telefono = txtTelefono.Text;
-                proveedor.contacto = txtContacto.Text;
-                proveedor.cuit = txtCUIT.Text;
-                ProveedorComponenent proveedorComponenent = new ProveedorComponenent();
-                proveedorComponenent.Update(proveedor);
+                //Proveedor proveedor = new Proveedor();
+                //TipoProveedor tipoProveedor = new TipoProveedor();
+                //proveedor.Id = int.Parse(mgProveedores.CurrentRow.Cells[0].Value.ToString());
+                //proveedor.matricula = txtMatricula.Text;
+                //proveedor.nombre = txtNombreProveedor.Text;
+                //tipoProveedor = (TipoProveedor)txtTipo.SelectedItem;
+                //proveedor.tipoProveedor = tipoProveedor;
+                //proveedor.telefono = txtTelefono.Text;
+                //proveedor.contacto = txtContacto.Text;
+                //proveedor.cuit = txtCUIT.Text;
+                //ProveedorComponenent proveedorComponenent = new ProveedorComponenent();
+                //proveedorComponenent.Update(proveedor);
 
-                llenarGrillaProveedor();
+                //llenarGrillaProveedor();
 
             }
         }
@@ -189,9 +190,9 @@ namespace DiplomaFinal.Gestion_de_Infraestructura
                     mgProveedores.Rows[n].Cells[0].Value = item.Id;
                     mgProveedores.Rows[n].Cells[1].Value = item.matricula;
                     mgProveedores.Rows[n].Cells[2].Value = item.nombre;
-                    mgProveedores.Rows[n].Cells[3].Value = item.telefono;
+                    mgProveedores.Rows[n].Cells[3].Value = item.listaTelefono[0].numero;
                     mgProveedores.Rows[n].Cells[4].Value = item.contacto;
-                    mgProveedores.Rows[n].Cells[5].Value = item.tipoProveedor.tipoProveedor;
+                    mgProveedores.Rows[n].Cells[5].Value = item.tipoProveedor;
 
                     mgProveedores.Rows[n].Cells[6].Value = item.cuit;
 
@@ -240,9 +241,9 @@ namespace DiplomaFinal.Gestion_de_Infraestructura
         {
             if (verificarCamposTipo())
             {
-                TipoProveedor tipoProveedor = new TipoProveedor();
+                Proveedor tipoProveedor = new Proveedor();
                 tipoProveedor.tipoProveedor = txtTipoProveedor.Text;
-                TipoProveedorComponent tipoProveedorComponent = new TipoProveedorComponent();
+                ProveedorComponenent tipoProveedorComponent = new ProveedorComponenent();
                 if (tipoProveedorComponent.Create(tipoProveedor) == null)
                 {
 
@@ -270,10 +271,10 @@ namespace DiplomaFinal.Gestion_de_Infraestructura
         {
             if (verificarCamposTipo())
             {
-                TipoProveedor tipoProveedor = new TipoProveedor();
+                Proveedor tipoProveedor = new Proveedor();
                 tipoProveedor.tipoProveedor = txtTipoProveedor.Text;
                 tipoProveedor.Id = int.Parse(mgTipoProveedor.CurrentRow.Cells[0].Value.ToString()) ;
-                TipoProveedorComponent tipoProveedorComponent = new TipoProveedorComponent();
+                ProveedorComponenent tipoProveedorComponent = new ProveedorComponenent();
                 tipoProveedorComponent.Update(tipoProveedor);
                     RecorridoForm.LimpiarTXT(this);
                     llenargrillaTipo();
@@ -283,8 +284,8 @@ namespace DiplomaFinal.Gestion_de_Infraestructura
             }
 
         private void metroButton3_Click(object sender, EventArgs e)
-        {
-            TipoProveedorComponent tipoProveedorComponent = new TipoProveedorComponent();
+        { 
+            ProveedorComponenent tipoProveedorComponent = new ProveedorComponenent();
             tipoProveedorComponent.Delete(int.Parse(mgTipoProveedor.CurrentRow.Cells[0].Value.ToString()));
             llenargrillaTipo();
         }

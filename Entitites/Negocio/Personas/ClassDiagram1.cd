@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Entitites.Negocio.Personas.Telefono" Collapsed="true">
+    <Position X="11.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAQAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Negocio\Personas\Telefono.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entitites.Negocio.Personas.Persona" Collapsed="true">
+    <Position X="8.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAACAAAAgAQAIACAAEAAAAAAAAEAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Negocio\Personas\Persona.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entitites.Negocio.Personas.Proveedor" Collapsed="true">
+    <Position X="9.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Negocio\Personas\Proveedor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entitites.Negocio.Personas.Alumno" Collapsed="true">
+    <Position X="5.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Negocio\Personas\Alumno.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.Especialidad" Collapsed="true">
+    <Position X="7.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Negocio\Personas\Especialidad.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entities.Pariente" Collapsed="true">
+    <Position X="12" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAACAAAAAgAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Negocio\Personas\Pariente.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entitites.Maestro" Collapsed="true">
+    <Position X="7.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Negocio\Personas\Maestro.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

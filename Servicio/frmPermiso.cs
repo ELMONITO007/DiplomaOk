@@ -43,10 +43,35 @@ namespace DiplomaFinal.Servicio
 
 
 
-
-            foreach (var item in roles.listaRol)
+            List<Roles> lista = new List<Roles>();
+            foreach (var list in roles.listaRol)
             {
-                if (item.listaRol.Count == 0)
+                Roles elRol = new Roles();
+                elRol = list;
+                lista.Add(elRol);
+            }
+
+
+            Roles unrol = new Roles(lista);
+
+
+
+
+            foreach (var item in unrol.listaRol)
+            {
+                if (item.listaRol!=null)
+                {
+                    List<Roles> Sublista = new List<Roles>();
+                    Sublista = item.listaRol;
+                    Roles roles1 = new Roles(Sublista);
+                    roles1.name = item.name;
+                    roles1.id = item.id;
+                }
+                
+         
+
+
+                if (item.listaRol == null)
                 {
                     char a = '-';
                     string r = "";

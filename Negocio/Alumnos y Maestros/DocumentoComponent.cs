@@ -67,7 +67,7 @@ namespace Negocio.Gestion_de_Alumnos
             }
 
         }
-        private void EliminarArchivo(Documentacion entity)
+        private void EliminarArchivo(Documento entity)
         {
             string ruta = @"C:\Documentacion\" + entity.persona.DNI + @"\" + DateTime.Now.Year + @"\" + entity.NombreDocumento;
             if (File.Exists(ruta))

@@ -38,8 +38,14 @@ namespace Entities
         public Roles() { }
 
 
+        public Roles(List<Roles> _listaRol )
+        {
+          
+            listaRol = _listaRol;
 
-       
+
+        }
+
 
 
     }

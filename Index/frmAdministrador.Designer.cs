@@ -105,6 +105,7 @@ namespace DiplomaFinal.Index
             this.metroTile4.Tag = "Gestion de Infra";
             this.metroTile4.Text = "Gestion Infraestructura";
             this.metroTile4.UseSelectable = true;
+            this.metroTile4.Click += new System.EventHandler(this.metroTile4_Click);
             // 
             // metroTile3
             // 

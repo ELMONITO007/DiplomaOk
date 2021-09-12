@@ -91,6 +91,7 @@
   <ItemGroup>
     <None Include="Diagrama.cd" />
     <None Include="Negocio\Alumnos y Maestros\ClassDiagram1.cd" />
+    <None Include="Negocio\Personas\ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

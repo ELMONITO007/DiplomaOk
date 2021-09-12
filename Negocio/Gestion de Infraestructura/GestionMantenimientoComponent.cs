@@ -1,4 +1,6 @@
-﻿using Entities;
+﻿using Data;
+using Entities;
+using Entitites.Negocio.Personas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,37 +30,100 @@ namespace Negocio.Gestion_de_Infraestructura
 
         public GestionMantenimiento Create(GestionMantenimiento entity)
         {
-            throw new NotImplementedException();
+            if (Verificar(entity))
+            {
+                GestionMantenimientoDAC idiomaDAC = new GestionMantenimientoDAC();
+                GestionMantenimiento persona = new GestionMantenimiento();
+                persona = idiomaDAC.Create(entity);
+
+
+                return persona;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            GestionMantenimientoDAC idiomaDAC = new GestionMantenimientoDAC();
+            idiomaDAC.Delete(id);
         }
 
         public List<GestionMantenimiento> Read()
         {
-            throw new NotImplementedException();
+            GestionMantenimientoDAC personaDAC = new GestionMantenimientoDAC();
+            List<GestionMantenimiento> result = new List<GestionMantenimiento>();
+            foreach (GestionMantenimiento item in personaDAC.Read())
+            {
+     
+                ProveedorComponenent proveedorComponenent = new ProveedorComponenent();
+                Proveedor proveedor = new Proveedor();
+                proveedor = proveedorComponenent.ReadByTipoProveedor(item.proveedor.Id);
+                GestionMantenimiento tipoMantenimiento = new GestionMantenimiento(proveedor);
+                tipoMantenimiento.periocidad = item.periocidad;
+                tipoMantenimiento.tipoMantenimiento = item.tipoMantenimiento;
+                tipoMantenimiento.Id = item.Id;
+
+                result.Add(tipoMantenimiento);
+
+
+            }
+            return result;
         }
 
         public GestionMantenimiento ReadBy(int id)
         {
-            throw new NotImplementedException();
+            GestionMantenimientoDAC gestionMantenimientoDAC = new GestionMantenimientoDAC();
+            GestionMantenimiento result = new GestionMantenimiento();
+            result = gestionMantenimientoDAC.ReadBy(id);
+
+                ProveedorComponenent proveedorComponenent = new ProveedorComponenent();
+                Proveedor proveedor = new Proveedor();
+
+                proveedor = proveedorComponenent.ReadByTipoProveedor(result.proveedor.Id);
+                GestionMantenimiento tipoMantenimiento = new GestionMantenimiento(proveedor);
+                tipoMantenimiento.periocidad = result.periocidad;
+                tipoMantenimiento.tipoMantenimiento = result.tipoMantenimiento;
+                tipoMantenimiento.Id = result.Id;
+
+        
+
+
+            
+            return tipoMantenimiento;
         }
 
         public GestionMantenimiento ReadBy(string id)
         {
-            throw new NotImplementedException();
+            GestionMantenimientoDAC gestionMantenimientoDAC = new GestionMantenimientoDAC();
+            GestionMantenimiento result = new GestionMantenimiento();
+            result = gestionMantenimientoDAC.ReadBy(id);
+
+            ProveedorComponenent proveedorComponenent = new ProveedorComponenent();
+            Proveedor proveedor = new Proveedor();
+
+            proveedor = proveedorComponenent.ReadByTipoProveedor(result.proveedor.Id);
+            GestionMantenimiento tipoMantenimiento = new GestionMantenimiento(proveedor);
+            tipoMantenimiento.periocidad = result.periocidad;
+            tipoMantenimiento.tipoMantenimiento = result.tipoMantenimiento;
+            tipoMantenimiento.Id = result.Id;
+
+
+            return tipoMantenimiento;
         }
 
         public bool Update(GestionMantenimiento entity)
         {
-            throw new NotImplementedException();
+            GestionMantenimientoDAC gestionMantenimientoDAC = new GestionMantenimientoDAC();
+            gestionMantenimientoDAC.Update(entity);
+            return true;
         }
 
         public bool Verificar(GestionMantenimiento entity)
         {
-            throw new NotImplementedException();
+            return true;
         }
     }
 }

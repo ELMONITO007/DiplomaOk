@@ -118,25 +118,26 @@ namespace Negocio
             Roles roles = new Roles();
             RolesDAC rolesDAC = new RolesDAC();
             roles = entity;
-
+            List<Roles> listaRol = new List<Roles>();
             foreach (Roles item in ObtenerPermisosORolesDeUnRol(entity.Id))
             {
 
                 if (rolesDAC.VerificarSiEsUnPermiso(item.Id) != null)
                 {
-                    roles.listaRol.Add(item);
+
+                    listaRol.Add(item);
                 }
                 else if (rolesDAC.VerificarSiEsUnRol(item.Id) != null)
                 {
                     Roles roles1 = new Roles();
                     roles1 = ObtenerComposite(item);
-                    roles.listaRol.Add(roles1);
+                    listaRol.Add(roles1);
                 }
 
 
             }
 
-
+            roles.listaRol = listaRol;
 
             return roles;
 
@@ -182,7 +183,7 @@ namespace Negocio
             result = rolesDAC.ReadBy(id);
             roles.listaRol = ObtenerPermisosORolesDeUnRol(id);
 
-
+            List<Roles> listaroles = new List<Roles>();
 
             foreach (Roles item in rolesBase.listaRol)
             {
@@ -202,13 +203,15 @@ namespace Negocio
                 }
                 if (a == 0)
                 {
-                    result.listaRol.Add(item);
+                    Roles unRol = new Roles();
+                    unRol = item;
+                    listaroles.Add(unRol);
                 }
 
 
             }
 
-
+            result.listaRol = listaroles;
             return result;
 
         }

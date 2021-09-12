@@ -62,7 +62,7 @@ namespace Data.Gestion_de_Infraestructura
 
         public List<Proveedor> Read()
         {
-            const string SQL_STATEMENT = "select * from Proveedor as p join TipoProveedor as tp on tp.Id_TipoProveedor=p.Id_TipoProveedor where activo=1";
+            const string SQL_STATEMENT = "select * from Proveedor as p join TipoProveedor as tp on tp.Id_TipoProveedor=p.Id_TipoProveedor where tp.activo=1";
 
             List<Proveedor> result = new List<Proveedor>();
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
@@ -229,13 +229,33 @@ namespace Data.Gestion_de_Infraestructura
 
         public Proveedor ReadByTipoProveedor(string id)
         {
-            const string SQL_STATEMENT = "select * from TipoProveedor where activo=1 and TipoProveedor=@ID_TipoSala";
+            const string SQL_STATEMENT = "select * from TipoProveedor where activo=1 and TipoProveedor=@TipoProveedor";
 
             Proveedor result = null;
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
             {
-                db.AddInParameter(cmd, "@ID_TipoSala", DbType.Int32, id);
+                db.AddInParameter(cmd, "@TipoProveedor", DbType.String, id);
+                using (IDataReader dr = db.ExecuteReader(cmd))
+                {
+                    if (dr.Read())
+                    {
+                        result = ALoadTipoProveedor(dr);
+
+                    }
+                }
+            }
+            return result;
+        }
+        public Proveedor ReadByTipoProveedor(int id)
+        {
+            const string SQL_STATEMENT = "select * from TipoProveedor where activo=1 and id_TipoProveedor=@id_TipoProveedor";
+
+            Proveedor result = null;
+            var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
+            using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
+            {
+                db.AddInParameter(cmd, "@id_TipoProveedor", DbType.Int32, id);
                 using (IDataReader dr = db.ExecuteReader(cmd))
                 {
                     if (dr.Read())

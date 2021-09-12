@@ -155,7 +155,11 @@ namespace Negocio.Gestion_de_Infraestructura
             ProveedorDAC idiomaDAC = new ProveedorDAC();
             return idiomaDAC.ReadByTipoProveedor(id);
         }
-
+        public Proveedor ReadByTipoProveedor(int id)
+        {
+            ProveedorDAC idiomaDAC = new ProveedorDAC();
+            return idiomaDAC.ReadByTipoProveedor(id);
+        }
         public bool UpdateTipoProveedor(Proveedor entity)
         {
             ProveedorDAC idiomaDAC = new ProveedorDAC();
