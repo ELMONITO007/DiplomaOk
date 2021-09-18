@@ -93,7 +93,8 @@
             this.mgReserva.EnableHeadersVisualStyles = false;
             this.mgReserva.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.mgReserva.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.mgReserva.Location = new System.Drawing.Point(92, 124);
+            this.mgReserva.Location = new System.Drawing.Point(138, 191);
+            this.mgReserva.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.mgReserva.Name = "mgReserva";
             this.mgReserva.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -106,8 +107,9 @@
             this.mgReserva.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.mgReserva.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.mgReserva.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.mgReserva.Size = new System.Drawing.Size(718, 335);
+            this.mgReserva.Size = new System.Drawing.Size(1077, 515);
             this.mgReserva.TabIndex = 48;
+            this.mgReserva.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.mgReserva_CellContentClick);
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -174,9 +176,10 @@
             // 
             // btnAlumno
             // 
-            this.btnAlumno.Location = new System.Drawing.Point(80, 505);
+            this.btnAlumno.Location = new System.Drawing.Point(120, 777);
+            this.btnAlumno.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAlumno.Name = "btnAlumno";
-            this.btnAlumno.Size = new System.Drawing.Size(124, 34);
+            this.btnAlumno.Size = new System.Drawing.Size(186, 52);
             this.btnAlumno.TabIndex = 49;
             this.btnAlumno.Tag = "Asignar alumno";
             this.btnAlumno.Text = "Asingnar alumno";
@@ -186,7 +189,8 @@
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(35, 79);
+            this.metroLabel1.Location = new System.Drawing.Point(52, 122);
+            this.metroLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(33, 19);
             this.metroLabel1.TabIndex = 50;
@@ -197,18 +201,20 @@
             // 
             this.txtAño.FormattingEnabled = true;
             this.txtAño.ItemHeight = 23;
-            this.txtAño.Location = new System.Drawing.Point(102, 69);
+            this.txtAño.Location = new System.Drawing.Point(153, 106);
+            this.txtAño.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtAño.Name = "txtAño";
-            this.txtAño.Size = new System.Drawing.Size(332, 29);
+            this.txtAño.Size = new System.Drawing.Size(496, 29);
             this.txtAño.TabIndex = 51;
             this.txtAño.UseSelectable = true;
             this.txtAño.SelectedIndexChanged += new System.EventHandler(this.txtAño_SelectedIndexChanged);
             // 
             // metroButton1
             // 
-            this.metroButton1.Location = new System.Drawing.Point(502, 69);
+            this.metroButton1.Location = new System.Drawing.Point(753, 106);
+            this.metroButton1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(124, 34);
+            this.metroButton1.Size = new System.Drawing.Size(186, 52);
             this.metroButton1.TabIndex = 52;
             this.metroButton1.Tag = "Ver todo";
             this.metroButton1.Text = "Ver todo";
@@ -217,9 +223,10 @@
             // 
             // metroButton2
             // 
-            this.metroButton2.Location = new System.Drawing.Point(664, 505);
+            this.metroButton2.Location = new System.Drawing.Point(996, 777);
+            this.metroButton2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.metroButton2.Name = "metroButton2";
-            this.metroButton2.Size = new System.Drawing.Size(124, 34);
+            this.metroButton2.Size = new System.Drawing.Size(186, 52);
             this.metroButton2.TabIndex = 53;
             this.metroButton2.Tag = "Ver curso";
             this.metroButton2.Text = "Ver curso";
@@ -228,9 +235,10 @@
             // 
             // metroButton3
             // 
-            this.metroButton3.Location = new System.Drawing.Point(245, 505);
+            this.metroButton3.Location = new System.Drawing.Point(368, 777);
+            this.metroButton3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.metroButton3.Name = "metroButton3";
-            this.metroButton3.Size = new System.Drawing.Size(160, 34);
+            this.metroButton3.Size = new System.Drawing.Size(240, 52);
             this.metroButton3.TabIndex = 54;
             this.metroButton3.Tag = "Asignar Maestro";
             this.metroButton3.Text = "Asingnar  Maestro";
@@ -239,9 +247,10 @@
             // 
             // metroButton4
             // 
-            this.metroButton4.Location = new System.Drawing.Point(451, 505);
+            this.metroButton4.Location = new System.Drawing.Point(676, 777);
+            this.metroButton4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.metroButton4.Name = "metroButton4";
-            this.metroButton4.Size = new System.Drawing.Size(160, 34);
+            this.metroButton4.Size = new System.Drawing.Size(240, 52);
             this.metroButton4.TabIndex = 55;
             this.metroButton4.Tag = "Calendario";
             this.metroButton4.Text = "Calendario";
@@ -250,9 +259,10 @@
             // 
             // metroButton5
             // 
-            this.metroButton5.Location = new System.Drawing.Point(832, 505);
+            this.metroButton5.Location = new System.Drawing.Point(1248, 777);
+            this.metroButton5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.metroButton5.Name = "metroButton5";
-            this.metroButton5.Size = new System.Drawing.Size(124, 34);
+            this.metroButton5.Size = new System.Drawing.Size(186, 52);
             this.metroButton5.TabIndex = 56;
             this.metroButton5.Tag = "Asistencia";
             this.metroButton5.Text = "Asistencia";
@@ -261,9 +271,9 @@
             // 
             // frmCursos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1306, 685);
+            this.ClientSize = new System.Drawing.Size(1959, 1054);
             this.Controls.Add(this.metroButton5);
             this.Controls.Add(this.metroButton4);
             this.Controls.Add(this.metroButton3);
@@ -273,7 +283,9 @@
             this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.btnAlumno);
             this.Controls.Add(this.mgReserva);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmCursos";
+            this.Padding = new System.Windows.Forms.Padding(30, 92, 30, 31);
             this.Tag = "Cursos";
             this.Text = "Cursos";
             this.Load += new System.EventHandler(this.frmCursos_Load);

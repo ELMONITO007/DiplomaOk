@@ -67,6 +67,7 @@
     <Compile Include="Gestion de Personas\TelefonoComponent.cs" />
     <Compile Include="Gestion de Salas\CursoComponent.cs" />
     <Compile Include="Gestion de Salas\GradoComponent.cs" />
+    <Compile Include="Gestion de Salas\MateriaComponent.cs" />
     <Compile Include="Gestion de Salas\SalaComponent.cs" />
     <Compile Include="Gestion de Salas\SalaHorarioComponent.cs" />
     <Compile Include="IRepository.cs" />

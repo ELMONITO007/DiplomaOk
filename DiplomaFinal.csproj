@@ -85,6 +85,18 @@
     <Compile Include="Gestion de Salas\frmGrado.designer.cs">
       <DependentUpon>frmGrado.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gestion de Salas\frmMateria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Salas\frmMateria.designer.cs">
+      <DependentUpon>frmMateria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion de Salas\frmReservaSalas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Salas\frmReservaSalas.designer.cs">
+      <DependentUpon>frmReservaSalas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Index\frmAdministrador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,6 +215,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gestion de Salas\frmGrado.resx">
       <DependentUpon>frmGrado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion de Salas\frmMateria.resx">
+      <DependentUpon>frmMateria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion de Salas\frmReservaSalas.resx">
+      <DependentUpon>frmReservaSalas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Index\frmAdministrador.resx">
       <DependentUpon>frmAdministrador.cs</DependentUpon>

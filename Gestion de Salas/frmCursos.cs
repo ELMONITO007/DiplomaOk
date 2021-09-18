@@ -188,5 +188,10 @@ namespace DiplomaFinal.Gesion_de_Salas
             //frmAsistencia.curso = int.Parse(mgReserva.CurrentRow.Cells[0].Value.ToString());
             //frmAsistencia.ShowDialog();
         }
+
+        private void mgReserva_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

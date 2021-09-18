@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DiplomaFinal.Gesion_de_Salas;
+using DiplomaFinal.Gestion_Boletin;
 
 namespace DiplomaFinal.Index
 {
@@ -50,8 +51,8 @@ namespace DiplomaFinal.Index
 
         private void metroTile5_Click(object sender, EventArgs e)
         {
-            //frmMateria frmCursos = new frmMateria();
-            //frmCursos.ShowDialog();
+            frmMateria frmCursos = new frmMateria();
+            frmCursos.ShowDialog();
         }
     }
 }
