@@ -6,22 +6,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Entities;
+using Entitites.Negocio.Personas;
 using Microsoft.Practices.EnterpriseLibrary.Data;
+
 namespace Data.Gestion_de_Infraestructura
 {
     public class MantenimientoDAC : DataAccessComponent, IRepository2<Mantenimiento>
     {
         public Mantenimiento ALoad(IDataReader entity)
         {
-            Mantenimiento mantenimiento = new Mantenimiento();
+            GestionMantenimiento gestionMantenimiento = new GestionMantenimiento();
+     gestionMantenimiento.Id = GetDataValue<int>(entity, "Id_tipoMantenimiento");
+            Secretaria secretaria = new Secretaria();
+            secretaria.Id = GetDataValue<int>(entity, "Legajo");
+            Proveedor proveedor = new Proveedor();
+            proveedor.Id= GetDataValue<int>(entity, "ID_Proveedor");
+            Mantenimiento mantenimiento = new Mantenimiento(proveedor,gestionMantenimiento,secretaria);
             mantenimiento.Id = GetDataValue<int>(entity, "Id_mantenimiento");
-            mantenimiento.tipoMantenimiento.Id = GetDataValue<int>(entity, "Id_tipoMantenimiento");
+      
       
             mantenimiento.fecha = GetDataValue<DateTime>(entity, "fecha");
             mantenimiento.fechaRealizado = GetDataValue<DateTime>(entity, "fechaRealizado");
 
             mantenimiento.Realizado = GetDataValue<bool>(entity, "Realizado");
-            mantenimiento.proveedor.Id = GetDataValue<int>(entity, "ID_Proveedor");
+
 
 
             return mantenimiento;
@@ -33,7 +41,7 @@ namespace Data.Gestion_de_Infraestructura
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
             {
-
+                db.AddInParameter(cmd, "@legajo", DbType.Int32, entity.secretaria.Id);
                 db.AddInParameter(cmd, "@Id_tipoMantenimiento", DbType.Int32, entity.tipoMantenimiento.Id);
 
                 db.AddInParameter(cmd, "@ID_Proveedor", DbType.String, entity.proveedor.Id);

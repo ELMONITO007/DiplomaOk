@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Entities;
+using Entitites.Negocio.Personas;
 using Microsoft.Practices.EnterpriseLibrary.Data;
 
 
@@ -17,9 +18,11 @@ namespace Data
     {
         public GestionMantenimiento ALoad(IDataReader entity)
         {
-            GestionMantenimiento tipoMantenimiento = new GestionMantenimiento();
+            Proveedor proveedor = new Proveedor();
+            proveedor.Id= GetDataValue<int>(entity, "Id_TipoProveedor");
+            GestionMantenimiento tipoMantenimiento = new GestionMantenimiento(proveedor);
             tipoMantenimiento.Id = GetDataValue<int>(entity, "Id_TipoMantenimiento");
-            tipoMantenimiento.proveedor.Id = GetDataValue<int>(entity, "Id_TipoProveedor");
+       
             tipoMantenimiento.periocidad = GetDataValue<int>(entity, "periocidad");
             tipoMantenimiento.tipoMantenimiento = GetDataValue<string>(entity, "tipoMantenimiento");
 
@@ -123,13 +126,13 @@ namespace Data
 
         public void Update(GestionMantenimiento entity)
         {
-            const string SQL_STATEMENT = "update Sala set TipoMantenimiento=@TipoMantenimiento  where ID_TipoMantenimiento=@Id ";
+            const string SQL_STATEMENT = "update TipoMantenimiento set TipoMantenimiento=@TipoMantenimiento, Periocidad=@Periocidad  where ID_TipoMantenimiento=@Id ";
 
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
             {
                 db.AddInParameter(cmd, "@id", DbType.Int32, entity.Id);
-
+                db.AddInParameter(cmd, "@Periocidad", DbType.String, entity.periocidad);
                 db.AddInParameter(cmd, "@TipoMantenimiento", DbType.String, entity.tipoMantenimiento);
                 db.ExecuteNonQuery(cmd);
             }

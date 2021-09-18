@@ -32,9 +32,20 @@ namespace Negocio.Gestion_de_Infraestructura
         {
             if (Verificar(entity))
             {
+                Proveedor proveedor = new Proveedor();
+                ProveedorComponenent proveedorComponenent = new ProveedorComponenent();
+                proveedor = proveedorComponenent.ReadByTipoProveedor(entity.proveedor.tipoProveedor);
+
+                GestionMantenimiento gestionMantenimiento = new GestionMantenimiento(proveedor);
+                gestionMantenimiento.periocidad = entity.periocidad;
+                gestionMantenimiento.tipoMantenimiento = entity.tipoMantenimiento;
+              
+
+
                 GestionMantenimientoDAC idiomaDAC = new GestionMantenimientoDAC();
                 GestionMantenimiento persona = new GestionMantenimiento();
-                persona = idiomaDAC.Create(entity);
+
+                persona = idiomaDAC.Create(gestionMantenimiento);
 
 
                 return persona;

@@ -108,7 +108,7 @@ namespace Data.Gestion_de_Infraestructura
 
         public Proveedor ReadBy(int id)
         {
-            const string SQL_STATEMENT = "select * from Proveedor as p join TipoProveedor as tp on tp.Id_TipoProveedor=p.Id_TipoProveedor where activo=1 and ID_Proveedor=@ID_TipoSala";
+            const string SQL_STATEMENT = "select * from Proveedor as p join TipoProveedor as tp on tp.Id_TipoProveedor=p.Id_TipoProveedor where p.activo=1 and ID_Proveedor=@ID_TipoSala";
 
             Proveedor result = null;
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);

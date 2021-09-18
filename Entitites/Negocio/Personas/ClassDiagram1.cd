@@ -49,5 +49,12 @@
       <FileName>Negocio\Personas\Maestro.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="Entitites.Negocio.Personas.Secretaria" Collapsed="true">
+    <Position X="3.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Negocio\Personas\Secretaria.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

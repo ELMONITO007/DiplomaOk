@@ -9,9 +9,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entities;
+using Entities.Usuario;
 using Entitites.Negocio.Personas;
 using Entitites.Servicios.Login;
 using MetroFramework;
+using Negocio;
 using Negocio.Gestion_de_Infraestructura;
 using Negocio.Gestion_de_Personas;
 using Negocio.Servicios.REGEX;
@@ -34,9 +36,8 @@ namespace DiplomaFinal.Gestion_de_Infraestructura
             txtTipoProvv.ValueMember = "Id";
             txtTipoProvv.DisplayMember = "tipoProveedor";
             llenarGrillaTipoM();
-            DateTime fi = new DateTime(DateTime.Now.Year, 1, 1);
-            txtFecha.MinDate = fi;
-            txtFecha.MaxDate = DateTime.Now;
+        
+            txtFecha.MinDate = DateTime.Now;
         }
         void llenarGrillaTipoM()
         {
@@ -49,7 +50,7 @@ namespace DiplomaFinal.Gestion_de_Infraestructura
                 mgTipoProveedor.Rows[n].Cells[0].Value = item.Id;
                 mgTipoProveedor.Rows[n].Cells[1].Value = item.tipoMantenimiento;
                 mgTipoProveedor.Rows[n].Cells[2].Value = item.proveedor.tipoProveedor;
-
+                mgTipoProveedor.Rows[n].Cells[3].Value = item.periocidad;
                 n++;
 
             }
@@ -86,9 +87,11 @@ namespace DiplomaFinal.Gestion_de_Infraestructura
         {
             if (verificarCamposTipo())
             {
-                GestionMantenimiento tipoMantenimiento = new GestionMantenimiento();
+                Proveedor proveedor = new Proveedor();
+                proveedor.tipoProveedor = txtTipoProvv.Text;
+                GestionMantenimiento tipoMantenimiento = new GestionMantenimiento(proveedor);
                 tipoMantenimiento.tipoMantenimiento = txtTipoProveedor.Text;
-                tipoMantenimiento.proveedor.tipoProveedor =txtTipoProvv.Text;
+                tipoMantenimiento.periocidad = int.Parse(txtPeriocidad.Text);
                 GestionMantenimientoComponent tipoMantenimientoComponenet = new GestionMantenimientoComponent();
                 if (tipoMantenimientoComponenet.Create(tipoMantenimiento) == null)
                 {
@@ -106,9 +109,11 @@ namespace DiplomaFinal.Gestion_de_Infraestructura
         {
             if (verificarCamposTipo())
             {
-                GestionMantenimiento tipoMantenimiento = new GestionMantenimiento();
+                Proveedor proveedor = new Proveedor();
+                proveedor.tipoProveedor = txtTipoProvv.Text;
+                GestionMantenimiento tipoMantenimiento = new GestionMantenimiento(proveedor);
                 tipoMantenimiento.tipoMantenimiento = txtTipoProveedor.Text;
-                tipoMantenimiento.proveedor.tipoProveedor = txtTipoProvv.Text;
+                tipoMantenimiento.periocidad = int.Parse(txtPeriocidad.Text);
                 tipoMantenimiento.Id = int.Parse(mgTipoProveedor.CurrentRow.Cells[0].Value.ToString());
                 GestionMantenimientoComponent tipoMantenimientoComponenet = new GestionMantenimientoComponent();
                 tipoMantenimientoComponenet.Update(tipoMantenimiento);
@@ -129,6 +134,7 @@ namespace DiplomaFinal.Gestion_de_Infraestructura
         {
             txtTipoProvv.Text = mgTipoProveedor.CurrentRow.Cells[2].Value.ToString();
             txtTipoProveedor.Text = mgTipoProveedor.CurrentRow.Cells[1].Value.ToString();
+            txtPeriocidad.Text = mgTipoProveedor.CurrentRow.Cells[3].Value.ToString();
         }
 
         private void txtTipo_SelectedIndexChanged(object sender, EventArgs e)
@@ -157,65 +163,72 @@ namespace DiplomaFinal.Gestion_de_Infraestructura
         void llenarGrillaMantenimiento()
 
         {
-            //GestionMantenimientoComponent tipoProveedorComponent = new GestionMantenimientoComponent();
-            //int n = 0;
-            //mgProveedores.Rows.Clear();
-            //foreach (var item in tipoProveedorComponent.Read())
-            //{
-            //    n = mgProveedores.Rows.Add();
-            //    DateTime fecha = item.fe;
-            //    DateTime aux = new DateTime(2000, 10, 1);
-            //    mgProveedores.Rows[n].Cells[0].Value = item.Id;
-               
-              
-            //        mgProveedores.Rows[n].Cells[1].Value = item.fecha.ToString("dd-MM-yyyy");
-                
-              
-            //   mgProveedores.Rows[n].Cells[2].Value = item.persona.DNI;
-            //   mgProveedores.Rows[n].Cells[3].Value = item.tipoMantenimiento.tipoMantenimiento;
-            //   mgProveedores.Rows[n].Cells[4].Value = item.Realizado;
-             
-               
-            //    mgProveedores.Rows[n].Cells[5].Value = item.proveedor.nombre;
-            //if (fecha.Year > aux.Year)
-            //{
+            MantenimientoComponent tipoProveedorComponent = new MantenimientoComponent();
+            int n = 0;
+            mgProveedores.Rows.Clear();
+            foreach (var item in tipoProveedorComponent.Read())
+            {
+                n = mgProveedores.Rows.Add();
+                DateTime fecha = item.fecha;
+                DateTime aux = new DateTime(2000, 10, 1);
+                mgProveedores.Rows[n].Cells[0].Value = item.Id;
 
-            //    mgProveedores.Rows[n].Cells[6].Value = fecha.ToString("dd-MM-yyyy");
-            //    }
 
-            //    n++;
+                mgProveedores.Rows[n].Cells[1].Value = item.fecha.ToString("dd-MM-yyyy");
 
-            //}
+
+                mgProveedores.Rows[n].Cells[2].Value = item.secretaria.DNI;
+                mgProveedores.Rows[n].Cells[3].Value = item.tipoMantenimiento.tipoMantenimiento;
+
+                mgProveedores.Rows[n].Cells[4].Value = item.Realizado;
+
+
+                mgProveedores.Rows[n].Cells[5].Value = item.proveedor.nombre;
+                if (fecha.Year > aux.Year)
+                {
+
+                    mgProveedores.Rows[n].Cells[6].Value = fecha.ToString("dd-MM-yyyy");
+                }
+
+                n++;
+
+            }
         }
         private void btnAltaProveedor_Click(object sender, EventArgs e)
         {
-            //Mantenimiento mantenimiento = new Mantenimiento();
-            //mantenimiento.fecha = txtFecha.Value;
-            //mantenimiento.tipoMantenimiento = (TipoMantenimiento)txtTipo.SelectedItem;
-            //mantenimiento.proveedor = (Proveedor)txtProveedor.SelectedItem;
-            //mantenimiento.persona.Id = 13;
-            ////UsuarioPersonaComponent usuarioPersonaComponent = new UsuarioPersonaComponent();  
-            ////mantenimiento.persona = usuarioPersonaComponent.ReadByPersona(SessionManager.instance.GetUSuario().Id).persona;
-            //MantenimientoComponent mantenimientoComponent = new MantenimientoComponent();
-            //mantenimientoComponent.Create(mantenimiento);
-            //ValidadoresComponent.Alta("Mantenimiento", this);
-            //llenarGrillaMantenimiento();
+            GestionMantenimiento gestionMantenimiento = new GestionMantenimiento();
+            gestionMantenimiento = (GestionMantenimiento)txtTipo.SelectedItem;
+            Proveedor proveedor = new Proveedor();
+            proveedor = (Proveedor)txtProveedor.SelectedItem;
+            
+         
+            Secretaria secretaria = new Secretaria();
+            SecretariaComponent secretariaComponent = new SecretariaComponent();
+            secretaria = secretariaComponent.ReadByEmail(SessionManager.instance.GetUSuario().UserName);
+            Mantenimiento mantenimiento = new Mantenimiento(proveedor,gestionMantenimiento,secretaria);
+            mantenimiento.fecha = txtFecha.Value;
+
+               
+            MantenimientoComponent mantenimientoComponent = new MantenimientoComponent();
+            mantenimientoComponent.Create(mantenimiento);
+            ValidadoresComponent.Alta("Mantenimiento", this);
+            llenarGrillaMantenimiento();
         }
 
         private void btBajaProveedor_Click(object sender, EventArgs e)
         {
-            //MantenimientoComponent mantenimientoComponent = new MantenimientoComponent();
-            //mantenimientoComponent.Delete(int.Parse(mgProveedores.CurrentRow.Cells[0].Value.ToString()));
-            //llenarGrillaMantenimiento();
+            MantenimientoComponent mantenimientoComponent = new MantenimientoComponent();
+            mantenimientoComponent.Delete(int.Parse(mgProveedores.CurrentRow.Cells[0].Value.ToString()));
+            llenarGrillaMantenimiento();
         }
 
         private void btnModificarProveedor_Click(object sender, EventArgs e)
         {
-            //MantenimientoComponent mantenimientoComponent = new MantenimientoComponent();
-            //Mantenimiento mantenimiento = new Mantenimiento();
-            //mantenimiento.Id = int.Parse(mgProveedores.CurrentRow.Cells[0].Value.ToString());
-            //mantenimientoComponent.Update(mantenimiento);
-            //llenarGrillaMantenimiento();
+            MantenimientoComponent mantenimientoComponent = new MantenimientoComponent();
+            Mantenimiento mantenimiento = new Mantenimiento();
+            mantenimiento.Id = int.Parse(mgProveedores.CurrentRow.Cells[0].Value.ToString());
+            mantenimientoComponent.Update(mantenimiento);
+            llenarGrillaMantenimiento();
         }
     }
 }

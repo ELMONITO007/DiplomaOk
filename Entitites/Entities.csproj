@@ -59,6 +59,7 @@
     <Compile Include="Negocio\Personas\Pariente.cs" />
     <Compile Include="Negocio\Personas\Persona.cs" />
     <Compile Include="Negocio\Personas\Proveedor.cs" />
+    <Compile Include="Negocio\Personas\Secretaria.cs" />
     <Compile Include="Negocio\Personas\Telefono.cs" />
     <Compile Include="Negocio\Salas\Curso.cs" />
     <Compile Include="Negocio\Salas\Grado.cs" />

@@ -16,7 +16,7 @@ namespace Entities
         public DateTime fechaRealizado { get; set; }
         public Proveedor proveedor { get; set; }
         public GestionMantenimiento tipoMantenimiento { get; set; }
-
+        public Secretaria   secretaria { get; set; }
         public Mantenimiento()
         {
             
@@ -25,8 +25,9 @@ namespace Entities
         }
 
 
-        public Mantenimiento(Proveedor _proveedor, GestionMantenimiento _tipoMantenimiento)
+        public Mantenimiento(Proveedor _proveedor, GestionMantenimiento _tipoMantenimiento,Secretaria _secretaria)
         {
+            secretaria = _secretaria;
             tipoMantenimiento = _tipoMantenimiento;
             proveedor = _proveedor;
 

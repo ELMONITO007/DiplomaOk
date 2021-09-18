@@ -1,6 +1,8 @@
 ﻿using Data.Gestion_de_Infraestructura;
 using Entities;
 using Entitites.Negocio.Personas;
+using Entitites.Servicios.Login;
+using Negocio.Gestion_de_Personas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -65,12 +67,14 @@ namespace Negocio.Gestion_de_Infraestructura
                 proveedor = proveedorComponent.ReadBy(item.proveedor.Id);
                 GestionMantenimiento gestionMantenimiento = new GestionMantenimiento();
                 gestionMantenimiento = tipoMantenimiento.ReadBy(item.tipoMantenimiento.Id);
-
-                Mantenimiento mantenimiento = new Mantenimiento(proveedor,gestionMantenimiento);
+                Secretaria secretaria = new Secretaria();
+                SecretariaComponent secretariaComponent = new SecretariaComponent();
+                secretaria = secretariaComponent.ReadByEmail(SessionManager.instance.GetUSuario().Email);
+                Mantenimiento mantenimiento = new Mantenimiento(proveedor,gestionMantenimiento,secretaria);
                 mantenimiento.fecha = item.fecha;
                 mantenimiento.fechaRealizado = item.fechaRealizado;
                 mantenimiento.Realizado = item.Realizado;
-
+                mantenimiento.Id = item.Id;
 
                 result.Add(mantenimiento);
 
@@ -93,12 +97,14 @@ namespace Negocio.Gestion_de_Infraestructura
                 proveedor = proveedorComponent.ReadBy(result.proveedor.Id);
                 GestionMantenimiento gestionMantenimiento = new GestionMantenimiento();
                 gestionMantenimiento = tipoMantenimiento.ReadBy(result.tipoMantenimiento.Id);
-
-                Mantenimiento mantenimiento = new Mantenimiento(proveedor, gestionMantenimiento);
+            Secretaria secretaria = new Secretaria();
+            SecretariaComponent secretariaComponent = new SecretariaComponent();
+            secretaria = secretariaComponent.ReadByEmail(SessionManager.instance.GetUSuario().Email);
+            Mantenimiento mantenimiento = new Mantenimiento(proveedor, gestionMantenimiento,secretaria);
                 mantenimiento.fecha = result.fecha;
                 mantenimiento.fechaRealizado = result.fechaRealizado;
                 mantenimiento.Realizado = result.Realizado;
-
+            mantenimiento.Id = result.Id;
 
             return mantenimiento;
         }
@@ -117,13 +123,15 @@ namespace Negocio.Gestion_de_Infraestructura
             proveedor = proveedorComponent.ReadBy(result.proveedor.Id);
             GestionMantenimiento gestionMantenimiento = new GestionMantenimiento();
             gestionMantenimiento = tipoMantenimiento.ReadBy(result.tipoMantenimiento.Id);
-
-            Mantenimiento mantenimiento = new Mantenimiento(proveedor, gestionMantenimiento);
+            Secretaria secretaria = new Secretaria();
+            SecretariaComponent secretariaComponent = new SecretariaComponent();
+            secretaria = secretariaComponent.ReadByEmail(SessionManager.instance.GetUSuario().Email);
+            Mantenimiento mantenimiento = new Mantenimiento(proveedor, gestionMantenimiento,secretaria);
             mantenimiento.fecha = result.fecha;
             mantenimiento.fechaRealizado = result.fechaRealizado;
             mantenimiento.Realizado = result.Realizado;
 
-
+            mantenimiento.Id = result.Id;
             return mantenimiento;
         }
         public List<Mantenimiento> ReadBySinRealizar()
@@ -141,12 +149,14 @@ namespace Negocio.Gestion_de_Infraestructura
                 proveedor = proveedorComponent.ReadBy(item.proveedor.Id);
                 GestionMantenimiento gestionMantenimiento = new GestionMantenimiento();
                 gestionMantenimiento = tipoMantenimiento.ReadBy(item.tipoMantenimiento.Id);
-
-                Mantenimiento mantenimiento = new Mantenimiento(proveedor, gestionMantenimiento);
+                Secretaria secretaria = new Secretaria();
+                SecretariaComponent secretariaComponent = new SecretariaComponent();
+                secretaria = secretariaComponent.ReadByEmail(SessionManager.instance.GetUSuario().Email);
+                Mantenimiento mantenimiento = new Mantenimiento(proveedor, gestionMantenimiento,secretaria);
                 mantenimiento.fecha = item.fecha;
                 mantenimiento.fechaRealizado = item.fechaRealizado;
                 mantenimiento.Realizado = item.Realizado;
-
+                mantenimiento.Id = item.Id;
 
                 result.Add(mantenimiento);
 

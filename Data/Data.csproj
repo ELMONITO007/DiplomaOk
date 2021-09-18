@@ -79,6 +79,7 @@
     <Compile Include="Gestion de Personas\ObraSocialDAC.cs" />
     <Compile Include="Gestion de Personas\ParienteDAC.cs" />
     <Compile Include="Gestion de Personas\ProveedorDAC.cs" />
+    <Compile Include="Gestion de Personas\SecretariaDAC.cs" />
     <Compile Include="Gestion de Personas\TelefonoDAC.cs" />
     <Compile Include="Gestion Salas\CursoDAC.cs" />
     <Compile Include="Gestion Salas\GradoDac.cs" />
