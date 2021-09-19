@@ -12,14 +12,14 @@ namespace Entitites.Negocio.Salas
     {
         public override int Id { get; set; }
         public string nombre { get; set; }
-        public Grado grado { get => default; set { } }
-        public Sala sala { get => default; set { } }
+        public Grado grado { get; set; }
+        public Sala sala { get; set; }
 
-   
+
         public List<Alumno> listaALumno{ get; set; }
         public List<Maestro> listaMaestro { get; set; }
-        public Maestro maestroPrincipal { get => default; set { } }
-        public SalaHorario salaHorario { get => default; set { } }
+        public Maestro maestroPrincipal { get; set; }
+        public SalaHorario salaHorario { get; set; }
         public Curso() { }
         public Curso(Sala _sala, Grado _grado, Maestro _MaestroPrincipal, List<Alumno> _listaALumno, List<Maestro> _listaMaestro)
         {
@@ -28,6 +28,12 @@ namespace Entitites.Negocio.Salas
             maestroPrincipal = _MaestroPrincipal;
             listaALumno = _listaALumno;
             listaMaestro = _listaMaestro;
+        }
+        public Curso(Sala _sala, Grado _grado, SalaHorario _salaHorario)
+        {
+            sala = _sala;
+            grado = _grado;
+            salaHorario = _salaHorario;
         }
         public Curso(Sala _sala, Grado _grado, Maestro _MaestroPrincipal, List<Alumno> _listaALumno, List<Maestro> _listaMaestro,SalaHorario _salaHorario)
         {

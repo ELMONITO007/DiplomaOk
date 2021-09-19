@@ -55,14 +55,22 @@ namespace Negocio
 
             foreach (var item in cursoDAC.Read())
             {
-                Curso curso = new Curso();
-                curso = item;
+                SalaHorarioComponent salaHorarioComponent = new SalaHorarioComponent();
                 SalaComponent salaComponent = new SalaComponent();
                 GradoComponent gradoComponent = new GradoComponent();
-                curso.grado = gradoComponent.ReadBy(item.grado.Id);
-                curso.sala = salaComponent.ReadBy(item.sala.Id);
-                //SalaHorarioComponent salaHorario = new SalaHorarioComponent();
-                //curso.salaHorario = salaHorario.ReadBy(item.salaHorario.Id);
+
+                Grado grado = new Grado();
+                grado = gradoComponent.ReadBy(item.grado.Id);
+
+                Sala sala = new Sala();
+                sala= salaComponent.ReadBy(item.sala.Id);
+                SalaHorario salaHorario = new SalaHorario();
+                salaHorario = salaHorarioComponent.ReadBy(item.salaHorario.Id);
+                Curso curso = new Curso(sala,grado,salaHorario);
+                curso.Id = item.Id;
+                curso.nombre = item.nombre;
+              
+
                 result.Add(curso);
             }
 
@@ -76,14 +84,23 @@ namespace Negocio
 
             foreach (var item in cursoDAC.ReadByAño(año))
             {
-                Curso curso = new Curso();
-                curso = item;
+
+                SalaHorarioComponent salaHorarioComponent = new SalaHorarioComponent();
                 SalaComponent salaComponent = new SalaComponent();
                 GradoComponent gradoComponent = new GradoComponent();
-                curso.grado = gradoComponent.ReadBy(item.grado.Id);
-                curso.sala = salaComponent.ReadBy(item.sala.Id);
-                //SalaHorarioComponent salaHorario = new SalaHorarioComponent();
-                //curso.salaHorario = salaHorario.ReadBy(item.salaHorario.Id);
+
+                Grado grado = new Grado();
+                grado = gradoComponent.ReadBy(item.grado.Id);
+
+                Sala sala = new Sala();
+                sala = salaComponent.ReadBy(item.sala.Id);
+                SalaHorario salaHorario = new SalaHorario();
+                salaHorario = salaHorarioComponent.ReadBy(item.salaHorario.Id);
+                Curso curso = new Curso(sala, grado, salaHorario);
+                curso.Id = item.Id;
+                curso.nombre = item.nombre;
+
+
                 result.Add(curso);
             }
 
@@ -96,14 +113,23 @@ namespace Negocio
 
             foreach (var item in cursoDAC.ReadByCurso(entity))
             {
-                Curso curso = new Curso();
-                curso = item;
+
+                SalaHorarioComponent salaHorarioComponent = new SalaHorarioComponent();
                 SalaComponent salaComponent = new SalaComponent();
                 GradoComponent gradoComponent = new GradoComponent();
-                curso.grado = gradoComponent.ReadBy(item.grado.Id);
-                curso.sala = salaComponent.ReadBy(item.sala.Id);
-                //SalaHorarioComponent salaHorario = new SalaHorarioComponent();
-                //curso.salaHorario = salaHorario.ReadBy(item.salaHorario.Id);
+
+                Grado grado = new Grado();
+                grado = gradoComponent.ReadBy(item.grado.Id);
+
+                Sala sala = new Sala();
+                sala = salaComponent.ReadBy(item.sala.Id);
+                SalaHorario salaHorario = new SalaHorario();
+                salaHorario = salaHorarioComponent.ReadBy(item.salaHorario.Id);
+                Curso curso = new Curso(sala, grado, salaHorario);
+                curso.Id = item.Id;
+                curso.nombre = item.nombre;
+
+
                 result.Add(curso);
             }
 
@@ -116,14 +142,23 @@ namespace Negocio
 
             foreach (var item in cursoDAC.ReadByGrado(entity))
             {
-                Curso curso = new Curso();
-                curso = item;
+
+                SalaHorarioComponent salaHorarioComponent = new SalaHorarioComponent();
                 SalaComponent salaComponent = new SalaComponent();
                 GradoComponent gradoComponent = new GradoComponent();
-                curso.grado = gradoComponent.ReadBy(item.grado.Id);
-                curso.sala = salaComponent.ReadBy(item.sala.Id);
-                //SalaHorarioComponent salaHorario = new SalaHorarioComponent();
-                //curso.salaHorario = salaHorario.ReadBy(item.salaHorario.Id);
+
+                Grado grado = new Grado();
+                grado = gradoComponent.ReadBy(item.grado.Id);
+
+                Sala sala = new Sala();
+                sala = salaComponent.ReadBy(item.sala.Id);
+                SalaHorario salaHorario = new SalaHorario();
+                salaHorario = salaHorarioComponent.ReadBy(item.salaHorario.Id);
+                Curso curso = new Curso(sala, grado, salaHorario);
+                curso.Id = item.Id;
+                curso.nombre = item.nombre;
+
+
                 result.Add(curso);
             }
 
@@ -136,15 +171,31 @@ namespace Negocio
             result = salaDac.ReadBy(id);
             if (result != null)
             {
-              SalaComponent salaComponent = new SalaComponent();
-                result.sala = salaComponent.ReadBy(result.sala.Id);
+                
+
+
+
+                SalaHorarioComponent salaHorarioComponent = new SalaHorarioComponent();
+                SalaComponent salaComponent = new SalaComponent();
                 GradoComponent gradoComponent = new GradoComponent();
-                result.grado = gradoComponent.ReadBy(result.grado.Id);
-                //SalaHorarioComponent salaHorario = new SalaHorarioComponent();
-                //result.salaHorario = salaHorario.ReadBy(result.salaHorario.Id);
+                Grado grado = new Grado();
+                grado = gradoComponent.ReadBy(result.grado.Id);
+
+                Sala sala = new Sala();
+                sala = salaComponent.ReadBy(result.sala.Id);
+                SalaHorario salaHorario = new SalaHorario();
+                salaHorario = salaHorarioComponent.ReadBy(result.salaHorario.Id);
+                Curso curso = new Curso(sala, grado, salaHorario);
+                curso.Id = result.Id;
+                curso.nombre = result.nombre;
+                return curso;
+            }
+            else
+            {
+                return null;
             }
 
-            return result;
+           
         }
 
         public Curso ReadBy(string id)
@@ -154,13 +205,27 @@ namespace Negocio
             result = salaDac.ReadBy(id);
             if (result != null)
             {
-                SalaComponent salaComponent = new SalaComponent();
-                result.sala = salaComponent.ReadBy(result.sala.Id);
-                GradoComponent gradoComponent = new GradoComponent();
-                result.grado = gradoComponent.ReadBy(result.grado.Id);
-            }
 
-            return result;
+
+                SalaHorarioComponent salaHorarioComponent = new SalaHorarioComponent();
+                SalaComponent salaComponent = new SalaComponent();
+                GradoComponent gradoComponent = new GradoComponent();
+                Grado grado = new Grado();
+                grado = gradoComponent.ReadBy(result.grado.Id);
+
+                Sala sala = new Sala();
+                sala = salaComponent.ReadBy(result.sala.Id);
+                SalaHorario salaHorario = new SalaHorario();
+                salaHorario = salaHorarioComponent.ReadBy(result.salaHorario.Id);
+                Curso curso = new Curso(sala, grado, salaHorario);
+                curso.Id = result.Id;
+                curso.nombre = result.nombre;
+                return curso;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public bool Update(Curso entity)

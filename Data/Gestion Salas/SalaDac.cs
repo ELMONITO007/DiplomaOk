@@ -125,7 +125,7 @@ namespace Data
         }
         public Sala ReadBy(int id)
         {
-            const string SQL_STATEMENT = "select * from Sala where activo=1 and id_sala=@Id";
+            const string SQL_STATEMENT = "select  * from  sala as s join TipoSala as tp on tp.Id_TipoSala=s.ID_TipoSala where activo=1 and id_sala=@Id";
             Sala usuarios = null;
 
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
@@ -145,7 +145,7 @@ namespace Data
 
         public Sala ReadBy(string id)
         {
-            const string SQL_STATEMENT = "select * from Sala where activo=1 and nombre=@Id";
+            const string SQL_STATEMENT = "select  * from  sala as s join TipoSala as tp on tp.Id_TipoSala=s.ID_TipoSala where activo=1 and nombre=@Id";
             Sala usuarios = null;
 
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);

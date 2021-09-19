@@ -33,8 +33,8 @@ namespace DiplomaFinal.Index
 
         private void metroTile1_Click(object sender, EventArgs e)
         {
-            //frmReservaSalas frmReservaSalas = new frmReservaSalas();
-            //frmReservaSalas.ShowDialog();
+            frmReservaSalas frmReservaSalas = new frmReservaSalas();
+            frmReservaSalas.ShowDialog();
         }
 
         private void metroTile3_Click(object sender, EventArgs e)

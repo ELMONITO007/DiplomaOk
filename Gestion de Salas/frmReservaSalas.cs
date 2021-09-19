@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MetroFramework;
 using Negocio.Servicios.REGEX;
+using Entitites.Negocio.Salas;
 
 namespace DiplomaFinal.Gesion_de_Salas
 {
@@ -66,7 +67,7 @@ namespace DiplomaFinal.Gesion_de_Salas
 
                 mgReserva.Rows[n].Cells[0].Value = item.Id;
                 mgReserva.Rows[n].Cells[1].Value = item.nombre;
-                mgReserva.Rows[n].Cells[2].Value = item.sala.TipoSala.tipoSala;
+                mgReserva.Rows[n].Cells[2].Value = item.sala.tipoSala;
                 mgReserva.Rows[n].Cells[3].Value = item.sala.capacidad;
                 mgReserva.Rows[n].Cells[4].Value = item.salaHorario.turno;
                 mgReserva.Rows[n].Cells[5].Value = item.salaHorario.hora;
@@ -94,7 +95,7 @@ namespace DiplomaFinal.Gesion_de_Salas
             int n = 0;
             mgSala.Rows.Clear();
             SalaHorarioComponent salaComponent = new SalaHorarioComponent();
-            TIpoSalaComponent ipoSalaComponent = new TIpoSalaComponent();
+           
             SalaHorario salaHorario = new SalaHorario();
             salaHorario.año = int.Parse(txtSalasAño.Text);
             salaHorario.turno = txtturno.Text;
@@ -113,7 +114,7 @@ namespace DiplomaFinal.Gesion_de_Salas
 
                     mgSala.Rows[n].Cells[0].Value = item.Id;
                     mgSala.Rows[n].Cells[1].Value = item.nombre;
-                    mgSala.Rows[n].Cells[2].Value = item.TipoSala.tipoSala;
+                    mgSala.Rows[n].Cells[2].Value = item.tipoSala;
                     mgSala.Rows[n].Cells[3].Value = item.capacidad;
                     mgSala.Rows[n].Cells[4].Value = item.tiempo;
 
@@ -135,7 +136,7 @@ namespace DiplomaFinal.Gesion_de_Salas
                 salaHorario.año = int.Parse(txtSalasAño.Text);
                 salaHorario.turno = txtturno.Text;
                 salaHorario.sala.Id = int.Parse(mgSala.CurrentRow.Cells[0].Value.ToString());
-                salaHorario.sala.TipoSala.tipoSala = mgSala.CurrentRow.Cells[2].Value.ToString();
+                salaHorario.sala.tipoSala = mgSala.CurrentRow.Cells[2].Value.ToString();
                 txtGrado.Enabled = true;
                 txtNombreCurso.Enabled = true;
                 btnAlta.Enabled = true;

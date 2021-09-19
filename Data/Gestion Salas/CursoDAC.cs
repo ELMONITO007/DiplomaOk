@@ -14,13 +14,24 @@ namespace Data.Gestion_Salas
     {
         public Curso ALoad(IDataReader entity)
         {
-            Curso curso = new Curso();
-            curso.Id = GetDataValue<int>(entity, "Id_curso");
-            curso.sala.Id = GetDataValue<int>(entity, "Id_sala");
+            Sala sala = new Sala();
+            sala.Id= GetDataValue<int>(entity, "Id_sala");
 
-            curso.nombre = GetDataValue<string>(entity, "nombre");
-            curso.grado.Id = GetDataValue<int>(entity, "id_grado");
-            //curso.salaHorario.Id = GetDataValue<int>(entity, "id_salaHorario");
+            Grado grado = new Grado();
+            grado.Id = GetDataValue<int>(entity, "id_grado");
+
+            SalaHorario salaHorario = new SalaHorario();
+            salaHorario.Id= GetDataValue<int>(entity, "id_salaHorario");
+
+
+            Curso curso = new Curso(sala,grado,salaHorario);
+
+            curso.Id = GetDataValue<int>(entity, "Id_curso");
+       
+
+            curso.nombre = GetDataValue<string>(entity, "Nombre");
+        
+         
             return curso;
         }
 

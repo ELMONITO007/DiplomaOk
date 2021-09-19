@@ -34,7 +34,7 @@ namespace Data
             sala.Id = GetDataValue<int>(entity, "Id_Sala");
             SalaHorario salaHorario = new SalaHorario(sala);
             salaHorario.Id = GetDataValue<int>(entity, "ID_SalaHorario");
-            salaHorario.sala.Id = GetDataValue<int>(entity, "Id_Sala");
+        
             salaHorario.diaSemana = GetDataValue<int>(entity, "diaSemana");
             salaHorario.año = GetDataValue<int>(entity, "año");
             salaHorario.hora = GetDataValue<int>(entity, "hora");
