@@ -97,6 +97,12 @@
     <Compile Include="Gestion de Salas\frmReservaSalas.designer.cs">
       <DependentUpon>frmReservaSalas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gestion Persona\frmAlumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion Persona\frmAlumno.designer.cs">
+      <DependentUpon>frmAlumno.cs</DependentUpon>
+    </Compile>
     <Compile Include="Index\frmAdministrador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +114,12 @@
     </Compile>
     <Compile Include="Index\frmAlumnoIndex.Designer.cs">
       <DependentUpon>frmAlumnoIndex.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Index\frmAlumnosIndex.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Index\frmAlumnosIndex.designer.cs">
+      <DependentUpon>frmAlumnosIndex.cs</DependentUpon>
     </Compile>
     <Compile Include="Index\frmMaestro.cs">
       <SubType>Form</SubType>
@@ -222,12 +234,16 @@
     <EmbeddedResource Include="Gestion de Salas\frmReservaSalas.resx">
       <DependentUpon>frmReservaSalas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Gestion Persona\frmAlumno.resx">
+      <DependentUpon>frmAlumno.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Index\frmAdministrador.resx">
       <DependentUpon>frmAdministrador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Index\frmAlumnoIndex.resx">
       <DependentUpon>frmAlumnoIndex.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Index\frmAlumnosIndex.resx" />
     <EmbeddedResource Include="Index\frmMaestro.resx">
       <DependentUpon>frmMaestro.cs</DependentUpon>
     </EmbeddedResource>
@@ -307,6 +323,8 @@
   <ItemGroup>
     <None Include="Resources\Fondo pantalla gral 2.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Boletin\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

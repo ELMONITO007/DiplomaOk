@@ -17,6 +17,7 @@ using Negocio.Servicios.REGEX;
 using DiplomaFinal.Index;
 using DiplomaFinal.Servicio;
 using DiplomaFinal.Gestion_de_Infraestructura;
+using DiplomaFinal.Gestion_de_Personas;
 
 namespace DiplomaFinal.Index
 {
@@ -105,6 +106,12 @@ namespace DiplomaFinal.Index
         {
             InfraIndex infraIndex = new InfraIndex();
             infraIndex.ShowDialog();
+        }
+
+        private void metroTile2_Click(object sender, EventArgs e)
+        {
+            frmAlumnosIndex frmAlumnosIndex = new frmAlumnosIndex();
+            frmAlumnosIndex.ShowDialog();
         }
     }
 }

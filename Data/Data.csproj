@@ -67,6 +67,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Boletin\AsistenciaDAC.cs" />
     <Compile Include="DataAccessComponent.cs" />
     <Compile Include="Gestion de Personas\AlergiaDAC.cs" />
     <Compile Include="Gestion de Personas\AlumnoDAC.cs" />

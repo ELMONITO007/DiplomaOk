@@ -44,6 +44,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntityBase.cs" />
+    <Compile Include="Negocio\Boletin\Asistencia.cs" />
+    <Compile Include="Negocio\Boletin\Boletin.cs" />
+    <Compile Include="Negocio\Boletin\Comunicado.cs" />
+    <Compile Include="Negocio\Boletin\Examen.cs" />
+    <Compile Include="Negocio\Boletin\MateriaExamen.cs" />
+    <Compile Include="Negocio\Boletin\PDFBoletin.cs" />
     <Compile Include="Negocio\Infraestructura\GestionMantenimiento.cs" />
     <Compile Include="Negocio\Infraestructura\Mantenimiento.cs" />
     <Compile Include="Negocio\Alumnos y Maestros\Alergias.cs" />
@@ -95,5 +101,6 @@
     <None Include="Negocio\Alumnos y Maestros\ClassDiagram1.cd" />
     <None Include="Negocio\Personas\ClassDiagram1.cd" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
