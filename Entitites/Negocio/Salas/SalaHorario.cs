@@ -16,12 +16,8 @@ namespace Entitites.Negocio.Salas
        
 
         public Sala sala
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        { get; set; }
+    
 
         public SalaHorario(Sala _sala)
         {
@@ -29,7 +25,7 @@ namespace Entitites.Negocio.Salas
         }
         public SalaHorario()
         {
-          
+            sala = new Sala();
         }
 
     }

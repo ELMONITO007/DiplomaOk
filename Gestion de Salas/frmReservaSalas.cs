@@ -132,7 +132,8 @@ namespace DiplomaFinal.Gesion_de_Salas
             }
             else
             {
-             
+                Sala sala = new Sala();
+
                 salaHorario.año = int.Parse(txtSalasAño.Text);
                 salaHorario.turno = txtturno.Text;
                 salaHorario.sala.Id = int.Parse(mgSala.CurrentRow.Cells[0].Value.ToString());
@@ -172,15 +173,18 @@ namespace DiplomaFinal.Gesion_de_Salas
             if (verificarCamposCurso())
             {
 
-           
 
-            SalaHorarioComponent salaHorarioComponent = new SalaHorarioComponent();
+                Sala sala = new Sala();
+                sala.Id= salaHorario.sala.Id;
+                Grado grado = new Grado();
+                grado.Id = int.Parse(txtGrado.SelectedValue.ToString());
+                SalaHorarioComponent salaHorarioComponent = new SalaHorarioComponent();
             salaHorarioComponent.Create(salaHorario);
-            Curso curso = new Curso();
-            curso.sala.Id = salaHorario.sala.Id;
+            Curso curso = new Curso(sala,grado, salaHorarioComponent.ReadBySalaYañoYTurnoGrado(salaHorario));
+        
             curso.nombre = txtNombreCurso.Text;
-            curso.grado.Id =int.Parse( txtGrado.SelectedValue.ToString());
-                curso.salaHorario = salaHorarioComponent.ReadBySalaYañoYTurnoGrado(salaHorario);
+     
+      
             CursoComponent cursoComponent = new CursoComponent();
             if (cursoComponent.Create(curso)==null)
             {
@@ -199,6 +203,11 @@ namespace DiplomaFinal.Gesion_de_Salas
         }
 
         private void metroButton5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSalasAño_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

@@ -83,11 +83,10 @@
             this.tabIncripcion.Controls.Add(this.metroTabPage3);
             this.tabIncripcion.Controls.Add(this.metroTabPage1);
             this.tabIncripcion.Controls.Add(this.metroTabPage2);
-            this.tabIncripcion.Location = new System.Drawing.Point(34, 120);
-            this.tabIncripcion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabIncripcion.Location = new System.Drawing.Point(23, 78);
             this.tabIncripcion.Name = "tabIncripcion";
             this.tabIncripcion.SelectedIndex = 0;
-            this.tabIncripcion.Size = new System.Drawing.Size(2142, 966);
+            this.tabIncripcion.Size = new System.Drawing.Size(1428, 628);
             this.tabIncripcion.TabIndex = 3;
             this.tabIncripcion.UseSelectable = true;
             // 
@@ -107,26 +106,24 @@
             this.metroTabPage3.Controls.Add(this.mgSala);
             this.metroTabPage3.HorizontalScrollbarBarColor = true;
             this.metroTabPage3.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTabPage3.HorizontalScrollbarSize = 15;
+            this.metroTabPage3.HorizontalScrollbarSize = 10;
             this.metroTabPage3.Location = new System.Drawing.Point(4, 38);
-            this.metroTabPage3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.metroTabPage3.Name = "metroTabPage3";
-            this.metroTabPage3.Size = new System.Drawing.Size(2134, 924);
+            this.metroTabPage3.Size = new System.Drawing.Size(1420, 586);
             this.metroTabPage3.TabIndex = 3;
             this.metroTabPage3.Tag = "Salas de grado";
             this.metroTabPage3.Text = "Salas de grado";
             this.metroTabPage3.VerticalScrollbarBarColor = true;
             this.metroTabPage3.VerticalScrollbarHighlightOnWheel = false;
-            this.metroTabPage3.VerticalScrollbarSize = 15;
+            this.metroTabPage3.VerticalScrollbarSize = 10;
             // 
             // txtturno
             // 
             this.txtturno.FormattingEnabled = true;
             this.txtturno.ItemHeight = 23;
-            this.txtturno.Location = new System.Drawing.Point(308, 122);
-            this.txtturno.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtturno.Location = new System.Drawing.Point(205, 79);
             this.txtturno.Name = "txtturno";
-            this.txtturno.Size = new System.Drawing.Size(416, 29);
+            this.txtturno.Size = new System.Drawing.Size(279, 29);
             this.txtturno.TabIndex = 43;
             this.txtturno.UseSelectable = true;
             this.txtturno.SelectedIndexChanged += new System.EventHandler(this.txtturno_SelectedIndexChanged);
@@ -134,8 +131,7 @@
             // metroLabel4
             // 
             this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(30, 137);
-            this.metroLabel4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.metroLabel4.Location = new System.Drawing.Point(20, 89);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(134, 19);
             this.metroLabel4.TabIndex = 42;
@@ -146,18 +142,17 @@
             // 
             this.txtSalasAño.FormattingEnabled = true;
             this.txtSalasAño.ItemHeight = 23;
-            this.txtSalasAño.Location = new System.Drawing.Point(308, 35);
-            this.txtSalasAño.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtSalasAño.Location = new System.Drawing.Point(205, 23);
             this.txtSalasAño.Name = "txtSalasAño";
-            this.txtSalasAño.Size = new System.Drawing.Size(416, 29);
+            this.txtSalasAño.Size = new System.Drawing.Size(279, 29);
             this.txtSalasAño.TabIndex = 41;
             this.txtSalasAño.UseSelectable = true;
+            this.txtSalasAño.SelectedIndexChanged += new System.EventHandler(this.txtSalasAño_SelectedIndexChanged);
             // 
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(28, 37);
-            this.metroLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.metroLabel1.Location = new System.Drawing.Point(19, 24);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(122, 19);
             this.metroLabel1.TabIndex = 40;
@@ -167,8 +162,7 @@
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(28, 735);
-            this.metroLabel3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.metroLabel3.Location = new System.Drawing.Point(19, 478);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(69, 19);
             this.metroLabel3.TabIndex = 39;
@@ -177,8 +171,7 @@
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(30, 205);
-            this.metroLabel2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.metroLabel2.Location = new System.Drawing.Point(20, 133);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(124, 19);
             this.metroLabel2.TabIndex = 38;
@@ -187,10 +180,9 @@
             // 
             // btnModificarSala
             // 
-            this.btnModificarSala.Location = new System.Drawing.Point(28, 815);
-            this.btnModificarSala.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnModificarSala.Location = new System.Drawing.Point(19, 530);
             this.btnModificarSala.Name = "btnModificarSala";
-            this.btnModificarSala.Size = new System.Drawing.Size(160, 35);
+            this.btnModificarSala.Size = new System.Drawing.Size(107, 23);
             this.btnModificarSala.TabIndex = 32;
             this.btnModificarSala.Tag = "Siguiente";
             this.btnModificarSala.Text = "Siguiente";
@@ -200,10 +192,9 @@
             // 
             // txtVerTodoSala
             // 
-            this.txtVerTodoSala.Location = new System.Drawing.Point(549, 257);
-            this.txtVerTodoSala.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtVerTodoSala.Location = new System.Drawing.Point(366, 167);
             this.txtVerTodoSala.Name = "txtVerTodoSala";
-            this.txtVerTodoSala.Size = new System.Drawing.Size(111, 35);
+            this.txtVerTodoSala.Size = new System.Drawing.Size(74, 23);
             this.txtVerTodoSala.TabIndex = 31;
             this.txtVerTodoSala.Tag = "Ver Todo";
             this.txtVerTodoSala.Text = "Ver todo";
@@ -211,10 +202,9 @@
             // 
             // metroButton5
             // 
-            this.metroButton5.Location = new System.Drawing.Point(370, 257);
-            this.metroButton5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.metroButton5.Location = new System.Drawing.Point(247, 167);
             this.metroButton5.Name = "metroButton5";
-            this.metroButton5.Size = new System.Drawing.Size(112, 35);
+            this.metroButton5.Size = new System.Drawing.Size(75, 23);
             this.metroButton5.TabIndex = 30;
             this.metroButton5.Tag = "Buscar";
             this.metroButton5.Text = "Buscar";
@@ -227,18 +217,16 @@
             // 
             // 
             this.txtBuscarSala.CustomButton.Image = null;
-            this.txtBuscarSala.CustomButton.Location = new System.Drawing.Point(195, 3);
-            this.txtBuscarSala.CustomButton.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.txtBuscarSala.CustomButton.Location = new System.Drawing.Point(58, 1);
             this.txtBuscarSala.CustomButton.Name = "";
-            this.txtBuscarSala.CustomButton.Size = new System.Drawing.Size(32, 32);
+            this.txtBuscarSala.CustomButton.Size = new System.Drawing.Size(10, 10);
             this.txtBuscarSala.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtBuscarSala.CustomButton.TabIndex = 1;
             this.txtBuscarSala.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtBuscarSala.CustomButton.UseSelectable = true;
             this.txtBuscarSala.CustomButton.Visible = false;
             this.txtBuscarSala.Lines = new string[0];
-            this.txtBuscarSala.Location = new System.Drawing.Point(144, 257);
-            this.txtBuscarSala.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtBuscarSala.Location = new System.Drawing.Point(96, 167);
             this.txtBuscarSala.MaxLength = 32767;
             this.txtBuscarSala.Name = "txtBuscarSala";
             this.txtBuscarSala.PasswordChar = '\0';
@@ -247,7 +235,7 @@
             this.txtBuscarSala.SelectionLength = 0;
             this.txtBuscarSala.SelectionStart = 0;
             this.txtBuscarSala.ShortcutsEnabled = true;
-            this.txtBuscarSala.Size = new System.Drawing.Size(154, 26);
+            this.txtBuscarSala.Size = new System.Drawing.Size(103, 17);
             this.txtBuscarSala.TabIndex = 29;
             this.txtBuscarSala.UseSelectable = true;
             this.txtBuscarSala.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -256,8 +244,7 @@
             // metroLabel12
             // 
             this.metroLabel12.AutoSize = true;
-            this.metroLabel12.Location = new System.Drawing.Point(30, 257);
-            this.metroLabel12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.metroLabel12.Location = new System.Drawing.Point(20, 167);
             this.metroLabel12.Name = "metroLabel12";
             this.metroLabel12.Size = new System.Drawing.Size(47, 19);
             this.metroLabel12.TabIndex = 28;
@@ -301,8 +288,7 @@
             this.mgSala.EnableHeadersVisualStyles = false;
             this.mgSala.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.mgSala.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.mgSala.Location = new System.Drawing.Point(-6, 331);
-            this.mgSala.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.mgSala.Location = new System.Drawing.Point(-4, 215);
             this.mgSala.Name = "mgSala";
             this.mgSala.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -315,7 +301,7 @@
             this.mgSala.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.mgSala.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.mgSala.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.mgSala.Size = new System.Drawing.Size(1036, 400);
+            this.mgSala.Size = new System.Drawing.Size(691, 260);
             this.mgSala.TabIndex = 17;
             // 
             // dataGridViewTextBoxColumn2
@@ -364,36 +350,33 @@
             this.metroTabPage1.Controls.Add(this.metroLabel5);
             this.metroTabPage1.HorizontalScrollbarBarColor = true;
             this.metroTabPage1.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTabPage1.HorizontalScrollbarSize = 15;
+            this.metroTabPage1.HorizontalScrollbarSize = 10;
             this.metroTabPage1.Location = new System.Drawing.Point(4, 38);
-            this.metroTabPage1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.metroTabPage1.Name = "metroTabPage1";
-            this.metroTabPage1.Size = new System.Drawing.Size(2134, 924);
+            this.metroTabPage1.Size = new System.Drawing.Size(1420, 586);
             this.metroTabPage1.TabIndex = 5;
             this.metroTabPage1.Tag = "Alta Curso";
             this.metroTabPage1.Text = "Alta Curso";
             this.metroTabPage1.VerticalScrollbarBarColor = true;
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
-            this.metroTabPage1.VerticalScrollbarSize = 15;
+            this.metroTabPage1.VerticalScrollbarSize = 10;
             // 
             // txtGrado
             // 
             this.txtGrado.FormattingEnabled = true;
             this.txtGrado.ItemHeight = 23;
-            this.txtGrado.Location = new System.Drawing.Point(213, 137);
-            this.txtGrado.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtGrado.Location = new System.Drawing.Point(142, 89);
             this.txtGrado.Name = "txtGrado";
-            this.txtGrado.Size = new System.Drawing.Size(361, 29);
+            this.txtGrado.Size = new System.Drawing.Size(242, 29);
             this.txtGrado.TabIndex = 7;
             this.txtGrado.UseSelectable = true;
             // 
             // btnAlta
             // 
             this.btnAlta.Enabled = false;
-            this.btnAlta.Location = new System.Drawing.Point(39, 285);
-            this.btnAlta.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnAlta.Location = new System.Drawing.Point(26, 185);
             this.btnAlta.Name = "btnAlta";
-            this.btnAlta.Size = new System.Drawing.Size(177, 58);
+            this.btnAlta.Size = new System.Drawing.Size(118, 38);
             this.btnAlta.TabIndex = 6;
             this.btnAlta.Tag = "Alta";
             this.btnAlta.Text = "Alta";
@@ -406,10 +389,9 @@
             // 
             // 
             this.txtNombreCurso.CustomButton.Image = null;
-            this.txtNombreCurso.CustomButton.Location = new System.Drawing.Point(494, 2);
-            this.txtNombreCurso.CustomButton.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.txtNombreCurso.CustomButton.Location = new System.Drawing.Point(147, 1);
             this.txtNombreCurso.CustomButton.Name = "";
-            this.txtNombreCurso.CustomButton.Size = new System.Drawing.Size(50, 51);
+            this.txtNombreCurso.CustomButton.Size = new System.Drawing.Size(14, 14);
             this.txtNombreCurso.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtNombreCurso.CustomButton.TabIndex = 1;
             this.txtNombreCurso.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -417,8 +399,7 @@
             this.txtNombreCurso.CustomButton.Visible = false;
             this.txtNombreCurso.Enabled = false;
             this.txtNombreCurso.Lines = new string[0];
-            this.txtNombreCurso.Location = new System.Drawing.Point(213, 54);
-            this.txtNombreCurso.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtNombreCurso.Location = new System.Drawing.Point(142, 35);
             this.txtNombreCurso.MaxLength = 32767;
             this.txtNombreCurso.Name = "txtNombreCurso";
             this.txtNombreCurso.PasswordChar = '\0';
@@ -427,7 +408,7 @@
             this.txtNombreCurso.SelectionLength = 0;
             this.txtNombreCurso.SelectionStart = 0;
             this.txtNombreCurso.ShortcutsEnabled = true;
-            this.txtNombreCurso.Size = new System.Drawing.Size(363, 35);
+            this.txtNombreCurso.Size = new System.Drawing.Size(242, 23);
             this.txtNombreCurso.TabIndex = 4;
             this.txtNombreCurso.UseSelectable = true;
             this.txtNombreCurso.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -436,8 +417,7 @@
             // metroLabel6
             // 
             this.metroLabel6.AutoSize = true;
-            this.metroLabel6.Location = new System.Drawing.Point(24, 152);
-            this.metroLabel6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.metroLabel6.Location = new System.Drawing.Point(16, 99);
             this.metroLabel6.Name = "metroLabel6";
             this.metroLabel6.Size = new System.Drawing.Size(46, 19);
             this.metroLabel6.TabIndex = 3;
@@ -447,8 +427,7 @@
             // metroLabel5
             // 
             this.metroLabel5.AutoSize = true;
-            this.metroLabel5.Location = new System.Drawing.Point(24, 54);
-            this.metroLabel5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.metroLabel5.Location = new System.Drawing.Point(16, 35);
             this.metroLabel5.Name = "metroLabel5";
             this.metroLabel5.Size = new System.Drawing.Size(59, 19);
             this.metroLabel5.TabIndex = 2;
@@ -460,17 +439,16 @@
             this.metroTabPage2.Controls.Add(this.mgReserva);
             this.metroTabPage2.HorizontalScrollbarBarColor = true;
             this.metroTabPage2.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTabPage2.HorizontalScrollbarSize = 15;
+            this.metroTabPage2.HorizontalScrollbarSize = 10;
             this.metroTabPage2.Location = new System.Drawing.Point(4, 38);
-            this.metroTabPage2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.metroTabPage2.Name = "metroTabPage2";
-            this.metroTabPage2.Size = new System.Drawing.Size(2134, 924);
+            this.metroTabPage2.Size = new System.Drawing.Size(1420, 586);
             this.metroTabPage2.TabIndex = 6;
             this.metroTabPage2.Tag = "Reservas";
             this.metroTabPage2.Text = "Reservas";
             this.metroTabPage2.VerticalScrollbarBarColor = true;
             this.metroTabPage2.VerticalScrollbarHighlightOnWheel = false;
-            this.metroTabPage2.VerticalScrollbarSize = 15;
+            this.metroTabPage2.VerticalScrollbarSize = 10;
             // 
             // mgReserva
             // 
@@ -513,8 +491,7 @@
             this.mgReserva.EnableHeadersVisualStyles = false;
             this.mgReserva.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.mgReserva.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.mgReserva.Location = new System.Drawing.Point(39, 60);
-            this.mgReserva.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.mgReserva.Location = new System.Drawing.Point(26, 39);
             this.mgReserva.Name = "mgReserva";
             this.mgReserva.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -527,7 +504,7 @@
             this.mgReserva.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.mgReserva.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.mgReserva.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.mgReserva.Size = new System.Drawing.Size(1876, 649);
+            this.mgReserva.Size = new System.Drawing.Size(1251, 422);
             this.mgReserva.TabIndex = 18;
             // 
             // dataGridViewTextBoxColumn3
@@ -595,13 +572,11 @@
             // 
             // frmReservaSalas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2276, 1100);
+            this.ClientSize = new System.Drawing.Size(1517, 715);
             this.Controls.Add(this.tabIncripcion);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmReservaSalas";
-            this.Padding = new System.Windows.Forms.Padding(30, 92, 30, 31);
             this.Tag = "Reserva Salas de Grado";
             this.Text = "Reserva Salas de Grado";
             this.Load += new System.EventHandler(this.frmReservaSalas_Load);

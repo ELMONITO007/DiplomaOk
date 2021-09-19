@@ -41,7 +41,7 @@ namespace Data.Gestion_Salas
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
             {
-                //db.AddInParameter(cmd, "@id_salaHorario", DbType.Int32, entity.salaHorario.Id);
+                db.AddInParameter(cmd, "@id_salaHorario", DbType.Int32, entity.salaHorario.Id);
                 db.AddInParameter(cmd, "@ID_Sala", DbType.Int32, entity.sala.Id);
                 db.AddInParameter(cmd, "@Nombre", DbType.String, entity.nombre);
                 db.AddInParameter(cmd, "@Grado", DbType.Int64, entity.grado.Id);

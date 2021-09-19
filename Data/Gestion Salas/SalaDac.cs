@@ -105,13 +105,13 @@ namespace Data
         }
         public List<Sala> ReadByTipo(string id)
         {
-            const string SQL_STATEMENT = "select * from Sala where activo=1 and TipoSala=@ID_TipoSala";
+            const string SQL_STATEMENT = "select * from sala as s join TipoSala as ts on s.ID_TipoSala=ts.Id_TipoSala where TipoSala=@TipoSala";
 
             List<Sala> result = new List<Sala>();
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
             {
-                db.AddInParameter(cmd, "@TipoSala", DbType.Int32, id);
+                db.AddInParameter(cmd, "@TipoSala", DbType.String, id);
                 using (IDataReader dr = db.ExecuteReader(cmd))
                 {
                     while (dr.Read())

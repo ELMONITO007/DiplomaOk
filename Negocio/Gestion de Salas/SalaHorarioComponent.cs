@@ -138,19 +138,23 @@ namespace Negocio
         public List<Sala> ObtenerSalasDisponibleGrado(SalaHorario entity)
 
         {
+     
             List<Sala> listaSalaPorTipo = new List<Sala>();
             List<Sala> result = new List<Sala>();
             SalaComponent salaComponent = new SalaComponent();
-          
-            
-            listaSalaPorTipo = salaComponent.ReadByTipo(entity.sala.tipoSala);
+            SalaHorario unaSalaHorario = new SalaHorario();
+
+            Sala sala = new Sala();
+            sala = salaComponent.ReadByTipo("Grado")[0];
+
+
+            listaSalaPorTipo = salaComponent.ReadByTipo(sala.tipoSala);
            
         
             foreach (var item in listaSalaPorTipo)
             {
-                SalaHorario salaHorario = new SalaHorario();
-                salaHorario = entity;
-                salaHorario.sala = item;
+                SalaHorario salaHorario = new SalaHorario(item);
+          
                 if (VerificarDisponibilidadGrado(salaHorario))
                 {
                     result.Add(item);

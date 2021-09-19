@@ -48,7 +48,7 @@ namespace Negocio.Servicios
             // 
             this.btnCosistencia.AutoSize = true;
             this.btnCosistencia.Location = new System.Drawing.Point(369, 328);
-            this.btnCosistencia.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCosistencia.Margin = new System.Windows.Forms.Padding(2);
             this.btnCosistencia.Name = "btnCosistencia";
             this.btnCosistencia.Size = new System.Drawing.Size(79, 24);
             this.btnCosistencia.TabIndex = 9;
@@ -60,7 +60,7 @@ namespace Negocio.Servicios
             // btnEliminar
             // 
             this.btnEliminar.Location = new System.Drawing.Point(257, 328);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(71, 24);
             this.btnEliminar.TabIndex = 8;
@@ -72,7 +72,7 @@ namespace Negocio.Servicios
             // btnRestaurar
             // 
             this.btnRestaurar.Location = new System.Drawing.Point(136, 328);
-            this.btnRestaurar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRestaurar.Margin = new System.Windows.Forms.Padding(2);
             this.btnRestaurar.Name = "btnRestaurar";
             this.btnRestaurar.Size = new System.Drawing.Size(71, 24);
             this.btnRestaurar.TabIndex = 7;
@@ -83,12 +83,12 @@ namespace Negocio.Servicios
             // 
             // btnCrearBk
             // 
-            this.btnCrearBk.Location = new System.Drawing.Point(15, 328);
-            this.btnCrearBk.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCrearBk.Location = new System.Drawing.Point(5, 328);
+            this.btnCrearBk.Margin = new System.Windows.Forms.Padding(2);
             this.btnCrearBk.Name = "btnCrearBk";
             this.btnCrearBk.Size = new System.Drawing.Size(71, 24);
             this.btnCrearBk.TabIndex = 6;
-            this.btnCrearBk.Tag = "Crear";
+            this.btnCrearBk.Tag = "";
             this.btnCrearBk.Text = "Crear";
             this.btnCrearBk.Theme = MetroFramework.MetroThemeStyle.Light;
             this.btnCrearBk.UseSelectable = true;
@@ -129,7 +129,7 @@ namespace Negocio.Servicios
             this.MGbackup.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.MGbackup.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.MGbackup.Location = new System.Drawing.Point(15, 57);
-            this.MGbackup.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MGbackup.Margin = new System.Windows.Forms.Padding(2);
             this.MGbackup.Name = "MGbackup";
             this.MGbackup.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -189,9 +189,9 @@ namespace Negocio.Servicios
             this.Controls.Add(this.btnRestaurar);
             this.Controls.Add(this.btnCrearBk);
             this.Controls.Add(this.MGbackup);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmBackup";
-            this.Padding = new System.Windows.Forms.Padding(13, 39, 13, 13);
+            this.Padding = new System.Windows.Forms.Padding(13, 60, 13, 13);
             this.Text = "Backup";
             this.Load += new System.EventHandler(this.frmBackup_Load);
             ((System.ComponentModel.ISupportInitialize)(this.MGbackup)).EndInit();
