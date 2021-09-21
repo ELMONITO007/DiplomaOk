@@ -24,14 +24,14 @@ namespace Data.Gestion_de_Personas
             palabra.DNI = GetDataValue<string>(entity, "DNI");
             palabra.direccion = GetDataValue<string>(entity, "direccion");
             palabra.fechaNacimiento = GetDataValue<DateTime>(entity, "fechaNacimiento");
-
+            palabra.tipoPersona = GetDataValue<string>(entity, "Tipo_Persona");
             palabra.nombreCompleto = palabra.nombre + " " + palabra.apellido;
             return palabra;
         }
 
         public Maestro Create(Maestro entity)
         {
-            const string SQL_STATEMENT = "insert into Persona(nombre,apellido,direccion,DNI,ID_Tipo_Persona,fechaNacimiento,activo)values(@nombre,@apellido,@direccion,@DNI,(select ID_Tipo_Persona from TipoPersona  where Descripcion=@tipoPersona),@fechaNacimiento,1)";
+            const string SQL_STATEMENT = "insert into Persona(nombre,apellido,direccion,DNI,ID_Tipo_Persona,fechaNacimiento,activo)values(@nombre,@apellido,@direccion,@DNI,@tipoPersona,@fechaNacimiento,1)";
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
             {
@@ -59,7 +59,7 @@ namespace Data.Gestion_de_Personas
 
         public List<Maestro> Read()
         {
-            const string SQL_STATEMENT = "select * from Persona where  activo=1";
+            const string SQL_STATEMENT = "select * from Persona where  activo=1 and Tipo_Persona='Maestro'";
 
             List<Maestro> result = new List<Maestro>();
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
@@ -77,47 +77,7 @@ namespace Data.Gestion_de_Personas
             return result;
         }
 
-        //cambiar
-        public List<Maestro> ReadByTipoPersona(int tipo)
-        {
-            const string SQL_STATEMENT = "select * from Persona where Activo=1 and ID_Tipo_Persona=@Id";
-
-            List<Maestro> result = new List<Maestro>();
-            var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
-            using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
-            {
-                db.AddInParameter(cmd, "@Id", DbType.Int32, tipo);
-                using (IDataReader dr = db.ExecuteReader(cmd))
-                {
-                    while (dr.Read())
-                    {
-                        Maestro roles = ALoad(dr);
-                        result.Add(roles);
-                    }
-                }
-            }
-            return result;
-        }
-        public List<Maestro> ReadByMastro()
-        {
-            const string SQL_STATEMENT = "select * from Persona where  activo=1 and ID_Tipo_Persona=(select ID_Tipo_Persona from TipoPersona  where Descripcion=@Id) ";
-
-            List<Maestro> result = new List<Maestro>();
-            var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
-            using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
-            {
-                db.AddInParameter(cmd, "@Id", DbType.Int32, "Maestro");
-                using (IDataReader dr = db.ExecuteReader(cmd))
-                {
-                    while (dr.Read())
-                    {
-                        Maestro roles = ALoad(dr);
-                        result.Add(roles);
-                    }
-                }
-            }
-            return result;
-        }
+     
         public Maestro ReadBy(int id)
         {
             const string SQL_STATEMENT = "select * from Persona where  activo=1 and Legajo=@Id";

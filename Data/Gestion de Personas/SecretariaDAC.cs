@@ -21,6 +21,7 @@ namespace Data.Gestion_de_Personas
             palabra.DNI = GetDataValue<string>(entity, "DNI");
             palabra.direccion = GetDataValue<string>(entity, "direccion");
             palabra.fechaNacimiento = GetDataValue<DateTime>(entity, "fechaNacimiento");
+            palabra.tipoPersona = GetDataValue<string>(entity, "Tipo_Persona");
 
             palabra.nombreCompleto = palabra.nombre + " " + palabra.apellido;
             return palabra;
@@ -28,7 +29,7 @@ namespace Data.Gestion_de_Personas
 
         public Secretaria Create(Secretaria entity)
         {
-            const string SQL_STATEMENT = "insert into Persona(nombre,apellido,direccion,DNI,ID_Tipo_Persona,fechaNacimiento,activo)values(@nombre,@apellido,@direccion,@DNI,(select ID_Tipo_Persona from TipoPersona  where Descripcion=@tipoPersona),@fechaNacimiento,1)";
+            const string SQL_STATEMENT = "insert into Persona(nombre,apellido,direccion,DNI,ID_Tipo_Persona,fechaNacimiento,activo)values(@nombre,@apellido,@direccion,@DNI,@tipoPersona,@fechaNacimiento,1)";
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
             {
@@ -56,7 +57,7 @@ namespace Data.Gestion_de_Personas
 
         public List<Secretaria> Read()
         {
-            const string SQL_STATEMENT = "select * from Persona where  activo=1";
+            const string SQL_STATEMENT = "select * from Persona where Tipo_Persona='Secretaria' and  activo=1";
 
             List<Secretaria> result = new List<Secretaria>();
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);

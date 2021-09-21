@@ -17,7 +17,7 @@ namespace Entitites.Negocio.Personas
         public string DNI { get; set; }
         public DateTime fechaNacimiento { get; set; }
         public List<Telefono> listaTelefono { get; set; }
-
+        public string tipoPersona { get; set; }
         public List<Documentacion> listaDocumentacion { get; set; }
         public Persona() { }
         public Persona(List<Telefono> _listaTelefono, List<Documentacion> _listaDocumentacion) {

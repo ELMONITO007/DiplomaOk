@@ -23,14 +23,15 @@ namespace Data.Gestion_de_Personas
             palabra.DNI = GetDataValue<string>(entity, "DNI");
             palabra.direccion = GetDataValue<string>(entity, "direccion");
             palabra.fechaNacimiento = GetDataValue<DateTime>(entity, "fechaNacimiento");
-            
+            palabra.tipoPersona= GetDataValue<string>(entity, "Tipo_Persona");
+
             palabra.nombreCompleto = palabra.nombre + " " + palabra.apellido;
             return palabra;
         }
 
         public Alumno Create(Alumno entity)
         {
-            const string SQL_STATEMENT = "insert into Persona(nombre,apellido,direccion,DNI,ID_Tipo_Persona,fechaNacimiento,activo)values(@nombre,@apellido,@direccion,@DNI,(select ID_Tipo_Persona from TipoPersona  where Descripcion=@tipoPersona),@fechaNacimiento,1)";
+            const string SQL_STATEMENT = "insert into Persona(nombre,apellido,direccion,DNI,Tipo_Persona,fechaNacimiento,activo)values(@nombre,@apellido,@direccion,@DNI,@tipoPersona,@fechaNacimiento,1)";
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
             {
@@ -58,7 +59,7 @@ namespace Data.Gestion_de_Personas
 
         public List<Alumno> Read()
         {
-            const string SQL_STATEMENT = "select * from Persona where  activo=1";
+            const string SQL_STATEMENT = "SELECT * from Persona where Tipo_Persona='Alumno'";
 
             List<Alumno> result = new List<Alumno>();
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
@@ -76,50 +77,10 @@ namespace Data.Gestion_de_Personas
             return result;
         }
 
-        //cambiar
-        public List<Alumno> ReadByTipoPersona(int tipo)
-        {
-            const string SQL_STATEMENT = "select * from Persona where Activo=1 and ID_Tipo_Persona=@Id";
-
-            List<Alumno> result = new List<Alumno>();
-            var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
-            using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
-            {
-                db.AddInParameter(cmd, "@Id", DbType.Int32, tipo);
-                using (IDataReader dr = db.ExecuteReader(cmd))
-                {
-                    while (dr.Read())
-                    {
-                        Alumno roles = ALoad(dr);
-                        result.Add(roles);
-                    }
-                }
-            }
-            return result;
-        }
-        public List<Alumno> ReadByAlumno()
-        {
-            const string SQL_STATEMENT = "select * from Persona where  activo=1 and ID_Tipo_Persona=(select ID_Tipo_Persona from TipoPersona  where Descripcion=@Id) ";
-
-            List<Alumno> result = new List<Alumno>();
-            var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
-            using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
-            {
-                db.AddInParameter(cmd, "@Id", DbType.Int32, "Alumno");
-                using (IDataReader dr = db.ExecuteReader(cmd))
-                {
-                    while (dr.Read())
-                    {
-                        Alumno roles = ALoad(dr);
-                        result.Add(roles);
-                    }
-                }
-            }
-            return result;
-        }
+      
         public Alumno ReadBy(int id)
         {
-            const string SQL_STATEMENT = "select * from Persona where  activo=1 and Legajo=@Id";
+            const string SQL_STATEMENT = "SELECT * from Persona where Tipo_Persona='Alumno' and  activo=1 and Legajo=@Id";
             Alumno roles = null;
 
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
@@ -160,7 +121,7 @@ namespace Data.Gestion_de_Personas
         }
         public List<Alumno> ReadByFechaNacimiento(DateTime fechaInicio, DateTime fechaFinal)
         {
-            const string SQL_STATEMENT = "select * from Persona where ID_Tipo_Persona=(select ID_Tipo_Persona from TipoPersona where Descripcion='alumno')and  fechaNacimiento BETWEEN @fechaInicio AND @fechaFinal and Activo=1";
+            const string SQL_STATEMENT = "select * from Persona where Tipo_Persona='alumno' and  fechaNacimiento BETWEEN @fechaInicio AND @fechaFinal and Activo=1";
 
             List<Alumno> result = new List<Alumno>();
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);

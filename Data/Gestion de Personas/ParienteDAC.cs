@@ -29,6 +29,7 @@ namespace Data
             palabra.DNI = GetDataValue<string>(entity, "DNI");
             palabra.direccion = GetDataValue<string>(entity, "direccion");
             palabra.fechaNacimiento = GetDataValue<DateTime>(entity, "fechaNacimiento");
+            palabra.tipoPersona = GetDataValue<string>(entity, "Tipo_Persona");
 
 
 
@@ -180,11 +181,26 @@ namespace Data
         #endregion
 
         #region Pariente
-        
+        public Pariente ALoadPariente(IDataReader entity)
+        {
+            Pariente palabra = new Pariente();
+
+            palabra.Id = GetDataValue<int>(entity, "legajo");
+            palabra.nombre = GetDataValue<string>(entity, "nombre");
+            palabra.apellido = GetDataValue<string>(entity, "apellido");
+            palabra.DNI = GetDataValue<string>(entity, "DNI");
+            palabra.direccion = GetDataValue<string>(entity, "direccion");
+            palabra.fechaNacimiento = GetDataValue<DateTime>(entity, "fechaNacimiento");
+            palabra.tipoPersona = GetDataValue<string>(entity, "Tipo_Persona");
+
+
+
+            return palabra;
+        }
 
         public Pariente Create(Pariente entity)
         {
-            const string SQL_STATEMENT = "insert into Persona(nombre,apellido,direccion,DNI,ID_Tipo_Persona,fechaNacimiento,activo)values(@nombre,@apellido,@direccion,@DNI,(select ID_Tipo_Persona from TipoPersona  where Descripcion=@tipoPersona),@fechaNacimiento,1)";
+            const string SQL_STATEMENT = "insert into Persona(nombre,apellido,direccion,DNI,ID_Tipo_Persona,fechaNacimiento,activo)values(@nombre,@apellido,@direccion,@DNI,@tipoPersona,@fechaNacimiento,1)";
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
             {
@@ -192,8 +208,9 @@ namespace Data
                 db.AddInParameter(cmd, "@apellido", DbType.String, entity.apellido);
                 db.AddInParameter(cmd, "@direccion", DbType.String, entity.direccion);
                 db.AddInParameter(cmd, "@DNI", DbType.String, entity.DNI);
-                db.AddInParameter(cmd, "@tipoPersona", DbType.String, "Maestro");
+                db.AddInParameter(cmd, "@tipoPersona", DbType.String, "Pariente");
                 db.AddInParameter(cmd, "@fechaNacimiento", DbType.DateTime, entity.fechaNacimiento);
+
                 entity.Id = Convert.ToInt32(db.ExecuteScalar(cmd));
             }
             return entity;
@@ -223,7 +240,7 @@ namespace Data
                 {
                     if (dr.Read())
                     {
-                        roles = ALoad(dr);
+                        roles = ALoadPariente(dr);
                     }
                 }
             }
@@ -245,7 +262,7 @@ namespace Data
                 {
                     if (dr.Read())
                     {
-                        roles = ALoad(dr);
+                        roles = ALoadPariente(dr);
                     }
                 }
             }

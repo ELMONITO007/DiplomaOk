@@ -143,7 +143,7 @@ namespace Negocio
 
             //foreach (var item in entity)
             //{
-            //    if (item.tipoPersona.Descripcion == "Alumno")
+            //    if (item.tipoPersona == "Alumno")
             //    {
             //        Asistencia asistencia = new Asistencia();
             //        asistencia.persona = item;
@@ -164,7 +164,7 @@ namespace Negocio
 
         }
 
-        public List<Asistencia> ReadByCursoMes(List<Persona> entity, int año, string mes)
+        public List<Asistencia> ReadByCursoMes(List<Alumno> entity, int año, string mes)
 
 
         {
