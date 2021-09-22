@@ -141,17 +141,17 @@ namespace DiplomaFinal.Gesion_de_Salas
 
         private void metroButton2_Click(object sender, EventArgs e)
         {
-            //if (mgReserva.CurrentRow.Cells[0].Value == null)
-            //{
-            //    MetroMessageBox.Show(this, "No hay años que mostrar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //}
-            //else
-            //{
-            //    frmCursoAlumnosVerBaja frmAlumnosCurso = new frmCursoAlumnosVerBaja();
-            //    frmAlumnosCurso.curso = int.Parse(mgReserva.CurrentRow.Cells[0].Value.ToString());
-                
-            //    frmAlumnosCurso.ShowDialog();
-            //}
+            if (mgReserva.CurrentRow.Cells[0].Value == null)
+            {
+                MetroMessageBox.Show(this, "No hay años que mostrar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                frmCursoAlumnosVerBaja frmAlumnosCurso = new frmCursoAlumnosVerBaja();
+                frmAlumnosCurso.curso = int.Parse(mgReserva.CurrentRow.Cells[0].Value.ToString());
+
+                frmAlumnosCurso.ShowDialog();
+            }
         }
 
         private void metroButton3_Click(object sender, EventArgs e)

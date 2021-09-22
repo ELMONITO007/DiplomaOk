@@ -33,12 +33,18 @@ namespace Negocio.Gestion_de_Personas
             return result;
         }
 
-        public List<Maestro> buscar(string palabra, int tipo)
+
+        public List<Maestro> ObtenerAlumnodeCunCurso(int id_curso)
+        {
+            MaestroDAC maestroDAC = new MaestroDAC();
+            return maestroDAC.ObtenerMaestrodeCunCurso(id_curso);
+                    }
+            public List<Maestro> buscar(string palabra, int tipo)
         {
 
             List<Maestro> entity = new List<Maestro>();
 
-            entity = ReadByTipo(tipo);
+            entity = Read();
             List<Maestro> result = new List<Maestro>();
             foreach (Maestro item in entity)
             {
@@ -75,15 +81,6 @@ namespace Negocio.Gestion_de_Personas
             idiomaDAC.Delete(id);
         }
 
-        public List<Maestro> ReadByTipo(int tipo)
-        {
-            MaestroDAC personaDAC = new MaestroDAC();
-            List<Maestro> result = new List<Maestro>();
-
-
-            return personaDAC.ReadByTipoPersona(tipo);
-
-        }
 
         public List<Maestro> Read()
         {

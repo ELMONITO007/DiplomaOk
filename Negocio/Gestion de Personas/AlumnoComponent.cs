@@ -29,13 +29,19 @@ namespace Negocio.Gestion_de_Personas
 
             return result;
         }
+        public List<Alumno> ObtenerAlumnodeCunCurso(int id_curso)
+        {
+            AlumnoDAC alumnoDAC = new AlumnoDAC();
+            return alumnoDAC.ObtenerAlumnodeCunCurso(id_curso);
 
-        public List<Alumno> buscar(string palabra, int tipo)
+        }
+
+            public List<Alumno> buscar(string palabra, int tipo)
         {
 
             List<Alumno> entity = new List<Alumno>();
 
-            entity = ReadByTipo(tipo);
+            entity = Read();
             List<Alumno> result = new List<Alumno>();
             foreach (Alumno item in entity)
             {
@@ -73,15 +79,7 @@ namespace Negocio.Gestion_de_Personas
             idiomaDAC.Delete(id);
         }
 
-        public List<Alumno> ReadByTipo(int tipo)
-        {
-            AlumnoDAC personaDAC = new AlumnoDAC();
-            List<Alumno> result = new List<Alumno>();
-     
-          
-            return personaDAC.ReadByTipoPersona(tipo);
-
-        }
+        
 
         public List<Alumno> Read()
         {

@@ -140,6 +140,27 @@ namespace Data.Gestion_de_Personas
             }
             return result;
         }
+        public List<Alumno> ObtenerAlumnodeCunCurso(int id_curso)
+        {
+            const string SQL_STATEMENT = "select * from CursoAlumno as ca join Persona as p on p.Legajo =ca.Legajo where Tipo_Persona='Alumno' and ca.ID_Curso=@id_curso and p.Activo=1";
+
+            List<Alumno> result = new List<Alumno>();
+            var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
+            using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
+            {
+                db.AddInParameter(cmd, "@id_curso", DbType.Int32, id_curso);
+
+                using (IDataReader dr = db.ExecuteReader(cmd))
+                {
+                    while (dr.Read())
+                    {
+                        Alumno roles = ALoad(dr);
+                        result.Add(roles);
+                    }
+                }
+            }
+            return result;
+        }
         public void Update(Alumno entity)
         {
             const string SQL_STATEMENT = "update Persona set nombre=@nombre, apellido=@apellido, direccion=@direccion, DNI=@DNI,  fechaNacimiento=@fechaNacimiento  where legajo=@id ";

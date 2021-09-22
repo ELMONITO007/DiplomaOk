@@ -28,7 +28,7 @@ namespace DiplomaFinal.Gestion_de_Personas
             AlumnoComponent personaComponent = new AlumnoComponent();
 
             List<Alumno> listaPersona = new List<Alumno>();
-            listaPersona = personaComponent.ReadByTipo(1);
+            listaPersona = personaComponent.Read();
             int n = 0;
             foreach (var item in listaPersona)
             {

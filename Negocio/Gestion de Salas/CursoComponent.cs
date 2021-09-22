@@ -1,7 +1,10 @@
 ﻿
 using Data.Gestion_Salas;
 using Entities;
+using Entitites;
+using Entitites.Negocio.Personas;
 using Entitites.Negocio.Salas;
+using Negocio.Gestion_de_Personas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -154,15 +157,28 @@ namespace Negocio
                 sala = salaComponent.ReadBy(item.sala.Id);
                 SalaHorario salaHorario = new SalaHorario();
                 salaHorario = salaHorarioComponent.ReadBy(item.salaHorario.Id);
+                MaestroComponent maestroComponent = new MaestroComponent();
+                
+
+
                 Curso curso = new Curso(sala, grado, salaHorario);
                 curso.Id = item.Id;
                 curso.nombre = item.nombre;
 
+             
 
                 result.Add(curso);
             }
 
             return result;
+        }
+
+        public void QuitarAlumnoSala(int id_curso, int legajo)
+
+        {
+            CursoDAC cursoDAC = new CursoDAC();
+            cursoDAC.QuitarAlumnoSala(id_curso, legajo);
+        
         }
         public Curso ReadBy(int id)
         {
@@ -185,7 +201,17 @@ namespace Negocio
                 sala = salaComponent.ReadBy(result.sala.Id);
                 SalaHorario salaHorario = new SalaHorario();
                 salaHorario = salaHorarioComponent.ReadBy(result.salaHorario.Id);
-                Curso curso = new Curso(sala, grado, salaHorario);
+
+
+                MaestroComponent maestroComponent = new MaestroComponent();
+                List<Maestro> maestros = new List<Maestro>();
+                maestros = maestroComponent.ObtenerAlumnodeCunCurso(id);
+
+                AlumnoComponent alumnoComponent = new AlumnoComponent();
+                List<Alumno> alumnos = new List<Alumno>();
+                alumnos = alumnoComponent.ObtenerAlumnodeCunCurso(id);
+
+                Curso curso = new Curso(sala, grado,null, alumnos,maestros,salaHorario);
                 curso.Id = result.Id;
                 curso.nombre = result.nombre;
                 return curso;

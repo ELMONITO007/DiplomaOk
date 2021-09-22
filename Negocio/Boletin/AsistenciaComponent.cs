@@ -141,24 +141,24 @@ namespace Negocio
             AsistenciaDAC personaDAC = new AsistenciaDAC();
             List<Asistencia> result = new List<Asistencia>();
 
-            //foreach (var item in entity)
-            //{
-            //    if (item.tipoPersona == "Alumno")
-            //    {
-            //        Asistencia asistencia = new Asistencia();
-            //        asistencia.persona = item;
-            //        asistencia.año = año;
+            foreach (var item in entity)
+            {
+                if (item.tipoPersona == "Alumno")
+                {
+                    Asistencia asistencia = new Asistencia();
+                    asistencia.persona = item;
+                    asistencia.año = año;
 
-            //        foreach (var asis in ReadByAlumno(asistencia))
-            //        {
-            //            result.Add(asis);
-            //        }
-            //    }
-
-
+                    foreach (var asis in ReadByAlumno(asistencia))
+                    {
+                        result.Add(asis);
+                    }
+                }
 
 
-            //}
+
+
+            }
             return result;
 
 

@@ -28,7 +28,27 @@ namespace Data.Gestion_de_Personas
             palabra.nombreCompleto = palabra.nombre + " " + palabra.apellido;
             return palabra;
         }
+        public List<Maestro> ObtenerMaestrodeCunCurso(int id_curso)
+        {
+            const string SQL_STATEMENT = "select * from CursoAlumno as ca join Persona as p on p.Legajo =ca.Legajo where Tipo_Persona='Maestro' and ca.ID_Curso=@id_curso and p.Activo=1";
 
+            List<Maestro> result = new List<Maestro>();
+            var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
+            using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
+            {
+                db.AddInParameter(cmd, "@id_curso", DbType.Int32, id_curso);
+
+                using (IDataReader dr = db.ExecuteReader(cmd))
+                {
+                    while (dr.Read())
+                    {
+                        Maestro roles = ALoad(dr);
+                        result.Add(roles);
+                    }
+                }
+            }
+            return result;
+        }
         public Maestro Create(Maestro entity)
         {
             const string SQL_STATEMENT = "insert into Persona(nombre,apellido,direccion,DNI,ID_Tipo_Persona,fechaNacimiento,activo)values(@nombre,@apellido,@direccion,@DNI,@tipoPersona,@fechaNacimiento,1)";

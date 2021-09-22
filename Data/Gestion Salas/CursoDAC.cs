@@ -52,6 +52,18 @@ namespace Data.Gestion_Salas
             return entity;
         }
 
+        public void QuitarAlumnoSala(int id_curso,int legajo)
+        {
+            const string SQL_STATEMENT = "delete from CursoAlumno where ID_Curso=@ID_Curso and Legajo=@Legajo";
+            var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
+            using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
+            {
+                db.AddInParameter(cmd, "@id_curso", DbType.Int32, id_curso);
+                db.AddInParameter(cmd, "@Legajo", DbType.Int32, legajo);
+
+                db.ExecuteNonQuery(cmd);
+            }
+        }
         public void Delete(int id)
         {
             const string SQL_STATEMENT = "delete from Curso where ID_Curso=@Id";
@@ -62,7 +74,6 @@ namespace Data.Gestion_Salas
                 db.ExecuteNonQuery(cmd);
             }
         }
-
         public List<Curso> Read()
         {
             const string SQL_STATEMENT = "select * from Curso ";
