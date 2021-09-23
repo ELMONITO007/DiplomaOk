@@ -272,5 +272,30 @@ namespace Negocio
                 return false;
             }
         }
+
+        public bool VerificarVacantes(int id_curso)
+
+
+        {
+
+            Curso curso = new Curso();
+            CursoComponent cursoComponent = new CursoComponent();
+            curso = cursoComponent.ReadBy(id_curso);
+            AlumnoComponent alumnoComponent = new AlumnoComponent();
+           int cantidadAlumno= alumnoComponent.ObtenerAlumnodeCunCurso(id_curso).Count;
+            if ( curso.sala.capacidad >cantidadAlumno)
+            {
+                return true;
+
+            }
+            else
+            {
+                return true;
+            }
+
+        
+        
+        
+        }
     }
 }

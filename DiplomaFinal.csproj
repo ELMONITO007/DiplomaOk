@@ -73,6 +73,12 @@
     <Compile Include="Gestion de Salas\frmABMsalas.designer.cs">
       <DependentUpon>frmABMsalas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gestion de Salas\frmAlumnosCurso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Salas\frmAlumnosCurso.designer.cs">
+      <DependentUpon>frmAlumnosCurso.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gestion de Salas\frmCursoAlumnosVerBaja.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -227,6 +233,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gestion de Salas\frmABMsalas.resx">
       <DependentUpon>frmABMsalas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion de Salas\frmAlumnosCurso.resx">
+      <DependentUpon>frmAlumnosCurso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gestion de Salas\frmCursoAlumnosVerBaja.resx">
       <DependentUpon>frmCursoAlumnosVerBaja.cs</DependentUpon>
