@@ -183,5 +183,28 @@ namespace Data.Gestion_de_Personas
         {
             throw new NotImplementedException();
         }
+
+        public List<Alumno> ReadByAño(int año)
+        {
+            const string SQL_STATEMENT = "select * from CursoAlumno as ca join Persona as p on p.Legajo=ca.Legajo join Curso as c on c.ID_Curso=ca.ID_Curso join Sala_Horario as sh on sh.ID_SalaHorario=c.id_salaHorario where Año=@año and Tipo_Persona='Alumno'";
+
+            List<Alumno> result = new List<Alumno>();
+            var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
+            using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
+            {
+
+                db.AddInParameter(cmd, "@año", DbType.Int32, año);
+
+                using (IDataReader dr = db.ExecuteReader(cmd))
+                {
+                    while (dr.Read())
+                    {
+                        Alumno usuarios = ALoad(dr);
+                        result.Add(usuarios);
+                    }
+                }
+            }
+            return result;
+        }
     }
 }

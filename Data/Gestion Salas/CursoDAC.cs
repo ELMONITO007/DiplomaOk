@@ -219,6 +219,23 @@ namespace Data.Gestion_Salas
             }
         }
 
+        public Curso AsignarAlumno(Curso entity)
+        {
+            const string SQL_STATEMENT = "insert into CursoAlumno(legajo,Id_Curso)values(@legajo,@curso)";
+            var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
+            using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
+            {
+                db.AddInParameter(cmd, "@legajo", DbType.Int32, entity.listaALumno[0].Id);
+                db.AddInParameter(cmd, "@curso", DbType.Int32, entity.Id);
+
+                entity.Id = Convert.ToInt32(db.ExecuteScalar(cmd));
+            }
+            return entity;
+        }
+
+
+
+
         public List<Curso> ReadByListado(string id)
         {
             throw new NotImplementedException();

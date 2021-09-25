@@ -140,5 +140,11 @@ namespace Negocio.Gestion_de_Personas
                 return false;
             }
         }
+        public List<Alumno> ReadByAño(int año)
+
+        {
+            AlumnoDAC personaDAC = new AlumnoDAC();
+            return personaDAC.ReadByAño(año);
+        }
     }
 }

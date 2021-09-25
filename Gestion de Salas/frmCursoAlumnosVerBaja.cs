@@ -93,7 +93,9 @@ namespace DiplomaFinal.Gesion_de_Salas
             {
                 CursoComponent cursoComponent = new CursoComponent();
                 cursoComponent.QuitarAlumnoSala(unCurso.Id, int.Parse(mgReserva.CurrentRow.Cells[0].Value.ToString()));
-            
+
+      
+                unCurso = cursoComponent.ReadBy(curso);
                 llenarGrillaAlumno();
             }
         }

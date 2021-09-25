@@ -297,5 +297,66 @@ namespace Negocio
         
         
         }
+
+        public List<Persona> ObtenerAlumnosDisponibles(int id_curso, int año)
+        {
+            CursoDAC cursoAlumnoDAC = new CursoDAC();
+            AlumnoComponent personaComponent = new AlumnoComponent();
+            Curso curso = new Curso();
+            CursoComponent cursoComponent = new CursoComponent();
+            //obtengo el curso
+            curso = cursoComponent.ReadBy(id_curso);
+            //establezco segun el grado los años de inicio y fin
+            int añoFecha = año - curso.grado.año - 1;
+            int añoFechafin = año - curso.grado.año;
+            string fechaInicio = añoFecha.ToString() + "-06-30 00:00:00";
+            string fechaFin = añoFechafin.ToString() + "-06-30 00:00:00";
+            DateTime fi = new DateTime(añoFecha, 06, 30);
+            DateTime ff = new DateTime(añoFechafin, 06, 30);
+            //obtengo alumnos 
+
+            List<Alumno> personas = new List<Alumno>();
+            personas = personaComponent.ReadByFechaNacimiento(fi, ff);
+
+            //Obtengo alumnos ya incriptos
+
+            List<Alumno> cursoAlumnos = new List<Alumno>();
+            cursoAlumnos = personaComponent.ReadByAño(curso.salaHorario.año);
+
+            //Asigno los alumnos que no tiene cursos
+            List<Persona> result = new List<Persona>();
+            foreach (var item in personas)
+            {
+                int a = 0;
+
+                foreach (var itemCurso in cursoAlumnos)
+                {
+
+                    if (itemCurso.Id == item.Id)
+                    {
+                        a = 1;
+                    }
+
+
+                }
+                if (a == 0)
+                {
+                    result.Add(item);
+                }
+
+            }
+            return result;
+        }
+
+        public Curso AsignarAlumno(Curso entity)
+
+
+        {
+            CursoDAC cursoDAC = new CursoDAC();
+           return cursoDAC.AsignarAlumno(entity);
+        
+        
+        }
+
     }
 }

@@ -113,30 +113,30 @@ namespace DiplomaFinal.Gesion_de_Salas
 
         private void btnAlumno_Click(object sender, EventArgs e)
         {
-            //if (mgReserva.CurrentRow.Cells[0].Value==null)
-            //{
-            //    MetroMessageBox.Show(this, "No hay años que mostrar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //}
-            //else
-            //{
-            //    CursoAlumnoComponent curso = new CursoAlumnoComponent();
-            //    int vacantes = curso.EspaciosDisponibles(int.Parse(mgReserva.CurrentRow.Cells[0].Value.ToString()));
+            if (mgReserva.CurrentRow.Cells[0].Value == null)
+            {
+                MetroMessageBox.Show(this, "No hay años que mostrar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                CursoComponent curso = new CursoComponent();
+                bool vacantes = curso.VerificarVacantes(int.Parse(mgReserva.CurrentRow.Cells[0].Value.ToString()));
 
-            //    if (vacantes > 0)
-            //    {
-            //        MetroMessageBox.Show(this, "Hay " +vacantes+" vacantes disponibles", "Vacantes", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //        frmAlumnosCurso frmAlumnosCurso = new frmAlumnosCurso();
-            //        frmAlumnosCurso.curso = int.Parse(mgReserva.CurrentRow.Cells[0].Value.ToString());
-            //        frmAlumnosCurso.año = int.Parse(txtAño.Text);
+                if (vacantes )
+                {
+                    MetroMessageBox.Show(this, "Hay vacantes disponibles", "Vacantes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    frmAlumnosCurso frmAlumnosCurso = new frmAlumnosCurso();
+                    frmAlumnosCurso.curso = int.Parse(mgReserva.CurrentRow.Cells[0].Value.ToString());
+                    frmAlumnosCurso.año = int.Parse(txtAño.Text);
 
 
-            //        frmAlumnosCurso.ShowDialog();
-            //    }
-            //    else
-            //    {
-            //        MetroMessageBox.Show(this, "No hay vacantes", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    }
-            //}
+                    frmAlumnosCurso.ShowDialog();
+                }
+                else
+                {
+                    MetroMessageBox.Show(this, "No hay vacantes", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
         }
 
         private void metroButton2_Click(object sender, EventArgs e)

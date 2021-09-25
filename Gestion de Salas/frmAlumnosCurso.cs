@@ -13,6 +13,7 @@ using MetroFramework;
 using Negocio.Servicios.REGEX;
 
 using Entitites.Negocio.Salas;
+using Entitites.Negocio.Personas;
 
 namespace DiplomaFinal.Gesion_de_Salas
 {
@@ -41,7 +42,7 @@ namespace DiplomaFinal.Gesion_de_Salas
                 mgReserva.Rows[n].Cells[1].Value = item.nombre;
                 mgReserva.Rows[n].Cells[2].Value = item.apellido;
                 mgReserva.Rows[n].Cells[3].Value = item.DNI;
-                string f = item.fechaNacimiento.ToString().Substring(0, 10);
+                string f = item.fechaNacimiento.ToString("dd-MM-yyyy");
                 mgReserva.Rows[n].Cells[4].Value = f;
               
 
@@ -65,10 +66,17 @@ namespace DiplomaFinal.Gesion_de_Salas
             else
             {
                 CursoComponent cursoComponent = new CursoComponent();
-                Curso unCurso = new Curso();
+               List< Alumno> listaALumno = new List<Alumno>();
+                Alumno alumno = new Alumno();
+
+                alumno.Id = int.Parse(mgReserva.CurrentRow.Cells[0].Value.ToString());
+                listaALumno.Add(alumno);
+                Curso unCurso = new Curso(null,null,null,listaALumno,null);
                 unCurso.Id = curso;
-                unCurso.listaALumno[0].Id = int.Parse(mgReserva.CurrentRow.Cells[0].Value.ToString());
-                //cursoAlumnoComponent.Create(cursoAlumno);
+              
+                
+        
+                cursoComponent.AsignarAlumno(unCurso);
                 llenarGrillaReservas();
             }
         }
