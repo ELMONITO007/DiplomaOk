@@ -156,23 +156,23 @@ namespace DiplomaFinal.Gesion_de_Salas
 
         private void metroButton3_Click(object sender, EventArgs e)
         {
-        //    if (mgReserva.CurrentRow.Cells[0].Value == null)
-        //    {
-        //        MetroMessageBox.Show(this, "No selecciono un curso", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //    }
-        //    else
-        //    {
-        //        CursoAlumnoComponent cursoAlumnoComponent = new CursoAlumnoComponent();
-              
-        //            frmAsignaMaestroGrado frmAsignaMaestroGrado = new frmAsignaMaestroGrado();
-        //            frmAsignaMaestroGrado.curso = int.Parse(mgReserva.CurrentRow.Cells[0].Value.ToString());
-        //            frmAsignaMaestroGrado.ShowDialog();
-               
-                
-                 
-                
-        //    }
-           
+            if (mgReserva.CurrentRow.Cells[0].Value == null)
+            {
+                MetroMessageBox.Show(this, "No selecciono un curso", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+          
+
+                frmAsignaMaestroGrado frmAsignaMaestroGrado = new frmAsignaMaestroGrado();
+                frmAsignaMaestroGrado.curso = int.Parse(mgReserva.CurrentRow.Cells[0].Value.ToString());
+                frmAsignaMaestroGrado.ShowDialog();
+
+
+
+
+            }
+
         }
 
         private void metroButton4_Click(object sender, EventArgs e)

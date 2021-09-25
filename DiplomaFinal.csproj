@@ -79,6 +79,18 @@
     <Compile Include="Gestion de Salas\frmAlumnosCurso.designer.cs">
       <DependentUpon>frmAlumnosCurso.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gestion de Salas\frmAsignaMaestroGrado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Salas\frmAsignaMaestroGrado.designer.cs">
+      <DependentUpon>frmAsignaMaestroGrado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion de Salas\frmCalendario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion de Salas\frmCalendario.designer.cs">
+      <DependentUpon>frmCalendario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gestion de Salas\frmCursoAlumnosVerBaja.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -236,6 +248,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gestion de Salas\frmAlumnosCurso.resx">
       <DependentUpon>frmAlumnosCurso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion de Salas\frmAsignaMaestroGrado.resx">
+      <DependentUpon>frmAsignaMaestroGrado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion de Salas\frmCalendario.resx">
+      <DependentUpon>frmCalendario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gestion de Salas\frmCursoAlumnosVerBaja.resx">
       <DependentUpon>frmCursoAlumnosVerBaja.cs</DependentUpon>

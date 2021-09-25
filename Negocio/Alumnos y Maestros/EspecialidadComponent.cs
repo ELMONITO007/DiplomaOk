@@ -92,5 +92,40 @@ namespace Negocio.Gestion_de_Alumnos
             return especialidadDAC.ReadByPersona(legajo);
 
         }
+
+        public List<Especialidad> EspecialidadesDisponibles(int id_curso)
+
+        {
+            //listar especialidades
+            EspecialidadComponent especialidadComponent = new EspecialidadComponent();
+            EspecialidadDAC cursoHorarioDAC = new EspecialidadDAC();
+            List<Especialidad> result = new List<Especialidad>();
+            foreach (var item in especialidadComponent.Read())
+            {
+                int a = 0;
+                foreach (var ch in cursoHorarioDAC.ListaEspecialidadSala(id_curso))
+                {
+                    if (item.Id == ch.Id)
+                    {
+                        a = 1;
+                    }
+
+                }
+                if (a == 0)
+                {
+                    result.Add(item);
+                }
+
+
+
+            }
+
+            return result;
+
+
+        }
+
+
+
     }
 }
