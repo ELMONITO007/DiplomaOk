@@ -1,6 +1,9 @@
 ﻿using Entities;
+using Entitites;
 using Negocio;
-
+using Negocio.Gestion_de_Alumnos;
+using Negocio.Gestion_de_Personas;
+using Negocio.Gestion_de_Salas;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,7 +25,7 @@ namespace DiplomaFinal.Gesion_de_Salas
 
         void llenargrilla()
         {
-            CursoComponent cursoHorario = new CursoHorarioComponent();
+            CursoHorarioComponent cursoHorario = new CursoHorarioComponent();
             int n = 0;
 
             List<MaestroHorario> maestroHorarios = new List<MaestroHorario>();
@@ -35,15 +38,15 @@ namespace DiplomaFinal.Gesion_de_Salas
             for (int i = 0; i < 5; i++)
             {
                 n = mgCalendario.Rows.Add();
-                mgCalendario.Rows[n].Cells[0].Value =i+1;
-                string maestro="";
-            
+                mgCalendario.Rows[n].Cells[0].Value = i + 1;
+                string maestro = "";
+
                 foreach (var item in maestroHorarios)
                 {
-                    if (item.hora==0)
+                    if (item.hora == 0)
                     {
-                        maestro = item.persona.nombre + " " + item.persona.apellido + Environment.NewLine+"Clase";
-                     
+                        maestro = item.persona.nombre + " " + item.persona.apellido + Environment.NewLine + "Clase";
+
                     }
                     if (true)
                     {
@@ -65,16 +68,16 @@ namespace DiplomaFinal.Gesion_de_Salas
                 string maestro = "";
                 if (item.hora != 0)
                 {
-                   
-                    EspecialidadPersonaComponent especialidadPersona = new EspecialidadPersonaComponent();
+
+                    EspecialidadComponent especialidadPersona = new EspecialidadComponent();
                     foreach (var ep in especialidadPersona.ReadByPersona(item.persona.Id))
                     {
-                        maestro = item.persona.nombre + " " + item.persona.apellido + Environment.NewLine + ep.especialidad.especialidad;
+                        maestro = item.persona.nombre + " " + item.persona.apellido + Environment.NewLine + ep.especialidad;
                         break;
                     }
-                 
 
-                    mgCalendario.Rows[item.hora-1].Cells[item.diaSemana].Value = maestro;
+
+                    mgCalendario.Rows[item.hora - 1].Cells[item.diaSemana].Value = maestro;
                 }
             }
 

@@ -177,9 +177,9 @@ namespace DiplomaFinal.Gesion_de_Salas
 
         private void metroButton4_Click(object sender, EventArgs e)
         {
-            //frmCalendario frmCalendario = new frmCalendario();
-            //frmCalendario.curso= int.Parse(mgReserva.CurrentRow.Cells[0].Value.ToString());
-            //frmCalendario.ShowDialog();
+            frmCalendario frmCalendario = new frmCalendario();
+            frmCalendario.curso = int.Parse(mgReserva.CurrentRow.Cells[0].Value.ToString());
+            frmCalendario.ShowDialog();
         }
 
         private void metroButton5_Click(object sender, EventArgs e)

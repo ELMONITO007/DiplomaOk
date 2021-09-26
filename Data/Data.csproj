@@ -83,6 +83,7 @@
     <Compile Include="Gestion de Personas\SecretariaDAC.cs" />
     <Compile Include="Gestion de Personas\TelefonoDAC.cs" />
     <Compile Include="Gestion Salas\CursoDAC.cs" />
+    <Compile Include="Gestion Salas\CursoHorarioDAC.cs" />
     <Compile Include="Gestion Salas\GradoDac.cs" />
     <Compile Include="Gestion Salas\MateriaDAC.cs" />
     <Compile Include="Gestion Salas\SalaDac.cs" />

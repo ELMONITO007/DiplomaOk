@@ -68,6 +68,7 @@
     <Compile Include="Negocio\Personas\Secretaria.cs" />
     <Compile Include="Negocio\Personas\Telefono.cs" />
     <Compile Include="Negocio\Salas\Curso.cs" />
+    <Compile Include="Negocio\Salas\CursoHorario.cs" />
     <Compile Include="Negocio\Salas\Grado.cs" />
     <Compile Include="Negocio\Salas\Materia.cs" />
     <Compile Include="Negocio\Salas\SalaMusica.cs" />
