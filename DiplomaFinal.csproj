@@ -55,6 +55,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Boletin\frmAsistencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Boletin\frmAsistencia.designer.cs">
+      <DependentUpon>frmAsistencia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gestion de Infraestructura\frmMantenimiento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -237,6 +243,9 @@
     <Compile Include="Servicio\IUservicios.Designer.cs">
       <DependentUpon>IUservicios.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Boletin\frmAsistencia.resx">
+      <DependentUpon>frmAsistencia.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Gestion de Infraestructura\frmMantenimiento.resx">
       <DependentUpon>frmMantenimiento.cs</DependentUpon>
     </EmbeddedResource>
@@ -359,8 +368,6 @@
   <ItemGroup>
     <None Include="Resources\Fondo pantalla gral 2.jpg" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Boletin\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -33,7 +33,7 @@ namespace Negocio
 
         public Asistencia Create(Asistencia entity)
         {
-            if (Verificar(entity))
+            if (verificarSiSeTomoLista(entity))
             {
                 AsistenciaDAC asistenciaDAC = new AsistenciaDAC();
                 Asistencia persona = new Asistencia();
@@ -106,6 +106,21 @@ namespace Negocio
 
             return result;
         }
+        public bool verificarSiSeTomoLista(Asistencia entity)
+
+        {
+            AsistenciaDAC asistenciaDAC = new AsistenciaDAC();
+            if (asistenciaDAC.ReadBy(entity) == null)
+            {
+                return true;
+            }
+            else
+            { return false; }
+
+
+
+        }
+
         public Asistencia ReadBy(Asistencia entity)
         {
             Asistencia asistencia = new Asistencia();

@@ -11,8 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MetroFramework;
 using Negocio.Servicios.REGEX;
-
-
+using DiplomaFinal.Gestion_Boletin;
 namespace DiplomaFinal.Gesion_de_Salas
 {
     public partial class frmCursos : MetroFramework.Forms.MetroForm
@@ -184,9 +183,9 @@ namespace DiplomaFinal.Gesion_de_Salas
 
         private void metroButton5_Click(object sender, EventArgs e)
         {
-            //frmAsistencia frmAsistencia = new frmAsistencia();
-            //frmAsistencia.curso = int.Parse(mgReserva.CurrentRow.Cells[0].Value.ToString());
-            //frmAsistencia.ShowDialog();
+            frmAsistencia frmAsistencia = new frmAsistencia();
+            frmAsistencia.curso = int.Parse(mgReserva.CurrentRow.Cells[0].Value.ToString());
+            frmAsistencia.ShowDialog();
         }
 
         private void mgReserva_CellContentClick(object sender, DataGridViewCellEventArgs e)
