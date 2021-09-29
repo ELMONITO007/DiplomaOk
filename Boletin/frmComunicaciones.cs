@@ -13,6 +13,8 @@ using MetroFramework;
 using Negocio.Gestion_de_Personas;
 using Entitites.Servicios.Login;
 using Negocio.Servicios.REGEX;
+using Entitites.Negocio.Personas;
+using Entities.Usuario;
 
 namespace DiplomaFinal.Gestion_Boletin
 {
@@ -48,10 +50,10 @@ namespace DiplomaFinal.Gestion_Boletin
         private void LlenarGrilla()
         {
             mgAlumno.Rows.Clear();
-            PersonaComponent personaComponent = new PersonaComponent();
-            TipoPersonaComponent tipoPersonaComponent = new TipoPersonaComponent();
-            List<Persona> listaPersona = new List<Persona>();
-            listaPersona = personaComponent.ReadByTipo(1);
+            AlumnoComponent personaComponent = new AlumnoComponent();
+          
+            List<Alumno> listaPersona = new List<Alumno>();
+            listaPersona = personaComponent.Read();
             int n = 0;
             foreach (var item in listaPersona)
             {
@@ -128,7 +130,7 @@ namespace DiplomaFinal.Gestion_Boletin
             {
                 Comunicado comunicado = new Comunicado();
                 comunicado.persona.Id = int.Parse(mgAlumno.CurrentRow.Cells[0].Value.ToString());
-                UsuarioPersonaComponent usuarioPersonaComponent = new UsuarioPersonaComponent();
+               
                 Usuarios usuarios = new Usuarios();
                 usuarios = SessionManager.instance.GetUSuario();
                 //comunicado.maestro = usuarioPersonaComponent.ReadByPersona(usuarios.Id).persona;

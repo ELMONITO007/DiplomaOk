@@ -14,7 +14,9 @@ using Entities;
 using Negocio.Gestion_de_Personas;
 using Negocio.Gestion_de_Salas;
 using Negocio;
-using Negocio.Gestion_de_Alumnos_y_Maestros;
+using Entitites.Negocio.Salas;
+using Negocio.Gestion_de_Alumnos;
+using Entitites;
 
 namespace DiplomaFinal.Gestion_Boletin
 {
@@ -48,18 +50,18 @@ namespace DiplomaFinal.Gestion_Boletin
         {
             if (txtCurso.Text != "")
             {
-                CursoAlumnoComponent cursoAlumnoComponent = new CursoAlumnoComponent();
+                //CursoAlumnoComponent cursoAlumnoComponent = new CursoAlumnoComponent();
 
-                CursoAlumno listaPersona = new CursoAlumno();
+                //CursoAlumno listaPersona = new CursoAlumno();
 
 
-                Curso persona = new Curso();
-                persona = (Curso)txtCurso.SelectedItem;
+                //Curso persona = new Curso();
+                //persona = (Curso)txtCurso.SelectedItem;
 
-                listaPersona = cursoAlumnoComponent.ObtenerALumnoYProfesDeUnCurso(persona.Id);
-                txtMaestra.DataSource = listaPersona.Profesores;
-                txtMaestra.DisplayMember = "nombreCompleto";
-                txtMaestra.ValueMember = "Id";
+                //listaPersona = cursoAlumnoComponent.ObtenerALumnoYProfesDeUnCurso(persona.Id);
+            //    txtMaestra.DataSource = listaPersona.Profesores;
+            //    txtMaestra.DisplayMember = "nombreCompleto";
+            //    txtMaestra.ValueMember = "Id";
             }
 
 
@@ -71,28 +73,28 @@ namespace DiplomaFinal.Gestion_Boletin
             if (txtCurso.Text != "")
             {
                 mgReserva.Rows.Clear();
-                CursoAlumnoComponent cursoAlumnoComponent = new CursoAlumnoComponent();
+                //CursoAlumnoComponent cursoAlumnoComponent = new CursoAlumnoComponent();
 
-                CursoAlumno listaPersona = new CursoAlumno();
+                //CursoAlumno listaPersona = new CursoAlumno();
 
                 Curso persona = new Curso();
                 persona = (Curso)txtCurso.SelectedItem;
-                listaPersona = cursoAlumnoComponent.ObtenerALumnoYProfesDeUnCurso(persona.Id);
-                txtMaestra.DataSource = listaPersona.Profesores;
-                txtMaestra.DisplayMember = "nombreCompleto";
-                txtMaestra.ValueMember = "Id";
-                int n = 0;
-                foreach (var item in listaPersona.Alumnos)
-                {
-                    n = mgReserva.Rows.Add();
-                    mgReserva.Rows[n].Cells[0].Value = item.Id;
-                    mgReserva.Rows[n].Cells[1].Value = item.nombre;
-                    mgReserva.Rows[n].Cells[2].Value = item.apellido;
+                //listaPersona = cursoAlumnoComponent.ObtenerALumnoYProfesDeUnCurso(persona.Id);
+                //txtMaestra.DataSource = listaPersona.Profesores;
+                //txtMaestra.DisplayMember = "nombreCompleto";
+                //txtMaestra.ValueMember = "Id";
+                //int n = 0;
+                //foreach (var item in listaPersona.Alumnos)
+                //{
+                //    n = mgReserva.Rows.Add();
+                //    mgReserva.Rows[n].Cells[0].Value = item.Id;
+                //    mgReserva.Rows[n].Cells[1].Value = item.nombre;
+                //    mgReserva.Rows[n].Cells[2].Value = item.apellido;
 
-                    mgReserva.Rows[n].Cells[3].Value = item.DNI;
-                    mgReserva.Rows[n].Cells[4].Value = item.fechaNacimiento;
-                    n++;
-                }
+                //    mgReserva.Rows[n].Cells[3].Value = item.DNI;
+                //    mgReserva.Rows[n].Cells[4].Value = item.fechaNacimiento;
+                //    n++;
+                //}
             }
         }
 
@@ -232,8 +234,8 @@ namespace DiplomaFinal.Gestion_Boletin
             {
                 MateriaComponent materiaComponent = new MateriaComponent();
                 string id = txtMaestra.Text;
-                Persona persona = new Persona();
-                persona = (Persona)txtMaestra.SelectedItem;
+                Maestro persona = new Maestro();
+                persona = (Maestro)txtMaestra.SelectedItem;
 
 
 
@@ -343,24 +345,24 @@ namespace DiplomaFinal.Gestion_Boletin
             if (txtAño.Text != "")
             {
                 mgAlumnoListado.Rows.Clear();
-                CursoAlumnoComponent cursoAlumnoComponent = new CursoAlumnoComponent();
+                //CursoAlumnoComponent cursoAlumnoComponent = new CursoAlumnoComponent();
 
-                CursoAlumno listaPersona = new CursoAlumno();
-                Curso curso = new Curso();
-                curso = (Curso)txtCursoListado.SelectedItem;
-                listaPersona = cursoAlumnoComponent.ObtenerALumnoYProfesDeUnCurso(curso.Id);
-                int n = 0;
-                foreach (var item in listaPersona.Alumnos)
-                {
-                    n = mgAlumnoListado.Rows.Add();
-                    mgAlumnoListado.Rows[n].Cells[0].Value = item.Id;
-                    mgAlumnoListado.Rows[n].Cells[1].Value = item.nombre;
-                    mgAlumnoListado.Rows[n].Cells[2].Value = item.apellido;
+                //CursoAlumno listaPersona = new CursoAlumno();
+                //Curso curso = new Curso();
+                //curso = (Curso)txtCursoListado.SelectedItem;
+                //listaPersona = cursoAlumnoComponent.ObtenerALumnoYProfesDeUnCurso(curso.Id);
+                //int n = 0;
+                //foreach (var item in listaPersona.Alumnos)
+                //{
+                //    n = mgAlumnoListado.Rows.Add();
+                //    mgAlumnoListado.Rows[n].Cells[0].Value = item.Id;
+                //    mgAlumnoListado.Rows[n].Cells[1].Value = item.nombre;
+                //    mgAlumnoListado.Rows[n].Cells[2].Value = item.apellido;
 
-                    mgAlumnoListado.Rows[n].Cells[3].Value = item.DNI;
-                    mgAlumnoListado.Rows[n].Cells[4].Value = item.fechaNacimiento;
-                    n++;
-                }
+                //    mgAlumnoListado.Rows[n].Cells[3].Value = item.DNI;
+                //    mgAlumnoListado.Rows[n].Cells[4].Value = item.fechaNacimiento;
+                //    n++;
+                //}
 
             }
 

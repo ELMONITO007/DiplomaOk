@@ -61,6 +61,24 @@
     <Compile Include="Boletin\frmAsistencia.designer.cs">
       <DependentUpon>frmAsistencia.cs</DependentUpon>
     </Compile>
+    <Compile Include="Boletin\frmBoletin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Boletin\frmBoletin.Designer.cs">
+      <DependentUpon>frmBoletin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Boletin\frmComunicaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Boletin\frmComunicaciones.Designer.cs">
+      <DependentUpon>frmComunicaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Boletin\frmExamen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Boletin\frmExamen.Designer.cs">
+      <DependentUpon>frmExamen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gestion de Infraestructura\frmMantenimiento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -245,6 +263,15 @@
     </Compile>
     <EmbeddedResource Include="Boletin\frmAsistencia.resx">
       <DependentUpon>frmAsistencia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Boletin\frmBoletin.resx">
+      <DependentUpon>frmBoletin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Boletin\frmComunicaciones.resx">
+      <DependentUpon>frmComunicaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Boletin\frmExamen.resx">
+      <DependentUpon>frmExamen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gestion de Infraestructura\frmMantenimiento.resx">
       <DependentUpon>frmMantenimiento.cs</DependentUpon>

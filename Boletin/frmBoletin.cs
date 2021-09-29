@@ -14,6 +14,8 @@ using MetroFramework;
 using Negocio;
 using Negocio.Gestion_de_Salas;
 using Negocio.Servicios.REGEX;
+using Entitites.Negocio.Salas;
+using Entitites.Negocio.Personas;
 
 namespace DiplomaFinal.Gestion_Boletin
 {
@@ -27,8 +29,8 @@ namespace DiplomaFinal.Gestion_Boletin
         private void metroButton1_Click(object sender, EventArgs e)
         {
             Boletin boletin = new Boletin();
-            PersonaComponent persona = new PersonaComponent();
-            boletin.persona = (Persona)txtAlumno.SelectedItem;
+            AlumnoComponent persona = new AlumnoComponent();
+            boletin.persona = (Alumno)txtAlumno.SelectedItem;
             Curso curso = new Curso();
             curso = (Curso)txtCurso.SelectedItem;
             boletin.año = curso.salaHorario.año;
@@ -68,7 +70,7 @@ namespace DiplomaFinal.Gestion_Boletin
                 curso = (Curso)txtCurso.SelectedItem;
                 Boletin boletin = new Boletin();
                 boletin.año = curso.salaHorario.año;
-                boletin.persona = (Persona)txtAlumno.SelectedItem;
+                boletin.persona = (Alumno)txtAlumno.SelectedItem;
                 foreach (var item in boletinComponent.ReadByAlumnoYAño(boletin))
                 {
                     n = mgVer.Rows.Add();
@@ -94,18 +96,18 @@ namespace DiplomaFinal.Gestion_Boletin
         private void txtCurso_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtAlumno.DataSource = null;
-            CursoAlumnoComponent cursoAlumno = new CursoAlumnoComponent();
+            //CursoAlumnoComponent cursoAlumno = new CursoAlumnoComponent();
             Curso curso = new Curso();
             curso = (Curso)txtCurso.SelectedItem;
             List<Persona> personas = new List<Persona>();
-            foreach (var item in cursoAlumno.ReadByCurso(curso.Id))
-            {
-                if (item.unAlumno.tipoPersona.Descripcion=="Alumno")
-                {
-                    personas.Add(item.unAlumno);
-                }
+            //foreach (var item in cursoAlumno.ReadByCurso(curso.Id))
+            //{
+            //    if (item.unAlumno.tipoPersona.Descripcion=="Alumno")
+            //    {
+            //        personas.Add(item.unAlumno);
+            //    }
                 
-            }
+            //}
             txtAlumno.DataSource = personas;
             txtAlumno.DisplayMember = "nombreCompleto";
             txtAlumno.ValueMember = "Id";
