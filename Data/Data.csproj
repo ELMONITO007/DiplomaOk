@@ -68,6 +68,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Boletin\AsistenciaDAC.cs" />
+    <Compile Include="Boletin\BoletinDAC.cs" />
+    <Compile Include="Boletin\ComunicadoDAC.cs" />
+    <Compile Include="Boletin\ExamenDAC.cs" />
     <Compile Include="DataAccessComponent.cs" />
     <Compile Include="Gestion de Personas\AlergiaDAC.cs" />
     <Compile Include="Gestion de Personas\AlumnoDAC.cs" />
