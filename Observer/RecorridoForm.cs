@@ -8,12 +8,14 @@ using System.Windows.Forms;
 using Entities;
 using Entitites;
 using MetroFramework;
+using MetroFramework.Forms;
 using Negocio;
 
 namespace DiplomaFinal
 {
     public static class RecorridoForm
     {
+      
 
         public static void LimpiarTXT(MetroFramework.Forms.MetroForm metroForm)
 
@@ -256,7 +258,17 @@ namespace DiplomaFinal
 
 
 
+
+
+       
+
+
+
+
+
     }
+
+
 
 
 

@@ -43,7 +43,7 @@ namespace DiplomaFinal.Index
             int index = 0;
             foreach (var item in idiomas)
             {
-                if (SingletonIdioma.intance.getUsuario().idioma!=item.idioma)
+                if (SingletonIdioma.intance.getUsuario().idioma != item.idioma)
                 {
                     index++;
                 }
@@ -56,17 +56,26 @@ namespace DiplomaFinal.Index
 
             cbIdioma.SelectedIndex = index;
 
-          
-          
+
+
+
+        }
+
+        void frmAlumnoIndex_FormClosing(object sender, FormClosingEventArgs e)
+
+        {
+            Obsever.QuitarForm(this);
+
 
         }
         private void frmAlumnoIndex_Load(object sender, EventArgs e)
         {
-          
+
             //CambiarIdioma();
-           
+
             listaIdiomas();
-            RecorridoForm.CambiarIdioma(this);
+            Obsever.AgregarForm(this);
+
 
         }
 
@@ -74,26 +83,26 @@ namespace DiplomaFinal.Index
         {
             IUservicios uservicios = new IUservicios();
             uservicios.ShowDialog();
-       listaIdiomas();
+            listaIdiomas();
         }
 
-    
+
 
         private void cbIdioma_SelectedIndexChanged(object sender, EventArgs e)
         {
-        
-          
+
+
 
 
         }
 
         private void metroButton1_Click(object sender, EventArgs e)
         {
+
+
             Idioma idioma = new Idioma();
             idioma = (Idioma)cbIdioma.SelectedItem;
-            SingletonIdioma.intance.CambiarIdioma(idioma);
-
-            RecorridoForm.CambiarIdioma(this);
+            Obsever.update(idioma);
         }
 
         private void metroTile3_Click(object sender, EventArgs e)

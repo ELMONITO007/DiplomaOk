@@ -1,4 +1,7 @@
 ﻿using DiplomaFinal.Gestion_Boletin;
+using Entities;
+using Entitites;
+using Negocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,10 +20,48 @@ namespace DiplomaFinal.Gestion_de_Personas
         {
             InitializeComponent();
         }
+        void listaIdiomas()
 
+        {
+            cbIdioma.DataSource = null;
+            List<Idioma> idiomas = new List<Idioma>();
+            IdiomaComponent idiomaComponent = new IdiomaComponent();
+
+            idiomas = idiomaComponent.Read();
+            cbIdioma.DataSource = idiomas;
+            cbIdioma.DisplayMember = "idioma";
+            cbIdioma.ValueMember = "Id";
+            int index = 0;
+            foreach (var item in idiomas)
+            {
+                if (SingletonIdioma.intance.getUsuario().idioma != item.idioma)
+                {
+                    index++;
+                }
+                else
+                {
+                    break;
+                }
+
+            }
+
+            cbIdioma.SelectedIndex = index;
+
+
+
+
+        }
+        void frmAlumnosIndex_FormClosing(object sender, FormClosingEventArgs e)
+
+        {
+            Obsever.QuitarForm(this);
+
+
+        }
         private void frmAlumnosIndex_Load(object sender, EventArgs e)
         {
-            RecorridoForm.CambiarIdioma(this);
+            listaIdiomas();
+            Obsever.AgregarForm(this);
         }
 
         private void metroTile1_Click(object sender, EventArgs e)

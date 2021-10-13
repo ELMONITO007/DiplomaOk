@@ -33,12 +33,15 @@
             this.metroTile3 = new MetroFramework.Controls.MetroTile();
             this.metroTile4 = new MetroFramework.Controls.MetroTile();
             this.metroTile5 = new MetroFramework.Controls.MetroTile();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.cbIdioma = new MetroFramework.Controls.MetroComboBox();
             this.SuspendLayout();
             // 
             // metroTile1
             // 
             this.metroTile1.ActiveControl = null;
-            this.metroTile1.Location = new System.Drawing.Point(48, 43);
+            this.metroTile1.Location = new System.Drawing.Point(62, 103);
             this.metroTile1.Name = "metroTile1";
             this.metroTile1.Size = new System.Drawing.Size(200, 199);
             this.metroTile1.TabIndex = 0;
@@ -50,7 +53,7 @@
             // metroTile2
             // 
             this.metroTile2.ActiveControl = null;
-            this.metroTile2.Location = new System.Drawing.Point(254, 117);
+            this.metroTile2.Location = new System.Drawing.Point(268, 177);
             this.metroTile2.Name = "metroTile2";
             this.metroTile2.Size = new System.Drawing.Size(194, 125);
             this.metroTile2.TabIndex = 1;
@@ -62,7 +65,7 @@
             // metroTile3
             // 
             this.metroTile3.ActiveControl = null;
-            this.metroTile3.Location = new System.Drawing.Point(48, 248);
+            this.metroTile3.Location = new System.Drawing.Point(62, 308);
             this.metroTile3.Name = "metroTile3";
             this.metroTile3.Size = new System.Drawing.Size(344, 168);
             this.metroTile3.TabIndex = 2;
@@ -74,7 +77,7 @@
             // metroTile4
             // 
             this.metroTile4.ActiveControl = null;
-            this.metroTile4.Location = new System.Drawing.Point(398, 248);
+            this.metroTile4.Location = new System.Drawing.Point(412, 308);
             this.metroTile4.Name = "metroTile4";
             this.metroTile4.Size = new System.Drawing.Size(186, 197);
             this.metroTile4.TabIndex = 3;
@@ -86,7 +89,7 @@
             // metroTile5
             // 
             this.metroTile5.ActiveControl = null;
-            this.metroTile5.Location = new System.Drawing.Point(454, 43);
+            this.metroTile5.Location = new System.Drawing.Point(468, 103);
             this.metroTile5.Name = "metroTile5";
             this.metroTile5.Size = new System.Drawing.Size(196, 199);
             this.metroTile5.TabIndex = 4;
@@ -95,11 +98,44 @@
             this.metroTile5.UseSelectable = true;
             this.metroTile5.Click += new System.EventHandler(this.metroTile5_Click);
             // 
+            // metroButton1
+            // 
+            this.metroButton1.Location = new System.Drawing.Point(777, 29);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(95, 22);
+            this.metroButton1.TabIndex = 20;
+            this.metroButton1.Tag = "Modificar";
+            this.metroButton1.Text = "Modificar";
+            this.metroButton1.UseSelectable = true;
+            // 
+            // metroLabel1
+            // 
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.Location = new System.Drawing.Point(414, 32);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(50, 19);
+            this.metroLabel1.TabIndex = 19;
+            this.metroLabel1.Tag = "Idioma";
+            this.metroLabel1.Text = "Idioma";
+            // 
+            // cbIdioma
+            // 
+            this.cbIdioma.FormattingEnabled = true;
+            this.cbIdioma.ItemHeight = 23;
+            this.cbIdioma.Location = new System.Drawing.Point(484, 25);
+            this.cbIdioma.Name = "cbIdioma";
+            this.cbIdioma.Size = new System.Drawing.Size(287, 29);
+            this.cbIdioma.TabIndex = 18;
+            this.cbIdioma.UseSelectable = true;
+            // 
             // frmAlumnosIndex
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(919, 514);
+            this.Controls.Add(this.metroButton1);
+            this.Controls.Add(this.metroLabel1);
+            this.Controls.Add(this.cbIdioma);
             this.Controls.Add(this.metroTile5);
             this.Controls.Add(this.metroTile4);
             this.Controls.Add(this.metroTile3);
@@ -108,6 +144,7 @@
             this.Name = "frmAlumnosIndex";
             this.Load += new System.EventHandler(this.frmAlumnosIndex_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -118,5 +155,8 @@
         private MetroFramework.Controls.MetroTile metroTile3;
         private MetroFramework.Controls.MetroTile metroTile4;
         private MetroFramework.Controls.MetroTile metroTile5;
+        private MetroFramework.Controls.MetroButton metroButton1;
+        private MetroFramework.Controls.MetroLabel metroLabel1;
+        private MetroFramework.Controls.MetroComboBox cbIdioma;
     }
 }

@@ -150,8 +150,28 @@ namespace Negocio
 
         public Roles CreateComposite(Roles entity)
         {
-            RolesDAC rolesDAC = new RolesDAC();
-            return rolesDAC.CreateComposite(entity);
+            int a = 0;
+            List<Roles> roles = new List<Roles>();
+            roles = ObtenerPermisosORolesDeUnRol(entity.permiso.Id);
+            foreach (var item in roles)
+            {
+
+                if (item.Id==entity.Id)
+                {
+                    a = 1;
+                }
+            }
+            if (a==1)
+            {
+                return null;
+            }
+            else
+            {
+                RolesDAC rolesDAC = new RolesDAC();
+                return rolesDAC.CreateComposite(entity);
+            }
+
+          
 
         }
 
@@ -212,6 +232,11 @@ namespace Negocio
             }
 
             result.listaRol = listaroles;
+
+
+
+
+
             return result;
 
         }

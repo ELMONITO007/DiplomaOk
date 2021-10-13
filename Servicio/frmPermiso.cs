@@ -465,8 +465,13 @@ namespace DiplomaFinal.Servicio
                 unRol.Id = int.Parse(mgDisponible.CurrentRow.Cells[0].Value.ToString());
                 roles.permiso = unRol;
                 RolesComponent rolesComponent = new RolesComponent();
+                if (rolesComponent.CreateComposite(roles)==null)
+                {
+                    MetroMessageBox.Show(this, "No se puede asiganr el rol o el permiso, el rol: "+mgDisponible.CurrentRow.Cells[1].Value.ToString()+" contiente el rol o permiso: "+ mgAsignarLista.CurrentRow.Cells[1].Value.ToString(), "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-                rolesComponent.CreateComposite(roles);
+                }
+
+                ;
                 llenarGrillaAsignar();
 
 
