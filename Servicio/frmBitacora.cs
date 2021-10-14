@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entities;
+using Entitites;
 using MetroFramework;
 using Negocio;
 using Negocio.Servicios;
@@ -36,7 +39,13 @@ namespace DiplomaFinal.Servicio
                 mgListado.Rows[n].Cells[2].Value = item.usuarios.UserName;
                 mgListado.Rows[n].Cells[3].Value = item.eventoBitacora.eventoBitacora;
 
-                mgListado.Rows[n].Cells[4].Value = item.fecha;
+
+                DateTime dt = new DateTime();
+                dt = DateTime.Parse(item.fecha);
+       
+
+                mgListado.Rows[n].Cells[4].Value = dt.ToString("d",new CultureInfo(SingletonIdioma.intance.getUsuario().codigo));
+               
                 mgListado.Rows[n].Cells[5].Value = item.hora;
                 n++;
             }
@@ -44,6 +53,10 @@ namespace DiplomaFinal.Servicio
 
         private void frmBitacora_Load(object sender, EventArgs e)
         {
+            string date = "01.05.2015 12:12:34";
+            var dutchCulture = CultureInfo.CreateSpecificCulture("nl-NL");
+            var date1 = DateTime.ParseExact(date, "dd.MM.yyyy HH:mm:ss", dutchCulture);
+
             RecorridoForm.CambiarIdioma(this);
             llenarGrilla();
         }

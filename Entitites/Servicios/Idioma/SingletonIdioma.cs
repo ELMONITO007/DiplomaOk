@@ -1,8 +1,10 @@
 ﻿using Entities;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Entitites
@@ -43,6 +45,7 @@ namespace Entitites
         public void CambiarIdioma(Idioma NuevoIdioma)
         {
             unIdioma = NuevoIdioma;
+            unIdioma.cultureinfo = new CultureInfo(NuevoIdioma.codigo);
         }
 
         public void BorrarIdioma()

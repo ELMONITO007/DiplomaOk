@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Entitites;
+using Negocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,10 +18,42 @@ namespace DiplomaFinal.Servicio.Idioma
         {
             InitializeComponent();
         }
+        void listaIdiomas()
+
+        {
+            cbIdioma.DataSource = null;
+            List<Entities.Idioma> idiomas = new List<Entities.Idioma>();
+            IdiomaComponent idiomaComponent = new IdiomaComponent();
+
+            idiomas = idiomaComponent.Read();
+            cbIdioma.DataSource = idiomas;
+            cbIdioma.DisplayMember = "idioma";
+            cbIdioma.ValueMember = "Id";
+            int index = 0;
+            foreach (var item in idiomas)
+            {
+                if (SingletonIdioma.intance.getUsuario().idioma != item.idioma)
+                {
+                    index++;
+                }
+                else
+                {
+                    break;
+                }
+
+            }
+
+            cbIdioma.SelectedIndex = index;
+
+
+
+
+        }
 
         private void frmIdiomaIndex_Load(object sender, EventArgs e)
         {
-            RecorridoForm.CambiarIdioma(this);
+            listaIdiomas();
+            Obsever.AgregarForm(this);
         }
 
         private void Idioma_Click(object sender, EventArgs e)
@@ -38,6 +72,13 @@ namespace DiplomaFinal.Servicio.Idioma
         {
             frmTraduccion frmIdioma = new frmTraduccion();
             frmIdioma.ShowDialog();
+        }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            Entities.Idioma idioma = new Entities.Idioma();
+            idioma = (Entities.Idioma)cbIdioma.SelectedItem;
+            Obsever.update(idioma);
         }
     }
 }

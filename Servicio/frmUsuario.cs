@@ -53,7 +53,7 @@ namespace DiplomaFinal.Servicio
             string errNombre = ValidadoresComponent.VerificarLetras(txtNombre.Text) + " " + Environment.NewLine + ValidadoresComponent.VerificarTamaño(txtNombre.Text, 30, 2);
             string errUsuario = ValidadoresComponent.VerificarEmail(txtUsuario.Text);
 
-            string errPassword = ValidadoresComponent.VerificarContraseña(txtContraseña.Text);
+            string errPassword = ValidadoresComponent.VerificarContraseña(Password.Text);
             string result = errApellido + errNombre + errUsuario + errPassword;
             lblErrApellido.Text = errApellido;
             lblErrContraseña.Text = errPassword;
@@ -112,10 +112,11 @@ namespace DiplomaFinal.Servicio
             {
                 UsuariosComponent usuariosComponent = new UsuariosComponent();
                 Usuarios usuarios = new Usuarios();
+                usuarios.UserName = txtUsuario.Text.ToLower();
                 usuarios.Email = txtUsuario.Text.ToLower();
                 usuarios.Apellido = txtApellido.Text;
                 usuarios.Nombre = txtNombre.Text;
-                usuarios.Password = txtContraseña.Text;
+                usuarios.Password = Password.Text;
 
                 if (usuariosComponent.Crear(usuarios))
                 {

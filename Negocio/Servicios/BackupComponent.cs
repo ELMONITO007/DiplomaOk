@@ -112,7 +112,7 @@ namespace Negocio.Servicios
             UsuariosComponent usuarios = new UsuariosComponent();
             EventoBitacora eventoBitacora = new EventoBitacora();
             Usuarios unUsuario = new Usuarios();
-            unUsuario = usuarios.ReadBy(backup.usuarios.Id);
+            unUsuario.Id =2;
             eventoBitacora.Id = 9;
 
             BitacoraComponent bitacoraComponent = new BitacoraComponent();

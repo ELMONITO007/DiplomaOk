@@ -7,6 +7,7 @@ using Data;
 using Entities;
 using Entities.Usuario;
 using Entitites.Negocio.Personas;
+using Negocio.Servicios;
 
 namespace Negocio
 {
@@ -49,7 +50,13 @@ namespace Negocio
                 digitoVerificadorH.DVH = DigitoVerificadorH.getDigitoEncriptado(usuariosFormateado);
                 EncriptarSHA256 encriptarSHA256 = new EncriptarSHA256(objeto.Password);
                 Usuarios usuarios = new Usuarios(digitoVerificadorH);
-                usuarios = objeto;
+                usuarios.Apellido = objeto.Apellido;
+                usuarios.Email = objeto.Email;
+
+                usuarios.UserName = objeto.UserName;
+                usuarios.Nombre = objeto.Nombre;
+
+
                 usuarios.Password = encriptarSHA256.Hashear();
                 UsuarioDac usuarioDac = new UsuarioDac();
                 usuarioDac.Create(usuarios);
@@ -59,8 +66,14 @@ namespace Negocio
                 dVVComponent.CrearDVV(ListaDVH(), "Usuario");
 
                 Usuarios usuariosCreado = new Usuarios();
+                usuariosCreado = ReadByEmail(objeto.Email);
+                BitacoraComponent bitacoraComponent = new BitacoraComponent();
+                EventoBitacora eventoBitacora = new EventoBitacora();
+                eventoBitacora.Id = 1;
+                Bitacora bitacora = new Bitacora(usuariosCreado, eventoBitacora);
+     
          
-            
+                bitacoraComponent.Create(bitacora);
 
                 return true;
             }

@@ -18,10 +18,13 @@ namespace Entities
         [MinLength(2, ErrorMessage = "El minimo de caracteres es de 2")]
         public string idioma { get; set; }
         public string codigo { get; set; }
+        public System.Globalization.CultureInfo cultureinfo { get; set; }
         public void CambiarIdioma(string _idioma)
         {
+
             idioma = _idioma;
         }
         public string GetIdioma() { return idioma; }
+
     }
 }
