@@ -212,7 +212,7 @@ namespace DiplomaFinal.Servicio
 
         private void frmPermiso_Load(object sender, EventArgs e)
         {
-            RecorridoForm.CambiarIdioma(this);
+            Obsever.AgregarForm(this);
 
             llenarGrillaPermiso();
             llenarGrillaRoles();

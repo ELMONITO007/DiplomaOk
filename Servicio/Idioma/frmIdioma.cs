@@ -42,7 +42,7 @@ namespace DiplomaFinal.Servicio.Idioma
         private void frmIdioma_Load(object sender, EventArgs e)
         {
             //RecorridoForm.CambiarIdioma(this);
-            RecorridoForm.CambiarIdioma(this);
+            Obsever.AgregarForm(this);
             llenarGrilla();
         }
 

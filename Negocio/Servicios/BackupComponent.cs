@@ -64,7 +64,7 @@ namespace Negocio.Servicios
             bitacora.fecha = DateTime.Now.ToString("dd-MM-yyyy");
             bitacora.hora = DateTime.Now.ToString("hh mm ss");
 
-
+            bitacoraComponent.Create(bitacora);
             //Realizo el backup
             Backups backupRestore = new Backups(unUsuario);
             BackupDAC backupDAC = new BackupDAC();
@@ -101,7 +101,15 @@ namespace Negocio.Servicios
             UsuariosComponent usuariosComponent = new UsuariosComponent();
 
             RestoreDatabase(backupRestore);
-
+            BitacoraComponent bitacoraComponent = new BitacoraComponent();
+            EventoBitacora eventoBitacora = new EventoBitacora();
+            Usuarios usuarios = new Usuarios();
+            usuarios.Id = 2;
+            eventoBitacora.Id = 10;
+            Bitacora bitacora = new Bitacora(usuarios, eventoBitacora);
+            bitacoraComponent.Create(bitacora);
+          
+         
 
         }
 
@@ -113,19 +121,20 @@ namespace Negocio.Servicios
             EventoBitacora eventoBitacora = new EventoBitacora();
             Usuarios unUsuario = new Usuarios();
             unUsuario.Id =2;
-            eventoBitacora.Id = 9;
+            eventoBitacora.Id = 10;
 
             BitacoraComponent bitacoraComponent = new BitacoraComponent();
             Bitacora bitacora = new Bitacora(unUsuario, eventoBitacora);
 
             bitacora.fecha = DateTime.Now.ToString("dd-MM-yyyy");
             bitacora.hora = DateTime.Now.ToString("hh mm ss");
-
+            bitacoraComponent.Create(bitacora);
             Backups backupRestore = new Backups(unUsuario);
             BackupDAC backupDAC = new BackupDAC();
             backupRestore = backupDAC.ReadBy(backup.Id);
             backupRestore.Path = @"C:\\Backup\" + backupRestore.Nombre + ".bak";
             backupDAC.Restore(backupRestore);
+
            
         }
 

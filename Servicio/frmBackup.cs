@@ -24,7 +24,7 @@ namespace Negocio.Servicios
 
         private void frmBackup_Load(object sender, EventArgs e)
         {
-            RecorridoForm.CambiarIdioma(this);
+            Obsever.AgregarForm(this);
             llenarGrilla();
         }
         void llenarGrilla()

@@ -38,7 +38,7 @@ namespace DiplomaFinal.Servicio.Idioma
         }
         private void frmPalabra_Load(object sender, EventArgs e)
         {
-            RecorridoForm.CambiarIdioma(this);
+            Obsever.AgregarForm(this);
             llenarGrilla();
         }
 

@@ -151,6 +151,12 @@
     <Compile Include="Gestion Persona\frmAlumno.designer.cs">
       <DependentUpon>frmAlumno.cs</DependentUpon>
     </Compile>
+    <Compile Include="Index\frmAlarmas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Index\frmAlarmas.Designer.cs">
+      <DependentUpon>frmAlarmas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Index\frmAdministrador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -309,6 +315,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gestion Persona\frmAlumno.resx">
       <DependentUpon>frmAlumno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Index\frmAlarmas.resx">
+      <DependentUpon>frmAlarmas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Index\frmAdministrador.resx">
       <DependentUpon>frmAdministrador.cs</DependentUpon>

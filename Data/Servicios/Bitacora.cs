@@ -12,7 +12,7 @@ using Entities.Usuario;
 
 namespace Data.Servicios
 {
-    public class BitacoraDAC : DataAccessComponent, IRepository2<Bitacora>
+    public class BitacoraDAC : DataAccessComponent
     {
         private Bitacora LoadBitacora(IDataReader dr)
         {
@@ -32,7 +32,7 @@ namespace Data.Servicios
         public Bitacora Create(Bitacora entity)
         {
             const string SQL_STATEMENT = "insert into Bitacora(Id,ID_EventoBitacora,Fecha,Hora)values(@id,@ID_EventoBitacora,@Fecha,@Hora) ";
-            var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
+            var db = DatabaseFactory.CreateDatabase(CONNECTION_Aux);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
             {
                 db.AddInParameter(cmd, "@id", DbType.Int32, entity.usuarios.Id);
@@ -45,17 +45,14 @@ namespace Data.Servicios
             return entity;
         }
 
-        public void Delete(int id)
-        {
-            throw new NotImplementedException();
-        }
+       
 
         public List<Bitacora> Read()
         {
             const string SQL_STATEMENT = "select * from Bitacora";
 
             List<Bitacora> result = new List<Bitacora>();
-            var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
+            var db = DatabaseFactory.CreateDatabase(CONNECTION_Aux);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
             {
                 using (IDataReader dr = db.ExecuteReader(cmd))
@@ -72,16 +69,52 @@ namespace Data.Servicios
         }
 
 
-
-        public Bitacora ReadBy(int id)
+        public List<Bitacora> ReadbyFecha(string fechaInicio,string fechaFinal)
         {
-            throw new NotImplementedException();
-        }
-        public Bitacora ReadBy(string id)
-        {
-            throw new NotImplementedException();
-        }
+            const string SQL_STATEMENT = "select * from Bitacora where Fecha>=@fechaInicio and Fecha <=@fechaFinal";
 
+            List<Bitacora> result = new List<Bitacora>();
+            var db = DatabaseFactory.CreateDatabase(CONNECTION_Aux);
+            using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
+            {
+                db.AddInParameter(cmd, "@fechaInicio", DbType.String, fechaInicio);
+                db.AddInParameter(cmd, "@fechaFinal", DbType.String, fechaFinal);
+
+                using (IDataReader dr = db.ExecuteReader(cmd))
+                {
+                    while (dr.Read())
+                    {
+                        Bitacora tipoPregunta = LoadBitacora(dr);
+                        result.Add(tipoPregunta);
+                    }
+
+                }
+            }
+            return result;
+        }
+        public List<Bitacora> ReadbyCriticidad(string criticidad)
+        {
+            const string SQL_STATEMENT = "select * from Bitacora as b join EventoBitacora as eb on eb.ID_EventoBitacora=b.ID_EventoBitacora where Criticidad=@criticidad";
+
+            List<Bitacora> result = new List<Bitacora>();
+            var db = DatabaseFactory.CreateDatabase(CONNECTION_Aux);
+            using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
+            {
+                db.AddInParameter(cmd, "@criticidad", DbType.String, criticidad);
+           
+
+                using (IDataReader dr = db.ExecuteReader(cmd))
+                {
+                    while (dr.Read())
+                    {
+                        Bitacora tipoPregunta = LoadBitacora(dr);
+                        result.Add(tipoPregunta);
+                    }
+
+                }
+            }
+            return result;
+        }
         public void Update(Bitacora entity)
         {
             throw new NotImplementedException();

@@ -8,5 +8,8 @@ namespace Entities
 {
    public class Permiso :Roles
     {
+
+
+
     }
 }

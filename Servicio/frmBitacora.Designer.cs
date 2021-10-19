@@ -35,7 +35,14 @@ namespace DiplomaFinal.Servicio
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
-            this.txtBuscar = new MetroFramework.Controls.MetroTextBox();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
+            this.txtCriticidad = new MetroFramework.Controls.MetroComboBox();
+            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
+            this.dtHasta = new MetroFramework.Controls.MetroDateTime();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.dtDesde = new MetroFramework.Controls.MetroDateTime();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
             this.btnTodo = new MetroFramework.Controls.MetroButton();
             this.btnBuscar = new MetroFramework.Controls.MetroButton();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
@@ -54,16 +61,24 @@ namespace DiplomaFinal.Servicio
             // metroTabControl1
             // 
             this.metroTabControl1.Controls.Add(this.metroTabPage1);
-            this.metroTabControl1.Location = new System.Drawing.Point(-2, 50);
+            this.metroTabControl1.Location = new System.Drawing.Point(-3, 77);
+            this.metroTabControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.metroTabControl1.Name = "metroTabControl1";
             this.metroTabControl1.SelectedIndex = 0;
-            this.metroTabControl1.Size = new System.Drawing.Size(783, 538);
+            this.metroTabControl1.Size = new System.Drawing.Size(1439, 828);
             this.metroTabControl1.TabIndex = 2;
             this.metroTabControl1.UseSelectable = true;
             // 
             // metroTabPage1
             // 
             this.metroTabPage1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("metroTabPage1.BackgroundImage")));
+            this.metroTabPage1.Controls.Add(this.metroButton1);
+            this.metroTabPage1.Controls.Add(this.metroLabel4);
+            this.metroTabPage1.Controls.Add(this.txtCriticidad);
+            this.metroTabPage1.Controls.Add(this.metroLabel3);
+            this.metroTabPage1.Controls.Add(this.dtHasta);
+            this.metroTabPage1.Controls.Add(this.metroLabel2);
+            this.metroTabPage1.Controls.Add(this.dtDesde);
             this.metroTabPage1.Controls.Add(this.txtBuscar);
             this.metroTabPage1.Controls.Add(this.btnTodo);
             this.metroTabPage1.Controls.Add(this.btnBuscar);
@@ -71,52 +86,106 @@ namespace DiplomaFinal.Servicio
             this.metroTabPage1.Controls.Add(this.mgListado);
             this.metroTabPage1.HorizontalScrollbarBarColor = true;
             this.metroTabPage1.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTabPage1.HorizontalScrollbarSize = 10;
+            this.metroTabPage1.HorizontalScrollbarSize = 15;
             this.metroTabPage1.Location = new System.Drawing.Point(4, 38);
+            this.metroTabPage1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.metroTabPage1.Name = "metroTabPage1";
-            this.metroTabPage1.Size = new System.Drawing.Size(775, 496);
+            this.metroTabPage1.Size = new System.Drawing.Size(1431, 786);
             this.metroTabPage1.TabIndex = 0;
             this.metroTabPage1.Tag = "Listado";
             this.metroTabPage1.Text = "Listado";
             this.metroTabPage1.VerticalScrollbarBarColor = true;
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
-            this.metroTabPage1.VerticalScrollbarSize = 10;
+            this.metroTabPage1.VerticalScrollbarSize = 15;
+            // 
+            // metroButton1
+            // 
+            this.metroButton1.Location = new System.Drawing.Point(617, 94);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(142, 29);
+            this.metroButton1.TabIndex = 17;
+            this.metroButton1.Text = "Buscar Criticidad";
+            this.metroButton1.UseSelectable = true;
+            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
+            // 
+            // metroLabel4
+            // 
+            this.metroLabel4.AutoSize = true;
+            this.metroLabel4.Location = new System.Drawing.Point(278, 104);
+            this.metroLabel4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.metroLabel4.Name = "metroLabel4";
+            this.metroLabel4.Size = new System.Drawing.Size(129, 19);
+            this.metroLabel4.TabIndex = 16;
+            this.metroLabel4.Tag = "";
+            this.metroLabel4.Text = "Buscar por criticidad";
+            // 
+            // txtCriticidad
+            // 
+            this.txtCriticidad.FormattingEnabled = true;
+            this.txtCriticidad.ItemHeight = 23;
+            this.txtCriticidad.Items.AddRange(new object[] {
+            "Baja",
+            "Media",
+            "Alta"});
+            this.txtCriticidad.Location = new System.Drawing.Point(427, 94);
+            this.txtCriticidad.Name = "txtCriticidad";
+            this.txtCriticidad.Size = new System.Drawing.Size(184, 29);
+            this.txtCriticidad.TabIndex = 15;
+            this.txtCriticidad.UseSelectable = true;
+            // 
+            // metroLabel3
+            // 
+            this.metroLabel3.AutoSize = true;
+            this.metroLabel3.Location = new System.Drawing.Point(681, 32);
+            this.metroLabel3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.metroLabel3.Name = "metroLabel3";
+            this.metroLabel3.Size = new System.Drawing.Size(41, 19);
+            this.metroLabel3.TabIndex = 14;
+            this.metroLabel3.Tag = "Hasta";
+            this.metroLabel3.Text = "Hasta";
+            // 
+            // dtHasta
+            // 
+            this.dtHasta.Location = new System.Drawing.Point(751, 25);
+            this.dtHasta.MinimumSize = new System.Drawing.Size(0, 29);
+            this.dtHasta.Name = "dtHasta";
+            this.dtHasta.Size = new System.Drawing.Size(240, 29);
+            this.dtHasta.TabIndex = 13;
+            // 
+            // metroLabel2
+            // 
+            this.metroLabel2.AutoSize = true;
+            this.metroLabel2.Location = new System.Drawing.Point(362, 32);
+            this.metroLabel2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.metroLabel2.Name = "metroLabel2";
+            this.metroLabel2.Size = new System.Drawing.Size(45, 19);
+            this.metroLabel2.TabIndex = 12;
+            this.metroLabel2.Tag = "Desde";
+            this.metroLabel2.Text = "Desde";
+            // 
+            // dtDesde
+            // 
+            this.dtDesde.Location = new System.Drawing.Point(414, 25);
+            this.dtDesde.MinimumSize = new System.Drawing.Size(0, 29);
+            this.dtDesde.Name = "dtDesde";
+            this.dtDesde.Size = new System.Drawing.Size(230, 29);
+            this.dtDesde.TabIndex = 11;
+            this.dtDesde.ValueChanged += new System.EventHandler(this.dtDesde_ValueChanged);
             // 
             // txtBuscar
             // 
-            // 
-            // 
-            // 
-            this.txtBuscar.CustomButton.Image = null;
-            this.txtBuscar.CustomButton.Location = new System.Drawing.Point(201, 1);
-            this.txtBuscar.CustomButton.Name = "";
-            this.txtBuscar.CustomButton.Size = new System.Drawing.Size(15, 15);
-            this.txtBuscar.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtBuscar.CustomButton.TabIndex = 1;
-            this.txtBuscar.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtBuscar.CustomButton.UseSelectable = true;
-            this.txtBuscar.CustomButton.Visible = false;
-            this.txtBuscar.Lines = new string[0];
-            this.txtBuscar.Location = new System.Drawing.Point(97, 18);
-            this.txtBuscar.MaxLength = 32767;
+            this.txtBuscar.Location = new System.Drawing.Point(75, 25);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.PasswordChar = '\0';
-            this.txtBuscar.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtBuscar.SelectedText = "";
-            this.txtBuscar.SelectionLength = 0;
-            this.txtBuscar.SelectionStart = 0;
-            this.txtBuscar.ShortcutsEnabled = true;
-            this.txtBuscar.Size = new System.Drawing.Size(217, 17);
-            this.txtBuscar.TabIndex = 9;
-            this.txtBuscar.UseSelectable = true;
-            this.txtBuscar.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtBuscar.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtBuscar.Size = new System.Drawing.Size(243, 26);
+            this.txtBuscar.TabIndex = 10;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // btnTodo
             // 
-            this.btnTodo.Location = new System.Drawing.Point(520, 16);
+            this.btnTodo.Location = new System.Drawing.Point(21, 88);
+            this.btnTodo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnTodo.Name = "btnTodo";
-            this.btnTodo.Size = new System.Drawing.Size(74, 23);
+            this.btnTodo.Size = new System.Drawing.Size(111, 35);
             this.btnTodo.TabIndex = 8;
             this.btnTodo.Tag = "VerTodo";
             this.btnTodo.Text = "Ver todo";
@@ -125,19 +194,21 @@ namespace DiplomaFinal.Servicio
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(341, 18);
+            this.btnBuscar.Location = new System.Drawing.Point(1026, 25);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscar.Size = new System.Drawing.Size(112, 35);
             this.btnBuscar.TabIndex = 7;
             this.btnBuscar.Tag = "Buscar";
-            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.Text = "Buscar por fecha";
             this.btnBuscar.UseSelectable = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(14, 16);
+            this.metroLabel1.Location = new System.Drawing.Point(21, 25);
+            this.metroLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(47, 19);
             this.metroLabel1.TabIndex = 5;
@@ -182,7 +253,8 @@ namespace DiplomaFinal.Servicio
             this.mgListado.EnableHeadersVisualStyles = false;
             this.mgListado.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.mgListado.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.mgListado.Location = new System.Drawing.Point(14, 79);
+            this.mgListado.Location = new System.Drawing.Point(21, 191);
+            this.mgListado.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.mgListado.Name = "mgListado";
             this.mgListado.ReadOnly = true;
             this.mgListado.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -196,7 +268,7 @@ namespace DiplomaFinal.Servicio
             this.mgListado.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.mgListado.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.mgListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.mgListado.Size = new System.Drawing.Size(655, 205);
+            this.mgListado.Size = new System.Drawing.Size(982, 475);
             this.mgListado.TabIndex = 2;
             this.mgListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.mgListado_CellContentClick);
             // 
@@ -247,11 +319,13 @@ namespace DiplomaFinal.Servicio
             // 
             // frmBitacora
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(782, 597);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.ClientSize = new System.Drawing.Size(1446, 918);
             this.Controls.Add(this.metroTabControl1);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmBitacora";
+            this.Padding = new System.Windows.Forms.Padding(30, 92, 30, 31);
             this.Text = "Bitacora";
             this.Load += new System.EventHandler(this.frmBitacora_Load);
             this.metroTabControl1.ResumeLayout(false);
@@ -266,7 +340,6 @@ namespace DiplomaFinal.Servicio
 
         private MetroFramework.Controls.MetroTabControl metroTabControl1;
         private MetroFramework.Controls.MetroTabPage metroTabPage1;
-        private MetroFramework.Controls.MetroTextBox txtBuscar;
         private MetroFramework.Controls.MetroButton btnTodo;
         private MetroFramework.Controls.MetroButton btnBuscar;
         private MetroFramework.Controls.MetroLabel metroLabel1;
@@ -277,5 +350,13 @@ namespace DiplomaFinal.Servicio
         private System.Windows.Forms.DataGridViewTextBoxColumn Evento;
         private System.Windows.Forms.DataGridViewTextBoxColumn Idioma;
         private System.Windows.Forms.DataGridViewTextBoxColumn COdigo;
+        private System.Windows.Forms.TextBox txtBuscar;
+        private MetroFramework.Controls.MetroLabel metroLabel4;
+        private MetroFramework.Controls.MetroComboBox txtCriticidad;
+        private MetroFramework.Controls.MetroLabel metroLabel3;
+        private MetroFramework.Controls.MetroDateTime dtHasta;
+        private MetroFramework.Controls.MetroLabel metroLabel2;
+        private MetroFramework.Controls.MetroDateTime dtDesde;
+        private MetroFramework.Controls.MetroButton metroButton1;
     }
 }

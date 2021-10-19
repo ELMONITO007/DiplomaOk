@@ -21,7 +21,7 @@ namespace DiplomaFinal.Servicio
 
         private void IUservicios_Load(object sender, EventArgs e)
         {
-            RecorridoForm.CambiarIdioma(this);
+            Obsever.AgregarForm(this);
         }
 
         private void metroTile2_Click(object sender, EventArgs e)

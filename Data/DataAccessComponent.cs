@@ -10,6 +10,7 @@ namespace Data
     {
         protected const string CONNECTION_NAME = "DefaultConnection";
         protected const string CONNECTION_Restore = "Restore";
+        protected const string CONNECTION_Aux = "DefaultConnectionAux";
         static DataAccessComponent()
         {
             DatabaseFactory.SetDatabaseProviderFactory(new DatabaseProviderFactory(), false);

@@ -72,7 +72,8 @@ namespace DiplomaFinal.Index
         {
 
             //CambiarIdioma();
-
+            frmAlarmas alarmas = new frmAlarmas();
+            alarmas.ShowDialog();
             listaIdiomas();
             Obsever.AgregarForm(this);
 

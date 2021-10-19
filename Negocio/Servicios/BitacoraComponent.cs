@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Negocio.Servicios
 {
-    public class BitacoraComponent : IRepository<Bitacora>
+    public class BitacoraComponent 
     {
         public List<Bitacora> Buscar(String palabra)
         {
@@ -72,14 +72,50 @@ namespace Negocio.Servicios
             return bitacoras;
         }
 
-        public Bitacora ReadBy(int id)
+        public List<Bitacora> ReadbyFecha(string fechaInicio, string fechaFinal)
         {
-            throw new NotImplementedException();
+            BitacoraDAC bitacoraDAC = new BitacoraDAC();
+            List<Bitacora> bitacoras = new List<Bitacora>();
+            foreach (Bitacora item in bitacoraDAC.ReadbyFecha(fechaInicio, fechaFinal))
+            {
+                EventoBitacora eventoBitacora = new EventoBitacora();
+                EventoBitacoraDAC eventoBitacoraDAC = new EventoBitacoraDAC();
+                eventoBitacora = eventoBitacoraDAC.ReadBy(item.eventoBitacora.Id);
+                item.eventoBitacora = eventoBitacora;
+                UsuarioDac usuarioDac = new UsuarioDac();
+                Usuarios usuarios = new Usuarios();
+                usuarios = usuarioDac.ReadBy(item.usuarios.Id);
+                item.usuarios = usuarios;
+
+
+                bitacoras.Add(item);
+
+            }
+
+            return bitacoras;
         }
 
-        public void Update(Bitacora entity)
+        public List<Bitacora> ReadbyCriticidad(string criticidad)
         {
-            throw new NotImplementedException();
+            BitacoraDAC bitacoraDAC = new BitacoraDAC();
+            List<Bitacora> bitacoras = new List<Bitacora>();
+            foreach (Bitacora item in bitacoraDAC.ReadbyCriticidad(criticidad))
+            {
+                EventoBitacora eventoBitacora = new EventoBitacora();
+                EventoBitacoraDAC eventoBitacoraDAC = new EventoBitacoraDAC();
+                eventoBitacora = eventoBitacoraDAC.ReadBy(item.eventoBitacora.Id);
+                item.eventoBitacora = eventoBitacora;
+                UsuarioDac usuarioDac = new UsuarioDac();
+                Usuarios usuarios = new Usuarios();
+                usuarios = usuarioDac.ReadBy(item.usuarios.Id);
+                item.usuarios = usuarios;
+
+
+                bitacoras.Add(item);
+
+            }
+
+            return bitacoras;
         }
     }
 }
