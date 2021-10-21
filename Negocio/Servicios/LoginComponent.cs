@@ -30,14 +30,18 @@ namespace Negocio
                 return true;
             }
         }
-        public void VerificarIntentos(int id)
+        public bool VerificarIntentos(int id)
         {
             UsuariosComponent usuariosComponent = new UsuariosComponent();
             Usuarios usuarioTabla = new Usuarios();
             usuarioTabla = usuariosComponent.ReadBy(id);
-            if (usuarioTabla.CantidadIntentos >= 4)
+            if (usuarioTabla.Bloqueado)
             {
-                usuariosComponent.Bloquear(id);
+                return false;
+            }
+            else
+            {
+                return true;
             }
 
         }
@@ -67,13 +71,14 @@ namespace Negocio
         public bool VerificarDVH(int id, Usuarios usuarios)
         {
             UsuarioParcial usuariosFormateado = new UsuarioParcial();
-        
-            usuariosFormateado.Email = usuarios.Email;
-            usuariosFormateado.UserName = usuarios.Email;
-            usuariosFormateado.Password = usuarios.Password;
+
+         
             UsuariosComponent usuariosComponent = new UsuariosComponent();
             Usuarios usuarioTabla = new Usuarios();
             usuarioTabla = usuariosComponent.ReadBy(id);
+            usuariosFormateado.Email = usuarioTabla.Email;
+            usuariosFormateado.UserName = usuarioTabla.Email;
+            usuariosFormateado.Password = usuarioTabla.Password;
             string dvhIngresado = DigitoVerificadorH.getDigitoEncriptado(usuariosFormateado);
 
             if (usuarioTabla.DVH.DVH == dvhIngresado)
@@ -126,10 +131,10 @@ namespace Negocio
 
         {
             BitacoraComponent bitacoraComponent = new BitacoraComponent();
-         
-   
+
+
             EventoBitacora eventoBitacora = new EventoBitacora();
-                
+
 
             bool userName = VeriricarUserName(usuarios);
             LoginError loginError = new LoginError();
@@ -142,62 +147,74 @@ namespace Negocio
                 usuarioTabla = usuariosComponent.ReadByEmail(usuarios.Email);
                 SessionManager.instance.login(usuarioTabla);
                 bool password = VerificarContraseña(usuarioTabla.Id, usuarios);
-                VerificarIntentos(usuarioTabla.Id);
-                if (password)
+
+                bool intentos = VerificarIntentos(usuarioTabla.Id);
+                bool DVH = VerificarDVH(usuarioTabla.Id, usuarios);
+                if (DVH)
                 {
-                    bool DVH = VerificarDVH(usuarioTabla.Id, usuarios);
-
-                    if (DVH)
+                    bool DVV = VerificarDVV();
+                    if (DVV)
                     {
-                        bool DVV = VerificarDVV();
-                        if (DVV)
-                        {
 
-                            if (VerificarBloqueado(usuarioTabla.Id))
+                         if (VerificarBloqueado(usuarioTabla.Id))
+                            {
+
+
+
+
+                            if (password)
+
                             {
 
                                 eventoBitacora.Id = 3;
-                                Bitacora bitacora = new Bitacora(usuarioTabla,eventoBitacora);
+                                Bitacora bitacora = new Bitacora(usuarioTabla, eventoBitacora);
                                 bitacoraComponent.Create(bitacora);
+                                usuariosComponent.BorrarIntentos(usuarioTabla.Id);
                                 loginError.error = "";
 
                             }
                             else
                             {
-                                eventoBitacora.Id = 1;
+                                loginError.error = "Usuario o Contraseña Invalido";
+                                eventoBitacora.Id = 4;
                                 Bitacora bitacora = new Bitacora(usuarioTabla, eventoBitacora);
-                                loginError.error = "La cuenta esta Bloqueada. ";
-                            
+                                usuariosComponent.UpdateIntentos(usuarioTabla.CantidadIntentos + 1, usuarioTabla.Id);
                                 bitacoraComponent.Create(bitacora);
+
+
+
                             }
                         }
                         else
                         {
-                            loginError.error = "Error Interno, vualva a intentar";
-                            eventoBitacora.Id = 2;
+                            eventoBitacora.Id = 1;
                             Bitacora bitacora = new Bitacora(usuarioTabla, eventoBitacora);
+                            loginError.error = "La cuenta esta Bloqueada ";
+
                             bitacoraComponent.Create(bitacora);
 
-                            BackupComponent backupComponent = new BackupComponent();
-                            backupComponent.RestaurarBase();
+                           
+
+
                         }
                     }
                     else
                     {
-                        loginError.error = "Error Interno, vualva a intentar";
-                        eventoBitacora.Id = 5;
+
+                        loginError.error = "Error Interno, Por favor contacte al administrador";
+                        eventoBitacora.Id = 7;
                         Bitacora bitacora = new Bitacora(usuarioTabla, eventoBitacora);
                         bitacoraComponent.Create(bitacora);
-                        BackupComponent backupComponent = new BackupComponent();
-                        backupComponent.RestaurarBase();
+
                     }
                 }
                 else
                 {
-                    loginError.error = "Usuario o Contraseña Invalido";
-                    eventoBitacora.Id = 4;
+                    loginError.error = "Error Interno, Contacte al administrador";
+                    eventoBitacora.Id = 5;
                     Bitacora bitacora = new Bitacora(usuarioTabla, eventoBitacora);
                     bitacoraComponent.Create(bitacora);
+
                 }
             }
 

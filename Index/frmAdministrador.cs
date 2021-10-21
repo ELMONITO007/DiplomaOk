@@ -70,7 +70,7 @@ namespace DiplomaFinal.Index
         }
         private void frmAlumnoIndex_Load(object sender, EventArgs e)
         {
-
+            lblNombre.Text = SessionManager.instance.GetUSuario().Nombre;
             //CambiarIdioma();
             frmAlarmas alarmas = new frmAlarmas();
             alarmas.ShowDialog();
@@ -122,6 +122,17 @@ namespace DiplomaFinal.Index
         {
             frmAlumnosIndex frmAlumnosIndex = new frmAlumnosIndex();
             frmAlumnosIndex.ShowDialog();
+        }
+
+        private void metroButton2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroButton2_Click_1(object sender, EventArgs e)
+        {
+            SessionManager.instance.LogOut();
+            this.Close();
         }
     }
 }

@@ -30,7 +30,6 @@ namespace DiplomaFinal.Index
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdministrador));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.cbIdioma = new MetroFramework.Controls.MetroComboBox();
             this.metroTile6 = new MetroFramework.Controls.MetroTile();
@@ -40,17 +39,13 @@ namespace DiplomaFinal.Index
             this.metroTile2 = new MetroFramework.Controls.MetroTile();
             this.metroTile1 = new MetroFramework.Controls.MetroTile();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.btnUsuario = new MetroFramework.Controls.MetroButton();
+            this.lblHola = new MetroFramework.Controls.MetroLabel();
+            this.lblNombre = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.metroButton2 = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(2, 42);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1341, 565);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // metroLabel1
             // 
@@ -154,11 +149,67 @@ namespace DiplomaFinal.Index
             this.metroButton1.UseSelectable = true;
             this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
             // 
+            // btnUsuario
+            // 
+            this.btnUsuario.Location = new System.Drawing.Point(272, 7);
+            this.btnUsuario.Name = "btnUsuario";
+            this.btnUsuario.Size = new System.Drawing.Size(181, 30);
+            this.btnUsuario.TabIndex = 18;
+            this.btnUsuario.Tag = "Usuario";
+            this.btnUsuario.Text = "Usuario";
+            this.btnUsuario.UseSelectable = true;
+            this.btnUsuario.Visible = false;
+            this.btnUsuario.Click += new System.EventHandler(this.metroButton2_Click);
+            // 
+            // lblHola
+            // 
+            this.lblHola.AutoSize = true;
+            this.lblHola.Location = new System.Drawing.Point(2, 17);
+            this.lblHola.Name = "lblHola";
+            this.lblHola.Size = new System.Drawing.Size(36, 19);
+            this.lblHola.TabIndex = 19;
+            this.lblHola.Tag = "Hol";
+            this.lblHola.Text = "Hola";
+            // 
+            // lblNombre
+            // 
+            this.lblNombre.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblNombre.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lblNombre.Location = new System.Drawing.Point(44, 20);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.ReadOnly = true;
+            this.lblNombre.Size = new System.Drawing.Size(213, 13);
+            this.lblNombre.TabIndex = 20;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(2, 42);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1341, 565);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // metroButton2
+            // 
+            this.metroButton2.Location = new System.Drawing.Point(2, 42);
+            this.metroButton2.Name = "metroButton2";
+            this.metroButton2.Size = new System.Drawing.Size(137, 23);
+            this.metroButton2.TabIndex = 21;
+            this.metroButton2.Tag = "Desloguearse";
+            this.metroButton2.Text = "Desloguearse";
+            this.metroButton2.UseSelectable = true;
+            this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click_1);
+            // 
             // frmAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1347, 606);
+            this.Controls.Add(this.metroButton2);
+            this.Controls.Add(this.lblNombre);
+            this.Controls.Add(this.lblHola);
+            this.Controls.Add(this.btnUsuario);
             this.Controls.Add(this.metroButton1);
             this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.cbIdioma);
@@ -189,5 +240,9 @@ namespace DiplomaFinal.Index
         private MetroFramework.Controls.MetroTile metroTile2;
         private MetroFramework.Controls.MetroTile metroTile1;
         private MetroFramework.Controls.MetroButton metroButton1;
+        private MetroFramework.Controls.MetroButton btnUsuario;
+        private MetroFramework.Controls.MetroLabel lblHola;
+        private System.Windows.Forms.TextBox lblNombre;
+        private MetroFramework.Controls.MetroButton metroButton2;
     }
 }

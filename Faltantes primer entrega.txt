@@ -1,19 +1,31 @@
+
+No borrar propio usuario + 1 admin grid view listp
+Contador no actualiza bloqueo listo 
+
+Desde hasta bitacora Listo
+
+Falta bitacora backup listo 
+
+
+
+
+keypress Bitacora listo
+bitacora critacidad listo
+
+
+Apenas ingreso verificador!! primero va el digito despues contraseña listo 
+
+
+
 Al revez el composite
-No borrar propio usuario + 1 admin grid view
-Contador no actualiza bloqueo
 Logout
-Desde hasta bitacora
+Error BK usuario
 
-Falta bitacora backup
+Restaurar aux usuario tambien
 
+DVV recupera con la aux
 
-
-
-keypress Bitacora
-bitacora critacidad
-
-
-Apenas ingreso verificador!! primero va el digito despues contraseña
+DVH remplazando con la aux
 
 
 

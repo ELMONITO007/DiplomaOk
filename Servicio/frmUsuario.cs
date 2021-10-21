@@ -12,6 +12,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MetroFramework;
+using Entitites.Servicios.Login;
+
 namespace DiplomaFinal.Servicio
 {
     public partial class frmUsuario : MetroFramework.Forms.MetroForm
@@ -34,6 +36,7 @@ namespace DiplomaFinal.Servicio
         {
             int n = 0;
             listaUsuario = usuariosComponent.Read();
+            mgUsuario.Rows.Clear();
             foreach (var item in listaUsuario)
             {
                 n = mgUsuario.Rows.Add();
@@ -83,10 +86,43 @@ namespace DiplomaFinal.Servicio
             
         }
 
+        bool VerificarBorrado()
+
+        { 
+            string usuariosAborrar= mgUsuario.CurrentRow.Cells[1].Value.ToString();
+            string usuarioLogeuado = SessionManager.instance.GetUSuario().Email;
+            if (usuariosAborrar == usuarioLogeuado)
+            {
+                MetroMessageBox.Show(this, "No se puede borrar su usuario si esta logueado","Error",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                return false;
+            }
+            else if(mgUsuario.Rows.Count < 3)
+            {
+                MetroMessageBox.Show(this, "No se puede borrar, debe haber por lo menos 2 usuarios activos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+          
+            else
+            {
+                return true;
+            }
+
+            
+
+        }
+
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            UsuariosComponent usuarios = new UsuariosComponent();
-            usuarios.Delete(int.Parse(mgUsuario.CurrentRow.Cells[0].Value.ToString()));
+            if (VerificarBorrado())
+            {
+                UsuariosComponent usuarios = new UsuariosComponent();
+                usuarios.Delete(int.Parse(mgUsuario.CurrentRow.Cells[0].Value.ToString()));
+                ValidadoresComponent.Baja("usuario", this);
+                llenarGrillas();
+            }
+           
+           
         }
 
         private void btnModificar_Click(object sender, EventArgs e)

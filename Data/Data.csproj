@@ -106,6 +106,7 @@
     <Compile Include="Servicios\Permisos\RolesDAC.cs" />
     <Compile Include="Servicios\Permisos\UsuarioRolesDAC.cs" />
     <Compile Include="Usuario\UsuarioDac.cs" />
+    <Compile Include="Usuario\UsuarioDACaux.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />

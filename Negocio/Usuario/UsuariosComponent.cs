@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Data;
+using Data.Usuario;
 using Entities;
 using Entities.Usuario;
 using Entitites.Negocio.Personas;
@@ -39,16 +40,19 @@ namespace Negocio
           
 
             UsuarioParcial usuariosFormateado = new UsuarioParcial();
-     
+            EncriptarSHA256 encriptarSHA256 = new EncriptarSHA256(objeto.Password);
             usuariosFormateado.Email = objeto.Email;
             usuariosFormateado.UserName = objeto.UserName;
-            usuariosFormateado.Password = objeto.Password;
+            usuariosFormateado.Password = encriptarSHA256.Hashear();
+
             if (Verificar(objeto.UserName))
             {
          
                 DigitoVerificadorH digitoVerificadorH = new DigitoVerificadorH();
                 digitoVerificadorH.DVH = DigitoVerificadorH.getDigitoEncriptado(usuariosFormateado);
-                EncriptarSHA256 encriptarSHA256 = new EncriptarSHA256(objeto.Password);
+
+          
+
                 Usuarios usuarios = new Usuarios(digitoVerificadorH);
                 usuarios.Apellido = objeto.Apellido;
                 usuarios.Email = objeto.Email;
@@ -59,8 +63,10 @@ namespace Negocio
 
                 usuarios.Password = encriptarSHA256.Hashear();
                 UsuarioDac usuarioDac = new UsuarioDac();
-                usuarioDac.Create(usuarios);
+                UsuarioDACaux usuarioDACaux = new UsuarioDACaux();
 
+                usuarioDac.Create(usuarios);
+                usuarioDACaux.Create(usuarios);
 
                 DVVComponent dVVComponent = new DVVComponent();
                 dVVComponent.CrearDVV(ListaDVH(), "Usuario");
@@ -122,7 +128,28 @@ namespace Negocio
         }
 
         #endregion
+        public void UpdateIntentos(int cantidad, int legajo)
 
+        {
+            UsuarioDac usuarioDac = new UsuarioDac();
+
+            if (usuarioDac.UpdateIntentos(cantidad, legajo)>=3)
+            {
+                Bloquear(legajo);
+            } 
+        
+        }
+        public void BorrarIntentos( int legajo)
+
+        {
+            UsuarioDac usuarioDac = new UsuarioDac();
+
+            usuarioDac.UpdateIntentos(0, legajo);
+            
+              
+            
+
+        }
         public void Bloquear(int id)
         {
             var usuario = new UsuarioDac();

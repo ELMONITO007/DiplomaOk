@@ -61,7 +61,7 @@ namespace Data
 
         public void Desbloquear(int id)
         {
-            const string SQL_STATEMENT = "update Usuario set Bloqueado=0 where id=@Id";
+            const string SQL_STATEMENT = "update Usuario set Bloqueado=0 , CantidadIntentos=0 where id=@Id";
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
             {
@@ -190,6 +190,22 @@ namespace Data
        
                 db.ExecuteNonQuery(cmd);
             }
+        }
+        public int UpdateIntentos(int cantidad,int legajo)
+        {
+
+            const string SQL_STATEMENT = "update Usuario set CantidadIntentos=@CantidadIntentos where id=@id ";
+
+            var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
+            using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
+            {
+                db.AddInParameter(cmd, "@CantidadIntentos", DbType.Int32, cantidad);
+                db.AddInParameter(cmd, "@id", DbType.Int32, legajo);
+
+
+                db.ExecuteNonQuery(cmd);
+            }
+            return ReadBy(legajo).CantidadIntentos;
         }
         public Usuarios ReadBy(string id)
         {
