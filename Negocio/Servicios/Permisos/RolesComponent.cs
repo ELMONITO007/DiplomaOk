@@ -123,6 +123,7 @@ namespace Negocio
             Roles roles = new Roles();
             RolesDAC rolesDAC = new RolesDAC();
             roles = entity;
+       
             List<Arbol> listaRol = new List<Arbol>();
             foreach (Roles item in ObtenerPermisosORolesDeUnRol(entity.Id))
             {
@@ -148,6 +149,47 @@ namespace Negocio
 
 
         }
+
+        String arbol = "";
+        int sumador = 1;
+        public string ObetenerArbol(Roles entity)
+        {
+
+            if (entity.ListaPermiso.Count==0)
+            {
+                return "-" + entity.name;
+            }
+            Roles roles = new Roles();
+            RolesDAC rolesDAC = new RolesDAC();
+            roles = entity;
+            foreach (var item in entity.ListaPermiso)
+            {
+                if (rolesDAC.VerificarSiEsUnPermiso(item.Id) != null)
+                {
+
+                    string a="";
+                    char b = '-';
+                    arbol = arbol + System.Environment.NewLine+a.PadLeft(sumador,b)+item.name;
+               
+                }
+                else
+                {
+                    string a = "";
+                    char b = '+';
+                    arbol = arbol + System.Environment.NewLine + a.PadLeft(sumador, b) + item.name;
+                    Roles unrROl = new Roles();
+                    unrROl.id = item.id;
+                    unrROl.ListaPermiso = ObtenerPermisosORolesDeUnRol(item.Id);
+                    unrROl.name = item.name;
+                    sumador++;
+                    ObetenerArbol(unrROl);
+                    
+                }
+            }
+            sumador = 1;
+            return arbol;
+        }
+
 
         #endregion
 
@@ -197,21 +239,21 @@ namespace Negocio
             Roles roles = new Roles();
             RolesDAC rolesDAC = new RolesDAC();
             roles = rolesDAC.ReadBy(id);
-            Roles rolesBase = new Roles();
+           
             PermisoDAC permisoDAC = new PermisoDAC();
-
+            List<Arbol> ListaPermiso = new List<Arbol>();
             foreach (var item in rolesDAC.Read())
             {
-                rolesBase.ListaPermiso.Add(item);
+                ListaPermiso.Add(item);
             }
 
             foreach (var item in permisoDAC.Read())
             {
-                rolesBase.ListaPermiso.Add(item);
+                ListaPermiso.Add(item);
             }
-            
- 
 
+
+            Roles rolesBase = new Roles(null,ListaPermiso);
 
             Roles result = new Roles();
             result = rolesDAC.ReadBy(id);

@@ -108,6 +108,12 @@ namespace Negocio.Gestion_de_Personas.Creator
             UsuariosComponent usuariosComponent = new UsuariosComponent();
             if (usuariosComponent.Crear(usuarios, persona))
             {
+                RolesComponent rolesComponent = new RolesComponent();
+                Roles roles = new Roles();
+                roles = rolesComponent.ReadBy("alumno");
+                UsuarioRoles usuarioRoles = new UsuarioRoles(roles,usuarios);
+                UsuarioRolesComponent usuarioRolesComponent = new UsuarioRolesComponent();
+                usuarioRolesComponent.Create(usuarioRoles);
                 return true;
             }
             else

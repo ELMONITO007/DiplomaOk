@@ -26,19 +26,25 @@ Restaurar aux usuario tambien no se puede
 
 
 
+
 Al revez el composite. Falta composite y composite del usuario
 
 Recuperar usuario
 
+Contructor Personas
+
+
+Serializacion JSON Restaurar Backup
+
+
 
 DX helper
 
-Contructor Personas
-
-Serializacion JSON
 
 
-Diagrama de clases
+
+
+Diagrama de clases ya estan las clases
 
 
 

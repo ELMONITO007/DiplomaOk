@@ -29,7 +29,7 @@ namespace DiplomaFinal.Servicio
             int id = int.Parse(mgAsignarLista.CurrentRow.Cells[0].Value.ToString());
             roles = rolesComponent.RolesDiponibles(id);
             int n = 0;
-            foreach (var item in roles.listaRol)
+            foreach (var item in roles.ListaPermiso)
             {
                 n = mgDisponible.Rows.Add();
                 mgDisponible.Rows[n].Cells[0].Value = item.Id;
@@ -38,62 +38,7 @@ namespace DiplomaFinal.Servicio
             }
         }
         int sumador;
-        private void llenarArbol(Roles roles, int nodo)
-        {
 
-
-
-            List<Roles> lista = new List<Roles>();
-            foreach (var list in roles.listaRol)
-            {
-                Roles elRol = new Roles();
-                elRol = list;
-                lista.Add(elRol);
-            }
-
-
-            Roles unrol = new Roles(lista);
-
-
-
-
-            foreach (var item in unrol.listaRol)
-            {
-                if (item.listaRol!=null)
-                {
-                    List<Roles> Sublista = new List<Roles>();
-                    Sublista = item.listaRol;
-                    Roles roles1 = new Roles(Sublista);
-                    roles1.name = item.name;
-                    roles1.id = item.id;
-                }
-                
-         
-
-
-                if (item.listaRol == null)
-                {
-                    char a = '-';
-                    string r = "";
-
-                    lblComposite.Text = lblComposite.Text + r.PadLeft(nodo, a) + item.name + Environment.NewLine;
-                }
-                else
-                {
-                    sumador++;
-                    char a = '+';
-                    string r = "";
-                    lblComposite.Text = lblComposite.Text + r.PadLeft(nodo, a) + item.name + Environment.NewLine;
-
-
-                    llenarArbol(item, sumador);
-                }
-
-
-            }
-
-
-        }
 
         private void llenarGrillaABM()
         {
@@ -216,11 +161,21 @@ namespace DiplomaFinal.Servicio
 
             llenarGrillaPermiso();
             llenarGrillaRoles();
+
             UsuariosComponent usuariosComponent = new UsuariosComponent();
             int n = 0;
             int m = 0;
+            int o = 0;
             foreach (var item in usuariosComponent.Read())
             {
+
+                o = mgPermisosQueTieneElUsuario.Rows.Add();
+                mgPermisosQueTieneElUsuario.Rows[o].Cells[0].Value = item.Id;
+                mgPermisosQueTieneElUsuario.Rows[o].Cells[1].Value = item.UserName;
+                mgPermisosQueTieneElUsuario.Rows[o].Cells[2].Value = item.Nombre;
+                mgPermisosQueTieneElUsuario.Rows[o].Cells[3].Value = item.Apellido;
+                o++;
+
 
 
                 n = mgUsuario.Rows.Add();
@@ -443,7 +398,9 @@ namespace DiplomaFinal.Servicio
             lblComposite.Text = "+" + mgVerRol.CurrentRow.Cells[1].Value.ToString() + Environment.NewLine;
             sumador = 2;
 
-            llenarArbol(roles, sumador);
+            lblComposite.Text = rolesComponent.ObetenerArbol(roles);
+
+            //llenarArbol(roles, sumador);
         }
 
         private void mgAsignarLista_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -465,9 +422,9 @@ namespace DiplomaFinal.Servicio
                 unRol.Id = int.Parse(mgDisponible.CurrentRow.Cells[0].Value.ToString());
                 roles.permiso = unRol;
                 RolesComponent rolesComponent = new RolesComponent();
-                if (rolesComponent.CreateComposite(roles)==null)
+                if (rolesComponent.CreateComposite(roles) == null)
                 {
-                    MetroMessageBox.Show(this, "No se puede asiganr el rol o el permiso, el rol: "+mgDisponible.CurrentRow.Cells[1].Value.ToString()+" contiente el rol o permiso: "+ mgAsignarLista.CurrentRow.Cells[1].Value.ToString(), "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    MetroMessageBox.Show(this, "No se puede asiganr el rol o el permiso, el rol: " + mgDisponible.CurrentRow.Cells[1].Value.ToString() + " contiente el rol o permiso: " + mgAsignarLista.CurrentRow.Cells[1].Value.ToString(), "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 }
 
@@ -506,7 +463,7 @@ namespace DiplomaFinal.Servicio
 
         private void mgUsuario_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(mgUsuario.CurrentRow.Cells[0].Value == null)
+            if (mgUsuario.CurrentRow.Cells[0].Value == null)
             {
                 MetroMessageBox.Show(this, "No selecciono un usuario", "error", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             }
@@ -574,6 +531,25 @@ namespace DiplomaFinal.Servicio
 
                 llenarGrillaQuitarPermisoUSuario();
             }
+        }
+
+        private void mgPermisosQueTieneElUsuario_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtVerPermisosArbol.Text = "";
+
+             UsuarioRolesComponent usuariosComponent = new UsuarioRolesComponent();
+            List< UsuarioRoles> usuarioRoles = new List<UsuarioRoles>();
+            usuarioRoles= usuariosComponent.ReadByUsuario(int.Parse(mgPermisosQueTieneElUsuario.CurrentRow.Cells[0].Value.ToString()));
+            RolesComponent rolesComponent = new RolesComponent();
+            Roles roles = new Roles();
+            foreach (var item in usuarioRoles)
+            {
+
+             
+                txtVerPermisosArbol.Text = txtVerPermisosArbol.Text + System.Environment.NewLine + rolesComponent.ObetenerArbol(rolesComponent.ObtenerComposite(item.roles));
+            }
+
+          
         }
     }
 }
