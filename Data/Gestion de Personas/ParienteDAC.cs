@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Entities;
+using Entitites.Negocio.Personas;
 using Microsoft.Practices.EnterpriseLibrary.Data;
 
 namespace Data
@@ -15,9 +16,11 @@ namespace Data
     {
         public Pariente ALoad(IDataReader entity)
         {
-            Pariente palabra = new Pariente();
+            Alumno alumno = new Alumno();
+            alumno.Id = GetDataValue<int>(entity, "Legajo_Alumno");
+            Pariente palabra = new Pariente(alumno);
  
-            palabra.alumno.Id = GetDataValue<int>(entity, "Legajo_Alumno");
+       
             palabra.Id = GetDataValue<int>(entity, "Legajo_Adulto");
 
             palabra.parentesco = GetDataValue<string>(entity, "Parentesco");

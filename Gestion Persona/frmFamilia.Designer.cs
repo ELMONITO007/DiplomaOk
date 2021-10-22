@@ -33,17 +33,21 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.AltaTab = new MetroFramework.Controls.MetroTabPage();
-            this.txtTelefono = new MetroFramework.Controls.MetroTextBox();
-            this.txtTelefonoArea = new MetroFramework.Controls.MetroTextBox();
-            this.txtEmail = new MetroFramework.Controls.MetroTextBox();
-            this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
             this.btnEliminar = new MetroFramework.Controls.MetroButton();
             this.btnTodo = new MetroFramework.Controls.MetroButton();
             this.btnBuscar = new MetroFramework.Controls.MetroButton();
             this.txtBuscar = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
             this.mgAlumno = new MetroFramework.Controls.MetroGrid();
+            this.Legajo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaNacimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Parentesco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Autorizado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAlta = new MetroFramework.Controls.MetroButton();
             this.chRetirar = new MetroFramework.Controls.MetroCheckBox();
             this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
@@ -59,15 +63,6 @@
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.Legajo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaNacimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Parentesco = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Autorizado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.metroTabControl1.SuspendLayout();
             this.AltaTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mgAlumno)).BeginInit();
@@ -85,11 +80,6 @@
             // 
             // AltaTab
             // 
-            this.AltaTab.Controls.Add(this.txtTelefono);
-            this.AltaTab.Controls.Add(this.txtTelefonoArea);
-            this.AltaTab.Controls.Add(this.txtEmail);
-            this.AltaTab.Controls.Add(this.metroLabel9);
-            this.AltaTab.Controls.Add(this.metroLabel10);
             this.AltaTab.Controls.Add(this.btnEliminar);
             this.AltaTab.Controls.Add(this.btnTodo);
             this.AltaTab.Controls.Add(this.btnBuscar);
@@ -123,116 +113,6 @@
             this.AltaTab.VerticalScrollbarBarColor = true;
             this.AltaTab.VerticalScrollbarHighlightOnWheel = false;
             this.AltaTab.VerticalScrollbarSize = 10;
-            // 
-            // txtTelefono
-            // 
-            // 
-            // 
-            // 
-            this.txtTelefono.CustomButton.Image = null;
-            this.txtTelefono.CustomButton.Location = new System.Drawing.Point(133, 1);
-            this.txtTelefono.CustomButton.Name = "";
-            this.txtTelefono.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtTelefono.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtTelefono.CustomButton.TabIndex = 1;
-            this.txtTelefono.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtTelefono.CustomButton.UseSelectable = true;
-            this.txtTelefono.CustomButton.Visible = false;
-            this.txtTelefono.Lines = new string[0];
-            this.txtTelefono.Location = new System.Drawing.Point(1065, 447);
-            this.txtTelefono.MaxLength = 32767;
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.PasswordChar = '\0';
-            this.txtTelefono.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtTelefono.SelectedText = "";
-            this.txtTelefono.SelectionLength = 0;
-            this.txtTelefono.SelectionStart = 0;
-            this.txtTelefono.ShortcutsEnabled = true;
-            this.txtTelefono.Size = new System.Drawing.Size(155, 23);
-            this.txtTelefono.TabIndex = 36;
-            this.txtTelefono.UseSelectable = true;
-            this.txtTelefono.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtTelefono.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // txtTelefonoArea
-            // 
-            // 
-            // 
-            // 
-            this.txtTelefonoArea.CustomButton.Image = null;
-            this.txtTelefonoArea.CustomButton.Location = new System.Drawing.Point(49, 1);
-            this.txtTelefonoArea.CustomButton.Name = "";
-            this.txtTelefonoArea.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtTelefonoArea.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtTelefonoArea.CustomButton.TabIndex = 1;
-            this.txtTelefonoArea.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtTelefonoArea.CustomButton.UseSelectable = true;
-            this.txtTelefonoArea.CustomButton.Visible = false;
-            this.txtTelefonoArea.Lines = new string[0];
-            this.txtTelefonoArea.Location = new System.Drawing.Point(969, 447);
-            this.txtTelefonoArea.MaxLength = 32767;
-            this.txtTelefonoArea.Name = "txtTelefonoArea";
-            this.txtTelefonoArea.PasswordChar = '\0';
-            this.txtTelefonoArea.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtTelefonoArea.SelectedText = "";
-            this.txtTelefonoArea.SelectionLength = 0;
-            this.txtTelefonoArea.SelectionStart = 0;
-            this.txtTelefonoArea.ShortcutsEnabled = true;
-            this.txtTelefonoArea.Size = new System.Drawing.Size(71, 23);
-            this.txtTelefonoArea.TabIndex = 35;
-            this.txtTelefonoArea.UseSelectable = true;
-            this.txtTelefonoArea.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtTelefonoArea.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // txtEmail
-            // 
-            // 
-            // 
-            // 
-            this.txtEmail.CustomButton.Image = null;
-            this.txtEmail.CustomButton.Location = new System.Drawing.Point(229, 1);
-            this.txtEmail.CustomButton.Name = "";
-            this.txtEmail.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtEmail.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtEmail.CustomButton.TabIndex = 1;
-            this.txtEmail.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtEmail.CustomButton.UseSelectable = true;
-            this.txtEmail.CustomButton.Visible = false;
-            this.txtEmail.Lines = new string[0];
-            this.txtEmail.Location = new System.Drawing.Point(969, 402);
-            this.txtEmail.MaxLength = 32767;
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.PasswordChar = '\0';
-            this.txtEmail.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtEmail.SelectedText = "";
-            this.txtEmail.SelectionLength = 0;
-            this.txtEmail.SelectionStart = 0;
-            this.txtEmail.ShortcutsEnabled = true;
-            this.txtEmail.Size = new System.Drawing.Size(251, 23);
-            this.txtEmail.TabIndex = 34;
-            this.txtEmail.UseSelectable = true;
-            this.txtEmail.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtEmail.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // metroLabel9
-            // 
-            this.metroLabel9.AutoSize = true;
-            this.metroLabel9.Location = new System.Drawing.Point(839, 447);
-            this.metroLabel9.Name = "metroLabel9";
-            this.metroLabel9.Size = new System.Drawing.Size(58, 19);
-            this.metroLabel9.TabIndex = 33;
-            this.metroLabel9.Tag = "Telefono";
-            this.metroLabel9.Text = "Telefono";
-            // 
-            // metroLabel10
-            // 
-            this.metroLabel10.AutoSize = true;
-            this.metroLabel10.Location = new System.Drawing.Point(839, 402);
-            this.metroLabel10.Name = "metroLabel10";
-            this.metroLabel10.Size = new System.Drawing.Size(41, 19);
-            this.metroLabel10.TabIndex = 32;
-            this.metroLabel10.Tag = "Email";
-            this.metroLabel10.Text = "Email";
             // 
             // btnEliminar
             // 
@@ -367,6 +247,71 @@
             this.mgAlumno.Size = new System.Drawing.Size(811, 379);
             this.mgAlumno.TabIndex = 26;
             this.mgAlumno.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.mgAlumno_CellContentClick);
+            // 
+            // Legajo
+            // 
+            this.Legajo.HeaderText = "Legajo";
+            this.Legajo.Name = "Legajo";
+            this.Legajo.ReadOnly = true;
+            this.Legajo.Visible = false;
+            this.Legajo.Width = 64;
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            this.Nombre.Width = 71;
+            // 
+            // Apellido
+            // 
+            this.Apellido.HeaderText = "Apellido";
+            this.Apellido.Name = "Apellido";
+            this.Apellido.ReadOnly = true;
+            this.Apellido.Width = 73;
+            // 
+            // Direccion
+            // 
+            this.Direccion.HeaderText = "Direccion";
+            this.Direccion.Name = "Direccion";
+            this.Direccion.ReadOnly = true;
+            this.Direccion.Width = 78;
+            // 
+            // DNI
+            // 
+            this.DNI.HeaderText = "DNI";
+            this.DNI.Name = "DNI";
+            this.DNI.ReadOnly = true;
+            this.DNI.Width = 49;
+            // 
+            // FechaNacimiento
+            // 
+            this.FechaNacimiento.HeaderText = "Fecha Nacimiento";
+            this.FechaNacimiento.Name = "FechaNacimiento";
+            this.FechaNacimiento.ReadOnly = true;
+            this.FechaNacimiento.Width = 111;
+            // 
+            // Parentesco
+            // 
+            this.Parentesco.HeaderText = "Parentesco";
+            this.Parentesco.Name = "Parentesco";
+            this.Parentesco.ReadOnly = true;
+            this.Parentesco.Width = 86;
+            // 
+            // Autorizado
+            // 
+            this.Autorizado.HeaderText = "Autorizado";
+            this.Autorizado.Name = "Autorizado";
+            this.Autorizado.ReadOnly = true;
+            this.Autorizado.Width = 68;
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
+            this.ID.Width = 41;
             // 
             // btnAlta
             // 
@@ -609,71 +554,6 @@
             this.metroLabel1.Text = "Nombre";
             this.metroLabel1.Click += new System.EventHandler(this.metroLabel1_Click);
             // 
-            // Legajo
-            // 
-            this.Legajo.HeaderText = "Legajo";
-            this.Legajo.Name = "Legajo";
-            this.Legajo.ReadOnly = true;
-            this.Legajo.Visible = false;
-            this.Legajo.Width = 64;
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            this.Nombre.Width = 71;
-            // 
-            // Apellido
-            // 
-            this.Apellido.HeaderText = "Apellido";
-            this.Apellido.Name = "Apellido";
-            this.Apellido.ReadOnly = true;
-            this.Apellido.Width = 73;
-            // 
-            // Direccion
-            // 
-            this.Direccion.HeaderText = "Direccion";
-            this.Direccion.Name = "Direccion";
-            this.Direccion.ReadOnly = true;
-            this.Direccion.Width = 78;
-            // 
-            // DNI
-            // 
-            this.DNI.HeaderText = "DNI";
-            this.DNI.Name = "DNI";
-            this.DNI.ReadOnly = true;
-            this.DNI.Width = 49;
-            // 
-            // FechaNacimiento
-            // 
-            this.FechaNacimiento.HeaderText = "Fecha Nacimiento";
-            this.FechaNacimiento.Name = "FechaNacimiento";
-            this.FechaNacimiento.ReadOnly = true;
-            this.FechaNacimiento.Width = 111;
-            // 
-            // Parentesco
-            // 
-            this.Parentesco.HeaderText = "Parentesco";
-            this.Parentesco.Name = "Parentesco";
-            this.Parentesco.ReadOnly = true;
-            this.Parentesco.Width = 86;
-            // 
-            // Autorizado
-            // 
-            this.Autorizado.HeaderText = "Autorizado";
-            this.Autorizado.Name = "Autorizado";
-            this.Autorizado.ReadOnly = true;
-            this.Autorizado.Width = 68;
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Visible = false;
-            this.ID.Width = 41;
-            // 
             // frmFamilia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -716,11 +596,6 @@
         private MetroFramework.Controls.MetroLabel metroLabel8;
         private MetroFramework.Controls.MetroGrid mgAlumno;
         private MetroFramework.Controls.MetroButton btnEliminar;
-        private MetroFramework.Controls.MetroTextBox txtTelefono;
-        private MetroFramework.Controls.MetroTextBox txtTelefonoArea;
-        private MetroFramework.Controls.MetroTextBox txtEmail;
-        private MetroFramework.Controls.MetroLabel metroLabel9;
-        private MetroFramework.Controls.MetroLabel metroLabel10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Legajo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;

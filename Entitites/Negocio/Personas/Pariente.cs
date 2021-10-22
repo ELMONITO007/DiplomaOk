@@ -22,7 +22,12 @@ namespace Entities
           
 
         }
+        public Pariente(Alumno _alumno)
+        {
+            alumno = _alumno;
 
+
+        }
 
         public Pariente(List<Alumno>  _alumnos )
         {

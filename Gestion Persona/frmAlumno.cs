@@ -144,9 +144,9 @@ namespace DiplomaFinal.Gestion_de_Personas
             }
             else
             {
-                //frmFamilia frmFamilia = new frmFamilia();
-                //frmFamilia.id_Alumno = int.Parse(mgAlumno.CurrentRow.Cells[0].Value.ToString());
-                //frmFamilia.ShowDialog();
+                frmFamilia frmFamilia = new frmFamilia();
+                frmFamilia.id_Alumno = int.Parse(mgAlumno.CurrentRow.Cells[0].Value.ToString());
+                frmFamilia.ShowDialog();
             }
 
         }
