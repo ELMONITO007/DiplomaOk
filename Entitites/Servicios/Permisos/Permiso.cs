@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-   public class Permiso :Roles
+   public class Permiso :Arbol
     {
 
 

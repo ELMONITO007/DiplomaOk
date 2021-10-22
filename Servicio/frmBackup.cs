@@ -88,7 +88,8 @@ namespace Negocio.Servicios
                 BackupComponent backupComponent = new BackupComponent();
 
                 Usuarios user = new Usuarios();
-                user = SessionManager.instance.GetUSuario();
+                UsuariosComponent usuarioRolesComponent = new UsuariosComponent();
+                user  = usuarioRolesComponent.ReadByEmail( SessionManager.instance.GetUSuario().Email);
                 Backups backups = new Backups(user);
                 backups.Id = int.Parse(MGbackup.CurrentRow.Cells[3].Value.ToString());
              

@@ -30,5 +30,50 @@ namespace Data.Usuario
             }
            
         }
+        public List<Usuarios> Read()
+        {
+            const string SQL_STATEMENT = "select * from Usuario where activo=1";
+
+            List<Usuarios> result = new List<Usuarios>();
+            var db = DatabaseFactory.CreateDatabase(CONNECTION_Aux);
+            using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
+            {
+                using (IDataReader dr = db.ExecuteReader(cmd))
+                {
+                    while (dr.Read())
+                    {
+                        Usuarios usuarios = LoadUsuarioa(dr);
+                        result.Add(usuarios);
+                    }
+                }
+            }
+            return result;
+        }
+        public void DeleteAll()
+        {
+            const string SQL_STATEMENT = "Delete  from usuario ";
+            var db = DatabaseFactory.CreateDatabase(CONNECTION_Aux);
+            using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
+            {
+
+                db.ExecuteNonQuery(cmd);
+            }
+        }
+        private Usuarios LoadUsuarioa(IDataReader dr)
+        {
+            DigitoVerificadorH digitoVerificadorH = new DigitoVerificadorH();
+            digitoVerificadorH.DVH = GetDataValue<string>(dr, "DVH");
+            Usuarios usuarios = new Usuarios(digitoVerificadorH);
+            usuarios.Id = GetDataValue<int>(dr, "Id");
+            usuarios.UserName = GetDataValue<string>(dr, "UserName");
+            usuarios.Nombre = GetDataValue<string>(dr, "Nombre");
+            usuarios.Apellido = GetDataValue<string>(dr, "Apellido");
+            usuarios.Email = GetDataValue<string>(dr, "Email");
+
+            usuarios.Bloqueado = GetDataValue<bool>(dr, "Bloqueado");
+            usuarios.CantidadIntentos = GetDataValue<int>(dr, "CantidadIntentos");
+            usuarios.Password = GetDataValue<string>(dr, "Password");
+            return usuarios;
+        }
     }
 }

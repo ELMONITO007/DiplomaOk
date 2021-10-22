@@ -80,6 +80,7 @@ namespace Data
                 db.ExecuteNonQuery(cmd);
             }
         }
+       
 
         public List<Usuarios> Read()
         {

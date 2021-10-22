@@ -124,18 +124,24 @@ namespace Negocio.Servicios
             eventoBitacora.Id = 10;
 
             BitacoraComponent bitacoraComponent = new BitacoraComponent();
-            Bitacora bitacora = new Bitacora(unUsuario, eventoBitacora);
+            Bitacora bitacora = new Bitacora(backup.usuarios, eventoBitacora);
 
             bitacora.fecha = DateTime.Now.ToString("dd-MM-yyyy");
             bitacora.hora = DateTime.Now.ToString("hh mm ss");
             bitacoraComponent.Create(bitacora);
-            Backups backupRestore = new Backups(unUsuario);
+            Backups backupRestore = new Backups(backup.usuarios);
             BackupDAC backupDAC = new BackupDAC();
             backupRestore = backupDAC.ReadBy(backup.Id);
             backupRestore.Path = @"C:\\Backup\" + backupRestore.Nombre + ".bak";
             backupDAC.Restore(backupRestore);
+            //restauro DVV y Base AUX
 
-           
+            UsuariosComponent usuariosComponent = new UsuariosComponent();
+            //usuariosComponent.RestoreBDAUX();
+          
+            DVVComponent dVVComponent = new DVVComponent();
+            dVVComponent.CrearDVV(usuariosComponent.ListaDVH(), "Usuario");
+
         }
 
         public Backups Create(int legajo)

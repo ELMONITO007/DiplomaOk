@@ -69,7 +69,10 @@ namespace Negocio
                 {
                     roles1.Id = 1;
                     PermisoComponent permisoComponent = new PermisoComponent();
-                    roles1.roles = permisoComponent.ReadBy(item.roles.Id);
+                    Permiso permiso = new Permiso();
+                    permiso= permisoComponent.ReadBy(item.roles.Id);
+                    roles1.roles.id = permiso.id;
+                    roles1.roles.name = permiso.name;
                 }
                 else
                 {
@@ -106,8 +109,12 @@ namespace Negocio
         {
 
             RolesComponent rolesComponent = new RolesComponent();
-            List<Roles> roles = new List<Roles>();
-            roles = rolesComponent.Read();
+            List<Arbol> roles = new List<Arbol>();
+            foreach (var item in rolesComponent.Read())
+            {
+                roles.Add(item);
+            }
+        
 
             PermisoComponent permisoComponent = new PermisoComponent();
             List<Permiso> permisos = new List<Permiso>();
@@ -120,7 +127,7 @@ namespace Negocio
             List<UsuarioRoles> result = new List<UsuarioRoles>();
 
 
-            foreach (Roles item in roles)
+            foreach (var item in roles)
             {
                 int aux = 0;
 
@@ -136,7 +143,8 @@ namespace Negocio
                 if (aux == 0)
                 {
                     UsuarioRoles usuario = new UsuarioRoles();
-                    usuario.roles = item;
+                    usuario.roles.id = item.id;
+                    usuario.roles.name = item.name;
                     result.Add(usuario);
                 }
 
@@ -224,21 +232,21 @@ namespace Negocio
         {
 
 
-            foreach (Roles item in roles.listaRol)
+            foreach (var item in roles.ListaPermiso)
             {
 
-                if (item.listaRol.Count == 0)
-                {
-                    result.Add(item.name);
-                }
-                else if (item.listaRol.Count != 0)
-                {
-                    result.Add(item.name);
-                    foreach (var subItem in item.listaRol)
-                    {
-                        result.Add(subItem.name);
-                    }
-                }
+                //if (item.listaRol.Count == 0)
+                //{
+                //    result.Add(item.name);
+                //}
+                //else if (item.listaRol.Count != 0)
+                //{
+                //    result.Add(item.name);
+                //    foreach (var subItem in item.listaRol)
+                //    {
+                //        result.Add(subItem.name);
+                //    }
+                //}
 
 
             }

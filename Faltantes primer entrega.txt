@@ -14,18 +14,32 @@ bitacora critacidad listo
 
 
 Apenas ingreso verificador!! primero va el digito despues contraseña listo 
+Logout Listo
+
+Error BK usuarioListo
 
 
 
-Al revez el composite
-Logout
-Error BK usuario
+Espejar usuarioaux (create ok, falta update) listo
+DVV remplazando con la aux listo
+Restaurar aux usuario tambien no se puede
 
-Restaurar aux usuario tambien
 
-DVV recupera con la aux
 
-DVH remplazando con la aux
+Al revez el composite. Falta composite y composite del usuario
+
+Recuperar usuario
+
+
+DX helper
+
+Contructor Personas
+
+Serializacion JSON
+
+
+Diagrama de clases
+
 
 
 

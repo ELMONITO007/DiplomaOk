@@ -17,8 +17,7 @@ namespace Entities
         public List<UsuarioRoles> listaRoles = new List<UsuarioRoles>();
 
         public UsuarioRoles(Roles _roles, Usuarios _usuarios)
-        {
-            roles = new Roles();
+        { 
             roles = _roles;
             usuarios = new Usuarios();
             usuarios = _usuarios;

@@ -34,7 +34,19 @@ namespace Negocio
 
         }
 
+        public void RestoreBDAUX()
 
+        { UsuarioDACaux usuarioDACaux = new UsuarioDACaux();
+            usuarioDACaux.DeleteAll();
+
+            foreach (var item in Read())
+            {
+                usuarioDACaux.Create(item);
+
+            }
+
+
+        }
         public bool Crear(Usuarios objeto)
         {
           

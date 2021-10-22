@@ -104,7 +104,7 @@ namespace DiplomaFinal.Servicio
             else
             {
                 mgABMQuitar.Rows.Clear();
-                List<Roles> roles = new List<Roles>();
+                List<Arbol> roles = new List<Arbol>();
                 int n = 0;
                 RolesComponent rolesComponent = new RolesComponent();
                 roles = rolesComponent.ObtenerPermisosORolesDeUnRol(int.Parse(mgABMComposite.CurrentRow.Cells[0].Value.ToString()));
@@ -257,7 +257,7 @@ namespace DiplomaFinal.Servicio
                 {
                     n = mgListadoPermiso.Rows.Add();
                     mgListadoPermiso.Rows[n].Cells[0].Value = item.Id;
-                    mgListadoPermiso.Rows[n].Cells[1].Value = item.permiso;
+                    mgListadoPermiso.Rows[n].Cells[1].Value = item.name;
 
                     n++;
                 }
