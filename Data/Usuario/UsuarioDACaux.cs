@@ -14,6 +14,25 @@ namespace Data.Usuario
 {
  public   class UsuarioDACaux :DataAccessComponent
     {
+        public Usuarios ReadByEmail(string emailUsername)
+        {
+            const string SQL_STATEMENT = "select * from Usuario where activo=1 and UserName=@Id";
+            Usuarios usuarios = null;
+
+            var db = DatabaseFactory.CreateDatabase(CONNECTION_Aux);
+            using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
+            {
+                db.AddInParameter(cmd, "@Id", DbType.String, emailUsername);
+                using (IDataReader dr = db.ExecuteReader(cmd))
+                {
+                    if (dr.Read())
+                    {
+                        usuarios = LoadUsuarioa(dr);
+                    }
+                }
+            }
+            return usuarios;
+        }
         public void Create(Usuarios entity)
         {
             const string SQL_STATEMENT = "insert into Usuario(UserName,Email,Password,Bloqueado,CantidadIntentos,Activo,DVH,Nombre,Apellido)values(@UserName,@Email,@Password,0,0,1,@DVH,@Nombre,@Apellido)";

@@ -66,8 +66,8 @@ namespace DiplomaFinal.Gestion_de_Personas
 
         private void metroTile1_Click(object sender, EventArgs e)
         {
-        //    frmInscripcion frmInscripcion = new frmInscripcion();
-        //    frmInscripcion.ShowDialog();
+            frmInscripcion frmInscripcion = new frmInscripcion();
+            frmInscripcion.ShowDialog();
         }
 
         private void metroTile2_Click(object sender, EventArgs e)

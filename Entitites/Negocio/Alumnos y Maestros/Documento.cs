@@ -14,7 +14,7 @@ namespace Entities
 
         public string tipo_Documentancion { get; set; }
         public string NombreDocumento { get; set; }
-        public OpenFileDialog openFileDialog { get; set; }
+ 
 
         public Documento(Persona _persona)
         {

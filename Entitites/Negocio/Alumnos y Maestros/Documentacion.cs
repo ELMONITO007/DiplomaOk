@@ -14,8 +14,8 @@ namespace Entities
         public override int Id { get; set; }
         public Persona persona { get; set; }
         public int año { get; set; }
+        public OpenFileDialog openFileDialog = new OpenFileDialog();
 
-      
 
         public Documentacion() { }
 

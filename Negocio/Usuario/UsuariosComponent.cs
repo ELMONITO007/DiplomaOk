@@ -106,26 +106,16 @@ namespace Negocio
 
 
             UsuarioParcial usuariosFormateado = new UsuarioParcial();
-
+            EncriptarSHA256 encriptarSHA256 = new EncriptarSHA256(objeto.Password);
             usuariosFormateado.Email = objeto.Email;
             usuariosFormateado.UserName = objeto.UserName;
-            usuariosFormateado.Password = objeto.Password;
+            usuariosFormateado.Password = encriptarSHA256.Hashear();
+
             if (Verificar(objeto.UserName))
             {
 
-                DigitoVerificadorH digitoVerificadorH = new DigitoVerificadorH();
-                digitoVerificadorH.DVH = DigitoVerificadorH.getDigitoEncriptado(usuariosFormateado);
-                EncriptarSHA256 encriptarSHA256 = new EncriptarSHA256(objeto.Password);
-                Usuarios usuarios = new Usuarios(digitoVerificadorH);
-                usuarios = objeto;
-                usuarios.Password = encriptarSHA256.Hashear();
+                Crear(objeto);
                 UsuarioDac usuarioDac = new UsuarioDac();
-                usuarioDac.Create(usuarios);
-
-
-                DVVComponent dVVComponent = new DVVComponent();
-                dVVComponent.CrearDVV(ListaDVH(), "Usuario");
-
                 Usuarios usuariosCreado = new Usuarios();
                 usuariosCreado = ReadByEmail(objeto.Email);
                 usuarioDac.AgregarUsuarioAlaPersona(usuariosCreado, persona);
@@ -254,7 +244,11 @@ namespace Negocio
             UsuarioDac usuarioDac = new UsuarioDac();
             return usuarioDac.ReadByEmail(emailUsername);
         }
-
+        public Usuarios ReadByEmailAux(string emailUsername)
+        {
+            UsuarioDACaux usuarioDac = new UsuarioDACaux();
+            return usuarioDac.ReadByEmail(emailUsername);
+        }
         public string ListaDVH()
         {
             string lista = "";

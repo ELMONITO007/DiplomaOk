@@ -30,13 +30,13 @@ namespace Data
 
         public Documento Create(Documento entity)
         {
-            const string SQL_STATEMENT = "insert into Documentacion(legajo,ID_TipoDocumentacion,NombreDocumento,año)values (@legajo,@TipoDocumentacion,@NombreDocumento,@año)";
+            const string SQL_STATEMENT = "insert into Documentacion(legajo,NombreDocumento,año,activo)values (@legajo,@NombreDocumento,@año,1)";
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
             {
                 db.AddInParameter(cmd, "@año", DbType.Int32, entity.año);
                 db.AddInParameter(cmd, "@legajo", DbType.Int32, entity.persona.Id);
-                db.AddInParameter(cmd, "@TipoDocumentacion", DbType.String, entity.tipo_Documentancion);
+       
                 db.AddInParameter(cmd, "@NombreDocumento", DbType.String, entity.NombreDocumento);
 
 

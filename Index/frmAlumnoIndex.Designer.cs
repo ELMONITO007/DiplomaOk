@@ -103,6 +103,7 @@ namespace DiplomaFinal.Index
             this.metroTile2.Tag = "Mis Datos";
             this.metroTile2.Text = "Mis Datos";
             this.metroTile2.UseSelectable = true;
+            this.metroTile2.Click += new System.EventHandler(this.metroTile2_Click);
             // 
             // metroTile1
             // 

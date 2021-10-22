@@ -26,5 +26,10 @@ namespace DiplomaFinal.Index
         {
 
         }
+
+        private void metroTile2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

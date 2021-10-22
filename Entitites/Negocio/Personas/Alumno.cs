@@ -13,6 +13,11 @@ namespace Entitites.Negocio.Personas
         public List<Pariente> parientes { get; set; }
      
         public Alumno() { }
+        public void AgregarTelefono(Telefono telefono) {
+            this.listaTelefono = new List<Telefono>();
+            this.listaTelefono.Add(telefono);
+        
+        }
         public Alumno(List<Pariente> _parientes) { parientes = _parientes; }
 
     }

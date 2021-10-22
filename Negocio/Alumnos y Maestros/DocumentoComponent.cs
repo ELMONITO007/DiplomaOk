@@ -90,6 +90,13 @@ namespace Negocio.Gestion_de_Alumnos
         {
             List<Documento> documentacions = new List<Documento>();
             documentacions = ReadByAlumno(id);
+
+            string subPath = @"c:\Documentacion";
+            bool isExist= System.IO.Directory.Exists(subPath);
+            if (!isExist)
+            {
+                System.IO.Directory.CreateDirectory(subPath);
+            }
             foreach (Documento item in documentacions)
             {
                 string ruta = @"C:\Documentacion\" + item.persona.DNI + @"\" + DateTime.Now.Year + @"\" + item.NombreDocumento;
