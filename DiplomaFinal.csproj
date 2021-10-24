@@ -151,17 +151,41 @@
     <Compile Include="Gestion Persona\frmAlumno.designer.cs">
       <DependentUpon>frmAlumno.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gestion Persona\frmEspecialidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion Persona\frmEspecialidad.Designer.cs">
+      <DependentUpon>frmEspecialidad.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gestion Persona\frmFamilia.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Gestion Persona\frmFamilia.designer.cs">
       <DependentUpon>frmFamilia.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gestion Persona\FrmHorarioMaestroGrado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion Persona\FrmHorarioMaestroGrado.Designer.cs">
+      <DependentUpon>FrmHorarioMaestroGrado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion Persona\FrmHorarioProfe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion Persona\FrmHorarioProfe.Designer.cs">
+      <DependentUpon>FrmHorarioProfe.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gestion Persona\frmInscripcion.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Gestion Persona\frmInscripcion.designer.cs">
       <DependentUpon>frmInscripcion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion Persona\frmPersonal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion Persona\frmPersonal.Designer.cs">
+      <DependentUpon>frmPersonal.cs</DependentUpon>
     </Compile>
     <Compile Include="Index\frmAlarmas.cs">
       <SubType>Form</SubType>
@@ -334,11 +358,23 @@
     <EmbeddedResource Include="Gestion Persona\frmAlumno.resx">
       <DependentUpon>frmAlumno.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Gestion Persona\frmEspecialidad.resx">
+      <DependentUpon>frmEspecialidad.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Gestion Persona\frmFamilia.resx">
       <DependentUpon>frmFamilia.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Gestion Persona\FrmHorarioMaestroGrado.resx">
+      <DependentUpon>FrmHorarioMaestroGrado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion Persona\FrmHorarioProfe.resx">
+      <DependentUpon>FrmHorarioProfe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Gestion Persona\frmInscripcion.resx">
       <DependentUpon>frmInscripcion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion Persona\frmPersonal.resx">
+      <DependentUpon>frmPersonal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Index\frmAlarmas.resx">
       <DependentUpon>frmAlarmas.cs</DependentUpon>
