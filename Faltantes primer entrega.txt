@@ -27,11 +27,13 @@ Restaurar aux usuario tambien no se puede
 
 
 
-Al revez el composite. Falta composite y composite del usuario
+Al revez el composite. Falta composite y composite del usuario listp
 
-Recuperar usuario
+Recuperar usuario no se puede
 
-Contructor Personas
+Contructor Personas listo
+
+Maestro 
 
 
 Serializacion JSON Restaurar Backup

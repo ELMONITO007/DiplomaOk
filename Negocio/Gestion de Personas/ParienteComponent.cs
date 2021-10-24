@@ -1,5 +1,6 @@
 ﻿using Data;
 using Entities;
+using Entitites.Negocio.Personas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -119,11 +120,21 @@ namespace Negocio.Gestion_de_Personas
             parentescos = parentescoDac.ReadByAlumno(id);
             foreach (Pariente item in parentescos)
             {
-                AlumnoComponent personaComponent = new AlumnoComponent();
-                Pariente parentesco = new Pariente();
-                parentesco = item;
+                List<Telefono> telefonos = new List<Telefono>();
+                TelefonoComponent telefonoComponent = new TelefonoComponent();
+                telefonos = telefonoComponent.ReadByPersona(item.Id);
+                         AlumnoComponent personaComponent = new AlumnoComponent();
+                Pariente parentesco = new Pariente(personaComponent.ReadBy(item.alumno.Id),telefonoComponent.ReadByPersona(item.Id));
+                parentesco.Id = item.Id;
+                parentesco.apellido = item.apellido;
+                parentesco.autorizadoRetirar = item.autorizadoRetirar;
+                parentesco.direccion = item.direccion;
+                parentesco.DNI = item.DNI;
+                parentesco.fechaNacimiento = item.fechaNacimiento;
+                parentesco.nombre = item.nombre;
+                parentesco.parentesco = item.parentesco;
+              
            
-                parentesco.alumno = personaComponent.ReadBy(item.alumno.Id);
                 result.Add(parentesco);
             }
             return result;
@@ -161,9 +172,13 @@ namespace Negocio.Gestion_de_Personas
                 Pariente persona = new Pariente();
                 persona = idiomaDAC.Create(entity);
                 persona = ReadBy(entity.DNI);
-                persona.alumno.Id = entity.alumno.Id;
-
-                CreateParienteAlumno(persona);
+                Alumno alumno = new Alumno();
+                alumno.Id = entity.alumno.Id;
+                Pariente pariente = new Pariente(entity.alumno);
+                pariente.Id = persona.Id;
+                pariente.parentesco = entity.parentesco;
+                pariente.autorizadoRetirar = entity.autorizadoRetirar;
+                CreateParienteAlumno(pariente);
 
                 return persona;
             }

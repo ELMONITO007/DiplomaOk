@@ -28,6 +28,13 @@ namespace Entities
 
 
         }
+        public Pariente(Alumno _alumno ,List<Telefono> _telefonos)
+        {
+            listaTelefono = _telefonos;
+            alumno = _alumno;
+
+
+        }
 
         public Pariente(List<Alumno>  _alumnos )
         {

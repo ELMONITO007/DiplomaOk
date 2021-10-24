@@ -44,6 +44,8 @@ namespace DiplomaFinal.Gestion_de_Personas
                 mgAlumno.Rows[n].Cells[6].Value = item.parentesco;
                 mgAlumno.Rows[n].Cells[7].Value = item.autorizadoRetirar;
                 mgAlumno.Rows[n].Cells[8].Value = item.Id;
+                mgAlumno.Rows[n].Cells[9].Value = item.listaTelefono[0].codigo_Area;
+                mgAlumno.Rows[n].Cells[10].Value = item.listaTelefono[0].numero;
                 n++;
             }
         
@@ -61,7 +63,7 @@ namespace DiplomaFinal.Gestion_de_Personas
             error = error + " " + ValidadoresComponent.VerificarNumerosIntervalo(txtTelefono.Text, 100000, 99999999);
 
             error = error + " " + ValidadoresComponent.VerificarTamaño(txtTelefono.Text + txtTelefonoArea.Text, 10, 10);
-            error = error + " " + ValidadoresComponent.VerificarEmail(txtEmail.Text);
+     
             if (error.Length < 15)
             {
                 return true;
@@ -79,7 +81,7 @@ namespace DiplomaFinal.Gestion_de_Personas
             RecorridoForm.CambiarIdioma(this);
             llenarGrilla();
             txtFechaNacimiento.MaxDate = DateTime.Now.AddYears(-18);
-            txtFechaNacimiento.MinDate = DateTime.Now.AddYears(-99);
+            txtFechaNacimiento.MinDate = DateTime.Now.AddYears(-75);
         }
 
         private void metroLabel1_Click(object sender, EventArgs e)
@@ -96,11 +98,12 @@ namespace DiplomaFinal.Gestion_de_Personas
         {
             if ( verificarCampos())
             {
-                
-                      
-                Pariente parentesco = new Pariente();
 
-                parentesco.alumno.Id = id_Alumno;
+                Alumno alumno = new Alumno();
+                alumno.Id = id_Alumno;
+                Pariente parentesco = new Pariente(alumno);
+
+        
 
                 parentesco.autorizadoRetirar = chRetirar.Checked;
                 parentesco.parentesco = txtParentesco.Text;
@@ -117,24 +120,23 @@ namespace DiplomaFinal.Gestion_de_Personas
                 Telefono telefono = new Telefono();
                 telefono.numero = int.Parse(txtTelefono.Text);
                 telefono.codigo_Area= int.Parse(txtTelefonoArea.Text);
-              
-                
-                //AlumnoContructor alumno = new AlumnoContructor();
-                
+
+                ParienteComponent parienteComponent = new ParienteComponent();
+
+                Pariente parienteCreado = new Pariente();
+                parienteCreado = parienteComponent.Create(parentesco);
+                TelefonoComponent unTelefono = new TelefonoComponent();
+                Telefono telefonoCreado = new Telefono();
+
+                telefonoCreado= unTelefono.Create(telefono);
+                unTelefono.AgregarTelefonoAUnaPersona(telefonoCreado, parienteCreado);
+
+                llenarGrilla();
+
+                RecorridoForm.LimpiarTXT(this);
 
 
-
-               
-                //if (alumno.CrearFamiliarConstructor(telefono, parentesco) !="")
-                //{
-                //    ValidadoresComponent.ErrorAltaModificacado("Familia", this);
-                //}
-                //else
-                //{
                 
-                //    llenarGrilla();
-                //    RecorridoForm.LimpiarTXT(this);
-                //}
             }
 
 
@@ -161,6 +163,8 @@ namespace DiplomaFinal.Gestion_de_Personas
                 mgAlumno.Rows[n].Cells[6].Value = item.parentesco;
                 mgAlumno.Rows[n].Cells[7].Value = item.autorizadoRetirar;
                 mgAlumno.Rows[n].Cells[8].Value = item.Id;
+                mgAlumno.Rows[n].Cells[9].Value = item.listaTelefono[0].codigo_Area;
+                mgAlumno.Rows[n].Cells[10].Value = item.listaTelefono[0].numero;
                 n++;
             }
         }
@@ -202,10 +206,16 @@ namespace DiplomaFinal.Gestion_de_Personas
                 txtDNI.Text = mgAlumno.CurrentRow.Cells[4].Value.ToString();
                 txtFechaNacimiento.Value=DateTime.Parse( mgAlumno.CurrentRow.Cells[5].Value.ToString());
                 txtDireccion.Text = mgAlumno.CurrentRow.Cells[3].Value.ToString();
+                txtTelefonoArea.Text = mgAlumno.CurrentRow.Cells[9].Value.ToString();
+                txtTelefono.Text = mgAlumno.CurrentRow.Cells[10].Value.ToString();
 
-                
                 txtNombre.Text = mgAlumno.CurrentRow.Cells[1].Value.ToString();
             }
+
+        }
+
+        private void metroLabel9_Click(object sender, EventArgs e)
+        {
 
         }
     }

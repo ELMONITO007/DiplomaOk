@@ -50,7 +50,7 @@ namespace Data.Gestion_de_Personas
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
             {
-                db.AddInParameter(cmd, "@Id", DbType.Int32, legajo);
+                db.AddInParameter(cmd, "@Legajo", DbType.Int32, legajo);
                 using (IDataReader dr = db.ExecuteReader(cmd))
                 {
                     while (dr.Read())
