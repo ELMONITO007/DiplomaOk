@@ -93,7 +93,7 @@ namespace Data.Gestion_de_Boletin
 
         public Materia ReadBy(int id)
         {
-            const string SQL_STATEMENT = "select * from Materia where  ID_Materia=@ID_Materia";
+            const string SQL_STATEMENT = "select * from Materia where  ID_Materia=@ID_Materia and activo=1";
 
             Materia result = null;
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
@@ -114,7 +114,7 @@ namespace Data.Gestion_de_Boletin
 
         public Materia ReadBy(string id)
         {
-            const string SQL_STATEMENT = "select * from Materia where  Materia=@ID_Materia";
+            const string SQL_STATEMENT = "select * from Materia where  Materia=@ID_Materia  and activo=1";
 
             Materia result = null;
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);

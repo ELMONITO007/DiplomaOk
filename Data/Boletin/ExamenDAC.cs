@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Entities;
+using Entitites.Negocio.Personas;
 using Microsoft.Practices.EnterpriseLibrary.Data;
 
 namespace Data.Gestion_de_Boletin
@@ -14,12 +15,16 @@ namespace Data.Gestion_de_Boletin
     {
         public Examen ALoad(IDataReader entity)
         {
-            Examen examen = new Examen();
+            Materia materia = new Materia();
+            materia.Id= GetDataValue<int>(entity, "ID_materia");
+            Alumno alumno = new Alumno();
+            alumno.Id = GetDataValue<int>(entity, "legajo");
+            Examen examen = new Examen(alumno,materia);
             examen.Id = GetDataValue<int>(entity, "ID_examen");
-            examen.materia.Id = GetDataValue<int>(entity, "ID_materia");
+       
             examen.fecha = GetDataValue<DateTime>(entity, "fecha");
             examen.nota = GetDataValue<int>(entity, "nota");
-            examen.persona.Id = GetDataValue<int>(entity, "legajo");
+          
 
 
             return examen;

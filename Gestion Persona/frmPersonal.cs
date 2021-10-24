@@ -405,9 +405,9 @@ namespace DiplomaFinal.Gestion_de_Personas
         private void metroButton5_Click(object sender, EventArgs e)
         {
             mgAlumno.Rows.Clear();
-            PersonaComponent personaComponent = new PersonaComponent();
-            TipoPersonaComponent tipoPersonaComponent = new TipoPersonaComponent();
-            List<Persona> listaPersona = new List<Persona>();
+            MaestroComponent personaComponent = new MaestroComponent();
+           
+            List<Maestro> listaPersona = new List<Maestro>();
             listaPersona = personaComponent.buscar(txtBuscar.Text,3);
             int n = 0;
             foreach (var item in listaPersona)
@@ -484,10 +484,10 @@ namespace DiplomaFinal.Gestion_de_Personas
             }
             else
             {
-                EspecialidadPersonaComponent especialidadPersonaComponent = new EspecialidadPersonaComponent();
+                EspecialidadComponent especialidadPersonaComponent = new EspecialidadComponent();
                 foreach (var item in especialidadPersonaComponent.ReadByPersona(int.Parse(mgAlumno.CurrentRow.Cells[0].Value.ToString())))
                 {
-                    if (item.especialidad.especialidad=="Maestro")
+                    if (item.especialidad=="Maestro")
                     {
                         FrmHorarioMaestroGrado frmEspecialidad = new FrmHorarioMaestroGrado();
                         frmEspecialidad.legajo = int.Parse(mgAlumno.CurrentRow.Cells[0].Value.ToString());

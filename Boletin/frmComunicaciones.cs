@@ -15,6 +15,7 @@ using Entitites.Servicios.Login;
 using Negocio.Servicios.REGEX;
 using Entitites.Negocio.Personas;
 using Entities.Usuario;
+using Entitites;
 
 namespace DiplomaFinal.Gestion_Boletin
 {
@@ -128,13 +129,14 @@ namespace DiplomaFinal.Gestion_Boletin
             }
             else
             {
-                Comunicado comunicado = new Comunicado();
-                comunicado.persona.Id = int.Parse(mgAlumno.CurrentRow.Cells[0].Value.ToString());
-               
-                Usuarios usuarios = new Usuarios();
-                usuarios = SessionManager.instance.GetUSuario();
-                //comunicado.maestro = usuarioPersonaComponent.ReadByPersona(usuarios.Id).persona;
-           comunicado.maestro.Id =1022;
+                Alumno alumno = new Alumno();
+                alumno.Id = int.Parse(mgAlumno.CurrentRow.Cells[0].Value.ToString());
+                Maestro maestro = new Maestro();
+                MaestroComponent maestroComponent = new MaestroComponent();
+                maestro = maestroComponent.ReadByUsuario(SessionManager.instance.GetUSuario().Id);
+                Comunicado comunicado = new Comunicado (maestro,alumno);
+                   
+                    
                 comunicado.comunicado = txtNuevaComunicacion.Text;
                 ComunicadoComponent comunicadoComponent = new ComunicadoComponent();
                 comunicadoComponent.Create(comunicado);

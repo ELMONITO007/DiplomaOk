@@ -78,20 +78,20 @@ namespace DiplomaFinal.Gestion_de_Personas
 
         private void metroTile3_Click(object sender, EventArgs e)
         {
-            //frmPersonal frmPersonal = new frmPersonal();
-            //frmPersonal.ShowDialog();
+            frmPersonal frmPersonal = new frmPersonal();
+            frmPersonal.ShowDialog();
         }
 
         private void metroTile4_Click(object sender, EventArgs e)
         {
-            //frmComunicaciones frmComunicaciones = new frmComunicaciones();
-            //frmComunicaciones.ShowDialog();
+            frmComunicaciones frmComunicaciones = new frmComunicaciones();
+            frmComunicaciones.ShowDialog();
         }
 
         private void metroTile5_Click(object sender, EventArgs e)
         {
-            //frmExamen frmExamen = new frmExamen();
-            //frmExamen.ShowDialog();
+            frmExamen frmExamen = new frmExamen();
+            frmExamen.ShowDialog();
         }
     }
 }

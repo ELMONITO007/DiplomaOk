@@ -1,4 +1,5 @@
 ﻿using Entities;
+using Entitites;
 using MetroFramework;
 using Negocio;
 using Negocio.Servicios.REGEX;
@@ -63,9 +64,11 @@ namespace DiplomaFinal.Gestion_de_Personas
         private void btnAlta_Click(object sender, EventArgs e)
         {
 
-            MaestroHorario maestroHorario = new MaestroHorario();
+            Maestro maestro = new Maestro();
+            maestro.Id= legajo;
+            MaestroHorario maestroHorario = new MaestroHorario(maestro);
             MaestroHorarioComponent maestroHorarioComponent = new MaestroHorarioComponent();
-            maestroHorario.persona.Id = legajo;
+        
             maestroHorario.turno = txtturno.Text;
             maestroHorario.año = int.Parse(txtAño.Text);
             maestroHorario.diaSemana = txtDia.SelectedIndex+1;

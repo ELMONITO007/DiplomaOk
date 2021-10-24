@@ -30,7 +30,7 @@ namespace Data.Gestion_de_Personas
         }
         public List<Maestro> ObtenerMaestrodeCunCurso(int id_curso)
         {
-            const string SQL_STATEMENT = "select * from CursoAlumno as ca join Persona as p on p.Legajo =ca.Legajo where Tipo_Persona='Maestro' and ca.ID_Curso=@id_curso and p.Activo=1";
+            const string SQL_STATEMENT = "select * from CursoAlumno as ca join Persona as p on p.Legajo =ca.Legajo where  ca.ID_Curso=@id_curso and p.Activo=1";
 
             List<Maestro> result = new List<Maestro>();
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
@@ -118,7 +118,25 @@ namespace Data.Gestion_de_Personas
             return roles;
         }
 
+        public Maestro ReadByUsuario(int id)
+        {
+            const string SQL_STATEMENT = "select * from UsuarioPersona as up join Persona as p on p.Legajo=up.Legajo where up.Id=@Id  and Activo=1";
+            Maestro roles = null;
 
+            var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
+            using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
+            {
+                db.AddInParameter(cmd, "@Id", DbType.Int32, id);
+                using (IDataReader dr = db.ExecuteReader(cmd))
+                {
+                    if (dr.Read())
+                    {
+                        roles = ALoad(dr);
+                    }
+                }
+            }
+            return roles;
+        }
 
         public Maestro ReadBy(string id)
         {

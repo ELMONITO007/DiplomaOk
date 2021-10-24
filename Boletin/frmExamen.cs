@@ -17,6 +17,7 @@ using Negocio;
 using Entitites.Negocio.Salas;
 using Negocio.Gestion_de_Alumnos;
 using Entitites;
+using Entitites.Negocio.Personas;
 
 namespace DiplomaFinal.Gestion_Boletin
 {
@@ -73,34 +74,42 @@ namespace DiplomaFinal.Gestion_Boletin
             if (txtCurso.Text != "")
             {
                 mgReserva.Rows.Clear();
-                //CursoAlumnoComponent cursoAlumnoComponent = new CursoAlumnoComponent();
+                Curso curso = new Curso();
+                curso = (Curso)txtCurso.SelectedItem;
+                AlumnoComponent alumnoComponent = new AlumnoComponent();
+                int n = 0;
 
-                //CursoAlumno listaPersona = new CursoAlumno();
+                foreach (var item in alumnoComponent.ObtenerAlumnodeCunCurso(curso.Id))
+                {
+                    n = mgReserva.Rows.Add();
+                    mgReserva.Rows[n].Cells[0].Value = item.Id;
+                    mgReserva.Rows[n].Cells[1].Value = item.nombre;
+                    mgReserva.Rows[n].Cells[2].Value = item.apellido;
 
-                Curso persona = new Curso();
-                persona = (Curso)txtCurso.SelectedItem;
-                //listaPersona = cursoAlumnoComponent.ObtenerALumnoYProfesDeUnCurso(persona.Id);
-                //txtMaestra.DataSource = listaPersona.Profesores;
-                //txtMaestra.DisplayMember = "nombreCompleto";
-                //txtMaestra.ValueMember = "Id";
-                //int n = 0;
-                //foreach (var item in listaPersona.Alumnos)
-                //{
-                //    n = mgReserva.Rows.Add();
-                //    mgReserva.Rows[n].Cells[0].Value = item.Id;
-                //    mgReserva.Rows[n].Cells[1].Value = item.nombre;
-                //    mgReserva.Rows[n].Cells[2].Value = item.apellido;
+                    mgReserva.Rows[n].Cells[3].Value = item.DNI;
+                    mgReserva.Rows[n].Cells[4].Value = item.fechaNacimiento;
+                    n++;
+                }
 
-                //    mgReserva.Rows[n].Cells[3].Value = item.DNI;
-                //    mgReserva.Rows[n].Cells[4].Value = item.fechaNacimiento;
-                //    n++;
-                //}
+                MaestroComponent maestroComponent = new MaestroComponent();
+                List<Maestro> maestros = new List<Maestro>();
+                maestros = maestroComponent.ObtenerAlumnodeCunCurso(curso.Id);
+                foreach (var item in maestros)
+                {
+                    item.GenerarNombreCompleto();
+
+                }
+
+                txtMaestra.DataSource = maestros;
+                txtMaestra.DisplayMember = "nombreCompleto";
+                txtMaestra.ValueMember = "Id";
             }
         }
 
 
         private void frmExamen_Load(object sender, EventArgs e)
         {
+
             RecorridoForm.CambiarIdioma(this);
 
 
@@ -146,12 +155,14 @@ namespace DiplomaFinal.Gestion_Boletin
         {
             if (verificarCampoMateria())
             {
-                MateriaComponent materiaComponent = new MateriaComponent();
-                Materia materia = new Materia();
-                materia.materia = txtMateria.Text;
                 Especialidad especialidad = new Especialidad();
+                especialidad = (Especialidad)txtEspecialidad.SelectedItem;
+                MateriaComponent materiaComponent = new MateriaComponent();
+                Materia materia = new Materia(especialidad);
+                materia.materia = txtMateria.Text;
+                
 
-                materia.especialidad.Id = (int)txtEspecialidad.SelectedValue;
+           
 
                 if (materiaComponent.Create(materia) == null)
                 {
@@ -198,6 +209,7 @@ namespace DiplomaFinal.Gestion_Boletin
         private void mgMateria_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             txtMateria.Text = mgMateria.CurrentRow.Cells[1].Value.ToString();
+            txtEspecialidad.Text= mgMateria.CurrentRow.Cells[2].Value.ToString();
         }
 
         private void btnBuscarMateria_Click(object sender, EventArgs e)
@@ -254,13 +266,15 @@ namespace DiplomaFinal.Gestion_Boletin
             }
             else
             {
-                Examen examen = new Examen();
-                examen.persona.Id = int.Parse(mgReserva.CurrentRow.Cells[0].Value.ToString());
-                examen.nota = int.Parse(txtNota.Text);
-
+                Alumno alumno = new Alumno();
+                alumno.Id= int.Parse(mgReserva.CurrentRow.Cells[0].Value.ToString());
                 Materia materia = new Materia();
                 materia = (Materia)txtMateriaAlta.SelectedItem;
-                examen.materia = materia;
+                Examen examen = new Examen(alumno,materia);
+               
+                examen.nota = int.Parse(txtNota.Text);
+                               
+               
                 examen.fecha = txtFecha.Value;
                 ExamenComponent examenComponent = new ExamenComponent();
                 examenComponent.Create(examen);
@@ -297,10 +311,12 @@ namespace DiplomaFinal.Gestion_Boletin
         private void mgAlumnoListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             ExamenComponent examenComponent = new ExamenComponent();
-            Examen examen = new Examen();
+            Alumno alumno = new Alumno();
+            alumno.Id= int.Parse(mgAlumnoListado.CurrentRow.Cells[0].Value.ToString());
+            Examen examen = new Examen(alumno,null);
             DateTime fi = new DateTime(int.Parse(txtAño.Text), 1, 31);
             DateTime ff = new DateTime(int.Parse(txtAño.Text), 12, 1);
-            examen.persona.Id =int.Parse (mgAlumnoListado.CurrentRow.Cells[0].Value.ToString());
+  
             int n = 0;
             mgExamenes.Rows.Clear();
             foreach (var item in examenComponent.ReadByAlumnoYAño(examen,fi,ff))
@@ -345,30 +361,35 @@ namespace DiplomaFinal.Gestion_Boletin
             if (txtAño.Text != "")
             {
                 mgAlumnoListado.Rows.Clear();
-                //CursoAlumnoComponent cursoAlumnoComponent = new CursoAlumnoComponent();
+                Curso curso = new Curso();
+                curso = (Curso)txtCursoListado.SelectedItem;
+                List<Alumno> alumnos = new List<Alumno>();
+                AlumnoComponent alumnoComponent = new AlumnoComponent();
+                alumnos = alumnoComponent.ObtenerAlumnodeCunCurso(curso.Id);
 
-                //CursoAlumno listaPersona = new CursoAlumno();
-                //Curso curso = new Curso();
-                //curso = (Curso)txtCursoListado.SelectedItem;
-                //listaPersona = cursoAlumnoComponent.ObtenerALumnoYProfesDeUnCurso(curso.Id);
-                //int n = 0;
-                //foreach (var item in listaPersona.Alumnos)
-                //{
-                //    n = mgAlumnoListado.Rows.Add();
-                //    mgAlumnoListado.Rows[n].Cells[0].Value = item.Id;
-                //    mgAlumnoListado.Rows[n].Cells[1].Value = item.nombre;
-                //    mgAlumnoListado.Rows[n].Cells[2].Value = item.apellido;
+                int n = 0;
+                foreach (var item in alumnos)
+                {
+                    n = mgAlumnoListado.Rows.Add();
+                    mgAlumnoListado.Rows[n].Cells[0].Value = item.Id;
+                    mgAlumnoListado.Rows[n].Cells[1].Value = item.nombre;
+                    mgAlumnoListado.Rows[n].Cells[2].Value = item.apellido;
 
-                //    mgAlumnoListado.Rows[n].Cells[3].Value = item.DNI;
-                //    mgAlumnoListado.Rows[n].Cells[4].Value = item.fechaNacimiento;
-                //    n++;
-                //}
+                    mgAlumnoListado.Rows[n].Cells[3].Value = item.DNI;
+                    mgAlumnoListado.Rows[n].Cells[4].Value = item.fechaNacimiento;
+                    n++;
+                }
 
             }
 
         }
 
         private void txtMateriaAlta_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mgReserva_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

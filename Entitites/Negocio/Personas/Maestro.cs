@@ -12,7 +12,17 @@ namespace Entitites
     {
         public List<Especialidad> especialidades { get; set; }
         public List<Documento> documentos { get; set; }
-        public Maestro() { }
+        public Maestro() {
+        
+           
+        }
+        public void GenerarNombreCompleto()
+        {
+            this.nombreCompleto = this.nombre + " " + this.apellido; 
+        
+        }
+
+       
         public Maestro(List<Especialidad> _especialidades, List<Documento> _documentos)
 
         {

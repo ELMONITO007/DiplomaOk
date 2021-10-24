@@ -122,7 +122,7 @@
             this.tabIncripcion.Controls.Add(this.metroTabPage4);
             this.tabIncripcion.Location = new System.Drawing.Point(23, 63);
             this.tabIncripcion.Name = "tabIncripcion";
-            this.tabIncripcion.SelectedIndex = 0;
+            this.tabIncripcion.SelectedIndex = 2;
             this.tabIncripcion.Size = new System.Drawing.Size(1224, 607);
             this.tabIncripcion.TabIndex = 1;
             this.tabIncripcion.UseSelectable = true;
@@ -978,7 +978,7 @@
             this.metroLabel16.Name = "metroLabel16";
             this.metroLabel16.Size = new System.Drawing.Size(110, 19);
             this.metroLabel16.TabIndex = 22;
-            this.metroLabel16.Tag = "Nombre";
+            this.metroLabel16.Tag = "FechaNacimiento";
             this.metroLabel16.Text = "FechaNacimiento";
             // 
             // metroLabel17
@@ -988,7 +988,7 @@
             this.metroLabel17.Name = "metroLabel17";
             this.metroLabel17.Size = new System.Drawing.Size(63, 19);
             this.metroLabel17.TabIndex = 20;
-            this.metroLabel17.Tag = "Nombre";
+            this.metroLabel17.Tag = "Direccion";
             this.metroLabel17.Text = "Direccion";
             // 
             // metroLabel18
@@ -998,7 +998,7 @@
             this.metroLabel18.Name = "metroLabel18";
             this.metroLabel18.Size = new System.Drawing.Size(58, 19);
             this.metroLabel18.TabIndex = 19;
-            this.metroLabel18.Tag = "Nombre";
+            this.metroLabel18.Tag = "Apellido";
             this.metroLabel18.Text = "Apellido";
             // 
             // metroLabel19
@@ -1018,7 +1018,7 @@
             this.metroLabel20.Name = "metroLabel20";
             this.metroLabel20.Size = new System.Drawing.Size(31, 19);
             this.metroLabel20.TabIndex = 21;
-            this.metroLabel20.Tag = "Nombre";
+            this.metroLabel20.Tag = "DNI";
             this.metroLabel20.Text = "DNI";
             // 
             // mgAlumno

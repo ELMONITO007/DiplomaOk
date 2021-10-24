@@ -91,7 +91,18 @@ namespace Negocio.Gestion_de_Personas
 
         }
 
-      
+        public Maestro ReadByUsuario(int id)
+
+        {
+
+            MaestroDAC personaDAC = new MaestroDAC();
+            Maestro result = new Maestro();
+            Maestro persona = new Maestro();
+            persona = personaDAC.ReadByUsuario(id);
+
+
+            return persona;
+        }
         public Maestro ReadBy(int id)
         {
 

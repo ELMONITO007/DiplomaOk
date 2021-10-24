@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Entities;
+using Entitites;
+using Entitites.Negocio.Personas;
 using Microsoft.Practices.EnterpriseLibrary.Data;
 
 namespace Data.Gestion_de_Boletin
@@ -14,14 +16,19 @@ namespace Data.Gestion_de_Boletin
     {
         public Comunicado ALoad(IDataReader entity)
         {
-            Comunicado comunicado = new Comunicado();
+            Maestro maestro = new Maestro();
+            maestro.Id = GetDataValue<int>(entity, "legajo_Maestro");
+
+            Alumno alumno = new Alumno();
+            alumno.Id = GetDataValue<int>(entity, "legajo");
+            Comunicado comunicado = new Comunicado(maestro,alumno);
 
             comunicado.Id = GetDataValue<int>(entity, "ID_Cominicado");
-            comunicado.persona.Id = GetDataValue<int>(entity, "legajo");
+          
             comunicado.comunicado = GetDataValue<string>(entity, "comunicado");
             comunicado.fecha = GetDataValue<DateTime>(entity, "fecha");
             comunicado.visto = GetDataValue<bool>(entity, "visto");
-            comunicado.maestro.Id = GetDataValue<int>(entity, "legajo_Maestro");
+            
 
 
             return comunicado;
