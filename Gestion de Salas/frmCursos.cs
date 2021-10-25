@@ -38,9 +38,9 @@ namespace DiplomaFinal.Gesion_de_Salas
                     mgReserva.Rows[n].Cells[1].Value = item.nombre;
                     mgReserva.Rows[n].Cells[2].Value = item.sala.tipoSala;
                     mgReserva.Rows[n].Cells[3].Value = item.sala.capacidad;
-                    //mgReserva.Rows[n].Cells[4].Value = item.salaHorario.turno;
-                    //mgReserva.Rows[n].Cells[5].Value = item.salaHorario.hora;
-                    //mgReserva.Rows[n].Cells[6].Value = item.salaHorario.año;
+                    mgReserva.Rows[n].Cells[4].Value = item.salaHorario.turno;
+                    mgReserva.Rows[n].Cells[5].Value = item.salaHorario.hora;
+                    mgReserva.Rows[n].Cells[6].Value = item.salaHorario.año;
 
                     mgReserva.Rows[n].Cells[7].Value = item.sala.nombre;
 

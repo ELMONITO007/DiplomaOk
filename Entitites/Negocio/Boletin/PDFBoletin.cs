@@ -20,6 +20,7 @@ namespace Entities
         public List<Examen> listaExamen { get; set; }
         public List<MateriaExamen> listaPromedio { get; set; }
         public Maestro maestro { get; set; }
+
         public PDFBoletin()
         {
             listaAsitencia = new List<Asistencia>();

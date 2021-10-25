@@ -96,18 +96,16 @@ namespace DiplomaFinal.Gestion_Boletin
         private void txtCurso_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtAlumno.DataSource = null;
-            //CursoAlumnoComponent cursoAlumno = new CursoAlumnoComponent();
+            AlumnoComponent cursoAlumno = new AlumnoComponent();
             Curso curso = new Curso();
             curso = (Curso)txtCurso.SelectedItem;
-            List<Persona> personas = new List<Persona>();
-            //foreach (var item in cursoAlumno.ReadByCurso(curso.Id))
-            //{
-            //    if (item.unAlumno.tipoPersona.Descripcion=="Alumno")
-            //    {
-            //        personas.Add(item.unAlumno);
-            //    }
-                
-            //}
+            List<Alumno> personas = new List<Alumno>();
+            personas = cursoAlumno.ObtenerAlumnodeCunCurso(curso.Id);
+            foreach (var item in personas)
+            {
+                item.GenerarNombreCompeto();
+            }
+            
             txtAlumno.DataSource = personas;
             txtAlumno.DisplayMember = "nombreCompleto";
             txtAlumno.ValueMember = "Id";

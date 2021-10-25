@@ -201,7 +201,26 @@ namespace Data.Gestion_Salas
             }
             return result;
         }
+        public Curso ReadByPersona(int id)
+        {
+            const string SQL_STATEMENT = "select * from CursoAlumno as sa join Persona as p on p.Legajo=sa.Legajo join curso as c on c.ID_Curso=sa.ID_Curso where sa.Legajo=@ID_Curso";
 
+            Curso result = null;
+            var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
+            using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
+            {
+                db.AddInParameter(cmd, "@ID_Curso", DbType.Int32, id);
+                using (IDataReader dr = db.ExecuteReader(cmd))
+                {
+                    while (dr.Read())
+                    {
+                        result = ALoad(dr);
+
+                    }
+                }
+            }
+            return result;
+        }
         public void Update(Curso entity)
         {
             const string SQL_STATEMENT = "update Curso set ID_Sala=@ID_Sala,Nombre=@Nombre,id_Grado=@Grado  where ID_curso=@Id ";

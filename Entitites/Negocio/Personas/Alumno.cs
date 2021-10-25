@@ -20,5 +20,11 @@ namespace Entitites.Negocio.Personas
         }
         public Alumno(List<Pariente> _parientes) { parientes = _parientes; }
 
+        public void GenerarNombreCompeto()
+
+        {
+            nombreCompleto = nombre + " " + apellido; 
+        
+        }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using Entities;
+using Entitites;
+using Entitites.Negocio.Personas;
 using Entitites.Negocio.Salas;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
@@ -63,15 +65,41 @@ namespace Negocio.Gestion_de_boletin
 
 
         {
-            PDFBoletin PDF = new PDFBoletin();
-            PDF.boletin = boletin;
+         //obtengo el alumno
+            Alumno alumno = new Alumno();
+            AlumnoComponent alumnoComponent = new AlumnoComponent();
+           alumno=alumnoComponent.ReadBy( boletin.persona.Id);
+           
             //Obtengo las asistencias
             AsistenciaComponent asistenciaComponent = new AsistenciaComponent();
-
+            List<Asistencia> listaAsitencia = new List<Asistencia>();
             Asistencia asistencia = new Asistencia();
-            asistencia.persona.Id = boletin.persona.Id;
+
             asistencia.año = boletin.año;
-            PDF.listaAsitencia = asistenciaComponent.ReadByAlumno(asistencia);
+            listaAsitencia = asistenciaComponent.ReadByAlumno(asistencia);
+
+            //Obtengo las notas
+            ExamenComponent examenComponent = new ExamenComponent();
+            Examen examen = new Examen(alumno,null);
+            DateTime fi = new DateTime(boletin.año, boletin.cutrimeste *2 + 2, 1);
+            DateTime ff = new DateTime(boletin.año, boletin.cutrimeste *2 +4, 30);
+            List<Examen> listaExamen = new List<Examen>();
+            listaExamen= examenComponent.ReadByAlumnoYAñoUnique(examen, fi, ff);
+
+            //Obtengo el curso
+            CursoComponent cursoComponent = new CursoComponent();
+            Curso curso = new Curso();
+            curso = cursoComponent.ReadByPersona(alumno.Id);
+
+            //Obtengo los maestros
+
+            MaestroComponent maestroComponent = new MaestroComponent();
+            List<Maestro> listaMaestro = new List<Maestro>();
+            listaMaestro = maestroComponent.ObtenerAlumnodeCunCurso(curso.Id);
+
+            PDFBoletin PDF = new PDFBoletin();
+            PDF.boletin = boletin;
+
             PDF.asistencia = 0;
             PDF.inAsistencia = 0;
             foreach (var item in PDF.listaAsitencia)
@@ -88,12 +116,9 @@ namespace Negocio.Gestion_de_boletin
 
 
             //Obtengo las notas
-            ExamenComponent examenComponent = new ExamenComponent();
-            Examen examen = new Examen();
-            examen.persona.Id = boletin.persona.Id;
-            DateTime fi = new DateTime(boletin.año, boletin.cutrimeste + 2, 1);
-            DateTime ff = new DateTime(boletin.año, boletin.cutrimeste + 4, 30);
-            PDF.listaExamen = examenComponent.ReadByAlumnoYAñoUnique(examen, fi, ff);
+         
+         
+       
 
             MateriaExamen materiaExamen = new MateriaExamen();
 
@@ -101,26 +126,11 @@ namespace Negocio.Gestion_de_boletin
             PDF.listaPromedio = materiaExamen.obtenerPromedio(PDF.listaExamen, examenComponent.ReadByAlumnoYMateria(boletin.persona.Id, fi, ff));
             PDF.promediogeneral = Math.Round(materiaExamen.obtenerPromedioGeneral(PDF.listaExamen).promedio);
 
-            //Obtengo el curso
-            AlumnoComponent cursoAlumnoComponent = new AlumnoComponent();
-            List<Curso> cursos = new List<Curso>();
-            //foreach (var item in cursoAlumnoComponent.ReadBy(boletin.persona.Id))
-            //{
-            //    if (item.curso.salaHorario.año == boletin.año)
-            //    {
-            //        PDF.curso = item.curso;
-            //        break;
-            //    }
-
-            //}
-
-
-            //Obtengo el maestro
-
-            //PDF.maestro = cursoAlumnoComponent.ObtenerALumnoYProfesDeUnCurso(PDF.curso.Id).maestroGeneral;
+                
 
 
             //genero el patch
+
 
             PDF.path = @"c:\Boletin\" + boletin.persona.DNI + @"\" + boletin.año + @"\" + boletin.cutrimeste + @"\";
 

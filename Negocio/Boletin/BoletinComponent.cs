@@ -25,7 +25,7 @@ namespace Negocio.Gestion_de_boletin
             if (Verificar(entity))
             {
 
-                DateTime ff = new DateTime(entity.año, entity.cutrimeste + 4, 30);
+                DateTime ff = new DateTime(entity.año, entity.cutrimeste *2 +3, 30);
 
                 if (DateTime.Now >= ff)
                 {

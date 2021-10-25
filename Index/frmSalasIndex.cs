@@ -54,5 +54,11 @@ namespace DiplomaFinal.Index
             frmMateria frmCursos = new frmMateria();
             frmCursos.ShowDialog();
         }
+
+        private void metroTile6_Click(object sender, EventArgs e)
+        {
+            frmBoletin frmBoletin = new frmBoletin();
+            frmBoletin.ShowDialog();
+        }
     }
 }

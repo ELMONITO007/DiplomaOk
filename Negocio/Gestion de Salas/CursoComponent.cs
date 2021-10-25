@@ -223,7 +223,35 @@ namespace Negocio
 
            
         }
+        public Curso ReadByPersona(int id)
+        {
+            CursoDAC salaDac = new CursoDAC();
+            Curso result = new Curso();
+            result = salaDac.ReadByPersona(id);
+            if (result != null)
+            {
 
+
+                SalaHorarioComponent salaHorarioComponent = new SalaHorarioComponent();
+                SalaComponent salaComponent = new SalaComponent();
+                GradoComponent gradoComponent = new GradoComponent();
+                Grado grado = new Grado();
+                grado = gradoComponent.ReadBy(result.grado.Id);
+
+                Sala sala = new Sala();
+                sala = salaComponent.ReadBy(result.sala.Id);
+                SalaHorario salaHorario = new SalaHorario();
+                salaHorario = salaHorarioComponent.ReadBy(result.salaHorario.Id);
+                Curso curso = new Curso(sala, grado, salaHorario);
+                curso.Id = result.Id;
+                curso.nombre = result.nombre;
+                return curso;
+            }
+            else
+            {
+                return null;
+            }
+        }
         public Curso ReadBy(string id)
         {
             CursoDAC salaDac = new CursoDAC();
