@@ -393,5 +393,22 @@ namespace DiplomaFinal.Gestion_Boletin
         {
 
         }
+
+        private void txtMaestra_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            if (txtMaestra.Items.Count != 0)
+            {
+                MateriaComponent materiaComponent = new MateriaComponent();
+                string id = txtMaestra.Text;
+                Maestro persona = new Maestro();
+                persona = (Maestro)txtMaestra.SelectedItem;
+
+
+
+                txtMateriaAlta.DataSource = materiaComponent.ReadByEspecialidad(persona.Id);
+                txtMateriaAlta.ValueMember = "Id";
+                txtMateriaAlta.DisplayMember = "materia";
+            }
+        }
     }
 }
