@@ -2,12 +2,14 @@
 using Entities;
 using Entities.Servicios;
 using Entities.Usuario;
+
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Web.Hosting;
 
@@ -142,8 +144,41 @@ namespace Negocio.Servicios
             DVVComponent dVVComponent = new DVVComponent();
             dVVComponent.CrearDVV(usuariosComponent.ListaDVH(), "Usuario");
 
+            var bkSerie = new Backups(usuariosComponent.ReadBy(unUsuario.Id))
+
+            { Fecha = bitacora.fecha,
+                Path = backupRestore.Path,
+                Nombre = backupRestore.Nombre,
+                Id = backupRestore.Id,
+                
+                
+
+            }
+
+                
+                ;crearJson(bkSerie);
+
+
         }
 
+        public void crearJson(Backups backups)
+
+
+        { 
+        String jsonString= JsonSerializer.Serialize(backups);
+            string filename =@"C:\Imagenes\"+ backups.Fecha + ".json";
+            if (!File.Exists(filename))
+            {
+                // Create a file to write to.
+                using (StreamWriter sw = File.CreateText(filename))
+                {
+                    sw.Write(jsonString);
+                   
+                }
+            }
+
+
+        }
         public Backups Create(int legajo)
         {
             Usuarios usuarios = new Usuarios();

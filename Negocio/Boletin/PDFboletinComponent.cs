@@ -65,16 +65,19 @@ namespace Negocio.Gestion_de_boletin
 
 
         {
-         //obtengo el alumno
+            //obtengo el alumno
             Alumno alumno = new Alumno();
             AlumnoComponent alumnoComponent = new AlumnoComponent();
-           alumno=alumnoComponent.ReadBy( boletin.persona.Id);
-           
+            alumno = alumnoComponent.ReadBy(boletin.persona.Id);
+            Boletin unBoletin = new Boletin(alumno);
+            unBoletin.año = boletin.año;
+            unBoletin.cutrimeste = boletin.cutrimeste;
+            unBoletin.notas = boletin.notas;
+                       
             //Obtengo las asistencias
             AsistenciaComponent asistenciaComponent = new AsistenciaComponent();
             List<Asistencia> listaAsitencia = new List<Asistencia>();
-            Asistencia asistencia = new Asistencia();
-
+            Asistencia asistencia = new Asistencia(alumno);
             asistencia.año = boletin.año;
             listaAsitencia = asistenciaComponent.ReadByAlumno(asistencia);
 
@@ -97,7 +100,7 @@ namespace Negocio.Gestion_de_boletin
             List<Maestro> listaMaestro = new List<Maestro>();
             listaMaestro = maestroComponent.ObtenerAlumnodeCunCurso(curso.Id);
 
-            PDFBoletin PDF = new PDFBoletin();
+            PDFBoletin PDF = new PDFBoletin(unBoletin,listaAsitencia,listaExamen,curso,listaMaestro);
             PDF.boletin = boletin;
 
             PDF.asistencia = 0;
@@ -179,13 +182,25 @@ namespace Negocio.Gestion_de_boletin
             doc.Add(nombre);
             doc.Add(Chunk.NEWLINE);
 
-            Paragraph sala = new Paragraph("Sala: " + PDF.curso.nombre + "                   Año: " + boletin.año + "                   Cutrimestre: " + boletin.cutrimeste + "                    Maestro: " + PDF.maestro.nombre + " " + PDF.maestro.apellido);
-            titulo.Alignment = Element.ALIGN_LEFT;
+            Paragraph sala = new Paragraph("Sala: " + PDF.curso.nombre + "                   Año: " + boletin.año + "                   Cutrimestre: " + boletin.cutrimeste );
             doc.Add(sala);
             doc.Add(Chunk.NEWLINE);
             doc.Add(Chunk.NEWLINE);
             doc.Add(Chunk.NEWLINE);
             doc.Add(Chunk.NEWLINE);
+            foreach (var item in PDF.maestro)
+            {
+             
+   
+                Paragraph maestro = new Paragraph("Maestro: " + item.nombre + " " + item.apellido + " ");
+                titulo.Alignment = Element.ALIGN_LEFT;
+                doc.Add(sala);
+                doc.Add(Chunk.NEWLINE);
+                doc.Add(Chunk.NEWLINE);
+                doc.Add(Chunk.NEWLINE);
+                doc.Add(Chunk.NEWLINE);
+            }
+           
 
             //obtener Asistencias
 

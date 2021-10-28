@@ -89,6 +89,7 @@ namespace DiplomaFinal.Index
             this.metroTile5.Tag = "Boletin";
             this.metroTile5.Text = "Boletin";
             this.metroTile5.UseSelectable = true;
+            this.metroTile5.Click += new System.EventHandler(this.metroTile5_Click);
             // 
             // metroTile4
             // 

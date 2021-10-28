@@ -18,6 +18,7 @@ using DiplomaFinal.Index;
 using DiplomaFinal.Servicio;
 using DiplomaFinal.Gestion_de_Infraestructura;
 using DiplomaFinal.Gestion_de_Personas;
+using DiplomaFinal.Gestion_Boletin;
 
 namespace DiplomaFinal.Index
 {
@@ -133,6 +134,12 @@ namespace DiplomaFinal.Index
         {
             SessionManager.instance.LogOut();
             this.Close();
+        }
+
+        private void metroTile5_Click(object sender, EventArgs e)
+        {
+            frmBoletin frmBoletin = new frmBoletin();
+            frmBoletin.ShowDialog();
         }
     }
 }

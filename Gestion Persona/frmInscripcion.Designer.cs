@@ -183,7 +183,7 @@
             // 
             this.txtFechaNaciemiento.Location = new System.Drawing.Point(182, 171);
             this.txtFechaNaciemiento.MaxDate = new System.DateTime(2021, 2, 19, 0, 0, 0, 0);
-            this.txtFechaNaciemiento.MinimumSize = new System.Drawing.Size(0, 29);
+            this.txtFechaNaciemiento.MinimumSize = new System.Drawing.Size(4, 29);
             this.txtFechaNaciemiento.Name = "txtFechaNaciemiento";
             this.txtFechaNaciemiento.Size = new System.Drawing.Size(200, 29);
             this.txtFechaNaciemiento.TabIndex = 13;
@@ -1196,7 +1196,7 @@
             // 
             // metroButton3
             // 
-            this.metroButton3.Location = new System.Drawing.Point(22, 525);
+            this.metroButton3.Location = new System.Drawing.Point(918, 338);
             this.metroButton3.Name = "metroButton3";
             this.metroButton3.Size = new System.Drawing.Size(112, 23);
             this.metroButton3.TabIndex = 14;
