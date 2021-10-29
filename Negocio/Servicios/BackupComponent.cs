@@ -146,39 +146,33 @@ namespace Negocio.Servicios
 
             var bkSerie = new Backups(usuariosComponent.ReadBy(unUsuario.Id))
 
-            { Fecha = bitacora.fecha,
+            {
+                Fecha = bitacora.fecha,
                 Path = backupRestore.Path,
                 Nombre = backupRestore.Nombre,
                 Id = backupRestore.Id,
-                
-                
-
-            }
-
-                
-                ;crearJson(bkSerie);
 
 
-        }
 
-        public void crearJson(Backups backups)
+            };
 
 
-        { 
-        String jsonString= JsonSerializer.Serialize(backups);
-            string filename =@"C:\Imagenes\"+ backups.Fecha + ".json";
-            if (!File.Exists(filename))
-            {
-                // Create a file to write to.
-                using (StreamWriter sw = File.CreateText(filename))
-                {
-                    sw.Write(jsonString);
-                   
-                }
-            }
+            //String jsonString = JsonSerializer.Serialize(bkSerie);
+            //string filename = @"C:\Imagenes\" + bkSerie.Fecha + ".json";
+            //if (!File.Exists(filename))
+            //{
+            //    // Create a file to write to.
+            //    using (StreamWriter sw = File.CreateText(filename))
+            //    {
+            //        sw.Write(jsonString);
+
+            //    }
+            //}
 
 
         }
+
+
         public Backups Create(int legajo)
         {
             Usuarios usuarios = new Usuarios();

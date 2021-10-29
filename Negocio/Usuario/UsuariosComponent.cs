@@ -88,7 +88,7 @@ namespace Negocio
                 BitacoraComponent bitacoraComponent = new BitacoraComponent();
                 EventoBitacora eventoBitacora = new EventoBitacora();
                 eventoBitacora.Id = 1;
-                Bitacora bitacora = new Bitacora(usuariosCreado, eventoBitacora);
+                Bitacora bitacora = new Bitacora(usuarioDACaux.ReadByEmail(usuariosCreado.Email), eventoBitacora);
      
          
                 bitacoraComponent.Create(bitacora);

@@ -1,21 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Entities;
+﻿using Entities;
 using Entities.Usuario;
 using Entitites;
 using Entitites.Negocio.Personas;
 using MetroFramework;
 using Negocio.Gestion_de_Alumnos;
-
 using Negocio.Gestion_de_Personas;
+using Negocio.Gestion_de_Personas.Creator;
 using Negocio.Servicios.REGEX;
+using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace DiplomaFinal.Gestion_de_Personas
 {
@@ -246,13 +240,13 @@ namespace DiplomaFinal.Gestion_de_Personas
                 telefono.codigo_Area = int.Parse(txtTelefonoArea.Text);
                 telefono.numero = int.Parse(txtTelefono.Text);
 
-
+                usuarios.UserName =txtEmail.Text;
                 usuarios.Email = txtEmail.Text;
                 usuarios.Nombre = persona.nombre;
                 usuarios.Apellido = persona.apellido;
                 usuarios.Password = txtContraseña.Text;
 
-                especialidad.especialidad = txtEspecialidadAlta.Text;
+                especialidad =(Especialidad) txtEspecialidadAlta.SelectedItem;
                 btnAltaMaestro.Visible = true;
                 tabIncripcion.SelectedIndex = 1;
         
@@ -272,37 +266,48 @@ namespace DiplomaFinal.Gestion_de_Personas
 
                 Documento documentacion2 = new Documento();
                 documentacion2.openFileDialog = openFileDialogPadre;
-                documentacion2.tipo_Documentancion = "";
+                documentacion2.tipo_Documentancion = "Titulo";
 
                 Documento documentacion3 = new Documento();
                 documentacion3.openFileDialog = openFileDialogCertificado;
-                documentacion3.tipo_Documentancion = "";
+                documentacion3.tipo_Documentancion = "Certificado";
    
 
-                List<Documentacion> listaDocumentacion = new List<Documentacion>();
+                List<Documento> listaDocumentacion = new List<Documento>();
                 listaDocumentacion.Add(documentacion1);
                 listaDocumentacion.Add(documentacion2);
              listaDocumentacion.Add(documentacion3);
+                MaestroCreator maestroCreator = new MaestroCreator();
+                List<Telefono> telefonos = new List<Telefono>();
+                telefonos.Add(telefono);
+                List<Especialidad> especialidades = new List<Especialidad>();
+                especialidades.Add(especialidad);
+                Maestro unMaestro = new Maestro(especialidades, listaDocumentacion, telefonos);
+                unMaestro.apellido = persona.apellido;
+                  unMaestro.nombre = persona.nombre;
+                 unMaestro.fechaNacimiento = persona.fechaNacimiento;
+                unMaestro.direccion = persona.direccion;
+                unMaestro.DNI = persona.DNI;
 
-              
+                string error = maestroCreator.CrearPersonaContructor(unMaestro, usuarios);
 
-                //if (error != "")
-                //{
-                //    MetroMessageBox.Show(this, error, "error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                //    RecorridoForm.LimpiarTXT(this);
-                //}
-                //else
-                //{
-                //    llenarGrillaMaestro();
-                //    RecorridoForm.LimpiarTXT(this);
-                //}
+                if (error != "")
+                {
+                    MetroMessageBox.Show(this, error, "error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    RecorridoForm.LimpiarTXT(this);
+                }
+                else
+                {
+                    llenarGrillaMaestro();
+                    RecorridoForm.LimpiarTXT(this);
+                }
             }
         }
 
         OpenFileDialog openFileDialogAlumno = new OpenFileDialog();
         OpenFileDialog openFileDialogPadre = new OpenFileDialog();
         OpenFileDialog openFileDialogCertificado = new OpenFileDialog();
-        OpenFileDialog openFileDialogVacuna = new OpenFileDialog();
+
 
     
 

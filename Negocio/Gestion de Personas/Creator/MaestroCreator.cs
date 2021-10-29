@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Negocio.Gestion_de_Personas.Creator
 {
@@ -49,6 +50,8 @@ namespace Negocio.Gestion_de_Personas.Creator
             }
         }
 
+
+
         public void AgregarDocumentacion(List<Documento> listaDocumento,int legajo)
 
 
@@ -56,21 +59,33 @@ namespace Negocio.Gestion_de_Personas.Creator
             DocumentoComponent documentoComponent = new DocumentoComponent();
             foreach (var item in listaDocumento)
             {
+                Maestro maestro = new Maestro();
+                maestro.Id = legajo;
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog = item.openFileDialog;
+                Documento documento = new Documento(maestro,openFileDialog);
 
-                item.persona.Id = legajo;
+
+                documento.año = item.año;
+                documento.NombreDocumento = item.NombreDocumento;
+                documento.tipo_Documentancion = item.NombreDocumento;
+            
             
            
-                documentoComponent.Create(item);
+                documentoComponent.Create(documento);
             }
 
         }
+
+     
+        
         public string CrearPersonaContructor(Maestro persona, Usuarios usuarios)
         {
             MaestroComponent maestroComponent = new MaestroComponent();
             if (CrearPersona(persona))
             {
                 Maestro maestroCreado = new Maestro(persona.especialidades,persona.documentos, maestroComponent.ReadBy(persona.DNI));
-               
+                maestroComponent.AgregarEspecialidad(maestroCreado);
         
 
                 if (CrearUsuario(usuarios,maestroCreado))

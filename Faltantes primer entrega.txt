@@ -32,6 +32,7 @@ Al revez el composite. Falta composite y composite del usuario listp
 Recuperar usuario no se puede
 
 Contructor Personas listo
+DX helper listo
 
 
 
@@ -42,7 +43,7 @@ Serializacion JSON Restaurar Backup
 
 
 
-DX helper
+
 
 
 

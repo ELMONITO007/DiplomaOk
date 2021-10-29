@@ -31,7 +31,16 @@ namespace Entitites
 
             documentos = _documentos;
         }
-        public Maestro(List<Especialidad> _especialidades, List<Documento> _documentos,Maestro maestro)
+        public Maestro(List<Especialidad> _especialidades, List<Documento> _documentos, List<Telefono> _telefonos)
+
+        {
+            especialidades = _especialidades;
+
+            documentos = _documentos;
+            listaTelefono = _telefonos;
+        }
+
+            public Maestro(List<Especialidad> _especialidades, List<Documento> _documentos,Maestro maestro)
 
         {
             this.apellido = maestro.apellido;

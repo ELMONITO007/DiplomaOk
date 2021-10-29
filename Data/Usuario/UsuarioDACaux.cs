@@ -39,7 +39,7 @@ namespace Data.Usuario
             var db = DatabaseFactory.CreateDatabase(CONNECTION_Aux);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
             {
-                db.AddInParameter(cmd, "@UserName", DbType.String, entity.UserName);
+                db.AddInParameter(cmd, "@UserName", DbType.String, entity.Email);
                 db.AddInParameter(cmd, "@Email", DbType.String, entity.Email);
                 db.AddInParameter(cmd, "@Password", DbType.String, entity.Password);
                 db.AddInParameter(cmd, "@Nombre", DbType.String, entity.Nombre);
