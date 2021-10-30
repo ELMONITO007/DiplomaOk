@@ -96,7 +96,6 @@ namespace Data.Gestion_de_Personas
             }
             return result;
         }
-
      
         public Maestro ReadBy(int id)
         {

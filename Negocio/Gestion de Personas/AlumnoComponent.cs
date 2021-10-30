@@ -99,6 +99,18 @@ namespace Negocio.Gestion_de_Personas
             
             return personaDAC.ReadByFechaNacimiento(fechaInicio, fechaFinal);
         }
+        public Alumno ReadByUsuario(int id_usuario)
+
+        {
+
+            AlumnoDAC personaDAC = new AlumnoDAC();
+            Alumno result = new Alumno();
+            Alumno persona = new Alumno();
+            persona = personaDAC.ReadByUsuario(id_usuario);
+
+
+            return persona;
+        }
         public Alumno ReadBy(int id)
         {
 

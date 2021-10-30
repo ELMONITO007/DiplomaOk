@@ -38,6 +38,7 @@ namespace DiplomaFinal.Index
             this.metroTile2 = new MetroFramework.Controls.MetroTile();
             this.metroTile1 = new MetroFramework.Controls.MetroTile();
             this.metroTile5 = new MetroFramework.Controls.MetroTile();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,7 +55,7 @@ namespace DiplomaFinal.Index
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(697, 42);
+            this.metroLabel1.Location = new System.Drawing.Point(588, 42);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(50, 19);
             this.metroLabel1.TabIndex = 18;
@@ -65,11 +66,12 @@ namespace DiplomaFinal.Index
             // 
             this.cbIdioma.FormattingEnabled = true;
             this.cbIdioma.ItemHeight = 23;
-            this.cbIdioma.Location = new System.Drawing.Point(789, 42);
+            this.cbIdioma.Location = new System.Drawing.Point(650, 42);
             this.cbIdioma.Name = "cbIdioma";
             this.cbIdioma.Size = new System.Drawing.Size(193, 29);
             this.cbIdioma.TabIndex = 17;
             this.cbIdioma.UseSelectable = true;
+            this.cbIdioma.SelectedIndexChanged += new System.EventHandler(this.cbIdioma_SelectedIndexChanged);
             // 
             // metroTile4
             // 
@@ -81,6 +83,7 @@ namespace DiplomaFinal.Index
             this.metroTile4.Tag = "Calendario";
             this.metroTile4.Text = "Calendario";
             this.metroTile4.UseSelectable = true;
+            this.metroTile4.Click += new System.EventHandler(this.metroTile4_Click);
             // 
             // metroTile3
             // 
@@ -92,6 +95,7 @@ namespace DiplomaFinal.Index
             this.metroTile3.Tag = "Comunicaciones";
             this.metroTile3.Text = "Comunicaciones";
             this.metroTile3.UseSelectable = true;
+            this.metroTile3.Click += new System.EventHandler(this.metroTile3_Click);
             // 
             // metroTile2
             // 
@@ -115,6 +119,7 @@ namespace DiplomaFinal.Index
             this.metroTile1.Tag = "Examen";
             this.metroTile1.Text = "Examen";
             this.metroTile1.UseSelectable = true;
+            this.metroTile1.Click += new System.EventHandler(this.metroTile1_Click);
             // 
             // metroTile5
             // 
@@ -126,10 +131,24 @@ namespace DiplomaFinal.Index
             this.metroTile5.Tag = "Boletin";
             this.metroTile5.Text = "Boletin";
             this.metroTile5.UseSelectable = true;
+            this.metroTile5.Click += new System.EventHandler(this.metroTile5_Click);
+            // 
+            // metroButton1
+            // 
+            this.metroButton1.Location = new System.Drawing.Point(850, 42);
+            this.metroButton1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(142, 34);
+            this.metroButton1.TabIndex = 19;
+            this.metroButton1.Tag = "Modificar";
+            this.metroButton1.Text = "Modificar";
+            this.metroButton1.UseSelectable = true;
+            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
             // 
             // frmAlumnoIndex
             // 
             this.ClientSize = new System.Drawing.Size(1005, 550);
+            this.Controls.Add(this.metroButton1);
             this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.cbIdioma);
             this.Controls.Add(this.metroTile4);
@@ -156,5 +175,6 @@ namespace DiplomaFinal.Index
         private MetroFramework.Controls.MetroTile metroTile2;
         private MetroFramework.Controls.MetroTile metroTile1;
         private MetroFramework.Controls.MetroTile metroTile5;
+        private MetroFramework.Controls.MetroButton metroButton1;
     }
 }

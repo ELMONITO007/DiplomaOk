@@ -310,6 +310,30 @@
     <Compile Include="Servicio\IUservicios.Designer.cs">
       <DependentUpon>IUservicios.cs</DependentUpon>
     </Compile>
+    <Compile Include="VistaAlumno\frmBoletinAlumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VistaAlumno\frmBoletinAlumno.designer.cs">
+      <DependentUpon>frmBoletinAlumno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VistaAlumno\frmComunicadoAlumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VistaAlumno\frmComunicadoAlumno.designer.cs">
+      <DependentUpon>frmComunicadoAlumno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VistaAlumno\frmDatosPersonales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VistaAlumno\frmDatosPersonales.designer.cs">
+      <DependentUpon>frmDatosPersonales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VistaAlumno\frmExamenAlumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VistaAlumno\frmExamenAlumno.designer.cs">
+      <DependentUpon>frmExamenAlumno.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Boletin\frmAsistencia.resx">
       <DependentUpon>frmAsistencia.cs</DependentUpon>
     </EmbeddedResource>
@@ -435,6 +459,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Servicio\IUservicios.resx">
       <DependentUpon>IUservicios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VistaAlumno\frmBoletinAlumno.resx">
+      <DependentUpon>frmBoletinAlumno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VistaAlumno\frmComunicadoAlumno.resx">
+      <DependentUpon>frmComunicadoAlumno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VistaAlumno\frmDatosPersonales.resx">
+      <DependentUpon>frmDatosPersonales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VistaAlumno\frmExamenAlumno.resx">
+      <DependentUpon>frmExamenAlumno.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

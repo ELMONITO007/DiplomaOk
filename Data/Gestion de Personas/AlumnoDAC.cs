@@ -119,6 +119,25 @@ namespace Data.Gestion_de_Personas
             }
             return roles;
         }
+        public Alumno ReadByUsuario(int id_usuario)
+        {
+            const string SQL_STATEMENT = "select * from UsuarioPersona as up join Persona as p on p.Legajo=up.Legajo where up.id=@Id";
+            Alumno roles = null;
+
+            var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
+            using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
+            {
+                db.AddInParameter(cmd, "@Id", DbType.Int32, id_usuario);
+                using (IDataReader dr = db.ExecuteReader(cmd))
+                {
+                    if (dr.Read())
+                    {
+                        roles = ALoad(dr);
+                    }
+                }
+            }
+            return roles;
+        }
         public List<Alumno> ReadByFechaNacimiento(DateTime fechaInicio, DateTime fechaFinal)
         {
             const string SQL_STATEMENT = "select * from Persona where Tipo_Persona='alumno' and  fechaNacimiento BETWEEN @fechaInicio AND @fechaFinal and Activo=1";
