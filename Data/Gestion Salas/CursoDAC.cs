@@ -181,6 +181,28 @@ namespace Data.Gestion_Salas
             }
             return result;
         }
+        public List<Curso> ReadByMaestro(int legajo)
+        {
+            const string SQL_STATEMENT = "select * from CursoAlumno  as ca join Persona as p on p.Legajo=ca.Legajo where ca.Legajo=@legajo";
+
+            List<Curso> result = new List<Curso>();
+            var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
+            using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
+            {
+                db.AddInParameter(cmd, "@legajo", DbType.Int32, legajo);
+            
+
+                using (IDataReader dr = db.ExecuteReader(cmd))
+                {
+                    while (dr.Read())
+                    {
+                        Curso usuarios = ALoad(dr);
+                        result.Add(usuarios);
+                    }
+                }
+            }
+            return result;
+        }
         public Curso ReadBy(string id)
         {
             const string SQL_STATEMENT = "select * from Curso where  nombre=@ID_Curso";

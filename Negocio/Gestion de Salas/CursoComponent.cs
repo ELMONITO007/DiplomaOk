@@ -79,7 +79,38 @@ namespace Negocio
 
             return result;
         }
+        public List<Curso> ReadByMaestro(int legajo)
 
+        {
+
+
+            CursoDAC cursoDAC = new CursoDAC();
+            List<Curso> result = new List<Curso>();
+
+            foreach (var item in cursoDAC.ReadByMaestro(legajo))
+            {
+
+                SalaHorarioComponent salaHorarioComponent = new SalaHorarioComponent();
+                SalaComponent salaComponent = new SalaComponent();
+                GradoComponent gradoComponent = new GradoComponent();
+
+                Grado grado = new Grado();
+                grado = gradoComponent.ReadBy(item.grado.Id);
+
+                Sala sala = new Sala();
+                sala = salaComponent.ReadBy(item.sala.Id);
+                SalaHorario salaHorario = new SalaHorario();
+                salaHorario = salaHorarioComponent.ReadBy(item.salaHorario.Id);
+                Curso curso = new Curso(sala, grado, salaHorario);
+                curso.Id = item.Id;
+                curso.nombre = item.nombre;
+
+
+                result.Add(curso);
+            }
+
+            return result;
+        }
         public List<Curso> ReadByAño(int año)
         {
             CursoDAC cursoDAC = new CursoDAC();

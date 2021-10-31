@@ -101,5 +101,7 @@ namespace DiplomaFinal.Index
             idioma = (Idioma)cbIdioma.SelectedItem;
             Obsever.update(idioma);
         }
+
+        
     }
 }

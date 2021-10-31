@@ -310,6 +310,30 @@
     <Compile Include="Servicio\IUservicios.Designer.cs">
       <DependentUpon>IUservicios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vista Maestro\frmBoletinMaestro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista Maestro\frmBoletinMaestro.designer.cs">
+      <DependentUpon>frmBoletinMaestro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista Maestro\frmComunicacionesMaestra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista Maestro\frmComunicacionesMaestra.designer.cs">
+      <DependentUpon>frmComunicacionesMaestra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista Maestro\frmCursoMaestra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista Maestro\frmCursoMaestra.designer.cs">
+      <DependentUpon>frmCursoMaestra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista Maestro\frmExamenMaestra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista Maestro\frmExamenMaestra.designer.cs">
+      <DependentUpon>frmExamenMaestra.cs</DependentUpon>
+    </Compile>
     <Compile Include="VistaAlumno\frmBoletinAlumno.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -459,6 +483,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Servicio\IUservicios.resx">
       <DependentUpon>IUservicios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista Maestro\frmBoletinMaestro.resx">
+      <DependentUpon>frmBoletinMaestro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista Maestro\frmComunicacionesMaestra.resx">
+      <DependentUpon>frmComunicacionesMaestra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista Maestro\frmCursoMaestra.resx">
+      <DependentUpon>frmCursoMaestra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista Maestro\frmExamenMaestra.resx">
+      <DependentUpon>frmExamenMaestra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VistaAlumno\frmBoletinAlumno.resx">
       <DependentUpon>frmBoletinAlumno.cs</DependentUpon>

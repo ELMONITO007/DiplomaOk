@@ -158,6 +158,7 @@ namespace DiplomaFinal.Index
             this.Controls.Add(this.metroTile5);
             this.Controls.Add(this.pictureBox3);
             this.Name = "frmAlumnoIndex";
+            this.Load += new System.EventHandler(this.frmAlumnoIndex_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
