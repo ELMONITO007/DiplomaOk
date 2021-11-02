@@ -42,7 +42,7 @@ namespace Data
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
             {
                 db.AddInParameter(cmd, "@UserId", DbType.Int32, entity.usuarios.Id);
-                db.AddInParameter(cmd, "@RoleId", DbType.Int32, entity.roles.Id);
+                db.AddInParameter(cmd, "@RoleId", DbType.String, entity.roles.id);
                 entity.Id = Convert.ToInt32(db.ExecuteScalar(cmd));
             }
 

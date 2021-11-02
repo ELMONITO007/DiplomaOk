@@ -96,7 +96,7 @@ namespace DiplomaFinal.VistaMaestroGrado
             int año = DateTime.Now.Year;
             foreach (var item in cursoAlumnoComponent.ReadByMaestro(persona.Id))
             {
-                if (item.Id == persona.Id && item.salaHorario.año == año)
+                if ( item.salaHorario.año == año)
                 {
                     cursos.Add(item);
                 }

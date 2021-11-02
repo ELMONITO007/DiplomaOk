@@ -71,7 +71,7 @@ namespace DiplomaFinal.VistaMaestroGrado
             {
                 frmCursoAlumnosVerBaja frmAlumnosCurso = new frmCursoAlumnosVerBaja();
                 frmAlumnosCurso.curso = int.Parse(mgReserva.CurrentRow.Cells[0].Value.ToString());
-
+                frmAlumnosCurso.b = 1;
                 frmAlumnosCurso.ShowDialog();
             }
         }

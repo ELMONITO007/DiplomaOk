@@ -31,7 +31,7 @@ namespace DiplomaFinal.Index
             UsuariosComponent usuariosComponent = new UsuariosComponent();
             usuarios = usuariosComponent.ReadByEmail(SessionManager.instance.GetUSuario().Email);
             MaestroComponent maestroComponent = new MaestroComponent();
-            maestro = maestroComponent.ReadByUsuario(maestro.Id);
+            maestro = maestroComponent.ReadByUsuario(usuarios.Id);
             Obsever.AgregarForm(this);
             List<Idioma> idiomas = new List<Idioma>();
             IdiomaComponent idiomaComponent = new IdiomaComponent();
@@ -65,9 +65,16 @@ namespace DiplomaFinal.Index
 
         private void metroTile2_Click(object sender, EventArgs e)
         {
-            frmBoletinMaestro frmBoletinMaestro = new frmBoletinMaestro();
+            frmComunicacionesMaestra frmBoletinMaestro = new frmComunicacionesMaestra();
             frmBoletinMaestro.persona = maestro;
             frmBoletinMaestro.ShowDialog();
+        }
+
+        private void metroTile1_Click(object sender, EventArgs e)
+        {
+            frmExamenMaestra frmExamenMaestra = new frmExamenMaestra();
+            frmExamenMaestra.persona = maestro;
+            frmExamenMaestra.ShowDialog();
         }
     }
 }

@@ -69,7 +69,17 @@ namespace DiplomaFinal.VistaMaestroGrado
             CursoComponent cursoAlumnoComponent = new CursoComponent();
             List<Curso> cursos = new List<Curso>();
             cursos = cursoAlumnoComponent.ReadByMaestro(persona.Id);
-            txtCurso.DataSource = cursos;
+            List<Curso> cursoss = new List<Curso>();
+            foreach (var item in cursos)
+            {
+                Curso unCurso = new Curso(item.sala,item.grado,item.salaHorario);
+                unCurso.Id = item.Id;
+                unCurso.nombre = item.nombre;
+                
+                cursoss.Add(unCurso);
+            }
+            txtCurso.DataSource =null;
+            txtCurso.DataSource = cursoss;
             txtCurso.DisplayMember = "nombre";
             txtCurso.ValueMember = "Id";
 

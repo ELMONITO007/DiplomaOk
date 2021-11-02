@@ -183,7 +183,7 @@ namespace Data.Gestion_Salas
         }
         public List<Curso> ReadByMaestro(int legajo)
         {
-            const string SQL_STATEMENT = "select * from CursoAlumno  as ca join Persona as p on p.Legajo=ca.Legajo where ca.Legajo=@legajo";
+            const string SQL_STATEMENT = "select DISTINCT  c.Nombre, c.ID_Sala,c.ID_Grado,c.id_salaHorario,c.ID_Curso from CursoAlumno  as ca join Persona as p on p.Legajo=ca.Legajo join curso as c on c.ID_Curso=ca.ID_Curso where ca.Legajo=@legajo";
 
             List<Curso> result = new List<Curso>();
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);

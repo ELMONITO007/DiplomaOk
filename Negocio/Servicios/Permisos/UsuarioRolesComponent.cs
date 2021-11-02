@@ -112,6 +112,7 @@ namespace Negocio
             List<Arbol> roles = new List<Arbol>();
             foreach (var item in rolesComponent.Read())
             {
+
                 roles.Add(item);
             }
         
@@ -143,8 +144,8 @@ namespace Negocio
                 if (aux == 0)
                 {
                     UsuarioRoles usuario = new UsuarioRoles();
-                    usuario.roles.id = item.id;
-                    usuario.roles.name = item.name;
+                    usuario.roles = rolesComponent.ReadBy(item.name);
+        
                     result.Add(usuario);
                 }
 

@@ -73,8 +73,13 @@ namespace DiplomaFinal.Gesion_de_Salas
 
 
         }
+      public  int b = 0;
         private void frmCursoAlumnosVerBaja_Load(object sender, EventArgs e)
         {
+            if (b==1)
+            {
+                metroButton1.Visible = false;
+            }
             CursoComponent cursoComponent = new CursoComponent();
             unCurso = cursoComponent.ReadBy(curso);
             this.Text = " Alumnos y Maestros de la sala " + unCurso.nombre + " Del año " + unCurso.salaHorario.año + " Turno " + unCurso.salaHorario.turno;

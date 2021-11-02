@@ -44,7 +44,7 @@ namespace DiplomaFinal.Index
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(461, 112);
+            this.metroLabel1.Location = new System.Drawing.Point(419, 112);
             this.metroLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(50, 19);
@@ -87,6 +87,7 @@ namespace DiplomaFinal.Index
             this.metroTile1.Tag = "Examen";
             this.metroTile1.Text = "Examen";
             this.metroTile1.UseSelectable = true;
+            this.metroTile1.Click += new System.EventHandler(this.metroTile1_Click);
             // 
             // metroTile5
             // 

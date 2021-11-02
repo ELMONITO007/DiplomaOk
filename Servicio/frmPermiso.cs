@@ -494,6 +494,7 @@ namespace DiplomaFinal.Servicio
                 else
                 {
                     llenarGrillaPermisosUsuario();
+                    ValidadoresComponent.Alta("Agregar permiso", this);
                 }
 
 
