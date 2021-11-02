@@ -30,7 +30,7 @@ namespace Data.Gestion_de_Personas
         }
         public List<Maestro> ObtenerMaestrodeCunCurso(int id_curso)
         {
-            const string SQL_STATEMENT = "select * from CursoAlumno as ca join Persona as p on p.Legajo =ca.Legajo where  ca.ID_Curso=@id_curso and  p.Activo=1 and tipo_persona='maestro'";
+            const string SQL_STATEMENT = "select DISTINCT p.Legajo,p.Apellido,p.Direccion,p.DNI,p.fechaNacimiento,p.Nombre,p.Tipo_Persona from CursoAlumno as ca join Persona as p on p.Legajo =ca.Legajo where  ca.ID_Curso=@id_curso and  p.Activo=1 and tipo_persona='maestro'";
 
             List<Maestro> result = new List<Maestro>();
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);

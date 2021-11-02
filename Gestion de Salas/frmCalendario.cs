@@ -30,6 +30,7 @@ namespace DiplomaFinal.Gesion_de_Salas
 
             List<MaestroHorario> maestroHorarios = new List<MaestroHorario>();
             int legajo = 0;
+
             foreach (var item in cursoHorario.ReadByCurso(curso))
             {
                 maestroHorarios.Add(item.maestroHorario);

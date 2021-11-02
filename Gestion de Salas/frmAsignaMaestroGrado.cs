@@ -1,9 +1,11 @@
 ﻿using Entities;
+using Entitites;
 using Entitites.Negocio.Personas;
 using Entitites.Negocio.Salas;
 using Negocio;
 using Negocio.Gestion_de_Alumnos;
 using Negocio.Gestion_de_Personas;
+using Negocio.Gestion_de_Salas;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -88,15 +90,23 @@ namespace DiplomaFinal.Gesion_de_Salas
             }
             else
             {
-                CursoComponent  cursoAlumnoComponent = new CursoComponent();
+                CursoComponent  cursoComponent = new CursoComponent();
                 Alumno alumno = new Alumno();
                 alumno.Id = int.Parse(mgReserva.CurrentRow.Cells[0].Value.ToString());
                 List<Alumno> listaAlumno = new List<Alumno>();
                 listaAlumno.Add(alumno);
                 Curso cursoAlumno = new Curso(null,null,null,listaAlumno,null);
                 cursoAlumno.Id = curso;
+                Maestro maestro = new Maestro();
+                maestro.Id = int.Parse(mgReserva.CurrentRow.Cells[0].Value.ToString());
+                MaestroHorario maestroHorario = new MaestroHorario(maestro);
+                maestroHorario.Id= int.Parse(mgReserva.CurrentRow.Cells[5].Value.ToString());
+                cursoComponent.AsignarAlumno(cursoAlumno);
 
-                cursoAlumnoComponent.AsignarAlumno(cursoAlumno);
+                cursoAlumno.Id = curso;
+                CursoHorarioComponent cursoHorarioComponent = new CursoHorarioComponent();
+                CursoHorario cursoHorario = new CursoHorario(cursoAlumno,maestroHorario);
+                cursoHorarioComponent.Create(cursoHorario);
                 this.Close();
                 llenarGrilla();
             }

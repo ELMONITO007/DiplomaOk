@@ -18,6 +18,9 @@ namespace Negocio.Gestion_de_Salas
         public CursoHorario Create(CursoHorario entity)
         {
             CursoHorarioDAC curso = new CursoHorarioDAC();
+
+            MaestroHorarioComponent maestroHorario = new MaestroHorarioComponent();
+            maestroHorario.CambiarDisponibilidad(entity.maestroHorario);
             return curso.Create(entity);
         }
 

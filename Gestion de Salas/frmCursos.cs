@@ -45,7 +45,7 @@ namespace DiplomaFinal.Gesion_de_Salas
                     mgReserva.Rows[n].Cells[7].Value = item.sala.nombre;
 
                     mgReserva.Rows[n].Cells[8].Value = item.grado.nombre;
-
+              
                 }
             }
         
