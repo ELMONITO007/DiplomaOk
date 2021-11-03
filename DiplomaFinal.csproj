@@ -256,6 +256,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Observer\RecorridoForm.cs" />
+    <Compile Include="Servicio\fmrRestauraciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Servicio\fmrRestauraciones.Designer.cs">
+      <DependentUpon>fmrRestauraciones.cs</DependentUpon>
+    </Compile>
     <Compile Include="Servicio\frmBackup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -456,6 +462,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Servicio\fmrRestauraciones.resx">
+      <DependentUpon>fmrRestauraciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Servicio\frmBackup.resx">
       <DependentUpon>frmBackup.cs</DependentUpon>

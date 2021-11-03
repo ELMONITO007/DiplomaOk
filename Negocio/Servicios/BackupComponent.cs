@@ -2,7 +2,7 @@
 using Entities;
 using Entities.Servicios;
 using Entities.Usuario;
-
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -151,28 +151,44 @@ namespace Negocio.Servicios
                 Path = backupRestore.Path,
                 Nombre = backupRestore.Nombre,
                 Id = backupRestore.Id,
-
+                FechaRestauracion = DateTime.Now
 
 
             };
 
+            string output = JsonConvert.SerializeObject(bkSerie);
 
-            //String jsonString = JsonSerializer.Serialize(bkSerie);
-            //string filename = @"C:\Imagenes\" + bkSerie.Fecha + ".json";
-            //if (!File.Exists(filename))
-            //{
-            //    // Create a file to write to.
-            //    using (StreamWriter sw = File.CreateText(filename))
-            //    {
-            //        sw.Write(jsonString);
+            DateTime date = new DateTime();
+            date = DateTime.Parse(bkSerie.Fecha);
+            string filename = @"C:\Imagenes\json\" +date.ToString("dd-MM-yyyy") + ".json";
+            if (!File.Exists(filename))
+            {
 
-            //    }
-            //}
+                // Create a file to write to.
+                System.IO.File.WriteAllText(filename, output);
+            }
 
 
         }
 
+        public List<Backups> MostrarJson()
+        {
+            List<Backups> lista = new List<Backups>();
+              string[] allfiles = Directory.GetFiles(@"C:\Imagenes\json", "*.json", SearchOption.AllDirectories);
+            foreach (var item in allfiles)
+            {
+                string path =item;
+                using (StreamReader jsonStream = File.OpenText(path))
+                {
+                    var json = jsonStream.ReadToEnd();
+                    Backups backups = JsonConvert.DeserializeObject<Backups>(json);
+                    lista.Add(backups);
+                }
 
+            }
+
+            return lista;
+        }
         public Backups Create(int legajo)
         {
             Usuarios usuarios = new Usuarios();

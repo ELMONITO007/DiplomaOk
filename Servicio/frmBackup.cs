@@ -1,4 +1,5 @@
 ﻿using DiplomaFinal;
+using DiplomaFinal.Servicio;
 using Entities.Servicios;
 using Entities.Usuario;
 using Entitites.Servicios.Login;
@@ -136,6 +137,12 @@ namespace Negocio.Servicios
                     backupComponent.RestaurarBase();
                 }
             }
+        }
+
+        private void btnVer_Click(object sender, EventArgs e)
+        {
+            fmrRestauraciones fmrRestauraciones = new fmrRestauraciones();
+            fmrRestauraciones.ShowDialog();
         }
     }
 }
