@@ -160,12 +160,17 @@ namespace Negocio.Servicios
 
             DateTime date = new DateTime();
             date = DateTime.Parse(bkSerie.Fecha);
-            string filename = @"C:\Imagenes\json\" +date.ToString("dd-MM-yyyy") + ".json";
+            string filename = @"C:\Imagenes\json\" +date.ToString("dd-MM-yyyy")+date.ToString("ss")+ ".json";
             if (!File.Exists(filename))
             {
 
                 // Create a file to write to.
                 System.IO.File.WriteAllText(filename, output);
+            }
+            else
+            {
+                string filename2 = @"C:\Imagenes\json\" + date.ToString("dd-MM-yyyy ss") + ".json";
+                System.IO.File.WriteAllText(filename2, output);
             }
 
 

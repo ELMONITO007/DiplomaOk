@@ -140,6 +140,7 @@
             this.metroTabPage1.VerticalScrollbarBarColor = true;
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage1.VerticalScrollbarSize = 10;
+            this.metroTabPage1.Click += new System.EventHandler(this.metroTabPage1_Click);
             // 
             // txtMaestra
             // 
@@ -685,9 +686,9 @@
             // 
             // 
             this.txtBuscarMateria.CustomButton.Image = null;
-            this.txtBuscarMateria.CustomButton.Location = new System.Drawing.Point(67, 1);
+            this.txtBuscarMateria.CustomButton.Location = new System.Drawing.Point(101, 1);
             this.txtBuscarMateria.CustomButton.Name = "";
-            this.txtBuscarMateria.CustomButton.Size = new System.Drawing.Size(10, 10);
+            this.txtBuscarMateria.CustomButton.Size = new System.Drawing.Size(15, 15);
             this.txtBuscarMateria.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtBuscarMateria.CustomButton.TabIndex = 1;
             this.txtBuscarMateria.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -833,9 +834,9 @@
             // 
             // 
             this.txtMateria.CustomButton.Image = null;
-            this.txtMateria.CustomButton.Location = new System.Drawing.Point(161, 1);
+            this.txtMateria.CustomButton.Location = new System.Drawing.Point(241, 1);
             this.txtMateria.CustomButton.Name = "";
-            this.txtMateria.CustomButton.Size = new System.Drawing.Size(14, 14);
+            this.txtMateria.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtMateria.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtMateria.CustomButton.TabIndex = 1;
             this.txtMateria.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;

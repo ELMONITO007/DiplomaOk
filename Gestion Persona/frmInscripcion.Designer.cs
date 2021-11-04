@@ -111,7 +111,7 @@
             this.tabIncripcion.Controls.Add(this.metroTabPage2);
             this.tabIncripcion.Location = new System.Drawing.Point(23, 63);
             this.tabIncripcion.Name = "tabIncripcion";
-            this.tabIncripcion.SelectedIndex = 2;
+            this.tabIncripcion.SelectedIndex = 0;
             this.tabIncripcion.Size = new System.Drawing.Size(1121, 607);
             this.tabIncripcion.TabIndex = 0;
             this.tabIncripcion.UseSelectable = true;
@@ -183,7 +183,7 @@
             // 
             this.txtFechaNaciemiento.Location = new System.Drawing.Point(182, 171);
             this.txtFechaNaciemiento.MaxDate = new System.DateTime(2021, 2, 19, 0, 0, 0, 0);
-            this.txtFechaNaciemiento.MinimumSize = new System.Drawing.Size(4, 29);
+            this.txtFechaNaciemiento.MinimumSize = new System.Drawing.Size(0, 29);
             this.txtFechaNaciemiento.Name = "txtFechaNaciemiento";
             this.txtFechaNaciemiento.Size = new System.Drawing.Size(200, 29);
             this.txtFechaNaciemiento.TabIndex = 13;

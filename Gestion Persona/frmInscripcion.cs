@@ -39,7 +39,7 @@ namespace DiplomaFinal.Gestion_de_Personas
             tabIncripcion.SelectedIndex = 0;
             RecorridoForm.CambiarIdioma(this);
             txtFechaNaciemiento.MaxDate = DateTime.Now.AddYears(-3);
-            txtFechaNaciemiento.MinDate = DateTime.Now.AddYears(-18);
+            txtFechaNaciemiento.MinDate = DateTime.Now.AddYears(-6);
             txtMedicamentosCuales.Visible = false;
             txtAlimentoCuales.Visible = false;
             txtElementosCuales.Visible = false;
@@ -47,8 +47,7 @@ namespace DiplomaFinal.Gestion_de_Personas
             txtTelefonoOS.Visible = false;
             txtSocioOS.Visible = false;
             txtMedicamentosCuales.Text = "";
-            txtFechaNaciemiento.MaxDate = DateTime.Now.AddYears(-3);
-            txtFechaNaciemiento.MinDate = DateTime.Now.AddYears(-18);
+         
         }
 
         private bool verificarCampos()

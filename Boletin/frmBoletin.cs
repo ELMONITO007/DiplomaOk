@@ -134,5 +134,10 @@ namespace DiplomaFinal.Gestion_Boletin
 
             llenarGrillaBoletin();
         }
+
+        private void txtCuatrimestre_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

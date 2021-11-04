@@ -196,5 +196,10 @@ namespace DiplomaFinal.VistaMaestroGrado
                 n++;
             }
         }
+
+        private void mgReserva_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

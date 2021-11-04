@@ -15,6 +15,7 @@ using MetroFramework;
 using Entitites.Negocio.Salas;
 using Entitites.Negocio.Personas;
 using Negocio.Gestion_de_Personas;
+using Negocio.Servicios.REGEX;
 
 namespace DiplomaFinal.Gestion_Boletin
 {
@@ -33,7 +34,7 @@ namespace DiplomaFinal.Gestion_Boletin
             txtDia.Items.Clear();
             if (txtMes.Text=="Marzo" || txtMes.Text == "Mayo" || txtMes.Text == "Julio" || txtMes.Text == "Agosto" || txtMes.Text == "Octubre" || txtMes.Text == "Diciembre")
             {
-                for (int i = 0; i < 31; i++)
+                for (int i = 0; i < 30; i++)
                 {
                     DateTime date = new DateTime(unCurso.salaHorario.año, mes, i + 1);
                     string dia = date.ToString("dddd", CultureInfo.CreateSpecificCulture("es-ES"));
@@ -210,6 +211,7 @@ namespace DiplomaFinal.Gestion_Boletin
 
         private void metroButton1_Click(object sender, EventArgs e)
         {
+            int a = 0;
             int n = 0;
             for (int i = 0; i < mgReserva.RowCount; i++)
             {
@@ -227,15 +229,31 @@ namespace DiplomaFinal.Gestion_Boletin
 
 
                 asistencia.asistio = Convert.ToBoolean(ck.Value);
-                asistenciaComponent.Create(asistencia);
+                if (asistenciaComponent.Create(asistencia)==null)
+                {
+                    a = 1;
+                    break;
+                }
+                
                 n++;
             }
+
+
 
             btnGuardar.Visible = false;
             
             mgReserva.Rows.Clear();
             llenarGrillaAsistencias();
             llenarCOmboMesVer();
+
+            if (a==1)
+            {
+                MetroMessageBox.Show(this, "Ya se tomo asistencia", "error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                ValidadoresComponent.Alta("Asistencia", this);
+            }
         }
 
         private void metroButton5_Click(object sender, EventArgs e)

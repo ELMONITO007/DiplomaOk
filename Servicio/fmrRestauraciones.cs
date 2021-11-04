@@ -39,7 +39,7 @@ namespace DiplomaFinal.Servicio
                     MGbackup.Rows[n].Cells[2].Value = item.Nombre;
                     MGbackup.Rows[n].Cells[3].Value = item.Id;
                     MGbackup.Rows[n].Cells[4].Value = item.usuarios.Email;
-                    MGbackup.Rows[n].Cells[4].Value = item.Fecha;
+                    MGbackup.Rows[n].Cells[5].Value = item.Fecha;
                     n++;
                 }
             }

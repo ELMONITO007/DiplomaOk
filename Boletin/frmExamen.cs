@@ -277,7 +277,9 @@ namespace DiplomaFinal.Gestion_Boletin
                
                 examen.fecha = txtFecha.Value;
                 ExamenComponent examenComponent = new ExamenComponent();
+
                 examenComponent.Create(examen);
+                ValidadoresComponent.Alta("Examen", this);
                
             }
         }
@@ -409,6 +411,11 @@ namespace DiplomaFinal.Gestion_Boletin
                 txtMateriaAlta.ValueMember = "Id";
                 txtMateriaAlta.DisplayMember = "materia";
             }
+        }
+
+        private void metroTabPage1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

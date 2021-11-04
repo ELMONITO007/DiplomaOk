@@ -261,6 +261,7 @@
             this.txtCuatrimestre.Size = new System.Drawing.Size(289, 29);
             this.txtCuatrimestre.TabIndex = 48;
             this.txtCuatrimestre.UseSelectable = true;
+            this.txtCuatrimestre.SelectedIndexChanged += new System.EventHandler(this.txtCuatrimestre_SelectedIndexChanged);
             // 
             // txtNota
             // 

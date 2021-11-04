@@ -68,8 +68,8 @@ namespace Negocio.Gestion_de_Personas.Creator
 
                 documento.año = item.año;
                 documento.NombreDocumento = item.NombreDocumento;
-                documento.tipo_Documentancion = item.NombreDocumento;
-            
+                documento.tipo_Documentancion = item.tipo_Documentancion;
+                documento.NombreDocumento = item.NombreDocumento;
             
            
                 documentoComponent.Create(documento);

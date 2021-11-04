@@ -28,10 +28,10 @@ namespace DiplomaFinal.Gestion_de_Personas
             EspecialidadComponent especialidadComponent = new EspecialidadComponent();
             List<Especialidad> especialidad = new List<Especialidad>();
             especialidad = especialidadComponent.Read();
-           
-            
-                txtEspecialidadAlta.DisplayMember = "especialidad";
-                txtEspecialidadAlta.ValueMember = "Id";
+
+
+            txtEspecialidadAlta.DisplayMember = "especialidad";
+            txtEspecialidadAlta.ValueMember = "Id";
             txtEspecialidadAlta.DataSource = especialidad;
 
         }
@@ -168,7 +168,7 @@ namespace DiplomaFinal.Gestion_de_Personas
         #region AltaMaestro
         private bool verificarCamposAltaMaestro()
         {
-           
+
             string error = ValidadoresComponent.VerificarLetras(txtNombre.Text);
             error = error + " " + ValidadoresComponent.VerificarLetras(txtApellido.Text);
             error = error + " " + ValidadoresComponent.VerificarNumerosIntervalo(txtDNI.Text, 10000000, 45000000);
@@ -223,7 +223,7 @@ namespace DiplomaFinal.Gestion_de_Personas
         }
 
         Maestro persona = new Maestro();
-         Telefono telefono =new  Telefono();
+        Telefono telefono = new Telefono();
         Usuarios usuarios = new Usuarios();
         Especialidad especialidad = new Especialidad();
         private void metroButton1_Click(object sender, EventArgs e)
@@ -240,16 +240,16 @@ namespace DiplomaFinal.Gestion_de_Personas
                 telefono.codigo_Area = int.Parse(txtTelefonoArea.Text);
                 telefono.numero = int.Parse(txtTelefono.Text);
 
-                usuarios.UserName =txtEmail.Text;
+                usuarios.UserName = txtEmail.Text;
                 usuarios.Email = txtEmail.Text;
                 usuarios.Nombre = persona.nombre;
                 usuarios.Apellido = persona.apellido;
                 usuarios.Password = txtContraseña.Text;
 
-                especialidad =(Especialidad) txtEspecialidadAlta.SelectedItem;
+                especialidad = (Especialidad)txtEspecialidadAlta.SelectedItem;
                 btnAltaMaestro.Visible = true;
                 tabIncripcion.SelectedIndex = 1;
-        
+
 
             }
         }
@@ -263,20 +263,20 @@ namespace DiplomaFinal.Gestion_de_Personas
                 Documento documentacion1 = new Documento();
                 documentacion1.openFileDialog = openFileDialogAlumno;
                 documentacion1.tipo_Documentancion = "DNI";
-
+                documentacion1.NombreDocumento = "DNI";
                 Documento documentacion2 = new Documento();
                 documentacion2.openFileDialog = openFileDialogPadre;
                 documentacion2.tipo_Documentancion = "Titulo";
-
+                documentacion2.NombreDocumento = "Titulo";
                 Documento documentacion3 = new Documento();
                 documentacion3.openFileDialog = openFileDialogCertificado;
                 documentacion3.tipo_Documentancion = "Certificado";
-   
+                documentacion3.NombreDocumento = "Certificado";
 
                 List<Documento> listaDocumentacion = new List<Documento>();
                 listaDocumentacion.Add(documentacion1);
                 listaDocumentacion.Add(documentacion2);
-             listaDocumentacion.Add(documentacion3);
+                listaDocumentacion.Add(documentacion3);
                 MaestroCreator maestroCreator = new MaestroCreator();
                 List<Telefono> telefonos = new List<Telefono>();
                 telefonos.Add(telefono);
@@ -284,8 +284,8 @@ namespace DiplomaFinal.Gestion_de_Personas
                 especialidades.Add(especialidad);
                 Maestro unMaestro = new Maestro(especialidades, listaDocumentacion, telefonos);
                 unMaestro.apellido = persona.apellido;
-                  unMaestro.nombre = persona.nombre;
-                 unMaestro.fechaNacimiento = persona.fechaNacimiento;
+                unMaestro.nombre = persona.nombre;
+                unMaestro.fechaNacimiento = persona.fechaNacimiento;
                 unMaestro.direccion = persona.direccion;
                 unMaestro.DNI = persona.DNI;
 
@@ -299,6 +299,7 @@ namespace DiplomaFinal.Gestion_de_Personas
                 else
                 {
                     llenarGrillaMaestro();
+                    ValidadoresComponent.Alta("Maestro", this);
                     RecorridoForm.LimpiarTXT(this);
                 }
             }
@@ -309,9 +310,9 @@ namespace DiplomaFinal.Gestion_de_Personas
         OpenFileDialog openFileDialogCertificado = new OpenFileDialog();
 
 
-    
 
-      
+
+
         #endregion
         private void frmPersonal_Load(object sender, EventArgs e)
         {
@@ -320,9 +321,9 @@ namespace DiplomaFinal.Gestion_de_Personas
             txtFechaNaciemiento.MinDate = DateTime.Now.AddYears(-65);
             txtFechaNacimiento.MaxDate = DateTime.Now.AddYears(-18);
             txtFechaNacimiento.MinDate = DateTime.Now.AddYears(-65);
-              txtFechaNacimiento.MaxDate = DateTime.Now.AddYears(-18);
+            txtFechaNacimiento.MaxDate = DateTime.Now.AddYears(-18);
             txtFechaNacimiento.MinDate = DateTime.Now.AddYears(-65);
-       
+
             llenarGrillaEspecialidades();
             llenarGrillaMaestro();
 
@@ -334,7 +335,7 @@ namespace DiplomaFinal.Gestion_de_Personas
         {
             mgAlumno.Rows.Clear();
             MaestroComponent personaComponent = new MaestroComponent();
-   
+
             List<Maestro> listaPersona = new List<Maestro>();
             listaPersona = personaComponent.Read();
             int n = 0;
@@ -411,9 +412,9 @@ namespace DiplomaFinal.Gestion_de_Personas
         {
             mgAlumno.Rows.Clear();
             MaestroComponent personaComponent = new MaestroComponent();
-           
+
             List<Maestro> listaPersona = new List<Maestro>();
-            listaPersona = personaComponent.buscar(txtBuscar.Text,3);
+            listaPersona = personaComponent.buscar(txtBuscar.Text, 3);
             int n = 0;
             foreach (var item in listaPersona)
             {
@@ -437,7 +438,7 @@ namespace DiplomaFinal.Gestion_de_Personas
 
         private void metroButton2_Click(object sender, EventArgs e)
         {
-            if (mgAlumno.CurrentRow.Cells[0].Value==null)
+            if (mgAlumno.CurrentRow.Cells[0].Value == null)
             {
                 MetroMessageBox.Show(this, "Sellecione un maestro", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -492,7 +493,7 @@ namespace DiplomaFinal.Gestion_de_Personas
                 EspecialidadComponent especialidadPersonaComponent = new EspecialidadComponent();
                 foreach (var item in especialidadPersonaComponent.ReadByPersona(int.Parse(mgAlumno.CurrentRow.Cells[0].Value.ToString())))
                 {
-                    if (item.especialidad=="Maestro")
+                    if (item.especialidad == "Maestro")
                     {
                         FrmHorarioMaestroGrado frmEspecialidad = new FrmHorarioMaestroGrado();
                         frmEspecialidad.legajo = int.Parse(mgAlumno.CurrentRow.Cells[0].Value.ToString());
@@ -507,8 +508,8 @@ namespace DiplomaFinal.Gestion_de_Personas
                     break;
                 }
 
-               
-              
+
+
             }
         }
     }
