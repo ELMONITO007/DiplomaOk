@@ -20,16 +20,15 @@ Error BK usuarioListo
 
 
 
-Espejar usuarioaux (create ok, falta update) listo
-DVV remplazando con la aux listo
-Restaurar aux usuario tambien no se puede
+
+
+
 
 
 
 
 Al revez el composite. Falta composite y composite del usuario listp
 
-Recuperar usuario no se puede
 
 Contructor Personas listo
 DX helper listo
