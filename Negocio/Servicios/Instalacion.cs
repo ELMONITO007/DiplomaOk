@@ -168,14 +168,18 @@ namespace Negocio.Servicios
             if (verificarProgamas)
             {
                 System.Threading.Thread.Sleep(3000000);
-                VerificarBases();
+                
                 AgregarAPPAux();
                 AgregarAPPPrincipal();
                 AgregarAPPBk();
+                VerificarBases();
             }
             else
             {
-                VerificarBases();
+                AgregarAPPAux();
+                AgregarAPPPrincipal();
+                AgregarAPPBk();
+             VerificarBases();
             }
 
 

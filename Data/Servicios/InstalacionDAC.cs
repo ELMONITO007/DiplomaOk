@@ -12,6 +12,8 @@ using Microsoft.SqlServer.Management.Common;
 using Microsoft.Data.SqlClient;
 using System.Data.Common;
 
+
+
 namespace Data.Servicios
 {
     public class InstalacionDAC : DataAccessComponent
@@ -49,7 +51,9 @@ namespace Data.Servicios
         public void EjecutarScriptAux( string datasource)
         {
 
-            string sqlConnectionString = "Data Source=" + datasource + ";Initial Catalog=Master;Integrated Security=True";
+
+
+                string sqlConnectionString = "Data Source=" + datasource + ";Initial Catalog=Master;Integrated Security=True";
             string script = File.ReadAllText(@"C:\Program Files (x86)\Crear y Ser\scriptaux.sql");
 
             SqlConnection conn = new SqlConnection(sqlConnectionString);
