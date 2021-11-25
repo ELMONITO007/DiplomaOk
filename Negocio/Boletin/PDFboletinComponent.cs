@@ -4,6 +4,7 @@ using Entitites.Negocio.Personas;
 using Entitites.Negocio.Salas;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using Negocio.Gestion_de_Alumnos;
 using Negocio.Gestion_de_Personas;
 using Negocio.Gestion_de_Salas;
 using System;
@@ -190,11 +191,12 @@ namespace Negocio.Gestion_de_boletin
             doc.Add(Chunk.NEWLINE);
             foreach (var item in PDF.maestro)
             {
-             
-   
-                Paragraph maestro = new Paragraph("Maestro: " + item.nombre + " " + item.apellido + " ");
+
+                EspecialidadComponent especialidadComponent = new EspecialidadComponent();
+
+                Paragraph maestro = new Paragraph("Maestro: " + item.nombre + " " + item.apellido + " " +   "    Especialidad:"+ especialidadComponent.ReadByPersona(item.Id)[0].especialidad) ;
                 titulo.Alignment = Element.ALIGN_LEFT;
-                doc.Add(sala);
+                doc.Add(maestro);
                 doc.Add(Chunk.NEWLINE);
                 doc.Add(Chunk.NEWLINE);
                 doc.Add(Chunk.NEWLINE);

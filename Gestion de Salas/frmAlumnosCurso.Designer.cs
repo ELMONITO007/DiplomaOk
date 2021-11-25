@@ -38,6 +38,7 @@
             this.DNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAsignar = new MetroFramework.Controls.MetroButton();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             ((System.ComponentModel.ISupportInitialize)(this.mgReserva)).BeginInit();
             this.SuspendLayout();
             // 
@@ -142,6 +143,10 @@
             this.btnAsignar.UseSelectable = true;
             this.btnAsignar.Click += new System.EventHandler(this.btnAsignar_Click);
             // 
+            // helpProvider1
+            // 
+            this.helpProvider1.HelpNamespace = "C:\\Program Files (x86)\\Crear y Ser\\Leame.chm";
+            // 
             // frmAlumnosCurso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -149,7 +154,10 @@
             this.ClientSize = new System.Drawing.Size(963, 569);
             this.Controls.Add(this.btnAsignar);
             this.Controls.Add(this.mgReserva);
+            this.helpProvider1.SetHelpKeyword(this, "Asignar");
+            this.helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.KeywordIndex);
             this.Name = "frmAlumnosCurso";
+            this.helpProvider1.SetShowHelp(this, true);
             this.Tag = "Alumnos";
             this.Text = "Alumnos";
             this.Load += new System.EventHandler(this.frmAlumnosCurso_Load);
@@ -167,5 +175,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
         private System.Windows.Forms.DataGridViewTextBoxColumn DNI;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaN;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }

@@ -50,6 +50,7 @@
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.txtCuatrimestre = new MetroFramework.Controls.MetroComboBox();
             this.txtNota = new MetroFramework.Controls.MetroTextBox();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             ((System.ComponentModel.ISupportInitialize)(this.mgVer)).BeginInit();
             this.SuspendLayout();
             // 
@@ -294,6 +295,10 @@
             this.txtNota.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtNota.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
+            // helpProvider1
+            // 
+            this.helpProvider1.HelpNamespace = "C:\\Program Files (x86)\\Crear y Ser\\Leame.chm";
+            // 
             // frmBoletin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -311,7 +316,10 @@
             this.Controls.Add(this.btnVerBoletin);
             this.Controls.Add(this.btnBaja);
             this.Controls.Add(this.btnAlta);
+            this.helpProvider1.SetHelpKeyword(this, "Alta boletin");
+            this.helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.KeywordIndex);
             this.Name = "frmBoletin";
+            this.helpProvider1.SetShowHelp(this, true);
             this.Text = "Boletin";
             this.Load += new System.EventHandler(this.frmBoletin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.mgVer)).EndInit();
@@ -340,5 +348,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Año;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cutrimestre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Observaciones;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }

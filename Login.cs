@@ -15,6 +15,7 @@ using Entities.Usuario;
 using Entitites.Servicios.Login;
 using Negocio.Servicios.REGEX;
 using DiplomaFinal.Index;
+using Negocio.Servicios;
 
 namespace DiplomaFinal
 {
@@ -118,6 +119,8 @@ namespace DiplomaFinal
 
         private void Login_Load(object sender, EventArgs e)
         {
+            Instalacion instalacion = new Instalacion();
+            instalacion.VerificarPrimeraVez();
             listarIdioma();
             CambiarIdiomaSinLogueo();
         }

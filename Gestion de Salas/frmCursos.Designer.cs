@@ -32,14 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mgReserva = new MetroFramework.Controls.MetroGrid();
-            this.btnAlumno = new MetroFramework.Controls.MetroButton();
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.txtAño = new MetroFramework.Controls.MetroComboBox();
-            this.metroButton1 = new MetroFramework.Controls.MetroButton();
-            this.metroButton2 = new MetroFramework.Controls.MetroButton();
-            this.metroButton3 = new MetroFramework.Controls.MetroButton();
-            this.metroButton4 = new MetroFramework.Controls.MetroButton();
-            this.metroButton5 = new MetroFramework.Controls.MetroButton();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,6 +42,15 @@
             this.NombreSala = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Grado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnAlumno = new MetroFramework.Controls.MetroButton();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.txtAño = new MetroFramework.Controls.MetroComboBox();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.metroButton2 = new MetroFramework.Controls.MetroButton();
+            this.metroButton3 = new MetroFramework.Controls.MetroButton();
+            this.metroButton4 = new MetroFramework.Controls.MetroButton();
+            this.metroButton5 = new MetroFramework.Controls.MetroButton();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             ((System.ComponentModel.ISupportInitialize)(this.mgReserva)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,8 +96,7 @@
             this.mgReserva.EnableHeadersVisualStyles = false;
             this.mgReserva.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.mgReserva.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.mgReserva.Location = new System.Drawing.Point(138, 191);
-            this.mgReserva.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.mgReserva.Location = new System.Drawing.Point(92, 124);
             this.mgReserva.Name = "mgReserva";
             this.mgReserva.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -110,104 +110,9 @@
             this.mgReserva.RowHeadersWidth = 62;
             this.mgReserva.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.mgReserva.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.mgReserva.Size = new System.Drawing.Size(1077, 515);
+            this.mgReserva.Size = new System.Drawing.Size(718, 335);
             this.mgReserva.TabIndex = 48;
             this.mgReserva.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.mgReserva_CellContentClick);
-            // 
-            // btnAlumno
-            // 
-            this.btnAlumno.Location = new System.Drawing.Point(138, 777);
-            this.btnAlumno.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnAlumno.Name = "btnAlumno";
-            this.btnAlumno.Size = new System.Drawing.Size(186, 52);
-            this.btnAlumno.TabIndex = 49;
-            this.btnAlumno.Tag = "Asignar alumno";
-            this.btnAlumno.Text = "Asingnar alumno";
-            this.btnAlumno.UseSelectable = true;
-            this.btnAlumno.Click += new System.EventHandler(this.btnAlumno_Click);
-            // 
-            // metroLabel1
-            // 
-            this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(52, 122);
-            this.metroLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(33, 19);
-            this.metroLabel1.TabIndex = 50;
-            this.metroLabel1.Tag = "Año";
-            this.metroLabel1.Text = "Año";
-            // 
-            // txtAño
-            // 
-            this.txtAño.FormattingEnabled = true;
-            this.txtAño.ItemHeight = 23;
-            this.txtAño.Location = new System.Drawing.Point(153, 106);
-            this.txtAño.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtAño.Name = "txtAño";
-            this.txtAño.Size = new System.Drawing.Size(496, 29);
-            this.txtAño.TabIndex = 51;
-            this.txtAño.UseSelectable = true;
-            this.txtAño.SelectedIndexChanged += new System.EventHandler(this.txtAño_SelectedIndexChanged);
-            // 
-            // metroButton1
-            // 
-            this.metroButton1.Location = new System.Drawing.Point(753, 106);
-            this.metroButton1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(186, 52);
-            this.metroButton1.TabIndex = 52;
-            this.metroButton1.Tag = "Ver todo";
-            this.metroButton1.Text = "Ver todo";
-            this.metroButton1.UseSelectable = true;
-            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
-            // 
-            // metroButton2
-            // 
-            this.metroButton2.Location = new System.Drawing.Point(996, 777);
-            this.metroButton2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.metroButton2.Name = "metroButton2";
-            this.metroButton2.Size = new System.Drawing.Size(186, 52);
-            this.metroButton2.TabIndex = 53;
-            this.metroButton2.Tag = "Ver curso";
-            this.metroButton2.Text = "Ver curso";
-            this.metroButton2.UseSelectable = true;
-            this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click);
-            // 
-            // metroButton3
-            // 
-            this.metroButton3.Location = new System.Drawing.Point(368, 777);
-            this.metroButton3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.metroButton3.Name = "metroButton3";
-            this.metroButton3.Size = new System.Drawing.Size(240, 52);
-            this.metroButton3.TabIndex = 54;
-            this.metroButton3.Tag = "Asignar Maestro";
-            this.metroButton3.Text = "Asingnar  Maestro";
-            this.metroButton3.UseSelectable = true;
-            this.metroButton3.Click += new System.EventHandler(this.metroButton3_Click);
-            // 
-            // metroButton4
-            // 
-            this.metroButton4.Location = new System.Drawing.Point(676, 777);
-            this.metroButton4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.metroButton4.Name = "metroButton4";
-            this.metroButton4.Size = new System.Drawing.Size(240, 52);
-            this.metroButton4.TabIndex = 55;
-            this.metroButton4.Tag = "Calendario";
-            this.metroButton4.Text = "Calendario";
-            this.metroButton4.UseSelectable = true;
-            this.metroButton4.Click += new System.EventHandler(this.metroButton4_Click);
-            // 
-            // metroButton5
-            // 
-            this.metroButton5.Location = new System.Drawing.Point(1248, 777);
-            this.metroButton5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.metroButton5.Name = "metroButton5";
-            this.metroButton5.Size = new System.Drawing.Size(186, 52);
-            this.metroButton5.TabIndex = 56;
-            this.metroButton5.Tag = "Asistencia";
-            this.metroButton5.Text = "Asistencia";
-            this.metroButton5.UseSelectable = true;
-            this.metroButton5.Click += new System.EventHandler(this.metroButton5_Click);
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -224,7 +129,7 @@
             this.dataGridViewTextBoxColumn4.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 82;
+            this.dataGridViewTextBoxColumn4.Width = 71;
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -232,7 +137,7 @@
             this.dataGridViewTextBoxColumn5.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 64;
+            this.dataGridViewTextBoxColumn5.Width = 53;
             // 
             // dataGridViewTextBoxColumn6
             // 
@@ -240,14 +145,14 @@
             this.dataGridViewTextBoxColumn6.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Width = 95;
+            this.dataGridViewTextBoxColumn6.Width = 84;
             // 
             // Turno
             // 
             this.Turno.HeaderText = "Turno";
             this.Turno.MinimumWidth = 8;
             this.Turno.Name = "Turno";
-            this.Turno.Width = 72;
+            this.Turno.Width = 61;
             // 
             // Hora
             // 
@@ -255,7 +160,7 @@
             this.Hora.MinimumWidth = 8;
             this.Hora.Name = "Hora";
             this.Hora.ReadOnly = true;
-            this.Hora.Width = 66;
+            this.Hora.Width = 55;
             // 
             // Año
             // 
@@ -263,7 +168,7 @@
             this.Año.MinimumWidth = 8;
             this.Año.Name = "Año";
             this.Año.ReadOnly = true;
-            this.Año.Width = 62;
+            this.Año.Width = 51;
             // 
             // NombreSala
             // 
@@ -271,7 +176,7 @@
             this.NombreSala.MinimumWidth = 8;
             this.NombreSala.Name = "NombreSala";
             this.NombreSala.ReadOnly = true;
-            this.NombreSala.Width = 106;
+            this.NombreSala.Width = 95;
             // 
             // Grado
             // 
@@ -279,7 +184,7 @@
             this.Grado.MinimumWidth = 8;
             this.Grado.Name = "Grado";
             this.Grado.ReadOnly = true;
-            this.Grado.Width = 73;
+            this.Grado.Width = 62;
             // 
             // ID
             // 
@@ -289,11 +194,102 @@
             this.ID.Visible = false;
             this.ID.Width = 52;
             // 
+            // btnAlumno
+            // 
+            this.btnAlumno.Location = new System.Drawing.Point(92, 505);
+            this.btnAlumno.Name = "btnAlumno";
+            this.btnAlumno.Size = new System.Drawing.Size(124, 34);
+            this.btnAlumno.TabIndex = 49;
+            this.btnAlumno.Tag = "Asignar alumno";
+            this.btnAlumno.Text = "Asingnar alumno";
+            this.btnAlumno.UseSelectable = true;
+            this.btnAlumno.Click += new System.EventHandler(this.btnAlumno_Click);
+            // 
+            // metroLabel1
+            // 
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.Location = new System.Drawing.Point(35, 79);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(33, 19);
+            this.metroLabel1.TabIndex = 50;
+            this.metroLabel1.Tag = "Año";
+            this.metroLabel1.Text = "Año";
+            // 
+            // txtAño
+            // 
+            this.txtAño.FormattingEnabled = true;
+            this.txtAño.ItemHeight = 23;
+            this.txtAño.Location = new System.Drawing.Point(102, 69);
+            this.txtAño.Name = "txtAño";
+            this.txtAño.Size = new System.Drawing.Size(332, 29);
+            this.txtAño.TabIndex = 51;
+            this.txtAño.UseSelectable = true;
+            this.txtAño.SelectedIndexChanged += new System.EventHandler(this.txtAño_SelectedIndexChanged);
+            // 
+            // metroButton1
+            // 
+            this.metroButton1.Location = new System.Drawing.Point(502, 69);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(124, 34);
+            this.metroButton1.TabIndex = 52;
+            this.metroButton1.Tag = "Ver todo";
+            this.metroButton1.Text = "Ver todo";
+            this.metroButton1.UseSelectable = true;
+            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
+            // 
+            // metroButton2
+            // 
+            this.metroButton2.Location = new System.Drawing.Point(664, 505);
+            this.metroButton2.Name = "metroButton2";
+            this.metroButton2.Size = new System.Drawing.Size(124, 34);
+            this.metroButton2.TabIndex = 53;
+            this.metroButton2.Tag = "Ver curso";
+            this.metroButton2.Text = "Ver curso";
+            this.metroButton2.UseSelectable = true;
+            this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click);
+            // 
+            // metroButton3
+            // 
+            this.metroButton3.Location = new System.Drawing.Point(245, 505);
+            this.metroButton3.Name = "metroButton3";
+            this.metroButton3.Size = new System.Drawing.Size(160, 34);
+            this.metroButton3.TabIndex = 54;
+            this.metroButton3.Tag = "Asignar Maestro";
+            this.metroButton3.Text = "Asingnar  Maestro";
+            this.metroButton3.UseSelectable = true;
+            this.metroButton3.Click += new System.EventHandler(this.metroButton3_Click);
+            // 
+            // metroButton4
+            // 
+            this.metroButton4.Location = new System.Drawing.Point(451, 505);
+            this.metroButton4.Name = "metroButton4";
+            this.metroButton4.Size = new System.Drawing.Size(160, 34);
+            this.metroButton4.TabIndex = 55;
+            this.metroButton4.Tag = "Calendario";
+            this.metroButton4.Text = "Calendario";
+            this.metroButton4.UseSelectable = true;
+            this.metroButton4.Click += new System.EventHandler(this.metroButton4_Click);
+            // 
+            // metroButton5
+            // 
+            this.metroButton5.Location = new System.Drawing.Point(832, 505);
+            this.metroButton5.Name = "metroButton5";
+            this.metroButton5.Size = new System.Drawing.Size(124, 34);
+            this.metroButton5.TabIndex = 56;
+            this.metroButton5.Tag = "Asistencia";
+            this.metroButton5.Text = "Asistencia";
+            this.metroButton5.UseSelectable = true;
+            this.metroButton5.Click += new System.EventHandler(this.metroButton5_Click);
+            // 
+            // helpProvider1
+            // 
+            this.helpProvider1.HelpNamespace = "C:\\Program Files (x86)\\Crear y Ser\\Leame.chm";
+            // 
             // frmCursos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1959, 1054);
+            this.ClientSize = new System.Drawing.Size(1306, 685);
             this.Controls.Add(this.metroButton5);
             this.Controls.Add(this.metroButton4);
             this.Controls.Add(this.metroButton3);
@@ -303,9 +299,10 @@
             this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.btnAlumno);
             this.Controls.Add(this.mgReserva);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.helpProvider1.SetHelpKeyword(this, "Ingreso");
+            this.helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.KeywordIndex);
             this.Name = "frmCursos";
-            this.Padding = new System.Windows.Forms.Padding(30, 92, 30, 31);
+            this.helpProvider1.SetShowHelp(this, true);
             this.Tag = "Cursos";
             this.Text = "Cursos";
             this.Load += new System.EventHandler(this.frmCursos_Load);
@@ -336,5 +333,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreSala;
         private System.Windows.Forms.DataGridViewTextBoxColumn Grado;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }

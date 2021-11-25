@@ -94,6 +94,7 @@
             this.metroLabel15 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel14 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.tabIncripcion.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             this.mtAdicionales.SuspendLayout();
@@ -111,7 +112,7 @@
             this.tabIncripcion.Controls.Add(this.metroTabPage2);
             this.tabIncripcion.Location = new System.Drawing.Point(23, 63);
             this.tabIncripcion.Name = "tabIncripcion";
-            this.tabIncripcion.SelectedIndex = 0;
+            this.tabIncripcion.SelectedIndex = 2;
             this.tabIncripcion.Size = new System.Drawing.Size(1121, 607);
             this.tabIncripcion.TabIndex = 0;
             this.tabIncripcion.UseSelectable = true;
@@ -136,11 +137,14 @@
             this.metroTabPage1.Controls.Add(this.metroLabel3);
             this.metroTabPage1.Controls.Add(this.metroLabel2);
             this.metroTabPage1.Controls.Add(this.metroLabel1);
+            this.helpProvider1.SetHelpKeyword(this.metroTabPage1, "Datos Basicos");
+            this.helpProvider1.SetHelpNavigator(this.metroTabPage1, System.Windows.Forms.HelpNavigator.KeywordIndex);
             this.metroTabPage1.HorizontalScrollbarBarColor = true;
             this.metroTabPage1.HorizontalScrollbarHighlightOnWheel = false;
             this.metroTabPage1.HorizontalScrollbarSize = 10;
             this.metroTabPage1.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage1.Name = "metroTabPage1";
+            this.helpProvider1.SetShowHelp(this.metroTabPage1, true);
             this.metroTabPage1.Size = new System.Drawing.Size(1113, 565);
             this.metroTabPage1.TabIndex = 0;
             this.metroTabPage1.Tag = "Datos Basicos";
@@ -497,11 +501,14 @@
             this.mtAdicionales.Controls.Add(this.metroPanel3);
             this.mtAdicionales.Controls.Add(this.metroPanel2);
             this.mtAdicionales.Controls.Add(this.metroPanel1);
+            this.helpProvider1.SetHelpKeyword(this.mtAdicionales, "Datos Adicionales");
+            this.helpProvider1.SetHelpNavigator(this.mtAdicionales, System.Windows.Forms.HelpNavigator.KeywordIndex);
             this.mtAdicionales.HorizontalScrollbarBarColor = true;
             this.mtAdicionales.HorizontalScrollbarHighlightOnWheel = false;
             this.mtAdicionales.HorizontalScrollbarSize = 10;
             this.mtAdicionales.Location = new System.Drawing.Point(4, 38);
             this.mtAdicionales.Name = "mtAdicionales";
+            this.helpProvider1.SetShowHelp(this.mtAdicionales, true);
             this.mtAdicionales.Size = new System.Drawing.Size(1113, 565);
             this.mtAdicionales.TabIndex = 1;
             this.mtAdicionales.Tag = "Datos Adicionales";
@@ -1057,11 +1064,14 @@
             this.metroTabPage2.Controls.Add(this.metroLabel15);
             this.metroTabPage2.Controls.Add(this.metroLabel14);
             this.metroTabPage2.Controls.Add(this.metroLabel13);
+            this.helpProvider1.SetHelpKeyword(this.metroTabPage2, "Documentacion");
+            this.helpProvider1.SetHelpNavigator(this.metroTabPage2, System.Windows.Forms.HelpNavigator.KeywordIndex);
             this.metroTabPage2.HorizontalScrollbarBarColor = true;
             this.metroTabPage2.HorizontalScrollbarHighlightOnWheel = false;
             this.metroTabPage2.HorizontalScrollbarSize = 10;
             this.metroTabPage2.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage2.Name = "metroTabPage2";
+            this.helpProvider1.SetShowHelp(this.metroTabPage2, true);
             this.metroTabPage2.Size = new System.Drawing.Size(1113, 565);
             this.metroTabPage2.TabIndex = 2;
             this.metroTabPage2.Tag = "Documentacion";
@@ -1287,12 +1297,19 @@
             this.metroLabel13.Tag = "DNI Alumno";
             this.metroLabel13.Text = "DNI Alumno";
             // 
+            // helpProvider1
+            // 
+            this.helpProvider1.HelpNamespace = "C:\\Program Files (x86)\\Crear y Ser\\Leame.chm";
+            // 
             // frmInscripcion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1215, 710);
             this.Controls.Add(this.tabIncripcion);
+            this.HelpButton = true;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmInscripcion";
             this.Tag = "Inscripcion";
             this.Text = "Inscripción";
@@ -1383,5 +1400,6 @@
         private MetroFramework.Controls.MetroTextBox txtDocumentacionVacunas;
         private MetroFramework.Controls.MetroTextBox txtDocumentacionCertificado;
         private MetroFramework.Controls.MetroTextBox txtDocumentacionDNIPadre;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }
