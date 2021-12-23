@@ -33,7 +33,7 @@ namespace Negocio.Servicios
                     {
                         framework = true;
                     }
-                    if (Key.GetValue("DisplayName").ToString().Contains("Microsoft SQL Server"))
+                    if (Key.GetValue("DisplayName").ToString().Contains("SQL"))
                     {
                         sql = true;
                     }
@@ -129,7 +129,7 @@ namespace Negocio.Servicios
 
             var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             var connectionStringsSection = (ConnectionStringsSection)config.GetSection("connectionStrings");
-            connectionStringsSection.ConnectionStrings["DefaultConnection"].ConnectionString = string.Concat("Data Source=", ObtenerIntancia(), ";Initial Catalog=Master;Integrated Security=True");
+            connectionStringsSection.ConnectionStrings["DefaultConnection"].ConnectionString = string.Concat("Data Source=", ObtenerIntancia(), ";Initial Catalog=Diploma;Integrated Security=True");
             config.Save();
             ConfigurationManager.RefreshSection("connectionStrings");
 
@@ -140,7 +140,7 @@ namespace Negocio.Servicios
 
             var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             var connectionStringsSection = (ConnectionStringsSection)config.GetSection("connectionStrings");
-            connectionStringsSection.ConnectionStrings["DefaultConnectionAux"].ConnectionString = string.Concat("Data Source=", ObtenerIntancia(), ";Initial Catalog=DiplomaAux;Integrated Security=True");
+            connectionStringsSection.ConnectionStrings["DefaultConnectionAux"].ConnectionString = string.Concat("Data Source=", ObtenerIntancia(), ";Initial Catalog=DiplomaAUX;Integrated Security=True");
             config.Save();
             ConfigurationManager.RefreshSection("connectionStrings");
 
