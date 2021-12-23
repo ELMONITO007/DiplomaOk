@@ -27,19 +27,19 @@ namespace Negocio.Gestion_de_boletin
 
                 DateTime ff = new DateTime(entity.año, entity.cutrimeste *2 +3, 30);
 
-                if (DateTime.Now >= ff)
-                {
-                    return null;
-                }
-                else
-                {
+                //if (DateTime.Now >= ff)
+                //{
+                //    return null;
+                //}
+                //else
+                //{
                     BoletinDAC asistenciaDAC = new BoletinDAC();
 
                     PDFboletinComponent pDFboletinComponent = new PDFboletinComponent();
                     pDFboletinComponent.GenerarPDF(entity);
 
                     return asistenciaDAC.Create(entity);
-                }
+                //}
 
             }
             else
